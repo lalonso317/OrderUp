@@ -34,7 +34,7 @@ const getIngredients = () => {
   }
 }
 
-const getMainFoodGroups = (ingredients) => {
+const getMainFoodGroups = ingredients => {
   let array = []
 
   ingredients.forEach(ingredient => {

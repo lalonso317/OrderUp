@@ -12,8 +12,17 @@
   width: 400px;
 }
 
+.ingredient-list-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredient-list-items button {
+  height: 20px;
+}
+
 .Collapsible {
-  
   background-color: white;
   width: 100%;
 }
@@ -27,8 +36,9 @@
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
-  border-bottom: 1px solid black;
   padding: 5px;
+  padding: 5px;
+  width: 100%;
 }
 .Collapsible__contentInner p:last-child {
   margin-bottom: 0;
@@ -47,7 +57,7 @@
 }
 .Collapsible__trigger:after {
   font-family: "FontAwesome";
-  content: "\22BD";
+  content: "\02C5";
   position: absolute;
   right: 10px;
   top: 10px;
