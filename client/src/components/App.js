@@ -1,16 +1,11 @@
 import React from "react"
-import { useUsers } from "../hooks"
+import IngredientList from "./recipe/ingredient-list"
 
-function App() {
-  const { users } = useUsers()
-
-  console.log(users)
-
+const App = props => {
   return (
     <div>
-      {users.map(user => (
-        <p key={user.id}>{user.name}</p>
-      ))}
+      <h1>Hello World</h1>
+      <IngredientList />
     </div>
   )
 }
