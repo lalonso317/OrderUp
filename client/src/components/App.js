@@ -4,13 +4,15 @@ import IngredientList from "./recipe/ingredient-list"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import CreateRecipeHeader from "../components/recipe/create_recipe_header"
 import "semantic-ui-css/semantic.min.css"
+import PublicHomePage from './home/index'
 
 const App = props =>  {
   return (
     <Router>
-      <Toggle />
+      {/* <Toggle />
       <Route path={"/"} component={CreateRecipeHeader} />
-      <IngredientList />
+      <IngredientList /> */}
+      <PublicHomePage />
     </Router>
   )
 }
