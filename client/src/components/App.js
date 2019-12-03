@@ -1,17 +1,12 @@
 import React from "react"
-import { useUsers } from "../hooks"
-
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import CreateRecipeHeader from "../components/recipe/create_recipe_header"
+import "semantic-ui-css/semantic.min.css"
 function App() {
-  const { users } = useUsers()
-
-  console.log(users)
-
   return (
-    <div>
-      {users.map(user => (
-        <p key={user.id}>{user.name}</p>
-      ))}
-    </div>
+    <Router>
+      <Route path={"/"} component={CreateRecipeHeader} />
+    </Router>
   )
 }
 
