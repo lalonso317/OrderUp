@@ -1,0 +1,29 @@
+{
+    "trust": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-recipebook-trust-124408-authRole",
+            "UnauthRoleArn": "arn:aws:iam::032578242766:role/amplify-recipebook-trust-124408-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::032578242766:role/amplify-recipebook-trust-124408-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-recipebook-trust-124408-deployment",
+            "UnauthRoleName": "amplify-recipebook-trust-124408-unauthRole",
+            "StackName": "amplify-recipebook-trust-124408",
+            "StackId": "arn:aws:cloudformation:eu-west-1:032578242766:stack/amplify-recipebook-trust-124408/7fa8a6a0-1544-11ea-9920-0a1dada20d7a",
+            "AmplifyAppId": "d8ad2zqkel2eb"
+        },
+        "categories": {
+            "function": {
+                "recipebook33d5fddaDefineAuthChallenge": {},
+                "recipebook33d5fddaCreateAuthChallenge": {},
+                "recipebook33d5fddaVerifyAuthChallengeResponse": {
+                    "RECAPTCHASECRET": ""
+                }
+            },
+            "auth": {
+                "recipebook33d5fdda": {
+                    "hostedUIProviderCreds": "[]"
+                }
+            }
+        }
+    }
+}
