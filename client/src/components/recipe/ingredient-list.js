@@ -5,24 +5,14 @@ import "../../styles/recipe/ingredient-list.css"
 
 const IngredientList = props => {
   const { ingredients, food_group } = useIngredientsList()
-  console.log(food_group)
 
-  // const filterIngredients = (ingredient,group) => {
-  //   if (ingredient.food_group === group)
-  // }
+  // mapping through the food groups and using a react component accoridan call collapsible to generate the main titles. then inside each category I map through each ingredient where the food groups match.
+
   return (
     <div className="ingredient-list-container">
-      {/* {food_group.map(group => (
-        <dl>
-          <dt>{group}</dt>
-          {ingredients.map(ingredient => (
-            <dd>{ingredient.food_group === group ? ingredient.name : ""}</dd>
-          ))}
-        </dl>
-      ))} */}
-      {food_group.map(group => (
-        <Collapsible trigger={group}>
-          {ingredients.map(ingredient => (
+      {food_group.map((group, i) => (
+        <Collapsible trigger={group} key={`collapsible-${i}`}>
+          {ingredients.map((ingredient, x) => (
             <div className="ingredients-list-categories">
               {ingredient.food_group === group ? (
                 <div className="ingredient-list-items">

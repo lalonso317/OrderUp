@@ -1,7 +1,7 @@
 const createError = require("http-errors")
 const express = require("express")
 const userRouter = require("./routes/users")
-const ingredientsRouter = require("./protected/FullIngredientList")
+const ingredientsRouter = require("./protected/Full-Ingredients-List")
 const app = express()
 
 app.use(express.json())
