@@ -1,0 +1,20 @@
+{
+    "cside": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-client-cside-134441-authRole",
+            "UnauthRoleArn": "arn:aws:iam::032578242766:role/amplify-client-cside-134441-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::032578242766:role/amplify-client-cside-134441-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-client-cside-134441-deployment",
+            "UnauthRoleName": "amplify-client-cside-134441-unauthRole",
+            "StackName": "amplify-client-cside-134441",
+            "StackId": "arn:aws:cloudformation:eu-west-1:032578242766:stack/amplify-client-cside-134441/f5274230-154c-11ea-8087-0615f1e712e0",
+            "AmplifyAppId": "d8ad2zqkel2eb"
+        },
+        "categories": {
+            "auth": {
+                "clientd161086c": {}
+            }
+        }
+    }
+}

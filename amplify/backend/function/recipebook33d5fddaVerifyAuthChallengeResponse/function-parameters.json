@@ -1,0 +1,16 @@
+{
+    "trigger": true,
+    "modules": [
+        "captcha-verify"
+    ],
+    "parentResource": "recipebook33d5fdda",
+    "functionName": "recipebook33d5fddaVerifyAuthChallengeResponse",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/VerifyAuthChallengeResponse",
+    "roleName": "recipebook33d5fddaVerifyAuthChallengeResponse",
+    "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+    "triggerEventPath": "VerifyAuthChallengeResponse.event.json",
+    "skipEdit": true,
+    "resourceName": "recipebook33d5fddaVerifyAuthChallengeResponse"
+}

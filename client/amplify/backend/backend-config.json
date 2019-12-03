@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"clientd161086c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

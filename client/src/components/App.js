@@ -1,16 +1,11 @@
 import React from "react"
-import { useUsers } from "../hooks"
+import Toggle from './login/toggle'
 
 function App() {
-  const { users } = useUsers()
-
-  console.log(users)
 
   return (
     <div>
-      {users.map(user => (
-        <p key={user.id}>{user.name}</p>
-      ))}
+     <Toggle />
     </div>
   )
 }

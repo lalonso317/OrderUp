@@ -1,0 +1,16 @@
+{
+    "trigger": true,
+    "modules": [
+        "captcha-define-challenge"
+    ],
+    "parentResource": "recipebook33d5fdda",
+    "functionName": "recipebook33d5fddaDefineAuthChallenge",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/DefineAuthChallenge",
+    "roleName": "recipebook33d5fddaDefineAuthChallenge",
+    "triggerTemplate": "DefineAuthChallenge.json.ejs",
+    "triggerEventPath": "DefineAuthChallenge.event.json",
+    "skipEdit": true,
+    "resourceName": "recipebook33d5fddaDefineAuthChallenge"
+}
