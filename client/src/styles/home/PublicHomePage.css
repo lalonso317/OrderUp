@@ -1,0 +1,11 @@
+.public-home-page-container {
+  background: #550c18;
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+
+.public-home-page-slider {
+  width: 1000px;
+  margin: auto;
+}
