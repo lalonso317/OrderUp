@@ -9,6 +9,7 @@ import pancakes from "../../Assets/Pancakes.jpeg"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
 
+
 const PublicHomePage = props => {
   return (
     <div className="public-home-page-container">
@@ -20,7 +21,7 @@ const PublicHomePage = props => {
       />
       <RecipeGrid />
       <div className="public-home-page-slider">
-        <Carousel width="1000px" infiniteLoop="true">
+        <Carousel width="1000px" infiniteLoop={true}>
           <div>
             <img src={burrito} alt="burrito" />
             <p className="legend">Burrito</p>
