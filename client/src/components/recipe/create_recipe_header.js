@@ -1,11 +1,12 @@
 // this component is the Header of the Create a recipe page
 // it includes the functionality to send an object containing the name, category and description of the recipe
 
-import React, { Component, useState } from "react"
+import React, { useState } from "react"
 import { Dropdown } from "semantic-ui-react"
 import "../../styles/recipe/createRecipeHeader.css"
 import { useCreateRecipeHeader } from "../../hooks"
 import "semantic-ui-css/semantic.min.css"
+import { Link } from "react-router-dom"
 
 function CreateRecipeHeader(props) {
   // options to be available to the user in the dropdown component
@@ -17,8 +18,6 @@ function CreateRecipeHeader(props) {
     { value: "european", text: "European" },
     { value: "north-america", text: "North American" },
     { value: "south-america", text: "South American" }
-    // { value: "autralian", text: "Australian" },
-    // { value: "autralian", text: "Australian" }
   ]
 
   // variables to be used to create the object of the name, category and description of the recipe
@@ -40,7 +39,12 @@ function CreateRecipeHeader(props) {
   }
   return (
     <div className="createRHContainer">
-      <div className="createRHTitle">CookSwap!</div>
+      <div className="createRHTitle">
+        <Link to="/" className="back-arrow-to-homepage">
+          &larr;
+        </Link>
+        <p className="createRHSiteName">Cook Swap!</p>
+      </div>
       <div className="createRHSubtitle">Create A Recipe</div>
       <div className="createRHRecipeName">
         {/* this is the first part of the form to create a recipe */}
