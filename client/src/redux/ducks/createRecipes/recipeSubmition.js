@@ -52,7 +52,8 @@ const finalSubmitForRecipe = recipe => {
         directions: resp.data.recipeName[2].map(item => {
           return { direction: item.step }
         }),
-        privacy: resp.data.recipeName[3]
+        privacy: resp.data.recipeName[3],
+        user: resp.data.recipeName[4]
       }
       console.log(submittedRecipe)
       dispatch({

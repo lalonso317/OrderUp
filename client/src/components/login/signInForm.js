@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useUsers } from "../../hooks"
 import Amplify from "aws-amplify"
 import { Auth } from "aws-amplify"
 import awsmobile from "../../aws-exports"
@@ -9,24 +10,33 @@ const SignIn = props => {
   const [password, setPassword] = useState("")
   const [signedIn, setSignedIn] = useState(false)
 
+  const { create, user } = useUsers()
+
   function handleSignIn(e) {
     e.preventDefault()
+
+    create(username)
+
     Auth.signIn({
       username: username,
       password: password
     })
-      .then(() => console.log("signed up"))
+      .then(() => console.log("signed in"))
       .catch(err => console.log(err))
 
     Auth.confirmSignIn(username)
-      .then(() => console.log("confirmed sign up"))
+      .then(() => console.log("confirmed sign in"))
       .catch(err => console.log(err))
 
     setSignedIn(true)
     console.log(username)
   }
   if (signedIn) {
-    return <h1>You have signed in!</h1>
+    return (
+      <>
+        <h1>You have signed in!</h1>
+      </>
+    )
   } else {
     return (
       <div>
