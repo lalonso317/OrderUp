@@ -1,19 +1,13 @@
 import React, { useState } from "react"
-
-import Switch from "react-switch"
 import { useDirections } from "../../hooks/index"
 import Icon from "../../lib/Icon"
 import CreateRecipeButton from "./submitRecipeButton"
 
 const RecipeDescription = props => {
-  const [isChecked, setIsChecked] = useState(false)
   const [direct, setDirect] = useState("")
   const [d, setD] = useState("")
   const { create, directions, remove } = useDirections()
 
-  const handleChange = () => {
-    setIsChecked(!isChecked)
-  }
   const handleSubmit = e => {
     e.preventDefault()
     if (direct == "") {
@@ -68,16 +62,6 @@ const RecipeDescription = props => {
               </div>
             ))}
           </div>
-        </div>
-        <div className="privacy">
-          <label className="labelPrivacy">Privacy</label>
-          <Switch
-            onChange={handleChange}
-            checked={!isChecked}
-            offColor="#ff0000"
-            onColor="#108600"
-            value={isChecked}
-          />
         </div>
         <CreateRecipeButton />
       </div>

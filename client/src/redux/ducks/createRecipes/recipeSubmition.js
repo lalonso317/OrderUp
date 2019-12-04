@@ -26,7 +26,6 @@ export default (state = initialState, action) => {
 }
 
 const finalIngredients = ingredients => {
-  console.log(ingredients)
   const ings = {
     ingredientName: ingredients.IngredientName,
     measurement: ingredients.Amount,
@@ -52,7 +51,8 @@ const finalSubmitForRecipe = recipe => {
         }),
         directions: resp.data.recipeName[2].map(item => {
           return { direction: item.step }
-        })
+        }),
+        privacy: resp.data.recipeName[3]
       }
       console.log(submittedRecipe)
       dispatch({
