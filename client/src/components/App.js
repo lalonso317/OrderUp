@@ -16,9 +16,9 @@ import "../styles/recipe/createRecipeHeader.css"
 const App = props => {
   return (
     <Router>
-      {/* <Toggle />
+      <Toggle />
       <Route path={"/"} component={CreateRecipeHeader} />
-      <IngredientList /> */}
+      <IngredientList />
       <PublicHomePage />
       <div className="ingsList-IandM">
         <IngredientList />
