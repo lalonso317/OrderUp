@@ -44,35 +44,35 @@ function CreateRecipeHeader(props) {
       <div className="createRHSubtitle">Create A Recipe</div>
       <div className="createRHRecipeName">
         {/* this is the first part of the form to create a recipe */}
-        {/* <form onSubmit={createRecipeHeader}> */}
-        <div className="createRHRecipeTitle">
-          <label htmlFor="title">Recipe Name</label>
-          <input
-            type="text"
-            name="title"
-            placeholder="My Recipe"
-            onChange={e => setName(e.target.value)}
-          />
-        </div>
-        <div className="createRHRecipeCategory">
-          <label htmlFor="CRHRcategory">Category</label>
-          {/* this is a semantic-ui component */}
-          <Dropdown
-            options={options}
-            selection
-            placeholder="Select recipe category..."
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="createRHRecipeDescription">
-          <textarea
-            onChange={e => setDescription(e.target.value)}
-            className="CRHRdescription"
-            placeholder="This recipe has been in my family for years..."
-          ></textarea>
-          {/* <button type="submit">Submit</button> */}
-        </div>
-        {/* </form> */}
+        <form onSubmit={createRecipeHeader}>
+          <div className="createRHRecipeTitle">
+            <label htmlFor="title">Recipe Name</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="My Recipe"
+              onChange={e => setName(e.target.value)}
+            />
+          </div>
+          <div className="createRHRecipeCategory">
+            <label htmlFor="CRHRcategory">Category</label>
+            {/* this is a semantic-ui component */}
+            <Dropdown
+              options={options}
+              selection
+              placeholder="Select recipe category..."
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="createRHRecipeDescription">
+            <textarea
+              onChange={e => setDescription(e.target.value)}
+              className="CRHRdescription"
+              placeholder="This recipe has been in my family for years..."
+            ></textarea>
+            <button type="submit">Confirm Recipe Name</button>
+          </div>
+        </form>
       </div>
     </div>
   )

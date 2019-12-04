@@ -17,7 +17,6 @@ const IngredientList = props => {
 
     picked(name)
   }
-  console.log(pickedItem)
   return (
     <div className="ingredient-list-container">
       {food_group.map((group, i) => (

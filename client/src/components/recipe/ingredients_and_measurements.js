@@ -15,7 +15,6 @@ function IngredientsAndMeasurements(props) {
 
     deleteItem(newPicked)
   }
-  console.log(amount)
   // function to finalize the ingregient creation
   function handleFinalize(e) {
     e.preventDefault()
@@ -26,7 +25,6 @@ function IngredientsAndMeasurements(props) {
       setActive(true)
     }
   }
-  console.log(fullRecipe)
 
   var string = JSON.stringify(pickedItem)
   const uniqueArray = pickedItem.filter(
@@ -36,7 +34,6 @@ function IngredientsAndMeasurements(props) {
         obj => JSON.stringify(obj) === JSON.stringify(object)
       )
   )
-  console.log("unique:", uniqueArray)
 
   return (
     <div className="IandMContainer">
@@ -44,47 +41,59 @@ function IngredientsAndMeasurements(props) {
         <div className="ingredientsTitlething">Ingredients</div>
         <label htmlFor="measurement">Measurements</label>
       </div>
-      {uniqueArray.map((item, i) => (
-        <div key={i} className="measurementDisplay">
-          <div className="IandMName">{item.name}</div>
-          <div className="measurementBox">
-            <div className="measurementForms">
-              {fullRecipe.find(i => i.ingredientName === item.name) ? (
-                ""
-              ) : (
-                <div className="measurementForms">
-                  <form
-                    className="measurementFormsOne"
-                    onSubmit={handleFinalize}
-                  >
-                    <input
-                      type="text"
-                      name="measurement"
-                      placeholder="ex. 2 1/2 cups flour"
-                      onChange={e =>
-                        setAmount({
-                          Amount: e.target.value,
-                          IngredientName: item.name,
-                          active: true
-                        })
-                      }
-                    />
-                    <button type="submit">Confirm Ingredient</button>
-                  </form>
-                  <form className="measurementFormsTwo" onSubmit={handleSubmit}>
-                    <button type="submit" onClick={e => setName(item.name)}>
-                      Remove Ingredient
-                    </button>
-                  </form>
+      <div className="measurementDisplayContainer">
+        {uniqueArray.map((item, i) => (
+          <div key={i} className="measurementDisplay">
+            {fullRecipe.find(i => i.ingredientName === item.name) ? (
+              ""
+            ) : (
+              <div>
+                <div className="IandMName">{item.name}</div>
+                <div className="measurementBox">
+                  <div className="measurementForms">
+                    <div className="measurementForms">
+                      <form
+                        className="measurementFormsOne"
+                        onSubmit={handleFinalize}
+                      >
+                        <input
+                          type="text"
+                          name="measurement"
+                          placeholder="ex. 2 1/2 cups flour"
+                          onChange={e =>
+                            setAmount({
+                              Amount: e.target.value,
+                              IngredientName: item.name,
+                              active: true
+                            })
+                          }
+                        />
+                        <button type="submit">Confirm Ingredient</button>
+                      </form>
+                      <form
+                        className="measurementFormsTwo"
+                        onSubmit={handleSubmit}
+                      >
+                        <button type="submit" onClick={e => setName(item.name)}>
+                          Remove Ingredient
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
-        </div>
-      ))}
-      {fullRecipe.map((item, i) => {
-        return <div key={i}>{item.measurement}</div>
-      })}
+        ))}
+        {fullRecipe.map((item, i) => {
+          return (
+            <div className="measDisFin" key={i}>
+              <div>{item.measurement}</div>
+              <div>{item.ingredientName}</div>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
