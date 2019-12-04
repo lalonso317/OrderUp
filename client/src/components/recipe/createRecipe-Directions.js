@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import "../../styles/recipe/createRecipeDirections.css"
+
 import Switch from "react-switch"
 import { useDirections } from "../../hooks/index"
 import Icon from "../../lib/Icon"
 import CreateRecipeButton from "./submitRecipeButton"
+
 const RecipeDescription = props => {
   const [isChecked, setIsChecked] = useState(false)
   const [direct, setDirect] = useState("")

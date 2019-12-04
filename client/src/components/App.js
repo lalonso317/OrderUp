@@ -11,6 +11,7 @@ import "../styles/recipe/ings_and_meas.css"
 import "../styles/recipe/index.css"
 import "../styles/recipe/ingredient-list.css"
 import "../styles/recipe/createRecipeHeader.css"
+import "../styles/recipe/createRecipeDirections.css"
 import "../styles/recipe/createRecipeSubmitButton.css"
 const App = props => {
   return (

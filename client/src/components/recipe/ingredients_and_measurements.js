@@ -15,6 +15,7 @@ function IngredientsAndMeasurements(props) {
 
     deleteItem(newPicked)
   }
+
   // function to finalize the ingregient creation
   function handleFinalize(e) {
     e.preventDefault()
@@ -26,6 +27,7 @@ function IngredientsAndMeasurements(props) {
     }
   }
 
+
   var string = JSON.stringify(pickedItem)
   const uniqueArray = pickedItem.filter(
     (object, index) =>
@@ -34,6 +36,7 @@ function IngredientsAndMeasurements(props) {
         obj => JSON.stringify(obj) === JSON.stringify(object)
       )
   )
+
 
   return (
     <div className="IandMContainer">

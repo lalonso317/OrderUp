@@ -36,6 +36,7 @@ const finalIngredients = ingredients => {
     payload: ings
   }
 }
+
 // final submit for recipe function
 const finalSubmitForRecipe = recipe => {
   return dispatch => {
@@ -46,6 +47,7 @@ const finalSubmitForRecipe = recipe => {
     })
   }
 }
+
 export const useFullRecipe = () => {
   const dispatch = useDispatch()
   // selector to grab the full recipe
@@ -54,6 +56,7 @@ export const useFullRecipe = () => {
   )
   // function to send confirmed ingredient
   const finalIngredient = amount => dispatch(finalIngredients(amount))
+
   //function to submit full recipe to back-end
   const CreateRecipe = recipe => dispatch(finalSubmitForRecipe(recipe))
 
