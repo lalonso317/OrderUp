@@ -2,7 +2,9 @@ const createError = require("http-errors")
 const express = require("express")
 const userRouter = require("./routes/users")
 const ingredientsRouter = require("./protected/Full-Ingredients-List")
+const testCreateRecipeRouter = require("./protected/createRecipe")
 const connectDb = require("./routes/recipes")
+
 
 const app = express()
 
@@ -11,6 +13,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use("/", userRouter)
 app.use("/", ingredientsRouter)
+app.use("/", testCreateRecipeRouter)
 
 app.use("/api/recipeModel", require("./routes/recipe-three"))
 
