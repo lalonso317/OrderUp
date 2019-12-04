@@ -62,6 +62,7 @@ BlogPost.create(
   }
 )
 
+
 // "use strict"
 // var AWS = require("aws-sdk")
 

@@ -14,7 +14,7 @@ export default (state = initalState, action) => {
     case CREATE_DIRECTIONS:
       return {
         ...state,
-        directions: [action.payload, ...state.directions]
+        directions: [...state.directions, action.payload]
       }
     case DELETE_DIRECTIONS:
       return {

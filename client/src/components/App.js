@@ -12,12 +12,13 @@ import "../styles/recipe/index.css"
 import "../styles/recipe/ingredient-list.css"
 import "../styles/recipe/createRecipeHeader.css"
 import "../styles/recipe/createRecipeDirections.css"
-
+import "../styles/recipe/createRecipeSubmitButton.css"
 const App = props => {
   return (
     <Router>
       <Toggle />
       <PublicHomePage />
+      <Route path={"/"} component={CreateRecipeHeader} />
       <div className="ingsList-IandM">
         <IngredientList />
         <IngsAndMeas />
