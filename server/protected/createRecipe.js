@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const db = requrire("../db")
+const db = require("../db")
 const faker = require("faker")
 
 var directions = []
@@ -14,10 +14,10 @@ router.post("/directions", (req, res, next) => {
   })
 })
 
-let title = `${faker.random.words()}`
-let description = faker.lorem.paragraph()
-let directions = faker.lorem.paragraphs()
-let userId = Math.floor(Math.random() * 15)
+// let title = `${faker.random.words()}`
+// let description = faker.lorem.paragraph()
+// let directions = faker.lorem.paragraphs()
+// let userId = Math.floor(Math.random() * 15)
 // let ingredient = faker.random.word()
 // let ingredients = [ingredient.repeat(10)]
 

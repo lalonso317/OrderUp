@@ -5,7 +5,6 @@ const ingredientsRouter = require("./protected/Full-Ingredients-List")
 const testCreateRecipeRouter = require("./protected/createRecipe")
 const connectDb = require("./routes/recipes")
 
-
 const app = express()
 
 app.use(express.json())
@@ -15,7 +14,7 @@ app.use("/", userRouter)
 app.use("/", ingredientsRouter)
 app.use("/", testCreateRecipeRouter)
 
-app.use("/api/recipeModel", require("./routes/recipe-three"))
+app.use("/api/Recipe", require("./routes/recipe-three"))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
