@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
     case GET_SUB_FOOD_GROUPS:
       return { ...state, food_subgroup: action.payload }
     case PICKED_INGREDIENT:
-      return { ...state, picked: [action.payload, ...state.picked] }
+      return { ...state, picked: [...state.picked, action.payload] }
     case DELETED_INGREDIENT:
       return { ...state, picked: action.payload }
     default:
