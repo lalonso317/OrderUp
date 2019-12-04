@@ -1,23 +1,21 @@
-
-
 .header-component-header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: #A5907E;
+  background: #a5907e;
   padding: 20px;
 }
 
 .header-component-title {
   font-size: 50px;
   font-family: cursive;
-  color: #F7DAD9;
+  color: #f7dad9;
 }
 
 i.fa-book {
   font-size: 100px;
-  color: #F7DAD9;
-  text-shadow: #9E8B8B 4px 4px ;
+  color: #f7dad9;
+  text-shadow: #9e8b8b 4px 4px;
 }
 
 .header-component-social-media-icons {
@@ -73,27 +71,41 @@ i.fa-book {
 }
 
 .header-component-facebook-icon {
-  background: #4267B2;
+  background: #4267b2;
   color: white;
 }
 
 .header-component-twitter-icon {
-  background: #1DA1F2;
+  background: #1da1f2;
   color: white;
 }
 
 .header-component-reddit-icon {
-  background: #FF4500;
+  background: #ff4500;
   color: white;
 }
 
 .header-component-description {
- width: 200px;
- color: #F7DAD9;
+  width: 200px;
+  color: #f7dad9;
 }
 
 .social-media-path {
   text-decoration: none;
   color: transparent;
+  cursor: pointer;
+}
+
+.header-component-login-button button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.header-component-create-recipe-button button{
+  position: absolute;
+  top: 40px;
+  right: 10px;
   cursor: pointer;
 }

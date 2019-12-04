@@ -3,6 +3,7 @@ import { useUsers } from "../../hooks"
 import Amplify from "aws-amplify"
 import { Auth } from "aws-amplify"
 import awsmobile from "../../aws-exports"
+import { Redirect } from 'react-router-dom'
 Amplify.configure(awsmobile)
 
 const SignIn = props => {
@@ -32,11 +33,7 @@ const SignIn = props => {
     console.log(username)
   }
   if (signedIn) {
-    return (
-      <>
-        <h1>You have signed in!</h1>
-      </>
-    )
+    return <Redirect to="/"></Redirect>
   } else {
     return (
       <div>

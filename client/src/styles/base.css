@@ -20,3 +20,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.back-arrow-to-homepage {
+  color: black;
+  font-size: 40px;
+  cursor: pointer;
+}

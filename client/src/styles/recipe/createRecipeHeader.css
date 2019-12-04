@@ -10,6 +10,10 @@
   text-align: center;
   height: 50px;
   line-height: 50px;
+  display: flex;
+  justify-content: center;
+}
+.createRHSiteName {
 }
 .ui,
 .dropdown {
@@ -62,4 +66,10 @@
   font-size: 18px;
   padding-left: 2px;
   margin: 3px;
+}
+
+.back-arrow-to-homepage {
+  position: absolute;
+  top: 0;
+  left: 30px;
 }
