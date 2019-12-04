@@ -1,5 +1,8 @@
 import React, { useState } from "react"
+import Amplify from "aws-amplify"
 import { Auth } from "aws-amplify"
+import awsmobile from "../../aws-exports"
+Amplify.configure(awsmobile)
 
 const SignIn = props => {
   const [username, setUsername] = useState("")
@@ -9,8 +12,8 @@ const SignIn = props => {
   function handleSignIn(e) {
     e.preventDefault()
     Auth.signIn({
-      username,
-      password
+      username: username,
+      password: password
     })
       .then(() => console.log("signed up"))
       .catch(err => console.log(err))

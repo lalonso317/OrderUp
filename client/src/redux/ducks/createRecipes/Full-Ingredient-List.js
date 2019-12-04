@@ -9,12 +9,14 @@ import axios from "axios"
 const GET_FULL_INGREDIENTS_LIST = "createRecipe/GET_FULL_INGREDIENTS_LIST"
 const GET_MAIN_FOOD_GROUPS = "createRecipe/GET_MAIN_FOOD_GROUPS"
 const GET_SUB_FOOD_GROUPS = "createRecipe/GET_SUB_FOOD_GROUPS"
-
+const PICKED_INGREDIENT = "createRecipe/PICKED_INGREDIENT"
+const DELETED_INGREDIENT = "createRecipe/DELETED_INGREDIENT"
 // Reducer ---------------------------------------------------------------->>>
 const initialState = {
   ingredients: [],
   food_group: [],
-  food_subgroup: []
+  food_subgroup: [],
+  picked: []
 }
 
 export default (state = initialState, action) => {
@@ -25,6 +27,10 @@ export default (state = initialState, action) => {
       return { ...state, food_group: action.payload }
     case GET_SUB_FOOD_GROUPS:
       return { ...state, food_subgroup: action.payload }
+    case PICKED_INGREDIENT:
+      return { ...state, picked: [action.payload, ...state.picked] }
+    case DELETED_INGREDIENT:
+      return { ...state, picked: action.payload }
     default:
       return state
   }
@@ -85,6 +91,23 @@ const getSubFoodGroups = ingredients => {
   }
 }
 
+const pickedIngredient = name => {
+  const picked = {
+    name: name.ingredient,
+    isActive: name.active
+  }
+  return {
+    type: PICKED_INGREDIENT,
+    payload: picked
+  }
+}
+
+const deleteIngredient = name => {
+  return {
+    type: DELETED_INGREDIENT,
+    payload: name
+  }
+}
 // Hooks ---------------------------------------------------------------->>>
 
 export const useIngredientsList = () => {
@@ -99,11 +122,25 @@ export const useIngredientsList = () => {
   const food_subgroup = useSelector(
     appState => appState.ingredientListState.food_subgroup
   )
-
+  // function to be used when an ingredient is selected
+  const picked = name => dispatch(pickedIngredient(name))
+  const pickedItem = useSelector(
+    appState => appState.ingredientListState.picked
+  )
+  // function to be used when an ingredient is deleted from the list
+  const deleteItem = name => dispatch(deleteIngredient(name))
   // wherever function is called the useEffect will run right away and update on dispatch.
+
   useEffect(() => {
     dispatch(getIngredients())
   }, [dispatch])
 
-  return { ingredients, food_group, food_subgroup }
+  return {
+    ingredients,
+    food_group,
+    food_subgroup,
+    picked,
+    pickedItem,
+    deleteItem
+  }
 }
