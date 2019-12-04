@@ -7,7 +7,7 @@ import {
 import CreateRecipeHeader from "./create_recipe_header"
 
 function SubmitRecipeButton(props) {
-  const { fullRecipe, CreateRecipe } = useFullRecipe()
+  const { fullRecipe, CreateRecipe, recipeList } = useFullRecipe()
   const { recipeHeaderInfo } = useCreateRecipeHeader()
   const { directions } = useDirections()
   function handleSubmit(e) {
@@ -15,8 +15,10 @@ function SubmitRecipeButton(props) {
 
     CreateRecipe(actualRecipe)
   }
-  const actualRecipe = [recipeHeaderInfo, fullRecipe, directions]
-  console.log("actual recipe", actualRecipe)
+  const actualRecipe = {
+    recipeName: [recipeHeaderInfo, fullRecipe, directions]
+  }
+  console.log(recipeList)
 
   return (
     <form onSubmit={handleSubmit} className="createRecipeSubmitButtonForm">

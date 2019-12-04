@@ -17,8 +17,6 @@ const App = props => {
   return (
     <Router>
       <Toggle />
-      <Route path={"/"} component={CreateRecipeHeader} />
-      <IngredientList />
       <PublicHomePage />
       <Route path={"/"} component={CreateRecipeHeader} />
       <div className="ingsList-IandM">
