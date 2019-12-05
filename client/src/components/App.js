@@ -5,6 +5,8 @@ import "semantic-ui-css/semantic.min.css"
 import PublicHomePage from "./home/index"
 import CreateRecipeViewPage from "./recipe/create-recipe-viewpage"
 import UserProfileMain from "./profile/profilePage"
+import ViewRecipeMulti from "./view-recipe/recipe-multi-view"
+import ViewRecipeSingle from "./view-recipe/recipe-single-view"
 import MultiRecipeLoader from "./recipe/multi-recipe-loader"
 import "../styles/recipe/ings_and_meas.css"
 import "../styles/recipe/index.css"
@@ -14,6 +16,7 @@ import "../styles/recipe/createRecipeDirections.css"
 import "../styles/recipe/createRecipeSubmitButton.css"
 import "../styles/profile/profilePage.css"
 import "../styles/login/signIn.css"
+import "../styles/recipe-view-css/recipe-single-view.css"
 import "../styles/recipe/create-recipe-viewpage.css"
 
 
@@ -23,6 +26,8 @@ const App = props => {
       <Route exact path={"/"} component={PublicHomePage} />
       <Route path="/login" component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />
+      <Route path={"/recipe-multi-view"} component={ViewRecipeMulti} />
+      <Route path={"/recipe-single-view"} component={ViewRecipeSingle} />
       <Route path={"/profile-page"} component={UserProfileMain} />
       <Route path={"/all-recipes"} component={MultiRecipeLoader} />
     </Router>

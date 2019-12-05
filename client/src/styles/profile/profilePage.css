@@ -17,9 +17,13 @@
 }
 
 .MakeUpUserName {
-    font-size: 80px;
-    line-height: 70px;
+    font-size: 60px;
     border-bottom: 2px solid #ccc;
+    margin: 0;
+}
+
+.MakeUpUserName p {
+    margin: 0;
 }
 
 .MakeUpUserEmail {
