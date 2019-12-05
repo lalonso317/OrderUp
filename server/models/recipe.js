@@ -15,6 +15,9 @@ const recipe = new mongoose.Schema({
   },
   user: {
     type: Array
+  },
+  RecipeImages: {
+    type: Array
   }
 })
 
