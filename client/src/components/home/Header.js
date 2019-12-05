@@ -20,7 +20,6 @@ const Header = props => {
       <Link to="/profile-page" className="header-component-profile-button">
         <button>My Profile</button>
       </Link>
-
       <Link
         className="header-component-singleRecipe-button"
         to={"/recipe-single-view"}
