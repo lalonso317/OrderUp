@@ -8,6 +8,7 @@ import { Dropdown } from "semantic-ui-react"
 
 import "semantic-ui-css/semantic.min.css"
 import { Link } from "react-router-dom"
+import ImageUploader from "../pictureUpload/upload-pictures"
 
 function SubmitRecipeButton(props) {
   const options = [
@@ -24,7 +25,7 @@ function SubmitRecipeButton(props) {
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
 
-  const { fullRecipe, CreateRecipe, recipeList } = useFullRecipe()
+  const { fullRecipe, CreateRecipe, recipeList, RecipeImages } = useFullRecipe()
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions } = useDirections()
   const { user } = useUsers()
@@ -33,7 +34,14 @@ function SubmitRecipeButton(props) {
   function handleSubmit(e) {
     e.preventDefault()
     let recipeHeaderInfo = { name, category, description }
-    CreateRecipe(recipeHeaderInfo, fullRecipe, directions, isChecked, user)
+    CreateRecipe(
+      recipeHeaderInfo,
+      fullRecipe,
+      directions,
+      isChecked,
+      user,
+      RecipeImages
+    )
   }
 
   const handleChange = () => {
@@ -55,6 +63,7 @@ function SubmitRecipeButton(props) {
     <>
       {/* <CreateRecipeHeader /> */}
       <div className="fullRecipeForm">
+        <ImageUploader />
         <form onSubmit={handleSubmit} className="createRecipeSubmitButtonForm">
           <div className="createRHContainer">
             <div className="createRHTitle">

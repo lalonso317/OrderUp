@@ -7,12 +7,14 @@ const SUBMITTED_FULL_RECIPE = "SUBMITTED_FULL_RECIPE"
 
 const DELETE_INGREDIENT = "DELETE_INGREDIENT"
 const GET_RECIPES = "GET_RECIPES"
+const ADD_IMAGES = "ADD_IMAGES"
 
 const initialState = {
   recipeObjects: [],
   isActive: false,
   recipeDone: [],
-  recipes: []
+  recipes: [],
+  recipeImages: []
 }
 
 export default (state = initialState, action) => {
@@ -32,9 +34,10 @@ export default (state = initialState, action) => {
           ingred => ingred.ingredientName !== action.payload
         )
       }
-
     case GET_RECIPES:
       return { ...state, recipes: action.payload }
+    case ADD_IMAGES:
+      return { ...state, recipeImages: [...state.recipeImages, action.payload] }
     default:
       return state
   }
@@ -109,6 +112,13 @@ const getRecipes = () => {
     })
   }
 }
+// action to add images to recipeImages array in reducer
+const addImages = url => {
+  return {
+    type: ADD_IMAGES,
+    payload: url
+  }
+}
 
 export const useFullRecipe = () => {
   const dispatch = useDispatch()
@@ -142,14 +152,25 @@ export const useFullRecipe = () => {
         user
       )
     )
+  //function to be called by the image uploader to provide the created URL's for the recipe images
+  const newImage = url => dispatch(addImages(url))
+  const RecipeImages = useSelector(
+    appState => appState.fullRecipeState.recipeImages
+  )
 
-
-  return { finalIngredient, fullRecipe, CreateRecipe, recipeList, remove }
+  return {
+    finalIngredient,
+    fullRecipe,
+    CreateRecipe,
+    recipeList,
+    remove,
+    newImage,
+    RecipeImages
+  }
 
   useEffect(() => {
     dispatch(getRecipes())
   }, [dispatch])
 
   return { finalIngredient, fullRecipe, CreateRecipe, recipeList, allRecipes }
-
 }

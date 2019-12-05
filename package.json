@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/PC-Fullstack-Fall-2019/boilerplate#readme",
   "dependencies": {
+    "@gumgum/react-script-tag": "^0.0.3",
     "aws-amplify": "^1.2.4",
     "aws-amplify-react": "^2.5.4",
     "aws-sdk": "^2.583.0",
@@ -29,6 +30,7 @@
     "react-scripts": "^3.2.0",
     "react-select": "^3.0.8",
     "react-switch": "^5.0.1",
+    "script-tags": "^0.1.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1"
   },

@@ -2,7 +2,7 @@ const express = require("express")
 const Recipe = require("../models/recipe")
 const router = express.Router()
 const faker = require("faker")
-
+const axios = require("axios")
 // Submits a recipe
 
 router.post("/api/Recipe", (req, res) => {
@@ -16,6 +16,17 @@ router.get("/api/Recipe", async (req, res) => {
   const recipe = await Recipe.find()
   res.json(recipe)
   console.log("all recipes ===========---->>>>", recipe)
+})
+
+// gets the uploaded images
+router.post("/getImages", (req, res) => {
+  const url = req.body.url
+  console.log(url)
+  axios.get(url).then(resp => {
+    const response = resp.data
+    res.json(response)
+    console.log(response)
+  })
 })
 
 module.exports = router

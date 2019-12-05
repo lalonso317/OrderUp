@@ -1,13 +1,14 @@
 const createError = require("http-errors")
 const express = require("express")
+const cors = require("cors")
 const userRouter = require("./routes/users")
 const ingredientsRouter = require("./protected/Full-Ingredients-List")
 const testCreateRecipeRouter = require("./protected/createRecipe")
-const recipeRouter = require('./routes/recipes')
-const connectDb = require('./mongoDB')
+const recipeRouter = require("./routes/recipes")
+const connectDb = require("./mongoDB")
 
 const app = express()
-
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
