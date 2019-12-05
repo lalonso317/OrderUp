@@ -1,0 +1,46 @@
+.toggleMain {
+  width: 100%;
+  height: 1000px;
+  background: #550c18;
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  color: white;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+.loginUsername {
+  font-size: 24px;
+  margin: 10px 0 20px 0;
+}
+.inputLoginUsername {
+  margin: auto;
+  text-align: center;
+  height: 30px;
+  width: 60%;
+  outline: none;
+  font-size: 18px;
+  padding: 10px;
+  background: #ccc;
+  color: white;
+}
+.inputLoginUsername:hover {
+  color: black;
+  background: white;
+}
+.signInButton {
+  margin: auto;
+  margin-top: 20px;
+  width: 20%;
+  height: 25px;
+  color: white;
+  background: black;
+}
+.signInButton:hover {
+  background: white;
+  color: #550c18;
+}

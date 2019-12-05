@@ -17,7 +17,7 @@ function SubmitRecipeButton(props) {
   function handleSubmit(e) {
     e.preventDefault()
 
-    CreateRecipe(actualRecipe)
+    CreateRecipe(recipeHeaderInfo, fullRecipe, directions, isChecked, user)
   }
   const actualRecipe = {
     recipeName: [recipeHeaderInfo, fullRecipe, directions, isChecked, user]
