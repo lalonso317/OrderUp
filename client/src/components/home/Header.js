@@ -9,8 +9,14 @@ const Header = props => {
       <Link to="/login" className="header-component-login-button">
         <button>Login/Register</button>
       </Link>
-      <Link to="/create-your-recipe" className="header-component-create-recipe-button">
+      <Link
+        to="/create-your-recipe"
+        className="header-component-create-recipe-button"
+      >
         <button>Create A Recipe</button>
+      </Link>
+      <Link to={"/profilePage"} className="header-component-profile-button">
+        <button>My Profile</button>
       </Link>
       <header className="header-component-header">
         <h1 className="header-component-title">Cook Swap</h1>

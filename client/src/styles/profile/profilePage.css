@@ -1,0 +1,38 @@
+.profile-page-container {
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.profile-page-to-home-button {
+    width: 100px;
+
+}
+
+.userProfileMakeUp {
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.MakeUpUserName {
+    font-size: 80px;
+    line-height: 70px;
+    border-bottom: 2px solid #ccc;
+}
+
+.MakeUpUserEmail {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.MakeUpUserAbout {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.MakeUpPic img {
+    border-radius: 5px;
+    box-shadow: 3px 3px rgb(52, 52, 52);
+}
