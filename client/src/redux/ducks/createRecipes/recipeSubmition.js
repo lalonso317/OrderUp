@@ -38,29 +38,44 @@ const finalIngredients = ingredients => {
 }
 
 // final submit for recipe function
-const finalSubmitForRecipe = recipe => {
+const finalSubmitForRecipe = (
+  recipeHeaderInfo,
+  fullRecipe,
+  directions,
+  isChecked,
+  user
+) => {
   return dispatch => {
-    axios.post("/api/Recipe/", recipe).then(resp => {
-      console.log(resp.data.recipeName)
-      const submittedRecipe = {
-        name: resp.data.recipeName[0].name,
-        category: resp.data.recipeName[0].category,
-        description: resp.data.recipeName[0].description,
-        ingredientNames: resp.data.recipeName[1].map(item => {
-          return { name: item.ingredientName, measurement: item.measurement }
-        }),
-        directions: resp.data.recipeName[2].map(item => {
-          return { direction: item.step }
-        }),
-        privacy: resp.data.recipeName[3],
-        user: resp.data.recipeName[4]
-      }
-      console.log(submittedRecipe)
-      dispatch({
-        type: SUBMITTED_FULL_RECIPE,
-        payload: submittedRecipe
+    axios
+      .post(
+        "/api/Recipe/",
+        recipeHeaderInfo,
+        fullRecipe,
+        directions,
+        isChecked,
+        user
+      )
+      .then(resp => {
+        console.log(resp.data.recipeName)
+        const submittedRecipe = {
+          name: resp.data.recipeName[0].name,
+          category: resp.data.recipeName[0].category,
+          description: resp.data.recipeName[0].description,
+          ingredientNames: resp.data.recipeName[1].map(item => {
+            return { name: item.ingredientName, measurement: item.measurement }
+          }),
+          directions: resp.data.recipeName[2].map(item => {
+            return { direction: item.step }
+          }),
+          privacy: resp.data.recipeName[3],
+          user: resp.data.recipeName[4]
+        }
+        console.log(submittedRecipe)
+        dispatch({
+          type: SUBMITTED_FULL_RECIPE,
+          payload: submittedRecipe
+        })
       })
-    })
   }
 }
 
@@ -77,7 +92,22 @@ export const useFullRecipe = () => {
   const finalIngredient = amount => dispatch(finalIngredients(amount))
 
   //function to submit full recipe to back-end
-  const CreateRecipe = recipe => dispatch(finalSubmitForRecipe(recipe))
+  const CreateRecipe = (
+    recipeHeaderInfo,
+    fullRecipe,
+    directions,
+    isChecked,
+    user
+  ) =>
+    dispatch(
+      finalSubmitForRecipe(
+        recipeHeaderInfo,
+        fullRecipe,
+        directions,
+        isChecked,
+        user
+      )
+    )
 
   return { finalIngredient, fullRecipe, CreateRecipe, recipeList }
 }
