@@ -1,0 +1,12 @@
+.multi-recipe-view-page-title {
+  text-align: center;
+}
+
+.multi-recipe-view-page-details {
+  margin-left: 20px;
+}
+
+.multi-recipe-view-page-recipe-user-span {
+  background-color: rgba(210, 210, 38, 0.756);
+  padding: 3px;
+}
