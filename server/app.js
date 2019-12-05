@@ -3,7 +3,8 @@ const express = require("express")
 const userRouter = require("./routes/users")
 const ingredientsRouter = require("./protected/Full-Ingredients-List")
 const testCreateRecipeRouter = require("./protected/createRecipe")
-const connectDb = require("./routes/recipes")
+const recipeRouter = require('./routes/recipes')
+const connectDb = require('./mongoDB')
 
 const app = express()
 
@@ -14,7 +15,7 @@ app.use("/", userRouter)
 app.use("/", ingredientsRouter)
 app.use("/", testCreateRecipeRouter)
 
-app.use("/api/Recipe", require("./routes/recipe-three"))
+app.use("/", recipeRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
