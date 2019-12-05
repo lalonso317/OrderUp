@@ -1,20 +1,24 @@
 const mongoose = require("mongoose")
 
 const recipe = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   recipeHeaderInfo: {
-    type: Array
+    category: String,
+    name: String,
+    description: String
   },
   fullRecipe: {
-    type: Object
+    ingredients: []
   },
-  directions: {
-    type: Array
-  },
+  directions: [{ step: String }],
   isChecked: {
     type: Boolean
   },
   user: {
-    type: Object
+    type: Array
+  },
+  RecipeImages: {
+    type: Array
   }
 })
 

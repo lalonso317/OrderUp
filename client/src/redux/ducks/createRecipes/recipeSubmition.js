@@ -66,7 +66,7 @@ const finalSubmitForRecipe = (
     axios
       .post("/api/Recipe", {
         recipeHeaderInfo,
-        fullRecipe,
+        fullRecipe: { ingredients: fullRecipe },
         directions,
         isChecked,
         user
@@ -88,8 +88,8 @@ const finalSubmitForRecipe = (
         // }
         // console.log(submittedRecipe)
         dispatch({
-          type: SUBMITTED_FULL_RECIPE
-          // payload: submittedRecipe
+          type: SUBMITTED_FULL_RECIPE,
+          payload: resp.data
         })
       })
   }
@@ -105,9 +105,20 @@ const deleteIngredients = id => {
 const getRecipes = () => {
   return dispatch => {
     axios.get("/api/Recipe").then(response => {
+      
+      const data = response.data.map(array => ({
+        recipe_id: array._id,
+        recipeTitle: array.recipeHeaderInfo.name,
+        recipeCategory: array.recipeHeaderInfo.category,
+        recipeDescription: array.recipeHeaderInfo.description,
+        ingredients: array.fullRecipe.ingredients,
+        directions: array.directions,
+        private: array.isChecked,
+        owner: array.user
+      }))
       dispatch({
         type: GET_RECIPES,
-        payload: response.data
+        payload: data
       })
     })
   }
@@ -158,19 +169,21 @@ export const useFullRecipe = () => {
     appState => appState.fullRecipeState.recipeImages
   )
 
+  useEffect(() => {
+    dispatch(getRecipes())
+  }, [dispatch])
+
+
   return {
     finalIngredient,
     fullRecipe,
     CreateRecipe,
     recipeList,
+    allRecipes,
     remove,
     newImage,
     RecipeImages
+    
   }
 
-  useEffect(() => {
-    dispatch(getRecipes())
-  }, [dispatch])
-
-  return { finalIngredient, fullRecipe, CreateRecipe, recipeList, allRecipes }
 }

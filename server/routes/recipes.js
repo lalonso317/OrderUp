@@ -18,6 +18,7 @@ router.get("/api/Recipe", async (req, res) => {
   console.log("all recipes ===========---->>>>", recipe)
 })
 
+
 // gets the uploaded images
 router.post("/getImages", (req, res) => {
   const url = req.body.url
@@ -27,6 +28,14 @@ router.post("/getImages", (req, res) => {
     res.json(response)
     console.log(response)
   })
+})
+
+
+
+router.get('/recipe/:recipeId', async (request, response) => {
+  let recipeId = request.params.recipeId
+  const recipe = await Recipe.find({_id: recipeId})
+  response.json(recipe)
 })
 
 module.exports = router

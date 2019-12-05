@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/PC-Fullstack-Fall-2019/boilerplate#readme",
   "dependencies": {
-    "@gumgum/react-script-tag": "^0.0.3",
+    "@okta/okta-react": "^1.2.3",
     "aws-amplify": "^1.2.4",
     "aws-amplify-react": "^2.5.4",
     "aws-sdk": "^2.583.0",

@@ -25,7 +25,7 @@ const SetIngredients = props => {
   return (
     <div className="bottom">
       <div className="directions">
-        <label className="labelDirection">Ingredients & Measurements</label>
+        <label className="labelDirection">{"Ingredients & Measurements"}</label>
         <form onSubmit={e => handleUserIngredients(e)}>
           <div className="submitDirection">
             <input
