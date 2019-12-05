@@ -11,9 +11,11 @@ export default function Toggle(props) {
     setLog(!log)
   }
   return (
-    <div>
-      <button onClick={handleToggle}>{!log ? "Register" : "Login"}</button>
-      {!userSignedup ? <CreateSignUp /> : <SignIn />}
+    <div className="toggleMain">
+      <button onClick={handleToggle}>
+        {!log ? "Click to Register" : "Click to Login"}
+      </button>
+      {userSignedup ? <CreateSignUp /> : <SignIn />}
     </div>
   )
 }

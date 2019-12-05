@@ -56,7 +56,7 @@ const CreateSignUp = props => {
     )
   } else {
     return (
-      <div>
+      <div className="loginBody">
         <form onSubmit={handleSignUp}>
           <label>Username</label>
           <input

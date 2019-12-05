@@ -14,6 +14,8 @@ import "../styles/recipe/ingredient-list.css"
 import "../styles/recipe/createRecipeHeader.css"
 import "../styles/recipe/createRecipeDirections.css"
 import "../styles/recipe/createRecipeSubmitButton.css"
+import "../styles/login/signIn.css"
+
 const App = props => {
   return (
     <Router>

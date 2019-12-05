@@ -3,7 +3,7 @@ import { useUsers } from "../../hooks"
 import Amplify from "aws-amplify"
 import { Auth } from "aws-amplify"
 import awsmobile from "../../aws-exports"
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom"
 Amplify.configure(awsmobile)
 
 const SignIn = props => {
@@ -36,25 +36,31 @@ const SignIn = props => {
     return <Redirect to="/"></Redirect>
   } else {
     return (
-      <div>
+      <div className="loginBody">
         <form onSubmit={handleSignIn}>
-          <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            placeholder="username"
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            placeholder="password"
-          />
-          <button type="submit">Sign In</button>
+          <div className="loginForm">
+            <label className="loginUsername">Username</label>
+            <input
+              className="inputLoginUsername"
+              type="text"
+              name="username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              placeholder="username"
+            />
+            <label className="loginUsername">Password</label>
+            <input
+              className="inputLoginUsername"
+              type="password"
+              name="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="password"
+            />
+            <button className="signInButton" type="submit">
+              Sign In
+            </button>
+          </div>
         </form>
       </div>
     )
