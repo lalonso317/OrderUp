@@ -2,14 +2,14 @@ const mongoose = require("mongoose")
 
 const recipe = new mongoose.Schema({
   recipeHeaderInfo: {
-    type: Array
+    category: String,
+    name: String,
+    description: String
   },
   fullRecipe: {
-    type: Object
+    ingredients: []
   },
-  directions: {
-    type: Array
-  },
+  directions: [{ step: String }],
   isChecked: {
     type: Boolean
   },
