@@ -15,9 +15,10 @@ const Header = props => {
       >
         <button>Create A Recipe</button>
       </Link>
-      <Link to={"/profilePage"} className="header-component-profile-button">
+      <Link to="/profile-page" className="header-component-profile-button">
         <button>My Profile</button>
       </Link>
+
       <Link
         className="header-component-singleRecipe-button"
         to={"/recipe-single-view"}
@@ -29,6 +30,8 @@ const Header = props => {
         to={"/recipe-multi-view"}
       >
         <button>Multiple Recipes</button>
+      <Link to="/" className="header-component-home-button">
+        <Icon icon="home" />
       </Link>
       <header className="header-component-header">
         <h1 className="header-component-title">Cook Swap</h1>

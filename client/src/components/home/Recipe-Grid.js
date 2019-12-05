@@ -1,8 +1,13 @@
 import React from "react"
 import RecipeCard from "./Recipe-Card"
-import '../../styles/home/Recipe-Grid.css'
+import "../../styles/home/Recipe-Grid.css"
+import { useFullRecipe } from "../../hooks"
 
 const RecipeGrid = props => {
+  const { fullRecipe, recipeList, allRecipes } = useFullRecipe()
+  console.log("full Recipe ==========<>>>>", fullRecipe)
+  console.log("Recipe List ----------!!!!!----->>>>", recipeList)
+  console.log("All Recipes ========>>>", allRecipes)
   return (
     <div className="recipe-grid-container">
       <RecipeCard
@@ -83,7 +88,6 @@ const RecipeGrid = props => {
         sunt autem, nihil explicabo omnis expedita quae pariatur! Delectus
         ad in eligendi deleniti. Itaque, delectus perferendis."
       />
-      
     </div>
   )
 }

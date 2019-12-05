@@ -1,7 +1,7 @@
 /* CSS styles for the create a recipe page header*/
 
 .createRHContainer {
-  background: rgb(101, 101, 101);
+  background: #fff2dd;
 }
 .createRHTitle {
   color: white;
@@ -14,13 +14,14 @@
   justify-content: center;
 }
 .createRHSiteName {
+  width: 100%;
 }
 .ui,
 .dropdown {
   width: 300px;
 }
 .createRHSubtitle {
-  color: white;
+  color: rgb(56, 56, 56);
   font-size: 30px;
   margin-left: 30px;
   margin-bottom: 20px;
@@ -28,6 +29,10 @@
   width: 300px;
   height: 40px;
   line-height: 40px;
+  text-align: center;
+}
+.createRecipeSubmitButton {
+  width: 100%;
 }
 
 .CRHRdescription {
@@ -41,20 +46,16 @@
   height: 25px;
   color: white;
 }
-.createRHRecipeCategory {
+/* .createRHRecipeCategory {
   margin: 3px;
   display: flex;
   flex-direction: column;
-}
+} */
 .createRHRecipeName {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 .createRHRecipeTitle {
-  display: flex;
-  flex-direction: column;
-  color: white;
+  text-align: center;
 }
 .createRHRecipeTitle label {
   font-size: 20px;
@@ -72,4 +73,8 @@
   position: absolute;
   top: 0;
   left: 30px;
+}
+.formforTop {
+  display: flex;
+  flex-direction: column;
 }

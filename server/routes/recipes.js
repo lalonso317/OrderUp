@@ -5,7 +5,7 @@ const faker = require("faker")
 
 // Submits a recipe
 
-router.post("/", (req, res) => {
+router.post("/api/Recipe", (req, res) => {
   Recipe.create(req.body).then(function(recipe) {
     res.send(recipe)
     console.log("currently posted recipes ===============>>>>>>", recipe)

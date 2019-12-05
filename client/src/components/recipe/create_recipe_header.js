@@ -74,7 +74,6 @@ function CreateRecipeHeader(props) {
               className="CRHRdescription"
               placeholder="This recipe has been in my family for years..."
             ></textarea>
-            <button type="submit">Confirm Recipe Name</button>
           </div>
         </form>
       </div>

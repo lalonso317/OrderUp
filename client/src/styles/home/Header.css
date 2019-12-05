@@ -43,24 +43,30 @@ i.fa-book {
 .header-component-instagram-icon {
   color: white;
   background: #f09433;
-  background: -moz-linear-gradient(45deg,
-      #f09433 0%,
-      #e6683c 25%,
-      #dc2743 50%,
-      #cc2366 75%,
-      #bc1888 100%);
-  background: -webkit-linear-gradient(45deg,
-      #f09433 0%,
-      #e6683c 25%,
-      #dc2743 50%,
-      #cc2366 75%,
-      #bc1888 100%);
-  background: linear-gradient(45deg,
-      #f09433 0%,
-      #e6683c 25%,
-      #dc2743 50%,
-      #cc2366 75%,
-      #bc1888 100%);
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 }
 
@@ -104,7 +110,7 @@ i.fa-book {
   cursor: pointer;
 }
 
-.header-component-profile-button {
+.header-component-profile-button button {
   position: absolute;
   top: 70px;
   right: 10px;
@@ -123,4 +129,15 @@ i.fa-book {
   top: 130px;
   right: 10px;
   cursor: pointer;
+}
+.header-component-home-button {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  cursor: pointer;
+}
+i.fa-home {
+  text-decoration: none;
+  color: black;
+  font-size: 35px;
 }
