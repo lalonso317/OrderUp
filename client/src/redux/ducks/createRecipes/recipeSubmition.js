@@ -85,8 +85,8 @@ const finalSubmitForRecipe = (
         // }
         // console.log(submittedRecipe)
         dispatch({
-          type: SUBMITTED_FULL_RECIPE
-          // payload: submittedRecipe
+          type: SUBMITTED_FULL_RECIPE,
+          payload: resp.data
         })
       })
   }
@@ -102,7 +102,7 @@ const deleteIngredients = id => {
 const getRecipes = () => {
   return dispatch => {
     axios.get("/api/Recipe").then(response => {
-     
+      
       const data = response.data.map(array => ({
         recipe_id: array._id,
         recipeTitle: array.recipeHeaderInfo.name,
@@ -113,7 +113,6 @@ const getRecipes = () => {
         private: array.isChecked,
         owner: array.user
       }))
-
       dispatch({
         type: GET_RECIPES,
         payload: data
@@ -154,6 +153,7 @@ export const useFullRecipe = () => {
         user
       )
     )
+
 
   useEffect(() => {
     dispatch(getRecipes())

@@ -17,6 +17,8 @@ import "../styles/profile/profilePage.css"
 import "../styles/login/signIn.css"
 import "../styles/recipe-view-css/recipe-single-view.css"
 import "../styles/recipe/create-recipe-viewpage.css"
+import "../styles/home/universal.css"
+
 
 const App = props => {
   return (

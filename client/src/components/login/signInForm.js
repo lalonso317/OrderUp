@@ -6,12 +6,12 @@ import awsmobile from "../../aws-exports"
 import { Redirect } from "react-router-dom"
 Amplify.configure(awsmobile)
 
-const SignIn = props => {
+const SignInForm = props => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [signedIn, setSignedIn] = useState(false)
 
-  const { create, user } = useUsers()
+  const { create } = useUsers()
 
   function handleSignIn(e) {
     e.preventDefault()
@@ -30,7 +30,6 @@ const SignIn = props => {
       .catch(err => console.log(err))
 
     setSignedIn(true)
-    console.log(username)
   }
   if (signedIn) {
     return <Redirect to="/"></Redirect>
@@ -66,4 +65,4 @@ const SignIn = props => {
     )
   }
 }
-export default SignIn
+export default SignInForm

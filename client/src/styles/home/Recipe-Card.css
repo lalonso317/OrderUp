@@ -25,20 +25,20 @@ h4.recipe-card-recipe-title {
 
 .recipe-card-bottom .recipe-card-description {
   overflow: hidden;
-  white-space: nowrap ;
+  white-space: nowrap;
   text-overflow: ellipsis;
-  
 }
 
 .recipe-card-container {
-  background: #FFE8D1;
+  /* background: rgba(249, 249, 249, 0.173); */
   padding: 10px;
-  width: 300px;
-  box-shadow: grey 2px 2px 2px 2px;
+  width: 400px;
+  /* box-shadow: grey 2px 2px 2px 2px; */
+  border: rgb(255, 194, 151) 3px solid;
 }
 
 .recipe-card-wrapper {
-  border: 2px #826251 solid;
+  border: 2px #000000 solid;
   padding: 5px;
   height: 200px;
 }

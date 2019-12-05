@@ -2,11 +2,13 @@ import React from "react"
 import Icon from "../../lib/Icon"
 import "../../styles/home/Header.css"
 import { Link } from "react-router-dom"
+import Universal from "./universal"
 
 const Header = props => {
   return (
     <>
-      <Link to="/login" className="header-component-login-button">
+      <Universal />
+      {/* <Link to="/login" className="header-component-login-button">
         <button>Login/Register</button>
       </Link>
       <Link
@@ -23,6 +25,12 @@ const Header = props => {
         to={"/recipe-single-view"}
       >
         <button>Single Recipe</button>
+      </Link>
+      <Link
+        className="header-component-multiRecipe-button"
+        to={"/recipe-multi-view"}
+      >
+        <button>Multiple Recipes</button>
       </Link>
       <Link to="/" className="header-component-home-button">
         <Icon icon="home" />
@@ -81,7 +89,7 @@ const Header = props => {
             and even create your own recipes.
           </p>
         </div>
-      </header>
+      </header> */}
     </>
   )
 }
