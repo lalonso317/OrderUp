@@ -1,7 +1,7 @@
 .public-home-page-container {
   background: #550c18;
   height: 100%;
-  width: 1500px;
+  width: 100vw;
   display: grid;
 }
 

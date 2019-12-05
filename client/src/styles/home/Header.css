@@ -117,14 +117,14 @@ i.fa-book {
   cursor: pointer;
 }
 
-.header-component-singleRecipe-button {
+.header-component-singleRecipe-button button {
   position: absolute;
   top: 100px;
   right: 10px;
   cursor: pointer;
 }
 
-.header-component-multiRecipe-button {
+.header-component-multiRecipe-button button {
   position: absolute;
   top: 130px;
   right: 10px;
@@ -132,7 +132,7 @@ i.fa-book {
 }
 .header-component-home-button {
   position: absolute;
-  top: 100px;
+  top: 130px;
   right: 20px;
   cursor: pointer;
 }
