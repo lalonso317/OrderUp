@@ -18,6 +18,12 @@ router.get("/api/Recipe", async (req, res) => {
   console.log("all recipes ===========---->>>>", recipe)
 })
 
+
+router.get('/recipe/:recipeId', async (request, response) => {
+  let recipeId = request.params.recipeId
+  const recipe = await Recipe.find({_id: recipeId})
+  response.json(recipe)
+})
 module.exports = router
 
 // router.post("/", async (req, res) => {
