@@ -4,11 +4,13 @@ import axios from "axios"
 
 const FINALIZE_INGREDIENT = "FINALIZE_INGREDIENT"
 const SUBMITTED_FULL_RECIPE = "SUBMITTED_FULL_RECIPE"
+const GET_RECIPES = "GET_RECIPES"
 
 const initialState = {
   recipeObjects: [],
   isActive: false,
-  recipeDone: []
+  recipeDone: [],
+  recipes: []
 }
 
 export default (state = initialState, action) => {
@@ -20,6 +22,8 @@ export default (state = initialState, action) => {
       }
     case SUBMITTED_FULL_RECIPE:
       return { ...state, recipeDone: [...state.recipeDone, action.payload] }
+    case GET_RECIPES:
+      return { ...state, recipes: action.payload }
     default:
       return state
   }
@@ -79,6 +83,17 @@ const finalSubmitForRecipe = (
   }
 }
 
+const getRecipes = () => {
+  return dispatch => {
+    axios.get("/api/Recipe").then(response => {
+      dispatch({
+        type: GET_RECIPES,
+        payload: response.data
+      })
+    })
+  }
+}
+
 export const useFullRecipe = () => {
   const dispatch = useDispatch()
   // selector to grab the full recipe
@@ -88,6 +103,7 @@ export const useFullRecipe = () => {
   const recipeList = useSelector(
     appState => appState.fullRecipeState.recipeDone
   )
+  const allRecipes = useSelector(appState => appState.fullRecipeState.recipes)
   // function to send confirmed ingredient
   const finalIngredient = amount => dispatch(finalIngredients(amount))
 
@@ -109,5 +125,9 @@ export const useFullRecipe = () => {
       )
     )
 
-  return { finalIngredient, fullRecipe, CreateRecipe, recipeList }
+  useEffect(() => {
+    dispatch(getRecipes())
+  }, [dispatch])
+
+  return { finalIngredient, fullRecipe, CreateRecipe, recipeList, allRecipes }
 }

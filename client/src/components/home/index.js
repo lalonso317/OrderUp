@@ -8,7 +8,7 @@ import chickenSalad from "../../Assets/Chicken-Salad.jpeg"
 import pancakes from "../../Assets/Pancakes.jpeg"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
-
+import { Link } from 'react-router-dom'
 
 const PublicHomePage = props => {
   return (
@@ -20,6 +20,9 @@ const PublicHomePage = props => {
         link_instagram="https://www.instagram.com/"
       />
       <RecipeGrid />
+      <Link to="/all-recipes" className="public-home-page-button-to-all-recipes">
+        <button>View All Recipes</button>
+      </Link>
       <div className="public-home-page-slider">
         <Carousel width="1000px" infiniteLoop={true}>
           <div>
