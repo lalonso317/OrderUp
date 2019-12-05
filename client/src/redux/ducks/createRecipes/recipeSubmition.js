@@ -85,8 +85,8 @@ const finalSubmitForRecipe = (
         // }
         // console.log(submittedRecipe)
         dispatch({
-          type: SUBMITTED_FULL_RECIPE
-          // payload: submittedRecipe
+          type: SUBMITTED_FULL_RECIPE,
+          payload: resp.data
         })
       })
   }
@@ -102,6 +102,7 @@ const deleteIngredients = id => {
 const getRecipes = () => {
   return dispatch => {
     axios.get("/api/Recipe").then(response => {
+      console.log(response.data)
       dispatch({
         type: GET_RECIPES,
         payload: response.data
@@ -143,13 +144,18 @@ export const useFullRecipe = () => {
       )
     )
 
-
-  return { finalIngredient, fullRecipe, CreateRecipe, recipeList, remove }
+  // return { finalIngredient, fullRecipe, CreateRecipe, recipeList, remove }
 
   useEffect(() => {
     dispatch(getRecipes())
   }, [dispatch])
 
-  return { finalIngredient, fullRecipe, CreateRecipe, recipeList, allRecipes }
-
+  return {
+    finalIngredient,
+    fullRecipe,
+    CreateRecipe,
+    recipeList,
+    allRecipes,
+    remove
+  }
 }

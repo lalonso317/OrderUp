@@ -34,8 +34,8 @@ const CreateSignUp = props => {
   }
   if (signedUp) {
     return (
-      <form>
-        <label>Username</label>
+      <form className="loginForm">
+        <label className="loginUsername">Username</label>
         <input
           type="text"
           name="username"
@@ -57,32 +57,37 @@ const CreateSignUp = props => {
   } else {
     return (
       <div className="loginBody">
-        <form onSubmit={handleSignUp}>
-          <label>Username</label>
+        <form className="loginForm" onSubmit={handleSignUp}>
+          <label className="loginUsername">Username</label>
           <input
+            className="inputLoginUsername"
             type="text"
             name="username"
             value={username}
             onChange={e => setUsername(e.target.value)}
             placeholder="username"
           />
-          <label>Email</label>
+          <label className="loginUsername">Email</label>
           <input
+            className="inputLoginUsername"
             type="email"
             name="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="email"
           />
-          <label>Password</label>
+          <label className="loginUsername">Password</label>
           <input
+            className="inputLoginUsername"
             type="password"
             name="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder="password"
           />
-          <button type="submit">Sign Up</button>
+          <button className="signInButton" type="submit">
+            Sign Up
+          </button>
         </form>
       </div>
     )
