@@ -1,7 +1,23 @@
 const mongoose = require("mongoose")
 
 const recipe = new mongoose.Schema({
-  recipeName: Array
+  recipeHeaderInfo: {
+    type: Array
+  },
+  fullRecipe: {
+    type: Object
+  },
+  directions: {
+    type: Array
+  },
+  isChecked: {
+    type: Boolean
+  },
+  user: {
+    type: Object
+  }
 })
 
 module.exports = Recipe = mongoose.model("recipe", recipe)
+
+// recipeHeaderInfo, fullRecipe, directions, isChecked, user
