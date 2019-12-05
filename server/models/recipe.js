@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const recipe = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   recipeHeaderInfo: {
     category: String,
     name: String,

@@ -48,7 +48,6 @@ const SetIngredients = props => {
                 onSubmit={e => handleClick(e)}
               >
                 <p className="step"> {item.ingredientName}</p>
-                {/* {item.ingredients.map(ing => <p className="step">{ing.ingredientName}</p>)} */}
                 <button
                   className="removeDirection"
                   type="submit"

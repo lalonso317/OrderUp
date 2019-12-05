@@ -104,6 +104,7 @@ const getRecipes = () => {
     axios.get("/api/Recipe").then(response => {
      
       const data = response.data.map(array => ({
+        recipe_id: array._id,
         recipeTitle: array.recipeHeaderInfo.name,
         recipeCategory: array.recipeHeaderInfo.category,
         recipeDescription: array.recipeHeaderInfo.description,
@@ -112,7 +113,7 @@ const getRecipes = () => {
         private: array.isChecked,
         owner: array.user
       }))
-      
+
       dispatch({
         type: GET_RECIPES,
         payload: data
