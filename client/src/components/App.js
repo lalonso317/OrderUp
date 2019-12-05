@@ -9,6 +9,8 @@ import PublicHomePage from "./home/index"
 import RecipeDirections from "./recipe/createRecipe-Directions"
 import CreateRecipeViewPage from "./recipe/create-recipe-viewpage"
 import UserProfileMain from "./profile/profilePage"
+import ViewRecipeMulti from "./view-recipe/recipe-multi-view"
+import ViewRecipeSingle from "./view-recipe/recipe-single-view"
 import "../styles/recipe/ings_and_meas.css"
 import "../styles/recipe/index.css"
 import "../styles/recipe/ingredient-list.css"
@@ -17,8 +19,7 @@ import "../styles/recipe/createRecipeDirections.css"
 import "../styles/recipe/createRecipeSubmitButton.css"
 import "../styles/profile/profilePage.css"
 import "../styles/login/signIn.css"
-
-
+import "../styles/recipe-view-css/recipe-single-view.css"
 const App = props => {
   return (
     <Router>
@@ -26,6 +27,8 @@ const App = props => {
       <Route path="/login" component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />
       <Route path={"/profilePage"} component={UserProfileMain} />
+      <Route path={"/recipe-multi-view"} component={ViewRecipeMulti} />
+      <Route path={"/recipe-single-view"} component={ViewRecipeSingle} />
       {/* <div className="ingsList-IandM">
         <IngredientList />
         <IngsAndMeas />

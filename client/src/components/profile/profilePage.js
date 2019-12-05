@@ -18,7 +18,7 @@ const UserProfileMain = props => {
         </div>
         <div className="MakeUpUserName">
           {user.map(name => {
-            return <p>username{name.user}</p>
+            return <p>{name.user}</p>
           })}
         </div>
         <div className="MakeUpUserEmail">User Email</div>

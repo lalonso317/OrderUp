@@ -18,6 +18,18 @@ const Header = props => {
       <Link to={"/profilePage"} className="header-component-profile-button">
         <button>My Profile</button>
       </Link>
+      <Link
+        className="header-component-singleRecipe-button"
+        to={"/recipe-single-view"}
+      >
+        <button>Single Recipe</button>
+      </Link>
+      <Link
+        className="header-component-multiRecipe-button"
+        to={"/recipe-multi-view"}
+      >
+        <button>Multiple Recipes</button>
+      </Link>
       <header className="header-component-header">
         <h1 className="header-component-title">Cook Swap</h1>
         <Icon icon="book" />
