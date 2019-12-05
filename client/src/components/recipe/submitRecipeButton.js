@@ -34,6 +34,7 @@ function SubmitRecipeButton(props) {
     e.preventDefault()
     let recipeHeaderInfo = { name, category, description }
     CreateRecipe(recipeHeaderInfo, fullRecipe, directions, isChecked, user)
+    console.log(user)
   }
 
   const handleChange = () => {

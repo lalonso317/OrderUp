@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import CreateSignUp from "./signUpForm"
-import SignIn from "./signInForm"
+import SignInForm from "./signInForm"
 
 export default function Toggle(props) {
   const [userSignedup, setUserSignedUp] = useState(false)
@@ -12,10 +12,10 @@ export default function Toggle(props) {
   }
   return (
     <div className="toggleMain">
-      <button onClick={handleToggle}>
+      {userSignedup ? <CreateSignUp /> : <SignInForm />}
+      <button className="toggleLogin" onClick={handleToggle}>
         {!log ? "Click to Register" : "Click to Login"}
       </button>
-      {userSignedup ? <CreateSignUp /> : <SignIn />}
     </div>
   )
 }

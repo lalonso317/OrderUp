@@ -1,12 +1,12 @@
 .public-home-page-container {
-  background: #550c18;
+  background: white;
   height: 100%;
-  width: 1500px;
+  width: 100%;
   display: grid;
 }
 
 .public-home-page-slider {
-  width: 1000px;
+  width: 60%;
   margin: auto;
 }
 
@@ -21,7 +21,7 @@
   font-size: 1.2em;
   outline: none;
   background: transparent;
-  border-top: white 1px solid;
-  border-bottom: white 1px solid;
-  color: white;
+  border: rgb(239, 136, 63) 1px solid;
+
+  color: black;
 }

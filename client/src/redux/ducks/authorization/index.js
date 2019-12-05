@@ -10,7 +10,7 @@ const initalState = {
 export default (state = initalState, action) => {
   switch (action.type) {
     case GET_USER:
-      return { ...state, users: [...state.users, action.payload] }
+      return { ...state, users: action.payload }
     default:
       return state
   }
@@ -18,7 +18,7 @@ export default (state = initalState, action) => {
 
 const showUser = username => {
   const us = {
-    user: username
+    username
   }
   console.log(us)
   return {

@@ -14,7 +14,7 @@ const recipe = new mongoose.Schema({
     type: Boolean
   },
   user: {
-    type: Object
+    type: Array
   }
 })
 
