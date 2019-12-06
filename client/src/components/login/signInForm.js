@@ -37,10 +37,7 @@ const SignInForm = props => {
   } else {
     return (
       <div className="loginBody">
-        <div>
-          <img src={Logo} />
-        </div>
-        <form onSubmit={handleSignIn}>
+        {/* <form onSubmit={handleSignIn}>
           <div className="loginForm">
             <label className="loginUsername">Username</label>
             <input
@@ -64,7 +61,7 @@ const SignInForm = props => {
               Sign In
             </button>
           </div>
-        </form>
+        </form> */}
       </div>
     )
   }

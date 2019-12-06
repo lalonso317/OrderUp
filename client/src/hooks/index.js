@@ -3,3 +3,5 @@ export { useCreateRecipeHeader } from "../redux/ducks/createRecipes/createRecipe
 export { useDirections } from "../redux/ducks/createRecipes/createRecipeDirection"
 export { useFullRecipe } from "../redux/ducks/createRecipes/recipeSubmition"
 export { useUsers } from "../redux/ducks/authorization/index"
+export { useAuth } from "../redux/ducks/authorization/Login"
+export { usePosty } from "../redux/ducks/authorization/Register"

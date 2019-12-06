@@ -10,6 +10,9 @@ import "semantic-ui-css/semantic.min.css"
 import { Link } from "react-router-dom"
 import ImageUploader from "../pictureUpload/upload-pictures"
 
+import Logo from "../../Assets/Logo.png"
+import Header from "../home/Header"
+import Footer from "../home/universalFooter"
 function SubmitRecipeButton(props) {
   const options = [
     { value: "african", text: "African" },
@@ -61,53 +64,57 @@ function SubmitRecipeButton(props) {
 
   return (
     <>
-      {/* <CreateRecipeHeader /> */}
       <div className="fullRecipeForm">
-        <ImageUploader />
+        <div>
+          <Header />
+        </div>
         <form onSubmit={handleSubmit} className="createRecipeSubmitButtonForm">
-          <div className="createRHContainer">
-            <div className="createRHTitle">
-              <Link to="/" className="back-arrow-to-homepage">
-                &larr;
-              </Link>
-              <p className="createRHSiteName">Cook Swap!</p>
-            </div>
-            <div className="formforTop">
+          <label className="createRHContainer">
+            <label className="createRHRecipeName">
               <div className="createRHSubtitle">Create A Recipe</div>
-              <div className="createRHRecipeName">
-                {/* this is the first part of the form to create a recipe */}
-                {/* <form onSubmit={createRecipeHeader}> */}
-                <div className="createRHRecipeTitle">
-                  <label htmlFor="title">Recipe Name</label>
-                  <input
-                    type="text"
-                    name="title"
-                    placeholder="My Recipe"
-                    onChange={e => setName(e.target.value)}
-                  />
-                </div>
-                <div className="createRHRecipeCategory">
-                  <label htmlFor="CRHRcategory">Category</label>
-                  {/* this is a semantic-ui component */}
-                  <Dropdown
-                    options={options}
-                    selection
-                    placeholder="Select recipe category..."
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className="createRHRecipeDescription">
-                  <textarea
-                    onChange={e => setDescription(e.target.value)}
-                    className="CRHRdescription"
-                    placeholder="This recipe has been in my family for years..."
-                  ></textarea>
-                </div>
+              <div>
+                <ImageUploader />
               </div>
-              {/* </form> */}
-            </div>
-          </div>
+              {/* this is the first part of the form to create a recipe */}
+              <div className="createRHRecipeTitle">
+                <p className="createTitle" htmlFor="title">
+                  Recipe Name
+                </p>
+                <input
+                  className="createRHRecipeInput"
+                  type="text"
+                  name="title"
+                  placeholder="My Recipe"
+                  onChange={e => setName(e.target.value)}
+                />
+              </div>
+              <div className="createRHRecipeCategory">
+                <p className="createTitle" htmlFor="Drowdown">
+                  Category
+                </p>
+                <Dropdown
+                  className="createDropdown"
+                  options={options}
+                  selection
+                  placeholder="Select recipe category..."
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="createRHRecipeDescription">
+                <label className="createTitle">Desciption</label>
+                <textarea
+                  onChange={e => setDescription(e.target.value)}
+                  className="CRHRdescription"
+                  placeholder="This recipe has been in my family for years..."
+                ></textarea>
+              </div>
+            </label>
+          </label>
           <div className="BottomHalfofPage">
+            <div className="middleofthePage">
+              <SetIngredients />
+              <RecipeDirections />
+            </div>
             <div className="privacy">
               <label className="labelPrivacy">Privacy</label>
               <Switch
@@ -116,16 +123,16 @@ function SubmitRecipeButton(props) {
                 offColor="#ff0000"
                 onColor="#108600"
                 value={isChecked}
+                className="privacySwitch"
               />
+              <button className="finalSubmit" type="submit">
+                Create Recipe
+              </button>
             </div>
-            <button type="submit">Create Recipe</button>
           </div>
         </form>
-        <div className="middleofthePage">
-          <SetIngredients />
-          <RecipeDirections />
-        </div>
       </div>
+      <Footer />
     </>
   )
 }

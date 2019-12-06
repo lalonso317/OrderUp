@@ -7,10 +7,17 @@
   display: flex;
   justify-content: center;
   margin: auto;
-  width: 200px;
-  height: 30px;
+  width: 300px;
+  height: 40px;
   background: none;
   font-size: 20px;
+  margin-bottom: 10px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid;
+}
+.toggleLogin:active {
+  border: 2px solid rgb(252, 174, 118);
 }
 .loginForm {
   display: flex;
@@ -31,13 +38,13 @@
 .inputLoginUsername {
   margin: auto;
   text-align: center;
+  outline: none;
+  background: none;
+  border: 1px solid black;
   height: 40px;
   width: 60%;
-  outline: none;
   font-size: 18px;
   padding: 10px;
-  background: #ccc;
-  color: white;
 }
 .inputLoginUsername:hover {
   color: black;
@@ -48,11 +55,12 @@
   margin-bottom: 65px;
   width: 200px;
   height: 40px;
-  color: white;
-  background: black;
+  background: none;
   font-size: 20px;
+  cursor: pointer;
 }
 .signInButton:hover {
-  background: white;
-  color: #550c18;
+}
+.loginLogo {
+  width: 200px;
 }
