@@ -1,7 +1,7 @@
 import React from "react"
 import RecipeCard from "./Recipe-Card"
 import "../../styles/home/Recipe-Grid.css"
-import { useAllRecipes, useSingleRecipe } from "../../hooks"
+import { useAllRecipes } from "../../hooks"
 
 const RecipeGrid = props => {
   const all_recipes = useAllRecipes()

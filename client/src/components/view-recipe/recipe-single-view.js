@@ -41,3 +41,7 @@ const ViewRecipeSingle = props => {
 }
 
 export default ViewRecipeSingle
+
+
+
+// !single_recipe.RecipeImages === null ? single_recipe.RecipeImages && single_recipe.RecipeImages[0].url : Burrito

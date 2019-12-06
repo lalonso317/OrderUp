@@ -1,8 +1,11 @@
 import React from 'react'
 import MultiRecipeViewPage from './multi-recipe-view-page'
+import { useAllRecipes } from "../../hooks"
 
 
 const MultiRecipeLoader = props => {
+  const all_recipes = useAllRecipes()
+
   const fakeArrayOfRecipes = [
     {
       name: "Chocolate Cake",
@@ -63,7 +66,7 @@ const MultiRecipeLoader = props => {
   ]
   return (
     <div>
-      <MultiRecipeViewPage recipeArray={fakeArrayOfRecipes}/>
+      <MultiRecipeViewPage recipeArray={all_recipes}/>
     </div>
   )
 }

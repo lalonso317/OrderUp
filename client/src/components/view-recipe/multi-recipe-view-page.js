@@ -1,5 +1,6 @@
 import React from "react"
 import "../../styles/recipe/multi-recipe-view-page.css"
+import { Link } from 'react-router-dom'
 
 const MultiRecipeViewPage = props => {
   return (
@@ -10,16 +11,20 @@ const MultiRecipeViewPage = props => {
         {props.recipeArray.map((recipe, i) => (
           <>
             <dt
-              key={`recipe-${recipe.name}-${i}`}
+              key={`recipe-${recipe.recipeTitle}-${i}`}
               className="multi-recipe-view-page-recipe-name"
             >
-              <h3>{recipe.name}</h3>
+              <Link to={`/recipe/${recipe.recipe_id}`}>
+                <h3>{recipe.recipeTitle}</h3>
+              </Link>
             </dt>
+            <dd>Description: {recipe.recipeDescription}</dd>
+            <br />
             <dd
-              key={`recipe-user-${recipe.user}-${i}`}
+              key={`recipe-user-guy-${i}`}
               className="multi-recipe-view-page-recipe-user"
             >
-              by: <span className="multi-recipe-view-page-recipe-user-span">{recipe.user}</span>
+              by: <span className="multi-recipe-view-page-recipe-user-span">guy</span>
             </dd>
           </>
         ))}
