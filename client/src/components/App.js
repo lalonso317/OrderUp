@@ -20,7 +20,6 @@ import "../styles/recipe-view-css/recipe-single-view.css"
 import "../styles/recipe/create-recipe-viewpage.css"
 
 
-
 const App = props => {
   return (
     <Router>

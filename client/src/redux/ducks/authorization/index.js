@@ -17,11 +17,12 @@ export default (state = initalState, action) => {
 }
 
 const showUser = username => {
+
   const us = username
-  console.log(us)
+
   return {
     type: GET_USER,
-    payload: us
+    payload: username
   }
 }
 

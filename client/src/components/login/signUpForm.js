@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Logo from "../../Assets/Logo.png"
 import Amplify from "aws-amplify"
 import { Auth } from "aws-amplify"
 import awsmobile from "../../aws-exports"
@@ -34,29 +35,33 @@ const CreateSignUp = props => {
   }
   if (signedUp) {
     return (
-      <form className="loginForm">
-        <label className="loginUsername">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          placeholder="username"
-        />
-        <label>Confirmation Code</label>
-        <input
-          type="text"
-          name="confirmationCode"
-          value={confirmationCode}
-          onChange={e => setConfirmationCode(e.target.value)}
-          placeholder="confirmation"
-        />
-        <button>Confirm</button>
-      </form>
+      <div>
+        <img src={Logo} />
+        <form className="loginForm">
+          <label className="loginUsername">Username</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            placeholder="username"
+          />
+          <label>Confirmation Code</label>
+          <input
+            type="text"
+            name="confirmationCode"
+            value={confirmationCode}
+            onChange={e => setConfirmationCode(e.target.value)}
+            placeholder="confirmation"
+          />
+          <button>Confirm</button>
+        </form>
+      </div>
     )
   } else {
     return (
       <div className="loginBody">
+        <img src={Logo} />
         <form className="loginForm" onSubmit={handleSignUp}>
           <label className="loginUsername">Username</label>
           <input

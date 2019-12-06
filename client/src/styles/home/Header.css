@@ -1,141 +1,82 @@
-/* .header-component-header {
+.header-component-header {
+  /* background: rgb(255, 210, 177); */
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background: #a5907e;
-  padding: 20px;
-}
-
-.header-component-title {
-  font-size: 50px;
-  font-family: cursive;
-  color: #f7dad9;
-} */
-/* 
-i.fa-book {
-  font-size: 100px;
-  color: #f7dad9;
-  text-shadow: #9e8b8b 4px 4px;
-}
-
-.header-component-social-media-icons {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.header-component-social-media-icons li {
-  padding: 5px;
-  width: 40px;
-  height: 40px;
-  display: flex;
+  margin: auto;
   justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  margin: 5px;
-  box-shadow: black 2px 2px 2px;
+  border-bottom: 5px solid rgb(239, 136, 63);
 }
-
-.header-component-social-media-icons li i {
-  font-size: 25px;
+/* .header-component-all {
+  margin-left: 30px;
+} */
+.logo {
+  width: 300px;
+  margin: 15px 25px;
 }
-
-.header-component-instagram-icon {
-  color: white;
-  background: #f09433;
-  background: -moz-linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  background: -webkit-linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+.header-component-social-media-icons {
+  display: flex;
+  justify-content: flex-end;
 }
-
-.header-component-facebook-icon {
-  background: #4267b2;
-  color: white;
-}
-
-.header-component-twitter-icon {
-  background: #1da1f2;
-  color: white;
-}
-
-.header-component-reddit-icon {
-  background: #ff4500;
-  color: white;
-}
-
-.header-component-description {
-  width: 200px;
-  color: #f7dad9;
-}
-
 .social-media-path {
-  text-decoration: none;
-  color: transparent;
+  margin: 10px 10px;
+  font-size: 25px;
+  color: rgb(67, 67, 67);
+}
+.social-media-path:hover {
+  transition: 0.1s ease-in-out;
+  color: rgb(239, 136, 63);
   cursor: pointer;
 }
-
-.header-component-login-button button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+.links-to-components {
+  display: flex;
+  border-top: rgb(239, 136, 63) 2px solid;
+  margin: 20px 0;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.header-component-create-recipe-button button {
-  position: absolute;
-  top: 40px;
-  right: 10px;
-  cursor: pointer;
+.header-component-login-button {
+  margin: 0px 12px;
 }
-
-.header-component-profile-button button {
-  position: absolute;
-  top: 70px;
-  right: 10px;
-  cursor: pointer;
+.header-component-recipe-button {
+  margin: 0 12px;
 }
-
-.header-component-singleRecipe-button button {
-  position: absolute;
-  top: 100px;
-  right: 10px;
-  cursor: pointer;
+.header-component-profile-button {
+  margin: 0 12px;
 }
-
-.header-component-multiRecipe-button button {
-  position: absolute;
-  top: 130px;
-  right: 10px;
-  cursor: pointer;
+.header-component-singleRecipe-button {
+  margin: 0 12px;
+}
+.header-component-mulitRecipe-button {
+  margin: 0 12px;
 }
 .header-component-home-button {
-  position: absolute;
-  top: 130px;
-  right: 20px;
-  cursor: pointer;
+  margin: 0 12px;
 }
+.lg {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 5px;
+}
+.lg:hover {
+  transition: 0.1s ease-in-out;
+  color: rgb(239, 136, 63);
+  text-decoration: underline;
+}
+.imageCarousel {
+  margin: auto;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* height: 800px; */
+  width: 80%;
+}
+.imageOfCarousel img {
+  /* height: 800px; */
+}
+
 i.fa-home {
   text-decoration: none;
   color: black;
@@ -221,3 +162,4 @@ i.fa-home {
 .imageOfCarousel img {
   /* height: 800px; */
 }
+

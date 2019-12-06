@@ -4,7 +4,8 @@ import Icon from "../../lib/Icon"
 import Logo from "../../Assets/Logo.png"
 import '../../styles/home/Header.css'
 
-const Header = props => {
+
+export default function Header(props) {
   return (
     <div>
       <header className="header-component-header">
@@ -104,5 +105,3 @@ const Header = props => {
     </div>
   )
 }
-
-export default Header

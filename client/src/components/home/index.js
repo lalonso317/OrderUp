@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "./Header"
 import RecipeGrid from "./Recipe-Grid"
+import UniversalFooter from "./universalFooter"
 import "../../styles/home/PublicHomePage.css"
 import burrito from "../../Assets/Burrito.jpeg"
 import fish from "../../Assets/Fish.jpeg"
@@ -19,6 +20,7 @@ const PublicHomePage = props => {
         link_reddit="https://www.reddit.com/"
         link_instagram="https://www.instagram.com/"
       />
+
       <Carousel className="imageCarousel" width="100%" infiniteLoop={true}>
         <div className="imageOfCarousel">
           <img src={burrito} alt="burrito" />
@@ -45,6 +47,12 @@ const PublicHomePage = props => {
         <button>View All Recipes</button>
       </Link>
       <div className="public-home-page-slider"></div>
+      <UniversalFooter
+        link_twitter="https://twitter.com/?lang=en"
+        link_facebook="https://www.facebook.com/"
+        link_reddit="https://www.reddit.com/"
+        link_instagram="https://www.instagram.com/"
+      />
     </div>
   )
 }
