@@ -16,9 +16,9 @@ const recipe = new mongoose.Schema({
   user: {
     type: Array
   },
-  RecipeImages: {
-    type: Array
-  }
+  RecipeImages: [
+    { url: String }
+  ]
 })
 
 module.exports = Recipe = mongoose.model("recipe", recipe)

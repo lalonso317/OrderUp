@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import Axios from "axios"
 
 const GET_SINGLE_RECIPE = "recipe-view/GET_SINGLE_RECIPE"
+const default_image = "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
 
 const initialState = {
   single_recipe: {}
@@ -30,7 +31,14 @@ const getSingleRecipe = recipeId => {
           directions: response.data[0].directions,
           private: response.data[0].isChecked,
           owner: response.data[0].user,
-          RecipeImages: response.data[0].RecipeImages
+          RecipeImages: response.data[0].RecipeImages.length
+            ? response.data[0].RecipeImages
+            : (response.data[0].RecipeImages = [
+                {
+                  url:
+                    default_image
+                }
+              ])
         }
         dispatch({
           type: GET_SINGLE_RECIPE,
@@ -45,7 +53,7 @@ const getSingleRecipe = recipeId => {
   }
 }
 
-export const useSingleRecipe = (recipeId) => {
+export const useSingleRecipe = recipeId => {
   const dispatch = useDispatch()
   const single_recipe = useSelector(
     appState => appState.singleRecipeState.single_recipe
@@ -55,5 +63,5 @@ export const useSingleRecipe = (recipeId) => {
     dispatch(getSingleRecipe(recipeId))
   }, [dispatch, recipeId])
 
-  return single_recipe
+  return {single_recipe, default_image}
 }
