@@ -1,8 +1,9 @@
 import React from "react"
 import Icon from "../../lib/Icon"
 import Logo from "../../Assets/Logo.png"
+import "../../styles/home/footer.css"
 
-export default function Footer(props) {
+const Footer = props => {
   return (
     <div>
       <div className="footer-component">
@@ -52,10 +53,12 @@ export default function Footer(props) {
         </aside>
         <div className="footer-component-logo">
           <p>&copy;</p>
-          <img className="logo" src={Logo} />
+          <img className="logo" src={Logo} alt="our company logo" />
           <p>&trade;</p>
         </div>
       </div>
     </div>
   )
 }
+
+export default Footer

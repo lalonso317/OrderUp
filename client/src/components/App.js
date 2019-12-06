@@ -18,16 +18,31 @@ import "../styles/profile/profilePage.css"
 import "../styles/login/signIn.css"
 import "../styles/recipe-view-css/recipe-single-view.css"
 import "../styles/recipe/create-recipe-viewpage.css"
-import "../styles/home/universal.css"
+import UniversalFooter from "./home/universalFooter"
+import Header from "./home/Header"
 
 const App = props => {
   return (
     <Router>
+      <Header
+        link_twitter="https://twitter.com/?lang=en"
+        link_facebook="https://www.facebook.com/"
+        link_reddit="https://www.reddit.com/"
+        link_instagram="https://www.instagram.com/"
+      />
       <Route exact path={"/"} component={PublicHomePage} />
-      <Route component={Toggle} />
-      <Route path={"/recipe-single-view"} component={ViewRecipeSingle} />
+      <Route path="/login" component={Toggle} />
+      <Route path="/create-your-recipe" component={CreateRecipeViewPage} />
+      <Route path={'/recipe/:id'} component={ViewRecipeSingle} />
+      {/* <Route path={"/recipe-single-view"} component={ViewRecipeSingle} /> */}
+      <Route path={"/profile-page"} component={UserProfileMain} />
       <Route path={"/all-recipes"} component={MultiRecipeLoader} />
-      <Route component={Protected}></Route>
+      <UniversalFooter
+        link_twitter="https://twitter.com/?lang=en"
+        link_facebook="https://www.facebook.com/"
+        link_reddit="https://www.reddit.com/"
+        link_instagram="https://www.instagram.com/"
+      />
     </Router>
   )
 }

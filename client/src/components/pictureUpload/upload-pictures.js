@@ -26,23 +26,23 @@ const ImageUploader = props => {
     newImage(imageObj)
     // newImage(image)
     setLoading(false)
-    axios
-      .get(
-        "https://823552378968951:5MPzBSf8gSXBnc05eWzFCmA4vwo@api.cloudinary.com/v1_1/dmmg147rn/resources/image"
-      )
-      .then(resp => {
-        setImageCollection(resp.data)
-      })
+    // axios
+    //   .get(
+    //     "https://823552378968951:5MPzBSf8gSXBnc05eWzFCmA4vwo@api.cloudinary.com/v1_1/dmmg147rn/resources/image"
+    //   )
+    //   .then(resp => {
+    //     setImageCollection(resp.data)
+    //   })
     // DownloadImage()
   }
-  const url =
-    "https://823552378968951:5MPzBSf8gSXBnc05eWzFCmA4vwo@api.cloudinary.com/v1_1/dmmg147rn/resources/image"
-  const DownloadImage = () => {
-    axios.post("/getImages", { url }).then(resp => {
-      console.log(resp.data)
-      setImageCollection(resp.data.resources)
-    })
-  }
+  // const url =
+  //   "https://823552378968951:5MPzBSf8gSXBnc05eWzFCmA4vwo@api.cloudinary.com/v1_1/dmmg147rn/resources/image"
+  // const DownloadImage = () => {
+  //   axios.post("/getImages", { url }).then(resp => {
+  //     console.log(resp.data)
+  //     setImageCollection(resp.data.resources)
+  //   })
+  // }
 
   console.log(image)
   return (
