@@ -1,15 +1,23 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import Burrito from "../../Assets/Burrito.jpeg"
+import Header from '../home/Header'
+
 const ViewRecipeSingle = props => {
   return (
     <div>
+       <Header
+        link_twitter="https://twitter.com/?lang=en"
+        link_facebook="https://www.facebook.com/"
+        link_reddit="https://www.reddit.com/"
+        link_instagram="https://www.instagram.com/"
+      />
       <div>Single Recipe Page</div>
       <div>
         <Link to={"/"}>
           <button>Back to Home</button>
         </Link>
-        <Link to={"/recipe-multi-view"}>
+        <Link to={"/all-recipes"}>
           <button>Back to Recipes</button>
         </Link>
       </div>
@@ -17,7 +25,7 @@ const ViewRecipeSingle = props => {
         <p className="single-recipe-title">Recipe Name</p>
         <p className="single-recipe-creator">Created by Recipe Creator</p>
         <div className="single-recipe-image">
-          <img src={Burrito} width="600px" />
+          <img src={Burrito} width="600px" alt="Burrito" />
         </div>
         <div className="single-recipe-ingredients">
           <p>Ingredients</p>

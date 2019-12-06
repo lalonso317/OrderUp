@@ -99,13 +99,16 @@ const getRecipes = () => {
         ingredients: array.fullRecipe.ingredients,
         directions: array.directions,
         private: array.isChecked,
-        owner: array.user
+        owner: array.user,
+        RecipeImages: array.RecipeImages
       }))
       dispatch({
         type: GET_RECIPES,
         payload: data
       })
-    })
+    }).catch(error => ({
+      message: error
+    }))
   }
 }
 // action to add images to recipeImages array in reducer

@@ -17,6 +17,9 @@ export default (state = initalState, action) => {
 }
 
 const showUser = username => {
+
+  const us = username
+
   return {
     type: GET_USER,
     payload: username
@@ -29,7 +32,7 @@ export const useUsers = () => {
   const create = username => dispatch(showUser(username))
 
   useEffect(() => {
-    create()
+    dispatch(create())
   }, [dispatch])
 
   return { user, create }

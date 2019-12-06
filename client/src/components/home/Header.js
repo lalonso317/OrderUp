@@ -2,13 +2,15 @@ import React from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import Logo from "../../Assets/Logo.png"
+import '../../styles/home/Header.css'
+
 
 export default function Header(props) {
   return (
     <div>
       <header className="header-component-header">
         <div className="header">
-          <img src={Logo} className="logo" />
+          <img src={Logo} className="logo" alt="Our company logo" />
         </div>
         <div className="header-component-all">
           {/* <h1 className="header-component-title">Cook Swap</h1> */}
@@ -93,9 +95,9 @@ export default function Header(props) {
             </Link>
             <Link
               className="header-component-multiRecipe-button"
-              to={"/recipe-multi-view"}
+              to={"/all-recipes"}
             >
-              <button className="lg">Multiple Recipes</button>
+              <button className="lg">All Recipes</button>
             </Link>
           </div>
         </div>

@@ -1,6 +1,7 @@
 .toggleMain {
   width: 100%;
   background: #ffffff;
+  margin-top: 100px;
 }
 .toggleLogin {
   display: flex;
