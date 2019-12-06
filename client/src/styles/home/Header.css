@@ -1,14 +1,14 @@
-.header-component-header {
-  /* background: rgb(255, 210, 177); */
+/* .header-component-header {
+  background: rgb(255, 210, 177);
   width: 100%;
   display: flex;
   margin: auto;
   justify-content: center;
   border-bottom: 5px solid rgb(239, 136, 63);
 }
-/* .header-component-all {
+.header-component-all {
   margin-left: 30px;
-} */
+}
 .logo {
   width: 300px;
   margin: 15px 25px;
@@ -70,18 +70,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* height: 800px; */
+  height: 800px;
   width: 80%;
 }
 .imageOfCarousel img {
-  /* height: 800px; */
+  height: 800px;
 }
 
 i.fa-home {
   text-decoration: none;
   color: black;
   font-size: 35px;
-} */
+}  */
 
 
 .header-component-header {
