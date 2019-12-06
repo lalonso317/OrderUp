@@ -60,7 +60,7 @@ const finalSubmitForRecipe = (
   fullRecipe,
   directions,
   isChecked,
-  user,
+  username,
   RecipeImages
 ) => {
   return dispatch => {
@@ -70,7 +70,7 @@ const finalSubmitForRecipe = (
         fullRecipe: { ingredients: fullRecipe },
         directions,
         isChecked,
-        user,
+        username,
         RecipeImages
       })
       .then(resp => {
@@ -140,7 +140,7 @@ export const useFullRecipe = () => {
     fullRecipe,
     directions,
     isChecked,
-    user,
+    username,
     RecipeImages
   ) =>
     dispatch(
@@ -149,7 +149,7 @@ export const useFullRecipe = () => {
         fullRecipe,
         directions,
         isChecked,
-        user,
+        username,
         RecipeImages
       )
     )

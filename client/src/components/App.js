@@ -3,11 +3,11 @@ import Toggle from "./login/toggle"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import "semantic-ui-css/semantic.min.css"
 import PublicHomePage from "./home/index"
-// import CreateRecipeViewPage from "./recipe/create-recipe-viewpage"
-// import UserProfileMain from "./profile/profilePage"
+import CreateRecipeViewPage from "./recipe/create-recipe-viewpage"
+import UserProfileMain from "./profile/profilePage"
 import ViewRecipeSingle from "./view-recipe/recipe-single-view"
 import MultiRecipeLoader from "./view-recipe/multi-recipe-loader"
-import Protected from "./routes/protectedRoutes"
+
 import "../styles/recipe/ings_and_meas.css"
 import "../styles/recipe/index.css"
 import "../styles/recipe/ingredient-list.css"
@@ -31,11 +31,10 @@ const App = props => {
         link_instagram="https://www.instagram.com/"
       />
       <Route exact path={"/"} component={PublicHomePage} />
-      <Route path="/login" component={Toggle} />
+      <Route component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />
-      <Route path={'/recipe/:id'} component={ViewRecipeSingle} />
-      {/* <Route path={"/recipe-single-view"} component={ViewRecipeSingle} /> */}
-      <Route path={"/profile-page"} component={UserProfileMain} />
+      <Route path="/profile-page" component={UserProfileMain} />
+      <Route path={"/recipe/:id"} component={ViewRecipeSingle} />
       <Route path={"/all-recipes"} component={MultiRecipeLoader} />
       <UniversalFooter
         link_twitter="https://twitter.com/?lang=en"

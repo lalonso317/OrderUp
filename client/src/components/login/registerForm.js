@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { usePosty } from "../../hooks"
-import Header from "../home/Header"
-import Footer from "../home/universalFooter"
 
 export default function Register(props) {
   const [username, SetUsername] = useState("")
@@ -20,7 +18,6 @@ export default function Register(props) {
   return (
     <div>
       <div className="wholereg">
-        <Header />
         <div className="formbackReg">
           <h2 className="textLogin">Register</h2>
           <form className="form" onSubmit={handleSubmit}>
@@ -62,7 +59,6 @@ export default function Register(props) {
             </button>
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   )

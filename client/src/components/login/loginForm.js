@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import { useAuth } from "../../hooks"
 import { Link } from "react-router-dom"
 import { ConsoleLogger } from "@aws-amplify/core"
-import Header from "../home/Header"
-import Footer from "../home/universalFooter"
 
 export default function Login(props) {
   const [username, setUsername] = useState("")
@@ -17,7 +15,7 @@ export default function Login(props) {
     signin(username, password)
       .then(() => {
         console.log(username, password)
-        props.history.push("/privateHome")
+        props.history.push("/")
       })
       .catch(e => {
         console.log("LOGIN ERROR - BAD PASSWORD")
@@ -29,7 +27,6 @@ export default function Login(props) {
   return (
     <div>
       <div className="formpage">
-        <Header />
         <div className="formback ">
           <p className="textLogin">Login</p>
           <form className="form" onSubmit={handleSubmit}>
@@ -64,7 +61,6 @@ export default function Login(props) {
             </button>
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   )
