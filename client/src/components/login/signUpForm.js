@@ -36,8 +36,7 @@ const CreateSignUp = props => {
   if (signedUp) {
     return (
       <div>
-        <img src={Logo} />
-        <form className="loginForm">
+        {/* <form className="loginForm">
           <label className="loginUsername">Username</label>
           <input
             type="text"
@@ -55,14 +54,13 @@ const CreateSignUp = props => {
             placeholder="confirmation"
           />
           <button>Confirm</button>
-        </form>
+        </form> */}
       </div>
     )
   } else {
     return (
       <div className="loginBody">
-        <img src={Logo} />
-        <form className="loginForm" onSubmit={handleSignUp}>
+        {/* <form className="loginForm" onSubmit={handleSignUp}>
           <label className="loginUsername">Username</label>
           <input
             className="inputLoginUsername"
@@ -93,7 +91,7 @@ const CreateSignUp = props => {
           <button className="signInButton" type="submit">
             Sign Up
           </button>
-        </form>
+        </form> */}
       </div>
     )
   }

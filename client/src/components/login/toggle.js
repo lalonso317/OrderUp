@@ -1,24 +1,16 @@
 import React, { useState } from "react"
-import CreateSignUp from "./signUpForm"
-import SignInForm from "./signInForm"
+import { Route, Switch } from "react-router-dom"
+import Login from "./loginForm"
+import Register from "./registerForm"
 
-const Toggle = props => {
-  const [userSignedup, setUserSignedUp] = useState(false)
-  const [log, setLog] = useState(false)
-
-  function handleToggle() {
-    setUserSignedUp(!userSignedup)
-    setLog(!log)
-  }
+const Toggle = () => {
   return (
-    <>
-      <div className="toggleMain">
-        {userSignedup ? <CreateSignUp /> : <SignInForm />}
-        <button className="toggleLogin" onClick={handleToggle}>
-          {!log ? "Click to Register" : "Click to Login"}
-        </button>
-      </div>
-    </>
+    <Route>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/Register" component={Register} />
+      </Switch>
+    </Route>
   )
 }
 

@@ -47,9 +47,9 @@ const ImageUploader = props => {
   console.log(image)
   return (
     <div>
-      <div>hello</div>
-      <h1>Upload Image</h1>
+      <p className="createTitle">Upload Image</p>
       <input
+        className="createRHRecipeInput"
         type="file"
         name="file"
         placeholder="Upload an image"
