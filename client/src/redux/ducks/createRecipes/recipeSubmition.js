@@ -88,29 +88,29 @@ const deleteIngredients = id => {
   }
 }
 
-const getRecipes = () => {
-  return dispatch => {
-    axios.get("/api/Recipe").then(response => {
-      const data = response.data.map(array => ({
-        recipe_id: array._id,
-        recipeTitle: array.recipeHeaderInfo.name,
-        recipeCategory: array.recipeHeaderInfo.category,
-        recipeDescription: array.recipeHeaderInfo.description,
-        ingredients: array.fullRecipe.ingredients,
-        directions: array.directions,
-        private: array.isChecked,
-        owner: array.user,
-        RecipeImages: array.RecipeImages
-      }))
-      dispatch({
-        type: GET_RECIPES,
-        payload: data
-      })
-    }).catch(error => ({
-      message: error
-    }))
-  }
-}
+// const getRecipes = () => {
+//   return dispatch => {
+//     axios.get("/api/Recipe").then(response => {
+//       const data = response.data.map(array => ({
+//         recipe_id: array._id,
+//         recipeTitle: array.recipeHeaderInfo.name,
+//         recipeCategory: array.recipeHeaderInfo.category,
+//         recipeDescription: array.recipeHeaderInfo.description,
+//         ingredients: array.fullRecipe.ingredients,
+//         directions: array.directions,
+//         private: array.isChecked,
+//         owner: array.user,
+//         RecipeImages: array.RecipeImages
+//       }))
+//       dispatch({
+//         type: GET_RECIPES,
+//         payload: data
+//       })
+//     }).catch(error => ({
+//       message: error
+//     }))
+//   }
+// }
 // action to add images to recipeImages array in reducer
 const addImages = url => {
   return {
@@ -128,7 +128,7 @@ export const useFullRecipe = () => {
   const recipeList = useSelector(
     appState => appState.fullRecipeState.recipeDone
   )
-  const allRecipes = useSelector(appState => appState.fullRecipeState.recipes)
+  // const allRecipes = useSelector(appState => appState.fullRecipeState.recipes)
   // function to send confirmed ingredient
   const finalIngredient = amount => dispatch(finalIngredients(amount))
 
@@ -159,16 +159,16 @@ export const useFullRecipe = () => {
     appState => appState.fullRecipeState.recipeImages
   )
 
-  useEffect(() => {
-    dispatch(getRecipes())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getRecipes())
+  // }, [dispatch])
 
   return {
     finalIngredient,
     fullRecipe,
     CreateRecipe,
     recipeList,
-    allRecipes,
+    // allRecipes,
     remove,
     newImage,
     RecipeImages

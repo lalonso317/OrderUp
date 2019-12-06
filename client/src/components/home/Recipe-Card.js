@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom'
 import "../../styles/home/Recipe-Card.css"
 
 const RecipeCard = props => {
@@ -30,14 +31,9 @@ const RecipeCard = props => {
         </div>
         <div className="recipe-card-bottom">
           <p className="recipe-card-description">{description}</p>
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="recipe-card-view-more"
-          >
+          <Link to={link} >
             View More -->
-          </a>
+          </Link>
         </div>
       </main>
     </div>
