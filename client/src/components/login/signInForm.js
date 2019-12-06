@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useUsers } from "../../hooks"
+import Logo from "../../Assets/Logo.png"
 import Amplify from "aws-amplify"
 import { Auth } from "aws-amplify"
 import awsmobile from "../../aws-exports"
@@ -36,6 +37,9 @@ const SignInForm = props => {
   } else {
     return (
       <div className="loginBody">
+        <div>
+          <img src={Logo} />
+        </div>
         <form onSubmit={handleSignIn}>
           <div className="loginForm">
             <label className="loginUsername">Username</label>
