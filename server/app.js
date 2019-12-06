@@ -5,7 +5,8 @@ const cors = require("cors")
 const ingredientsRouter = require("./protected/Full-Ingredients-List")
 const testCreateRecipeRouter = require("./protected/createRecipe")
 const recipeRouter = require("./routes/recipes")
-const protectedRouter = require("./routes/users")
+const loginRouter = require("./routes/login")
+const registerRouter = require("./routes/registration")
 const connectDb = require("./mongoDB")
 const config = require("config")
 const jwt = require("express-jwt")
@@ -17,7 +18,9 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use("/", ingredientsRouter)
 app.use("/", testCreateRecipeRouter)
-app.use("/", jwt({ secret: config.get("secret") }), protectedRouter)
+
+app.use("/", registerRouter)
+app.use("/", loginRouter)
 
 app.use("/", recipeRouter)
 

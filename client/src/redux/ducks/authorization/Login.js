@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 import jwt from "jsonwebtoken"
+import { ConsoleLogger } from "@aws-amplify/core"
 
 const LOGIN_PENDING = "auth/LOGIN_PENDING"
 const LOGIN_SUCCESS = "auth/LOGIN_SUCCESS"
@@ -9,25 +10,25 @@ const LOGOUT = "auth/LOGIN"
 
 async function checkAuth() {
   const token = window.localStorage.getItem("token")
-  const resp = await axios.post("/verify", token)
-
+  const resp = await axios.post("/login", token)
+  console.log(token)
   if (resp) {
     return {
-      username: jwt.decode(token).username,
+      pusername: jwt.decode(token).username,
       isAuthed: true
     }
   } else {
     return {
-      username: "",
+      pusername: "",
       isAuthed: false
     }
   }
 }
 
-const { username, isAuthed } = checkAuth()
+const { pusername, isAuthed } = checkAuth()
 
 const initalState = {
-  username: username,
+  username: pusername,
   isAuthenticated: isAuthed,
   loading: true
 }
@@ -55,11 +56,12 @@ export default (state = initalState, action) => {
 function login(username, password, dispatch) {
   return new Promise((resolve, reject) => {
     axios
-      .post("/api/Login", { username, password })
+      .post("/Login", { username, password })
       .then(resp => {
         axios.defaults.headers.common = {
           Authorization: `Bearer ${resp.data.token}`
         }
+
         window.localStorage.setItem("token", resp.data.token)
         dispatch({
           type: LOGIN_SUCCESS,
@@ -82,12 +84,12 @@ function logout() {
 }
 
 export function useAuth() {
+  const dispatch = useDispatch()
   const username = useSelector(appState => appState.authState.username)
   const isAuthenticated = useSelector(
     appState => appState.authState.isAuthenticated
   )
 
-  const dispatch = useDispatch()
   const signin = (username, password) => {
     dispatch({ type: LOGIN_PENDING })
     return login(username, password, dispatch)

@@ -64,30 +64,31 @@ function SubmitRecipeButton(props) {
 
   return (
     <>
-      <div className="fullRecipeForm">
-        <div>
-          <Header />
-        </div>
-        <form onSubmit={handleSubmit} className="createRecipeSubmitButtonForm">
-          <label className="createRHContainer">
-            <label className="createRHRecipeName">
-              <div className="createRHSubtitle">Create A Recipe</div>
-              <div>
-                <ImageUploader />
-              </div>
-              {/* this is the first part of the form to create a recipe */}
-              <div className="createRHRecipeTitle">
-                <p className="createTitle" htmlFor="title">
-                  Recipe Name
-                </p>
-                <input
-                  className="createRHRecipeInput"
-                  type="text"
-                  name="title"
-                  placeholder="My Recipe"
-                  onChange={e => setName(e.target.value)}
-                />
-              </div>
+      <div>
+        <Header />
+      </div>
+      <div className="createRHContainer">
+        <div className="createRHRecipeName">
+          <div className="createRHSubtitle">Create A Recipe</div>
+          <div>
+            <ImageUploader />
+          </div>
+          {/* this is the first part of the form to create a recipe */}
+          <div className="createRHRecipeTitle">
+            <form
+              onSubmit={handleSubmit}
+              className="createRecipeSubmitButtonForm"
+            >
+              <p className="createTitle" htmlFor="title">
+                Recipe Name
+              </p>
+              <input
+                className="createRHRecipeInput"
+                type="text"
+                name="title"
+                placeholder="My Recipe"
+                onChange={e => setName(e.target.value)}
+              />
               <div className="createRHRecipeCategory">
                 <p className="createTitle" htmlFor="Drowdown">
                   Category
@@ -108,29 +109,29 @@ function SubmitRecipeButton(props) {
                   placeholder="This recipe has been in my family for years..."
                 ></textarea>
               </div>
-            </label>
-          </label>
-          <div className="BottomHalfofPage">
-            <div className="middleofthePage">
-              <SetIngredients />
-              <RecipeDirections />
-            </div>
-            <div className="privacy">
-              <label className="labelPrivacy">Privacy</label>
-              <Switch
-                onChange={handleChange}
-                checked={isChecked}
-                offColor="#ff0000"
-                onColor="#108600"
-                value={isChecked}
-                className="privacySwitch"
-              />
-              <button className="finalSubmit" type="submit">
-                Create Recipe
-              </button>
-            </div>
+              <div className="BottomHalfofPage">
+                <div className="middleofthePage">
+                  <SetIngredients />
+                  <RecipeDirections />
+                </div>
+                <div className="privacy">
+                  <label className="labelPrivacy">Privacy</label>
+                  <Switch
+                    onChange={handleChange}
+                    checked={isChecked}
+                    offColor="#ff0000"
+                    onColor="#108600"
+                    value={isChecked}
+                    className="privacySwitch"
+                  />
+                  <button className="finalSubmit" type="submit">
+                    Create Recipe
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
       <Footer />
     </>

@@ -3,8 +3,15 @@ import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import Logo from "../../Assets/Logo.png"
 import "../../styles/home/Header.css"
+import { useAuth } from "../../hooks"
 
-export default function Header(props) {
+export default function PrivateHeader(props) {
+  const { signout, username, isAuthenticated } = useAuth()
+
+  const handleSignOut = e => {
+    signout()
+  }
+
   return (
     <div>
       <header className="header-component-header">
@@ -56,6 +63,10 @@ export default function Header(props) {
                   <Icon icon="reddit" />
                 </div>
               </a>
+              <h3>{username}</h3>
+              <Link to={"/"}>
+                <button onClick={e => handleSignOut(e)}>Sign Out</button>
+              </Link>
             </div>
           </aside>
           <div className="header-component-description">
@@ -66,13 +77,25 @@ export default function Header(props) {
             </p>
           </div>
           <div className="links-to-components">
-            <Link to="/" className="header-component-home-button">
+            <Link to="/privateHome" className="header-component-home-button">
               <p className="social-media-path">
                 <Icon icon="home" />
               </p>
             </Link>
-            <Link to="/login" className="header-component-login-button">
+            {/* <Link to="/login" className="header-component-login-button">
               <button className="lg">Login/Register</button>
+            </Link> */}
+            <Link
+              to="/create-your-recipe"
+              className="header-component-create-recipe-button"
+            >
+              <button className="lg">Create A Recipe</button>
+            </Link>
+            <Link
+              to="/profile-page"
+              className="header-component-profile-button"
+            >
+              <button className="lg">My Profile</button>
             </Link>
             <Link
               className="header-component-singleRecipe-button"

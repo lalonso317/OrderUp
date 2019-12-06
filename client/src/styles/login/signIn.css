@@ -1,66 +1,66 @@
-.toggleMain {
-  width: 100%;
-  background: #ffffff;
-  margin-top: 100px;
-}
-.toggleLogin {
+.formback {
+  width: 50%;
+  margin: auto;
   display: flex;
   justify-content: center;
+  background: rgb(252, 174, 118);
+  height: 360px;
+  margin-top: 25px;
+  margin-bottom: 65px;
+  flex-direction: column;
+}
+.formbackReg {
+  width: 50%;
   margin: auto;
-  width: 300px;
-  height: 40px;
-  background: none;
-  font-size: 20px;
-  margin-bottom: 10px;
-  outline: none;
-  cursor: pointer;
-  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  background: rgb(252, 174, 118);
+  height: 400px;
+  margin-top: 25px;
+  margin-bottom: 65px;
+  flex-direction: column;
 }
-.toggleLogin:active {
-  border: 2px solid rgb(252, 174, 118);
-}
-.loginForm {
+.form {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 60%;
   margin: auto;
-  color: black;
-  text-align: center;
   align-content: center;
   justify-content: center;
-  border: 1px solid;
-  height: 400px;
 }
-.loginUsername {
-  font-size: 24px;
-  margin: 20px 0 0;
-}
-.inputLoginUsername {
-  margin: auto;
+.user,
+.pass {
+  margin: 15px;
+  height: 45px;
   text-align: center;
+  font-size: 25px;
   outline: none;
-  background: none;
-  border: 1px solid black;
-  height: 40px;
-  width: 60%;
-  font-size: 18px;
-  padding: 10px;
 }
-.inputLoginUsername:hover {
-  color: black;
+.sub {
+  height: 45px;
+  margin: 15px;
+
   background: white;
-}
-.signInButton {
-  margin: auto;
-  margin-bottom: 65px;
-  width: 200px;
-  height: 40px;
-  background: none;
-  font-size: 20px;
   cursor: pointer;
+  font-size: 20px;
 }
-.signInButton:hover {
+.textLogin {
+  text-align: center;
+  font-size: 30px;
+  padding: 15px;
+  margin: 0;
 }
-.loginLogo {
-  width: 200px;
+.newuser {
+  widows: 100%;
+  margin: auto;
+  display: flex;
+}
+.areyou {
+  font-size: 18px;
+  margin-right: 5px;
+}
+.clickhere {
+  cursor: pointer;
+  height: 25px;
+  color: black;
 }

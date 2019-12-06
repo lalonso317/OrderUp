@@ -1,6 +1,8 @@
 import React, { useState } from "react"
-// import { Link, Redirect } from 'react-router-dom'
+import { Link } from "react-router-dom"
 import { usePosty } from "../../hooks"
+import Header from "../home/Header"
+import Footer from "../home/universalFooter"
 
 export default function Register(props) {
   const [username, SetUsername] = useState("")
@@ -12,44 +14,55 @@ export default function Register(props) {
     e.preventDefault()
 
     create(username, email, password).then(() => {
-      props.history.push("/")
+      props.history.push("/Login")
     })
   }
   return (
     <div>
       <div className="wholereg">
-        <div className="reg">
-          <h2 className="regs">Register</h2>
-        </div>
-        <div className="reginput">
-          <form className="regform" onSubmit={handleSubmit}>
+        <Header />
+        <div className="formbackReg">
+          <h2 className="textLogin">Register</h2>
+          <form className="form" onSubmit={handleSubmit}>
             <input
-              className="reguser"
+              className="user"
               type="text"
               placeholder="username"
+              required
               value={username}
               onChange={e => SetUsername(e.target.value)}
             ></input>
             <input
-              className="regUser"
-              type="text"
+              className="pass"
+              type="email"
               placeholder="email"
+              required
               value={email}
               onChange={e => SetEmail(e.target.value)}
             ></input>
             <input
-              className="regpass"
-              type="text"
+              className="pass"
+              type="password"
               placeholder="password"
+              required
               value={password}
               onChange={e => SetPassword(e.target.value)}
             ></input>
-            <button className="regsub" type="submit">
+            <button className="sub" type="submit">
               {" "}
               Submit
             </button>
           </form>
+          <div className="newuser">
+            <p className="areyou">Already a user, Login &#8594;</p>
+            <button className="clickhere">
+              <Link to={"/Login"}>
+                <p className="clickhere">Click here </p>
+              </Link>
+            </button>
+          </div>
         </div>
+        <Footer />
       </div>
     </div>
   )

@@ -18,12 +18,11 @@ export default (state = initalState, action) => {
 function postUser(username, email, password, dispatch) {
   return new Promise((resolve, reject) => {
     axios
-      .post("/api/Register", { username, email, password })
+      .post("/Register", { username, email, password })
       .then(resp => {
         console.log(username, email, password)
         dispatch({
-          type: CREATE_USER,
-          payload: resp.data
+          type: CREATE_USER
         })
         resolve()
       })
