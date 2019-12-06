@@ -1,6 +1,6 @@
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100) NOT NULL ,
+  username VARCHAR(100) NOT NULL ,
   email VARCHAR(100) NOT NULL ,
   password VARCHAR(128) NOT NULL,
   salt VARCHAR(100)
@@ -23,3 +23,4 @@ CREATE TABLE ingredients (
   recipe_id INT,
   CONSTRAINT fk_recipe FOREIGN KEY (recipe_id) REFERENCES recipes(id)
 );
+
