@@ -60,7 +60,8 @@ const finalSubmitForRecipe = (
   fullRecipe,
   directions,
   isChecked,
-  user
+  user,
+  RecipeImages
 ) => {
   return dispatch => {
     axios
@@ -69,7 +70,8 @@ const finalSubmitForRecipe = (
         fullRecipe: { ingredients: fullRecipe },
         directions,
         isChecked,
-        user
+        user,
+        RecipeImages
       })
       .then(resp => {
         console.log(resp.data)
@@ -114,13 +116,16 @@ const getRecipes = () => {
         ingredients: array.fullRecipe.ingredients,
         directions: array.directions,
         private: array.isChecked,
-        owner: array.user
+        owner: array.user,
+        RecipeImages: array.RecipeImages
       }))
       dispatch({
         type: GET_RECIPES,
         payload: data
       })
-    })
+    }).catch(error => ({
+      message: error
+    }))
   }
 }
 // action to add images to recipeImages array in reducer
@@ -152,7 +157,8 @@ export const useFullRecipe = () => {
     fullRecipe,
     directions,
     isChecked,
-    user
+    user,
+    RecipeImages
   ) =>
     dispatch(
       finalSubmitForRecipe(
@@ -160,7 +166,8 @@ export const useFullRecipe = () => {
         fullRecipe,
         directions,
         isChecked,
-        user
+        user,
+        RecipeImages
       )
     )
   //function to be called by the image uploader to provide the created URL's for the recipe images
