@@ -3,8 +3,13 @@ import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import Logo from "../../Assets/Logo.png"
 import "../../styles/home/Header.css"
+import { useAuth } from "../../hooks/index"
 
 export default function Header(props) {
+  const { isAuthenticated, signout } = useAuth()
+  const handleSignOut = e => {
+    signout()
+  }
   return (
     <div>
       <header className="header-component-header">
@@ -12,8 +17,6 @@ export default function Header(props) {
           <img src={Logo} className="logo" alt="Our company logo" />
         </div>
         <div className="header-component-all">
-          {/* <h1 className="header-component-title">Cook Swap</h1> */}
-          {/* <Icon icon="book" /> */}
           <aside className="header-component-social-links">
             <div className="header-component-social-media-icons">
               <a
@@ -56,6 +59,11 @@ export default function Header(props) {
                   <Icon icon="reddit" />
                 </div>
               </a>
+              {isAuthenticated ? (
+                <button onClick={e => handleSignOut(e)}>Sign Out</button>
+              ) : (
+                ""
+              )}
             </div>
           </aside>
           <div className="header-component-description">
@@ -74,12 +82,26 @@ export default function Header(props) {
             <Link to="/login" className="header-component-login-button">
               <button className="lg">Login/Register</button>
             </Link>
-            <Link
-              className="header-component-singleRecipe-button"
-              to={"/recipe-single-view"}
-            >
-              <button className="lg">Single Recipe</button>
-            </Link>
+
+            {isAuthenticated ? (
+              <>
+                <Link
+                  to="/create-your-recipe"
+                  className="header-component-create-recipe-button"
+                >
+                  <button className="lg">Create A Recipe</button>
+                </Link>
+                <Link
+                  to="/profile-page"
+                  className="header-component-profile-button"
+                >
+                  <button className="lg">My Profile</button>
+                </Link>{" "}
+              </>
+            ) : (
+              " "
+            )}
+
             <Link
               className="header-component-multiRecipe-button"
               to={"/all-recipes"}

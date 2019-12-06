@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useFullRecipe, useDirections, useUsers } from "../../hooks"
 import Switch from "react-switch"
+import { useAuth } from "../../hooks"
 
 import RecipeDirections from "./createRecipe-Directions"
 import SetIngredients from "./recipe-List"
@@ -10,9 +11,6 @@ import "semantic-ui-css/semantic.min.css"
 import { Link } from "react-router-dom"
 import ImageUploader from "../pictureUpload/upload-pictures"
 
-import Logo from "../../Assets/Logo.png"
-import Header from "../home/Header"
-import Footer from "../home/universalFooter"
 function SubmitRecipeButton(props) {
   const options = [
     { value: "african", text: "African" },
@@ -31,7 +29,7 @@ function SubmitRecipeButton(props) {
   const { fullRecipe, CreateRecipe, recipeList, RecipeImages } = useFullRecipe()
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions } = useDirections()
-  const { user } = useUsers()
+  const { username } = useAuth()
   const [isChecked, setIsChecked] = useState(false)
 
   function handleSubmit(e) {
@@ -42,7 +40,7 @@ function SubmitRecipeButton(props) {
       fullRecipe,
       directions,
       isChecked,
-      user,
+      username,
       RecipeImages
     )
   }
@@ -64,9 +62,7 @@ function SubmitRecipeButton(props) {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
+      <div></div>
       <div className="createRHContainer">
         <div className="createRHRecipeName">
           <div className="createRHSubtitle">Create A Recipe</div>
@@ -133,7 +129,6 @@ function SubmitRecipeButton(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   )
 }
