@@ -1,34 +1,44 @@
 import React from "react"
 import "../../styles/recipe/multi-recipe-view-page.css"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 const MultiRecipeViewPage = props => {
+  console.log(props.recipeArray)
   return (
     <div className="multi-recipe-view-page-container">
       <h1 className="multi-recipe-view-page-title">Recipes</h1>
       <hr />
-      <dl className="multi-recipe-view-page-details">
+      <div className="multi-recipe-view-page-details">
         {props.recipeArray.map((recipe, i) => (
-          <>
-            <dt
-              key={`recipe-${recipe.recipeTitle}-${i}`}
-              className="multi-recipe-view-page-recipe-name"
-            >
+          <div
+            key={`recipe-${recipe.recipeTitle}-${recipe.recipe_id}`}
+            className="multi-recipe-view-page-layout-container"
+          >
+            <div>
+              <img src="" alt="food" width="300px" height="300px" />
+            </div>
+            <div className="multi-recipe-title-container">
               <Link to={`/recipe/${recipe.recipe_id}`}>
-                <h3>{recipe.recipeTitle}</h3>
+                <div className="multi-recipe-view-page-titles">
+                  {recipe.recipeTitle}
+                </div>
               </Link>
-            </dt>
-            <dd>Description: {recipe.recipeDescription}</dd>
-            <br />
-            <dd
-              key={`recipe-user-guy-${i}`}
-              className="multi-recipe-view-page-recipe-user"
-            >
-              by: <span className="multi-recipe-view-page-recipe-user-span">guy</span>
-            </dd>
-          </>
+              <div className="multi-recipe-view-page-category-container">
+                <div className="multi-recipe-view-page-category-label">
+                  Category&ensp;-
+                  <span>{recipe.recipeCategory}</span>
+                </div>
+              </div>
+              <div className="multi-recipe-view-page-description-container">
+                <div className="m-r-v-p-d-label">Description</div>
+                <div className="m-r-v-p-description">
+                  &emsp;{recipe.recipeDescription}
+                </div>
+              </div>
+            </div>
+          </div>
         ))}
-      </dl>
+      </div>
     </div>
   )
 }
