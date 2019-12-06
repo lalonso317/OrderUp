@@ -60,7 +60,8 @@ const finalSubmitForRecipe = (
   fullRecipe,
   directions,
   isChecked,
-  user
+  user,
+  RecipeImages
 ) => {
   return dispatch => {
     axios
@@ -69,24 +70,10 @@ const finalSubmitForRecipe = (
         fullRecipe: { ingredients: fullRecipe },
         directions,
         isChecked,
-        user
+        user,
+        RecipeImages
       })
       .then(resp => {
-        console.log(resp.data)
-        // const submittedRecipe = {
-        //   name: resp.data.recipeName[0].name,
-        //   category: resp.data.recipeName[0].category,
-        //   description: resp.data.recipeName[0].description,
-        //   ingredientNames: resp.data.recipeName[1].map(item => {
-        //     return { name: item.ingredientName, measurement: item.measurement }
-        //   }),
-        //   directions: resp.data.recipeName[2].map(item => {
-        //     return { direction: item.step }
-        //   }),
-        //   privacy: resp.data.recipeName[3],
-        //   user: resp.data.recipeName[4]
-        // }
-        // console.log(submittedRecipe)
         dispatch({
           type: SUBMITTED_FULL_RECIPE,
           payload: resp.data
@@ -95,7 +82,6 @@ const finalSubmitForRecipe = (
   }
 }
 const deleteIngredients = id => {
-  console.log(id)
   return {
     type: DELETE_INGREDIENT,
     payload: id
@@ -105,7 +91,6 @@ const deleteIngredients = id => {
 const getRecipes = () => {
   return dispatch => {
     axios.get("/api/Recipe").then(response => {
-      
       const data = response.data.map(array => ({
         recipe_id: array._id,
         recipeTitle: array.recipeHeaderInfo.name,
@@ -152,7 +137,8 @@ export const useFullRecipe = () => {
     fullRecipe,
     directions,
     isChecked,
-    user
+    user,
+    RecipeImages
   ) =>
     dispatch(
       finalSubmitForRecipe(
@@ -160,7 +146,8 @@ export const useFullRecipe = () => {
         fullRecipe,
         directions,
         isChecked,
-        user
+        user,
+        RecipeImages
       )
     )
   //function to be called by the image uploader to provide the created URL's for the recipe images
@@ -173,7 +160,6 @@ export const useFullRecipe = () => {
     dispatch(getRecipes())
   }, [dispatch])
 
-
   return {
     finalIngredient,
     fullRecipe,
@@ -183,7 +169,20 @@ export const useFullRecipe = () => {
     remove,
     newImage,
     RecipeImages
-    
   }
-
 }
+
+// const submittedRecipe = {
+//   name: resp.data.recipeName[0].name,
+//   category: resp.data.recipeName[0].category,
+//   description: resp.data.recipeName[0].description,
+//   ingredientNames: resp.data.recipeName[1].map(item => {
+//     return { name: item.ingredientName, measurement: item.measurement }
+//   }),
+//   directions: resp.data.recipeName[2].map(item => {
+//     return { direction: item.step }
+//   }),
+//   privacy: resp.data.recipeName[3],
+//   user: resp.data.recipeName[4]
+// }
+// console.log(submittedRecipe)
