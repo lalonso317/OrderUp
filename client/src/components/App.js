@@ -33,7 +33,8 @@ const App = props => {
       <Route exact path={"/"} component={PublicHomePage} />
       <Route path="/login" component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />
-      <Route path={"/recipe-single-view"} component={ViewRecipeSingle} />
+      <Route path={'/recipe/:id'} component={ViewRecipeSingle} />
+      {/* <Route path={"/recipe-single-view"} component={ViewRecipeSingle} /> */}
       <Route path={"/profile-page"} component={UserProfileMain} />
       <Route path={"/all-recipes"} component={MultiRecipeLoader} />
       <UniversalFooter

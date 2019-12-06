@@ -3,3 +3,5 @@ export { default as createRecipeHeaderState } from "./createRecipes/createRecipe
 export { default as directionState } from "./createRecipes/createRecipeDirection"
 export { default as fullRecipeState } from "./createRecipes/recipeSubmition"
 export { default as userState } from "./authorization/index"
+export { default as singleRecipeState } from './viewSingleRecipe'
+export { default as allRecipeState } from './viewRecipes'
