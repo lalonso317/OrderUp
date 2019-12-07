@@ -30,7 +30,9 @@ function SubmitRecipeButton(props) {
   const { fullRecipe, CreateRecipe, recipeList, RecipeImages } = useFullRecipe()
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions } = useDirections()
+  
   const { username } = useAuth()
+  console.log(username)
   const [isChecked, setIsChecked] = useState(false)
 
   function handleSubmit(e) {

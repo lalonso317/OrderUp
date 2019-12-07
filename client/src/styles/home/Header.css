@@ -80,6 +80,7 @@
 .imageOfCarousel img {
   /* height: 800px; */
 }
+
 .stickyLogo {
   width: 100px;
 }
@@ -114,4 +115,27 @@
   transition: 0.1s ease-in-out;
   color: white;
   text-decoration: underline;
+
+
+.header-component-sign-out-button {
+  background: #ef883f;
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 1em;
+  color: black;
+  box-shadow: 1px 1px 1px black;
+  cursor: pointer;
+  outline: none;
+  transition: ease-in-out 0.2s;
+  height: 30px;
+  justify-content: center;
+}
+
+.header-component-sign-out-button:hover {
+  color: white;
+}
+
+.header-component-social-media-icons{
+  display: flex;
+  align-items: center;
 }
