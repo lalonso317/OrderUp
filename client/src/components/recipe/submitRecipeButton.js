@@ -66,15 +66,15 @@ function SubmitRecipeButton(props) {
       <div className="createRHContainer">
         <div className="createRHRecipeName">
           <div className="createRHSubtitle">Create A Recipe</div>
-          <div>
-            <ImageUploader />
-          </div>
           {/* this is the first part of the form to create a recipe */}
           <div className="createRHRecipeTitle">
             <form
               onSubmit={handleSubmit}
               className="createRecipeSubmitButtonForm"
             >
+              <button className="finalSubmit" type="submit">
+                Create Recipe
+              </button>
               <p className="createTitle" htmlFor="title">
                 Recipe Name
               </p>
@@ -97,8 +97,10 @@ function SubmitRecipeButton(props) {
                   onChange={handleInputChange}
                 />
               </div>
+              <div className="createTitle">
+                <label className="createTitle">Description</label>
+              </div>
               <div className="createRHRecipeDescription">
-                <label className="createTitle">Desciption</label>
                 <textarea
                   onChange={e => setDescription(e.target.value)}
                   className="CRHRdescription"
@@ -106,26 +108,26 @@ function SubmitRecipeButton(props) {
                 ></textarea>
               </div>
               <div className="BottomHalfofPage">
-                <div className="middleofthePage">
-                  <SetIngredients />
-                  <RecipeDirections />
-                </div>
-                <div className="privacy">
-                  <label className="labelPrivacy">Privacy</label>
-                  <Switch
-                    onChange={handleChange}
-                    checked={isChecked}
-                    offColor="#ff0000"
-                    onColor="#108600"
-                    value={isChecked}
-                    className="privacySwitch"
-                  />
-                  <button className="finalSubmit" type="submit">
-                    Create Recipe
-                  </button>
-                </div>
+                <div className="middleofthePage"></div>
+                <div className="privacy"></div>
               </div>
             </form>
+            <SetIngredients />
+            <RecipeDirections />
+            <label className="labelPrivacy">Privacy</label>
+            <div className="privacySwitch">
+              <Switch
+                onChange={handleChange}
+                checked={isChecked}
+                offColor="#ff0000"
+                onColor="#108600"
+                value={isChecked}
+                className="privacySwitch"
+              />
+            </div>
+            <div>
+              <ImageUploader />
+            </div>
           </div>
         </div>
       </div>

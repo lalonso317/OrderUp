@@ -7,6 +7,8 @@ const ImageUploader = props => {
   const [loading, setLoading] = useState("")
   const [imageCollection, setImageCollection] = useState([])
   console.log("this is the url array...", RecipeImages)
+
+  //function to upload images
   const uploadImage = async e => {
     const files = e.target.files
     const data = new FormData()
@@ -24,7 +26,6 @@ const ImageUploader = props => {
     const file = await res.json()
     const imageObj = { url: file.secure_url }
     newImage(imageObj)
-    // newImage(image)
     setLoading(false)
     // axios
     //   .get(
@@ -35,6 +36,8 @@ const ImageUploader = props => {
     //   })
     // DownloadImage()
   }
+
+  // function to call the cloudinary database to get all picture URLs
   // const url =
   //   "https://823552378968951:5MPzBSf8gSXBnc05eWzFCmA4vwo@api.cloudinary.com/v1_1/dmmg147rn/resources/image"
   // const DownloadImage = () => {
@@ -46,8 +49,8 @@ const ImageUploader = props => {
 
   console.log(image)
   return (
-    <div>
-      <p className="createTitle">Upload Image</p>
+    <div className="submit-recipe-ipload-button">
+      <div className="createTitle">Upload Image</div>
       <input
         className="createRHRecipeInput"
         type="file"
@@ -60,12 +63,12 @@ const ImageUploader = props => {
       ) : (
         <div>
           {/* <img src={image} style={{ width: "300px" }} /> */}
-          {imageCollection.map((image, i) => {
+          {RecipeImages.map((image, i) => {
             return (
               <img
                 key={image.public_id}
                 src={image.url}
-                style={{ width: "300px" }}
+                style={{ width: "50px" }}
               />
             )
           })}
