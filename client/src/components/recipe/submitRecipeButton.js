@@ -19,7 +19,8 @@ function SubmitRecipeButton(props) {
     { value: "central-american", text: "Central American" },
     { value: "european", text: "European" },
     { value: "north-america", text: "North American" },
-    { value: "south-america", text: "South American" }
+    { value: "south-america", text: "South American" },
+    { value: "entree", text: "Entree" }
   ]
 
   const [name, setName] = useState("")
@@ -29,7 +30,9 @@ function SubmitRecipeButton(props) {
   const { fullRecipe, CreateRecipe, recipeList, RecipeImages } = useFullRecipe()
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions } = useDirections()
+  
   const { username } = useAuth()
+  console.log(username)
   const [isChecked, setIsChecked] = useState(false)
 
   function handleSubmit(e) {
@@ -43,6 +46,7 @@ function SubmitRecipeButton(props) {
       username,
       RecipeImages
     )
+    console.log(username)
   }
 
   const handleChange = () => {

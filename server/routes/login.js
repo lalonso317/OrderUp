@@ -4,11 +4,15 @@ const uuid = require("uuid/v4")
 const sha512 = require("js-sha512")
 const jwt = require("jsonwebtoken")
 const config = require("config")
+const { check, validationResult } = require("express-validator")
 
 router.post("/Login", (req, res, next) => {
   const username = req.body.username
   let password = req.body.password
 
+  check(username).isAlphanumeric
+  const errors = validationResult(req)
+ 
   db.query(
     "SELECT salt FROM users WHERE username = ?",
     [username],
@@ -28,7 +32,8 @@ router.post("/Login", (req, res, next) => {
             })
           } else {
             res.status(401).json({
-              message: "Username or Password are incorrect"
+              message: "Username or Password are incorrect",
+              error: errors
             })
           }
         })

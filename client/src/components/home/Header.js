@@ -12,6 +12,49 @@ export default function Header(props) {
   }
   return (
     <div>
+      <header className="underNavbar">
+        <img src={Logo} className="stickyLogo" alt="Our company logo" />
+        <Link to="/" className="header-component-home-button">
+          <p className="lg-u-u">
+            <Icon icon="home" />
+          </p>
+        </Link>
+        {isAuthenticated ? (
+          ""
+        ) : (
+          <>
+            <Link to="/login" className="header-component-login-button">
+              <button className="lg-u">Login/Register</button>
+            </Link>
+          </>
+        )}
+        {isAuthenticated ? (
+          <>
+            <Link
+              to="/create-your-recipe"
+              className="header-component-create-recipe-button"
+            >
+              <button className="lg-u">Create A Recipe</button>
+            </Link>
+            <Link
+              to="/profile-page"
+              className="header-component-profile-button"
+            >
+              <button className="lg-u">My Profile</button>
+            </Link>{" "}
+          </>
+        ) : (
+          " "
+        )}
+
+        <Link
+          className="header-component-multiRecipe-button"
+          to={"/all-recipes"}
+        >
+          <button className="lg-u">All Recipes</button>
+        </Link>
+      </header>
+
       <header className="header-component-header">
         <div className="header">
           <img src={Logo} className="logo" alt="Our company logo" />
@@ -60,7 +103,7 @@ export default function Header(props) {
                 </div>
               </a>
               {isAuthenticated ? (
-                <button onClick={e => handleSignOut(e)}>Sign Out</button>
+                <button onClick={e => handleSignOut(e)} className="header-component-sign-out-button">Sign Out</button>
               ) : (
                 ""
               )}
@@ -68,9 +111,9 @@ export default function Header(props) {
           </aside>
           <div className="header-component-description">
             <p>
-              Hello and welcome to Cook Swap!!!! We are an all around recipe
-              management site. With our services you will be able to view,
-              share, and even create your own recipes.
+              Welcome to OrderUp. We are an all around recipe management site.
+              With our services you will be able to view, share, and even create
+              your own recipes. Do not forget to create an account it's free!
             </p>
           </div>
           <div className="links-to-components">
@@ -79,9 +122,15 @@ export default function Header(props) {
                 <Icon icon="home" />
               </p>
             </Link>
-            <Link to="/login" className="header-component-login-button">
-              <button className="lg">Login/Register</button>
-            </Link>
+            {!isAuthenticated ? (
+              <>
+                <Link to="/login" className="header-component-login-button">
+                  <button className="lg">Login/Register</button>
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
 
             {isAuthenticated ? (
               <>

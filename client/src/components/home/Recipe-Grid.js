@@ -21,12 +21,12 @@ const RecipeGrid = props => {
         sunt autem, nihil explicabo omnis expedita quae pariatur! Delectus
         ad in eligendi deleniti. Itaque, delectus perferendis."
       /> */}
-      {all_recipes.slice(0,6).map(recipe => (
+      {all_recipes.slice(0, 6).map(recipe => (
         <RecipeCard
           recipe_link={`/recipe/${recipe.recipe_id}`}
-          image_source="http://placehold.it/200/200"
+          image_source={recipe.RecipeImages[0].url}
           recipe_rating="3.54/5"
-          username = "Ryan Lee"
+          username="Ryan Lee"
           recipe_title={recipe.recipeTitle}
           recipe_description={recipe.recipeDescription}
         />
