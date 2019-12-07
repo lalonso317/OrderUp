@@ -1,8 +1,11 @@
 import React from "react"
 import Burrito from "../../Assets/Burrito.jpeg"
-import { Link } from "react-router-dom"
+import { Redirect } from "react-router-dom"
+import { useAuth } from "../../hooks"
+
 const UserProfileMain = props => {
-  return (
+  const { isAuthenticated } = useAuth()
+  return isAuthenticated ? (
     <div className="profile-page-container">
       <div className="profile-page-to-home-button"></div>
       <br />
@@ -17,6 +20,8 @@ const UserProfileMain = props => {
         <div className="MakeUpUserAbout">User About Me</div>
       </div>
     </div>
+  ) : (
+    <Redirect to="/" />
   )
 }
 

@@ -1,22 +1,18 @@
 import React from "react"
-import CreateRecipeHeader from "./create_recipe_header"
-import IngredientList from "./ingredient-list"
-import IngredientsAndMeasurements from "./ingredients_and_measurements"
-import RecipeDirections from "./createRecipe-Directions"
-import SetIngredients from "./recipe-List"
 import SubmitRecipeButton from "./submitRecipeButton"
 import "../../styles/recipe/create-recipe-viewpage.css"
+import { useAuth } from "../../hooks"
+import { Redirect } from "react-router-dom"
 
 const CreateRecipeViewPage = props => {
-  return (
+  const { username, isAuthenticated } = useAuth()
+  console.log("user from create recipe view page ===========>>>", username)
+  return isAuthenticated ? (
     <div className="create-recipe-viewpage-container">
       <SubmitRecipeButton />
-      {/* <CreateRecipeHeader />
-      <div className="create-recipe-viewpage-ingredient-selection">
-        <SetIngredients />
-        <RecipeDirections />
-      </div> */}
     </div>
+  ) : (
+    <Redirect to="/" />
   )
 }
 
