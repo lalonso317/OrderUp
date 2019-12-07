@@ -1,14 +1,14 @@
 .header-component-header {
-  /* background: rgb(255, 210, 177); */
   width: 100%;
   display: flex;
   margin: auto;
   justify-content: center;
   border-bottom: 5px solid rgb(239, 136, 63);
+  position: relative;
+  z-index: 15;
+  background: white;
 }
-/* .header-component-all {
-  margin-left: 30px;
-} */
+
 .logo {
   width: 300px;
   margin: 15px 25px;
@@ -32,7 +32,11 @@
   border-top: rgb(239, 136, 63) 2px solid;
   margin: 20px 0;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  /* position: fixed;
+  z-index: 15;
+  width: 70%;
+  background: white; */
 }
 .header-component-login-button {
   margin: 0px 12px;
@@ -76,6 +80,42 @@
 .imageOfCarousel img {
   /* height: 800px; */
 }
+
+.stickyLogo {
+  width: 100px;
+}
+.underNavbar {
+  z-index: 0;
+  position: fixed;
+  background: rgb(239, 136, 63);
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+}
+.lg-u {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 5px;
+  color: black;
+}
+.lg-u-u {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 24px;
+  margin-top: 5px;
+  color: black;
+}
+.lg-u:hover,
+.lg-u-u:hover {
+  transition: 0.1s ease-in-out;
+  color: white;
+  text-decoration: underline;
+
 
 .header-component-sign-out-button {
   background: #ef883f;

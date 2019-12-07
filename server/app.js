@@ -24,7 +24,10 @@ app.use("/", testCreateRecipeRouter)
 
 app.use("/", registerRouter)
 app.use("/", loginRouter)
-app.use("/", jwt({ secret: config.get("secret") }), protectedRouter)
+
+
+app.use("/", jwt({ secret: config.get("secret") }), recipeRouter)
+// app.use("/", jwt({ secret: config.get("secret") }), protectedRouter)
 app.use("/", recipeRouter)
 // app.use(
 //   expressSession({
@@ -33,6 +36,7 @@ app.use("/", recipeRouter)
 //     resave: false
 //   })
 // )
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
