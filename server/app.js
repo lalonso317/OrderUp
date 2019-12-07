@@ -22,7 +22,7 @@ app.use("/", testCreateRecipeRouter)
 app.use("/", registerRouter)
 app.use("/", loginRouter)
 
-app.use("/", recipeRouter)
+app.use("/", jwt({ secret: config.get("secret") }), recipeRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

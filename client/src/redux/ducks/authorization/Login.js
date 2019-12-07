@@ -14,7 +14,7 @@ async function checkAuth() {
   console.log(token)
   if (resp) {
     return {
-      pusername: jwt.decode(token).username,
+      username: jwt.decode(token).username,
       isAuthed: true
     }
   } else {
@@ -25,10 +25,10 @@ async function checkAuth() {
   }
 }
 
-const { pusername, isAuthed } = checkAuth()
+const { username, isAuthed } = checkAuth()
 
 const initalState = {
-  username: pusername,
+  username: username,
   isAuthenticated: isAuthed,
   loading: true
 }

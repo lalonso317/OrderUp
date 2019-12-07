@@ -13,12 +13,10 @@ const recipe = new mongoose.Schema({
   isChecked: {
     type: Boolean
   },
-  user: {
-    type: Array
+  username: {
+    type: String
   },
-  RecipeImages: [
-    { url: String }
-  ]
+  RecipeImages: [{ url: String }]
 })
 
 module.exports = Recipe = mongoose.model("recipe", recipe)

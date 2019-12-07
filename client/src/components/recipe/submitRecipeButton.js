@@ -19,7 +19,8 @@ function SubmitRecipeButton(props) {
     { value: "central-american", text: "Central American" },
     { value: "european", text: "European" },
     { value: "north-america", text: "North American" },
-    { value: "south-america", text: "South American" }
+    { value: "south-america", text: "South American" },
+    { value: "entree", text: "Entree" }
   ]
 
   const [name, setName] = useState("")
@@ -43,6 +44,7 @@ function SubmitRecipeButton(props) {
       username,
       RecipeImages
     )
+    console.log(username)
   }
 
   const handleChange = () => {
@@ -106,10 +108,6 @@ function SubmitRecipeButton(props) {
                 ></textarea>
               </div>
               <div className="BottomHalfofPage">
-                <div className="middleofthePage">
-                  <SetIngredients />
-                  <RecipeDirections />
-                </div>
                 <div className="privacy">
                   <label className="labelPrivacy">Privacy</label>
                   <Switch
@@ -126,6 +124,10 @@ function SubmitRecipeButton(props) {
                 </div>
               </div>
             </form>
+            <div className="middleofthePage">
+              <SetIngredients />
+              <RecipeDirections />
+            </div>
           </div>
         </div>
       </div>
