@@ -1,17 +1,34 @@
+.createRHRecipeName {
+  margin-top: 20px;
+  border: 1px solid rgb(239, 136, 63);
+}
+
 .createRecipeSubmitButtonForm {
   font-size: 20px;
-  width: 60%;
-  margin: auto;
-}
-.createPHContainer {
   width: 100%;
   margin: auto;
-  display: flex;
 }
+
+.createRecipeSubmitButtonForm input {
+  width: 400px;
+}
+
+.createRecipeSubmitButtonForm textarea {
+  width: 400px;
+}
+
+.createRHContainer {
+  width: 60%;
+  margin: auto;
+  /* display: flex; */
+}
+
 .createRHRecipeName {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
+
 .createRHSubtitle {
   width: 100%;
   margin: auto;
@@ -20,51 +37,55 @@
   margin-top: 25px;
   margin-bottom: 20px;
 }
+
 .createRHRecipeTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
 }
+
 .createRHRecipeTitle p {
   margin-top: 20px;
 }
+
 .createTitle {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 25px;
 }
-.createRHRecipeInput {
+
+/* .createRHRecipeInput {
   width: 300px;
-}
+} */
+
 .createRHRecipeCategory {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin: auto;
 }
 
 .createDropdown {
   height: 50px;
 }
+
 .createRHRecipeDescription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin: auto;
   font-size: 25px;
 }
+
 .privacy {
   margin: auto;
   display: flex;
   justify-content: center;
   text-align: center;
 }
+
 .privacySwitch {
+  position: relative;
   margin: auto;
   margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
+
 /* .middleofthePage {
   position: relative;
   z-index: 0;
@@ -77,5 +98,12 @@
 } */
 
 .finalSubmit {
+  /* position: absolute; */
+  width: 400px;
   margin-bottom: 30px;
+}
+
+/* upload image button */
+.submit-recipe-ipload-button input {
+  margin: 0;
 }

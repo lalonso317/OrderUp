@@ -3,10 +3,11 @@
 .footer-component {
   background: rgb(252, 174, 118);
   width: 100%;
-
   margin: auto;
+  margin-top: 20px;
   padding: 50px;
 }
+
 .footer-component-social-links {
   width: 100%;
   justify-content: center;
@@ -14,6 +15,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .footer-component-social-media-icons {
   margin: auto;
   display: flex;
@@ -22,6 +24,7 @@
   justify-content: center;
   background: white;
 }
+
 .footer-component-logo {
   margin: auto;
   display: flex;
