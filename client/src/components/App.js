@@ -7,6 +7,7 @@ import CreateRecipeViewPage from "./recipe/create-recipe-viewpage"
 import UserProfileMain from "./profile/profilePage"
 import ViewRecipeSingle from "./view-recipe/recipe-single-view"
 import MultiRecipeLoader from "./view-recipe/multi-recipe-loader"
+import EditProfile from "./profile/editProfile"
 
 import "../styles/recipe/ings_and_meas.css"
 import "../styles/recipe/index.css"
@@ -32,7 +33,8 @@ const App = props => {
       <Route exact path={"/"} component={PublicHomePage} />
       <Route component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />
-      <Route path="/profile-page" component={UserProfileMain} />
+      <Route path="/profile-page/:username" component={UserProfileMain} />
+      <Route path="/edit-profile/:username" component={EditProfile} />
       <Route path={"/recipe/:id"} component={ViewRecipeSingle} />
       <Route path={"/all-recipes"} component={MultiRecipeLoader} />
       <UniversalFooter

@@ -8,7 +8,6 @@ const axios = require("axios")
 router.post("/api/Recipe", (req, res) => {
   Recipe.create(req.body).then(function(recipe) {
     res.send(recipe)
-    console.log("currently posted recipes ===============>>>>>>", recipe)
   })
 })
 // Gets all the recipes
@@ -21,11 +20,9 @@ router.get("/api/Recipe", async (req, res) => {
 // gets the uploaded images
 router.post("/getImages", (req, res) => {
   const url = req.body.url
-  console.log(url)
   axios.get(url).then(resp => {
     const response = resp.data
     res.json(response)
-    console.log(response)
   })
 })
 

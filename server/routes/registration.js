@@ -18,9 +18,22 @@ router.post("/Register", (req, res, next) => {
     if (err) {
       throw new Error(err)
     }
-    console.log("User Create", results)
     res.json({
       message: "User created",
+      results
+    })
+  })
+})
+
+router.get("/Register", (req, res, next) => {
+  const sql = "SELECT username, email from recipeUsers.Users"
+
+  db.query(sql, (err, results, fields) => {
+    if (err) {
+      throw new Error(err)
+    }
+    res.json({
+      message: "Lists of All Users",
       results
     })
   })

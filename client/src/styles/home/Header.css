@@ -115,7 +115,7 @@
   transition: 0.1s ease-in-out;
   color: white;
   text-decoration: underline;
-
+}
 
 .header-component-sign-out-button {
   background: #ef883f;
@@ -135,7 +135,7 @@
   color: white;
 }
 
-.header-component-social-media-icons{
+.header-component-social-media-icons {
   display: flex;
   align-items: center;
 }

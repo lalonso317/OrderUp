@@ -6,12 +6,14 @@ import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/index"
 
 export default function Header(props) {
-  const { isAuthenticated, signout } = useAuth()
+  const { isAuthenticated, signout, username } = useAuth()
+
   const handleSignOut = e => {
     signout()
   }
   return (
     <div>
+      {/* The Sticky Nav Bar */}
       <header className="underNavbar">
         <img src={Logo} className="stickyLogo" alt="Our company logo" />
         <Link to="/" className="header-component-home-button">
@@ -37,7 +39,7 @@ export default function Header(props) {
               <button className="lg-u">Create A Recipe</button>
             </Link>
             <Link
-              to="/profile-page"
+              to={"/profile-page/" + username}
               className="header-component-profile-button"
             >
               <button className="lg-u">My Profile</button>
@@ -55,6 +57,7 @@ export default function Header(props) {
         </Link>
       </header>
 
+      {/* Main Header */}
       <header className="header-component-header">
         <div className="header">
           <img src={Logo} className="logo" alt="Our company logo" />
@@ -103,7 +106,12 @@ export default function Header(props) {
                 </div>
               </a>
               {isAuthenticated ? (
-                <button onClick={e => handleSignOut(e)} className="header-component-sign-out-button">Sign Out</button>
+                <button
+                  onClick={e => handleSignOut(e)}
+                  className="header-component-sign-out-button"
+                >
+                  Sign Out
+                </button>
               ) : (
                 ""
               )}
@@ -141,7 +149,7 @@ export default function Header(props) {
                   <button className="lg">Create A Recipe</button>
                 </Link>
                 <Link
-                  to="/profile-page"
+                  to={"/profile-page/" + username}
                   className="header-component-profile-button"
                 >
                   <button className="lg">My Profile</button>
