@@ -103,7 +103,12 @@ export default function Header(props) {
                 </div>
               </a>
               {isAuthenticated ? (
-                <button onClick={e => handleSignOut(e)} className="header-component-sign-out-button">Sign Out</button>
+                <button
+                  onClick={e => handleSignOut(e)}
+                  className="header-component-sign-out-button"
+                >
+                  Sign Out
+                </button>
               ) : (
                 ""
               )}
