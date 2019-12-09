@@ -1,11 +1,17 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useSingleRecipe } from "../../hooks"
-
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon
+} from "react-share"
 const ViewRecipeSingle = props => {
   const { single_recipe, default_image } = useSingleRecipe(
     props.match.params.id
   )
+  const id = props.match.params.id
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
   console.log("single recipe ====----====>>>>", single_recipe)
   return (
@@ -49,6 +55,26 @@ const ViewRecipeSingle = props => {
               {i++}. {direction.step}
             </div>
           ))}
+      </div>
+      <Link
+        to={`/edit-recipe/${id}`}
+        className="header-component-create-recipe-button"
+      >
+        <button className="lg-u">Edit Recipe</button>
+      </Link>
+      <div className="single-recipe-social-media-buttons">
+        <div>Share this recipe on social media!</div>
+        <div className="social-share-buttons">
+          <FacebookShareButton
+            // href={"http://localhost:3000/"}
+            url={"https://finediningsite.surge.sh/"}
+            children={<FacebookIcon size={30} round={true} />}
+          />
+          <TwitterShareButton
+            url={`http://localhost:3000/${id}`}
+            children={<TwitterIcon size={30} round={true} />}
+          />
+        </div>
       </div>
     </div>
   )

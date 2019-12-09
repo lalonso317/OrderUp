@@ -13,20 +13,24 @@
   width: 300px;
   margin: 15px 25px;
 }
+
 .header-component-social-media-icons {
   display: flex;
   justify-content: flex-end;
 }
+
 .social-media-path {
   margin: 10px 10px;
   font-size: 25px;
   color: rgb(67, 67, 67);
 }
+
 .social-media-path:hover {
   transition: 0.1s ease-in-out;
   color: rgb(239, 136, 63);
   cursor: pointer;
 }
+
 .links-to-components {
   display: flex;
   border-top: rgb(239, 136, 63) 2px solid;
@@ -38,24 +42,31 @@
   width: 70%;
   background: white; */
 }
+
 .header-component-login-button {
   margin: 0px 12px;
 }
+
 .header-component-recipe-button {
   margin: 0 12px;
 }
+
 .header-component-profile-button {
   margin: 0 12px;
 }
+
 .header-component-singleRecipe-button {
   margin: 0 12px;
 }
+
 .header-component-mulitRecipe-button {
   margin: 0 12px;
 }
+
 .header-component-home-button {
   margin: 0 12px;
 }
+
 .lg {
   border: none;
   background: none;
@@ -63,11 +74,13 @@
   font-size: 18px;
   margin-top: 5px;
 }
+
 .lg:hover {
   transition: 0.1s ease-in-out;
   color: rgb(239, 136, 63);
   text-decoration: underline;
 }
+
 .imageCarousel {
   margin: auto;
   margin-top: 25px;
@@ -77,6 +90,7 @@
   /* height: 800px; */
   width: 80%;
 }
+
 .imageOfCarousel img {
   /* height: 800px; */
 }
@@ -84,6 +98,7 @@
 .stickyLogo {
   width: 100px;
 }
+
 .underNavbar {
   z-index: 0;
   position: fixed;
@@ -94,6 +109,7 @@
   align-items: center;
   padding: 5px;
 }
+
 .lg-u {
   border: none;
   background: none;
@@ -102,6 +118,7 @@
   margin-top: 5px;
   color: black;
 }
+
 .lg-u-u {
   border: none;
   background: none;
@@ -110,6 +127,7 @@
   margin-top: 5px;
   color: black;
 }
+
 .lg-u:hover,
 .lg-u-u:hover {
   transition: 0.1s ease-in-out;

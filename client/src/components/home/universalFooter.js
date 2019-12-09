@@ -2,7 +2,12 @@ import React from "react"
 import Icon from "../../lib/Icon"
 import Logo from "../../Assets/Logo.png"
 import "../../styles/home/footer.css"
-
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon
+} from "react-share"
 const Footer = props => {
   return (
     <div>
@@ -49,6 +54,15 @@ const Footer = props => {
                 <Icon icon="reddit" />
               </div>
             </a>
+            <FacebookShareButton
+              // href={"http://localhost:3000/"}
+              url={"https://finediningsite.surge.sh/"}
+              children={<FacebookIcon size={30} round={true} />}
+            />
+            <TwitterShareButton
+              url={"http://localhost:3000/"}
+              children={<TwitterIcon size={30} round={true} />}
+            />
           </div>
         </aside>
         <div className="footer-component-logo">

@@ -1,0 +1,30 @@
+.site-features-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  border: 3px solid rgb(254, 184, 143);
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.site-feature-list-container {
+  width: 33%;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 15px;
+}
+.site-feature-list-container a {
+  color: black;
+}
+.site-feature-list-titles {
+  font-size: 25px;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 60%;
+  border-bottom: 1px solid rgb(239, 136, 63);
+}
+.site-feature-list-descriptions {
+  font-size: 15px;
+}

@@ -1,6 +1,6 @@
 import React from "react"
 import RecipeGrid from "./Recipe-Grid"
-
+import SiteFeatures from "./site-features"
 import "../../styles/home/PublicHomePage.css"
 import burrito from "../../Assets/Burrito.jpeg"
 import fish from "../../Assets/Fish.jpeg"
@@ -31,6 +31,7 @@ const PublicHomePage = props => {
           <p className="legend">Pancakes</p>
         </div>
       </Carousel>
+      <SiteFeatures />
       <RecipeGrid />
       <Link
         to="/all-recipes"
