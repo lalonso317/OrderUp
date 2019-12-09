@@ -1,15 +1,19 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import React, { useEffect } from "react"
 import axios from "axios"
 
 const CREATE_USER = "reg/CREATE_USER"
+const ALL_USERS = "reg/ALL_USERS"
 
 const initalState = {
-  user: []
+  users: []
 }
 export default (state = initalState, action) => {
   switch (action.type) {
     case CREATE_USER:
-      return { ...state, user: action.payload }
+      return { ...state, users: action.payload }
+    case ALL_USERS:
+      return { ...state, users: action.payload }
     default:
       return state
   }
@@ -20,7 +24,6 @@ function postUser(username, email, password, dispatch) {
     axios
       .post("/Register", { username, email, password })
       .then(resp => {
-        console.log(username, email, password)
         dispatch({
           type: CREATE_USER
         })
@@ -32,10 +35,28 @@ function postUser(username, email, password, dispatch) {
   })
 }
 
+function getUsers() {
+  return dispatch => {
+    axios.get("/Register").then(resp => {
+      console.log(resp.data)
+      dispatch({
+        type: ALL_USERS,
+        payload: resp.data
+      })
+    })
+  }
+}
+
 export function usePosty() {
   const dispatch = useDispatch()
+  const user = useSelector(appState => appState.regState.users)
+  const allUsers = () => dispatch(getUsers())
   const create = (username, email, password) => {
     return postUser(username, email, password, dispatch)
   }
-  return { create }
+  useEffect(() => {
+    allUsers()
+  }, [dispatch])
+
+  return { create, user }
 }
