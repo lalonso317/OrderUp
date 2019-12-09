@@ -41,7 +41,9 @@
   height: 20px;
   cursor: pointer;
 }
-
+.labelDirection {
+  margin-bottom: 20px;
+}
 .submitDirection {
   display: flex;
   align-items: center;

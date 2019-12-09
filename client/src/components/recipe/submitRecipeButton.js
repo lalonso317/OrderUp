@@ -30,23 +30,44 @@ function SubmitRecipeButton(props) {
   const { fullRecipe, CreateRecipe, recipeList, RecipeImages } = useFullRecipe()
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions } = useDirections()
-  
+
   const { username } = useAuth()
   console.log(username)
   const [isChecked, setIsChecked] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
-    let recipeHeaderInfo = { name, category, description }
-    CreateRecipe(
-      recipeHeaderInfo,
-      fullRecipe,
-      directions,
-      isChecked,
-      username,
-      RecipeImages
-    )
-    console.log(username)
+    // validation to check that the name, category, and description are not empty
+    if (name === "" || category === "") {
+      alert("please fill out the Recipe name And Category to Create a recipe")
+    } else if (RecipeImages.length === 0) {
+      alert("please choose a picture for your recipe")
+    } else if (directions.length === 0) {
+      alert("please provide at least one direction for your recipe")
+    } else if (fullRecipe.length === 0) {
+      alert(
+        "please provied at least one ingredient and measurement for your recipe"
+      )
+    } else {
+      let recipeHeaderInfo = { name, category, description }
+      CreateRecipe(
+        recipeHeaderInfo,
+        fullRecipe,
+        directions,
+        isChecked,
+        username,
+        RecipeImages
+      )
+      console.log(username)
+      console.log(
+        recipeHeaderInfo,
+        fullRecipe,
+        directions,
+        isChecked,
+        username,
+        RecipeImages
+      )
+    }
   }
 
   const handleChange = () => {
@@ -72,59 +93,55 @@ function SubmitRecipeButton(props) {
           <div className="createRHSubtitle">Create A Recipe</div>
           {/* this is the first part of the form to create a recipe */}
           <div className="createRHRecipeTitle">
-            <form
-              onSubmit={handleSubmit}
-              className="createRecipeSubmitButtonForm"
-            >
-              <button className="finalSubmit" type="submit">
-                Create Recipe
-              </button>
-              <p className="createTitle" htmlFor="title">
-                Recipe Name
+            <p className="createTitle" htmlFor="title">
+              Recipe Name
+            </p>
+            <input
+              className="createRHRecipeInput"
+              type="text"
+              name="title"
+              placeholder="My Recipe"
+              onChange={e => setName(e.target.value)}
+            />
+            <div className="createRHRecipeCategory">
+              <p className="createTitle" htmlFor="Drowdown">
+                Category
               </p>
-              <input
-                className="createRHRecipeInput"
-                type="text"
-                name="title"
-                placeholder="My Recipe"
-                onChange={e => setName(e.target.value)}
+              <Dropdown
+                className="createDropdown"
+                options={options}
+                selection
+                placeholder="Select recipe category..."
+                onChange={handleInputChange}
               />
-              <div className="createRHRecipeCategory">
-                <p className="createTitle" htmlFor="Drowdown">
-                  Category
-                </p>
-                <Dropdown
-                  className="createDropdown"
-                  options={options}
-                  selection
-                  placeholder="Select recipe category..."
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="createTitle">
-                <label className="createTitle">Description</label>
-              </div>
-              <div className="createRHRecipeDescription">
-                <textarea
-                  onChange={e => setDescription(e.target.value)}
-                  className="CRHRdescription"
-                  placeholder="This recipe has been in my family for years..."
-                ></textarea>
-              </div>
-              <div className="BottomHalfofPage">
-                <div className="middleofthePage"></div>
-                <div className="privacy"></div>
-              </div>
-            </form>
+            </div>
+            <div className="createTitle">
+              <label className="createTitle">Description</label>
+            </div>
+            <div className="createRHRecipeDescription">
+              <textarea
+                onChange={e => setDescription(e.target.value)}
+                className="CRHRdescription"
+                placeholder="This recipe has been in my family for years..."
+              ></textarea>
+            </div>
+            <div className="BottomHalfofPage">
+              <div className="middleofthePage"></div>
+              <div className="privacy"></div>
+            </div>
             <SetIngredients />
             <RecipeDirections />
-            <label className="labelPrivacy">Privacy</label>
+            {isChecked ? (
+              <label className="labelPrivacy">Public</label>
+            ) : (
+              <label className="labelPrivacy">Private</label>
+            )}
             <div className="privacySwitch">
               <Switch
                 onChange={handleChange}
                 checked={isChecked}
-                offColor="#ff0000"
-                onColor="#108600"
+                offColor="#000000"
+                onColor="#eb7a3e"
                 value={isChecked}
                 className="privacySwitch"
               />
@@ -132,6 +149,14 @@ function SubmitRecipeButton(props) {
             <div>
               <ImageUploader />
             </div>
+            <form
+              onSubmit={handleSubmit}
+              className="createRecipeSubmitButtonForm"
+            >
+              <button className="finalSubmit" type="submit">
+                Create Recipe
+              </button>
+            </form>
           </div>
         </div>
       </div>

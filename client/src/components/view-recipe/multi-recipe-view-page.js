@@ -15,12 +15,7 @@ const MultiRecipeViewPage = props => {
             className="multi-recipe-view-page-layout-container"
           >
             <div>
-              <img
-                src={recipe.RecipeImages[0].url}
-                alt="food"
-                width="300px"
-                height="300px"
-              />
+              <img src={recipe.RecipeImages[0].url} alt="food" width="300px" />
             </div>
             <div className="multi-recipe-title-container">
               <Link to={`/recipe/${recipe.recipe_id}`}>

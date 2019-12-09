@@ -1,0 +1,21 @@
+.edit-recipe-container {
+  width: 80%;
+  margin: auto;
+}
+.edit-recipe-title textarea,
+.edit-recipe-description textarea,
+.edit-recipe-ingredients textarea,
+.edit-recipe-directions textarea {
+  width: 400px;
+  height: 150px;
+}
+.edit-recipe-title,
+.edit-recipe-description,
+.edit-recipe-ingredients,
+.edit-recipe-directions,
+.edit-recipe-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
