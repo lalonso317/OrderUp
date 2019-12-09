@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import Burrito from "../../Assets/Burrito.jpeg"
 import { useSingleRecipe } from "../../hooks"
 
 const ViewRecipeSingle = props => {
@@ -15,14 +14,13 @@ const ViewRecipeSingle = props => {
         <button>Back to Recipes</button>
       </Link>
       <p className="single-recipe-title">{single_recipe.recipeTitle}</p>
-      <p className="single-recipe-creator">Created by Recipe Creator</p>
+      <p className="single-recipe-creator">By: {single_recipe.owner}</p>
       <div className="single-recipe-image-container">
         <img
           src={single_recipe.RecipeImages && single_recipe.RecipeImages[0].url}
           alt=""
           className={
-            url ===
-            default_image
+            url === default_image
               ? "single-recipe-default-image"
               : "single-recipe-image"
           }

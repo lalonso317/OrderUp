@@ -38,7 +38,8 @@ const PublicHomePage = props => {
       >
         <button>View All Recipes</button>
       </Link>
-      <div className="public-home-page-slider"></div>
+
+      {/* <div className="public-home-page-slider"></div> */}
     </div>
   )
 }
