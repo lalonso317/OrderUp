@@ -1,19 +1,26 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { usePosty } from "../../hooks"
+import validator from "validator"
 
 export default function Register(props) {
   const [username, SetUsername] = useState("")
   const [password, SetPassword] = useState("")
   const [email, SetEmail] = useState("")
-  const { create } = usePosty()
+  const { create, user } = usePosty()
 
+  // const usedUsers = allUsers.results.map(user => user.username)
   function handleSubmit(e) {
     e.preventDefault()
+    const usedUsers = user.results.map(item => item.username)
 
-    create(username, email, password).then(() => {
-      props.history.push("/Login")
-    })
+    if (usedUsers.includes(username)) {
+      return alert("Username not available")
+    } else {
+      create(username, email, password).then(() => {
+        props.history.push("/Login")
+      })
+    }
   }
   return (
     <div>

@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import Axios from "axios"
+const default_image = "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
 
 const GET_All_RECIPES = "recipe-view/GET_ALL_RECIPES"
 
@@ -29,8 +30,15 @@ const getRecipes = () => {
           ingredients: array.fullRecipe.ingredients,
           directions: array.directions,
           private: array.isChecked,
-          owner: array.user,
-          RecipeImages: array.RecipeImages
+          owner: array.username ? array.username : "Anon",
+          RecipeImages: array.RecipeImages.length
+          ? array.RecipeImages
+          : (array.RecipeImages = [
+              {
+                url:
+                  default_image
+              }
+            ])
         }))
         dispatch({
           type: GET_All_RECIPES,

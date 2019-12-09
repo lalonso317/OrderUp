@@ -21,6 +21,8 @@ const RecipeCard = props => {
               src={image}
               alt="placeholder"
               className="recipe-card-thumbnail"
+              width= "80px"
+              height="80px"
             />
             <p className="recipe-card-rating">{rating}</p>
           </div>

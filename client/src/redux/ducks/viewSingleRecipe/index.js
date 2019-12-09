@@ -30,7 +30,7 @@ const getSingleRecipe = recipeId => {
           ingredients: response.data[0].fullRecipe.ingredients,
           directions: response.data[0].directions,
           private: response.data[0].isChecked,
-          owner: response.data[0].user,
+          owner: response.data[0].username ? response.data[0].username : "Anon",
           RecipeImages: response.data[0].RecipeImages.length
             ? response.data[0].RecipeImages
             : (response.data[0].RecipeImages = [

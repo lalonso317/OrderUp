@@ -1,42 +1,69 @@
 .profile-page-container {
-    max-width: 80%;
-    margin: auto;
-    text-align: center;
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
 }
 
 .profile-page-to-home-button {
-    width: 100px;
-
+  width: 100px;
 }
 
 .userProfileMakeUp {
-    width: 60%;
-    margin: auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.3);
+  width: 60%;
+  margin: auto;
+  padding: 20px;
 }
 
 .MakeUpUserName {
-    font-size: 60px;
-    border-bottom: 2px solid #ccc;
-    margin: 0;
+  font-size: 40px;
+  border-bottom: 2px solid #ccc;
+  margin: 0;
 }
 
 .MakeUpUserName p {
-    margin: 0;
+  margin: 0;
 }
 
 .MakeUpUserEmail {
-    font-size: 30px;
-    line-height: 30px;
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .MakeUpUserAbout {
-    font-size: 30px;
-    line-height: 30px;
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .MakeUpPic img {
-    border-radius: 5px;
-    box-shadow: 3px 3px rgb(52, 52, 52);
+  border-radius: 5px;
+  box-shadow: 3px 3px rgb(52, 52, 52);
 }
+.editProfileButton {
+  margin-top: 25px;
+}
+
+/* Edit Profile Form */
+
+.userFormContainer {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.profileInput {
+  width: 350px;
+  height: 30px;
+  margin: 15px 0 10px 0;
+}
+.profileInputTextarea {
+  width: 350px;
+}
+.userProfile {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  margin-top: 24px;
+}
+/* .userProfileForm{
+    margin
+} */

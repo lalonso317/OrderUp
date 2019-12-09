@@ -1,11 +1,11 @@
 import React from "react"
 import RecipeCard from "./Recipe-Card"
 import "../../styles/home/Recipe-Grid.css"
-import { useAllRecipes } from "../../hooks"
+import { useAllRecipes, useAuth } from "../../hooks"
 
 const RecipeGrid = props => {
   const all_recipes = useAllRecipes()
-
+  const { username } = useAuth()
   return (
     <div className="recipe-grid-container">
       {/* <RecipeCard
@@ -26,7 +26,7 @@ const RecipeGrid = props => {
           recipe_link={`/recipe/${recipe.recipe_id}`}
           image_source={recipe.RecipeImages[0].url}
           recipe_rating="3.54/5"
-          username="Ryan Lee"
+          username={recipe.owner ? recipe.owner : "Anonymous"}
           recipe_title={recipe.recipeTitle}
           recipe_description={recipe.recipeDescription}
         />

@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
+import { useEffect } from "react"
 import axios from "axios"
 import jwt from "jsonwebtoken"
 import { ConsoleLogger } from "@aws-amplify/core"
@@ -6,6 +7,7 @@ import { ConsoleLogger } from "@aws-amplify/core"
 const LOGIN_PENDING = "auth/LOGIN_PENDING"
 const LOGIN_SUCCESS = "auth/LOGIN_SUCCESS"
 const LOGIN_FAILURE = "auth/LOGIN_FAILURE"
+const ALL_USERS = "auth/ALL_USERS"
 const LOGOUT = "auth/LOGIN"
 
 async function checkAuth() {
@@ -31,6 +33,7 @@ const initalState = {
   username: username,
   isAuthenticated: isAuthed,
   loading: true
+  // users: []
 }
 
 export default (state = initalState, action) => {
@@ -48,6 +51,8 @@ export default (state = initalState, action) => {
       return { ...state, isAuthenticated: false, loading: false, username: "" }
     case LOGOUT:
       return { ...state, isAuthenticated: false, loading: false, username: "" }
+    // case ALL_USERS:
+    //   return { ...state, users: action.payload }
     default:
       return state
   }
@@ -63,10 +68,12 @@ function login(username, password, dispatch) {
         }
 
         window.localStorage.setItem("token", resp.data.token)
+        console.log(username)
         dispatch({
           type: LOGIN_SUCCESS,
           payload: username
         })
+
         resolve()
       })
       .catch(e => {
@@ -77,6 +84,16 @@ function login(username, password, dispatch) {
       })
   })
 }
+// function getUsers() {
+//   return dispatch => {
+//     axios.get("/Login").then(resp => {
+//       dispatch({
+//         type: ALL_USERS,
+//         payload: resp.data
+//       })
+//     })
+//   }
+// }
 function logout() {
   axios.defaults.headers.common = { Authorization: "" }
   window.localStorage.removeItem("token")
@@ -86,6 +103,8 @@ function logout() {
 export function useAuth() {
   const dispatch = useDispatch()
   const username = useSelector(appState => appState.authState.username)
+  // const user = useSelector(appState => appState.authState.users)
+  // const getUserInfo = () => dispatch(getUsers())
   const isAuthenticated = useSelector(
     appState => appState.authState.isAuthenticated
   )
@@ -96,6 +115,10 @@ export function useAuth() {
   }
 
   const signout = () => dispatch(logout())
+
+  // useEffect(() => {
+  //   getUserInfo()
+  // }, [dispatch])
 
   return { signin, signout, isAuthenticated, username }
 }

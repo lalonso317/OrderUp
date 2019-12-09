@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 
 // action definitions
-const GET_USERS = "users/GET_USERS"
+const UPDATE_USERS = "users/UPDATE_USER"
 
 // initial state
 const initialState = {
@@ -13,22 +13,30 @@ const initialState = {
 // reducer
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_USERS:
+    case UPDATE_USERS:
       return { ...state, users: action.payload }
     default:
       return state
   }
 }
 
-// action creators
-const getUsers = () => {
+function editProfile(username, email, firstName, lastName, tagline, about) {
   return dispatch => {
-    axios.get("/users").then(resp => {
-      dispatch({
-        type: GET_USERS,
-        payload: resp.data
+    axios
+      .post("/edit-profile", {
+        username,
+        email,
+        firstName,
+        lastName,
+        tagline,
+        about
       })
-    })
+      .then(resp => {
+        console.log(resp.data)
+        dispatch({
+          type: UPDATE_USERS
+        })
+      })
   }
 }
 
@@ -36,10 +44,8 @@ const getUsers = () => {
 export function useUsers() {
   const users = useSelector(appState => appState.userState.users)
   const dispatch = useDispatch()
+  const update = (username, fname, lname, email, tagline, about) =>
+    dispatch(editProfile(username, fname, lname, email, tagline, about))
 
-  useEffect(() => {
-    dispatch(getUsers())
-  }, [dispatch])
-
-  return { users }
+  return { users, update }
 }
