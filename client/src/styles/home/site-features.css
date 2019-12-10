@@ -2,7 +2,9 @@
   width: 80%;
   margin: auto;
   display: flex;
-  border: 3px solid rgb(254, 184, 143);
+  border-top: 3px solid rgb(254, 184, 143);
+  border-bottom: 3px solid rgb(254, 184, 143);
+  color: black;
   margin-top: 5%;
   margin-bottom: 5%;
 }
@@ -10,10 +12,18 @@
   width: 33%;
   margin: 10px;
   text-align: center;
-  border: 1px solid black;
   padding: 15px;
 }
-.site-feature-list-container a {
+.site-feature-list-container-main {
+  width: 33%;
+  margin: 10px;
+  text-align: center;
+  border-right: 2px solid grey;
+  border-left: 2px solid grey;
+  padding: 15px;
+}
+.site-feature-list-container a,
+.site-feature-list-container-main a {
   color: black;
 }
 .site-feature-list-titles {

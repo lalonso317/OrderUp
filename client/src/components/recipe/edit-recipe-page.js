@@ -9,7 +9,7 @@ const EditRecipe = props => {
   const id = props.match.params.recipeId
   const all_recipes = useAllRecipes()
   console.log(all_recipes)
-  const thisRecipe = all_recipes.find(recipe => (recipe.recipeId = id))
+  const thisRecipe = all_recipes.find(recipe => recipe.recipeId == id)
   console.log(thisRecipe)
   const [category, setCategory] = useState(`${thisRecipe.recipeCategory}`)
   const [description, setDescription] = useState(

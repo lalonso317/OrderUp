@@ -84,16 +84,6 @@ function login(username, password, dispatch) {
       })
   })
 }
-// function getUsers() {
-//   return dispatch => {
-//     axios.get("/Login").then(resp => {
-//       dispatch({
-//         type: ALL_USERS,
-//         payload: resp.data
-//       })
-//     })
-//   }
-// }
 function logout() {
   axios.defaults.headers.common = { Authorization: "" }
   window.localStorage.removeItem("token")

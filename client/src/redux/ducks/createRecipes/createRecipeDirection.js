@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import Axios from "axios"
 
 const CREATE_DIRECTIONS = "direct/CREATE_DIRECTIONS"
 const DELETE_DIRECTIONS = "direct/DELETE_DIRECTIONS"
+const INITAL_DIRECTIONS = "direct/INITAL_DIRECTIONS"
 
 const initalState = {
   directions: []
@@ -23,6 +23,8 @@ export default (state = initalState, action) => {
           direct => direct.step !== action.payload
         )
       }
+    case INITAL_DIRECTIONS:
+      return initalState
     default:
       return state
   }
@@ -32,12 +34,20 @@ const createDirect = direct => {
   const direction = {
     step: direct
   }
-  console.log(direction)
-  return {
-    type: CREATE_DIRECTIONS,
-    payload: direction
+  return dispatch => {
+    dispatch({
+      type: CREATE_DIRECTIONS,
+      payload: direction
+    })
   }
 }
+
+const initalDirect = () => {
+  return {
+    type: INITAL_DIRECTIONS
+  }
+}
+
 const deleteDirect = id => {
   return {
     type: DELETE_DIRECTIONS,
@@ -50,38 +60,12 @@ export function useDirections() {
   const directions = useSelector(appState => appState.directionState.directions)
   const create = (direct, i) => dispatch(createDirect(direct, i))
   const remove = id => dispatch(deleteDirect(id))
+  const inital = () => dispatch(initalDirect())
 
   useEffect(() => {
     create()
     remove()
   }, [dispatch])
 
-  return { directions, create, remove }
+  return { directions, create, remove, inital }
 }
-
-// return dispatch => {
-//     Axios.post("directions", { step: direct }).then(resp => {
-//       dispatch({
-//         type: CREATE_DIRECTIONS,
-//         payload: resp.data
-//       })
-//       dispatch(showDirect(resp.data))
-//     })
-//   }
-// function showDirect() {
-//   return dispatch => {
-//     Axios.get("/directions").then(resp => {
-//       dispatch({
-//         type: SHOW_DIRECTIONS,
-//         payload: resp.data
-//       })
-//     })
-//   }
-// }
-// function deleteDirect() {
-//   return dispatch => {
-//     Axios.delete("/directions").then(resp => {
-//       dispatch(showDirect(resp.data))
-//     })
-//   }
-// }

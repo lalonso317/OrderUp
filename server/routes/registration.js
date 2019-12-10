@@ -26,7 +26,7 @@ router.post("/Register", (req, res, next) => {
 })
 
 router.get("/Register", (req, res, next) => {
-  const sql = "SELECT username, email from recipeUsers.Users"
+  const sql = "SELECT id, username, email from recipeUsers.Users"
 
   db.query(sql, (err, results, fields) => {
     if (err) {

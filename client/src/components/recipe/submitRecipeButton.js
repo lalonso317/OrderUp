@@ -13,23 +13,30 @@ import ImageUploader from "../pictureUpload/upload-pictures"
 
 function SubmitRecipeButton(props) {
   const options = [
+    { value: "entree", text: "Entree" },
+    { value: "desert", text: "Desert" },
+    { value: "appertizer", text: "Appetizer" },
+    { value: "snacks", text: "Snacks" },
+    { value: "breakfest", text: "Breakfest/Brunch" },
+    { value: "side-dish", text: "Side Dish" },
+    { value: "family-dinner", text: "Family Dinner" },
+    { value: "lunch", text: "Lunch" },
     { value: "african", text: "African" },
     { value: "asian", text: "Asian" },
     { value: "autralian", text: "Australian" },
     { value: "central-american", text: "Central American" },
     { value: "european", text: "European" },
     { value: "north-america", text: "North American" },
-    { value: "south-america", text: "South American" },
-    { value: "entree", text: "Entree" }
+    { value: "south-america", text: "South American" }
   ]
 
   const [name, setName] = useState("")
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
 
-  const { fullRecipe, CreateRecipe, recipeList, RecipeImages } = useFullRecipe()
+  const { fullRecipe, CreateRecipe, RecipeImages, initalIng } = useFullRecipe()
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
-  const { directions } = useDirections()
+  const { directions, inital, create } = useDirections()
 
   const { username } = useAuth()
   console.log(username)
@@ -58,6 +65,11 @@ function SubmitRecipeButton(props) {
         username,
         RecipeImages
       )
+      inital()
+      initalIng()
+      setName("")
+      setCategory("")
+      setDescription("")
       console.log(username)
       console.log(
         recipeHeaderInfo,
