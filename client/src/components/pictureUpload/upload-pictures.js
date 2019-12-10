@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import axios from "axios"
 import { useFullRecipe } from "../../hooks"
+
 const ImageUploader = props => {
   const { newImage, RecipeImages } = useFullRecipe()
   const [image, setImage] = useState("")
@@ -27,27 +27,8 @@ const ImageUploader = props => {
     const imageObj = { url: file.secure_url }
     newImage(imageObj)
     setLoading(false)
-    // axios
-    //   .get(
-    //     "https://823552378968951:5MPzBSf8gSXBnc05eWzFCmA4vwo@api.cloudinary.com/v1_1/dmmg147rn/resources/image"
-    //   )
-    //   .then(resp => {
-    //     setImageCollection(resp.data)
-    //   })
-    // DownloadImage()
   }
 
-  // function to call the cloudinary database to get all picture URLs
-  // const url =
-  //   "https://823552378968951:5MPzBSf8gSXBnc05eWzFCmA4vwo@api.cloudinary.com/v1_1/dmmg147rn/resources/image"
-  // const DownloadImage = () => {
-  //   axios.post("/getImages", { url }).then(resp => {
-  //     console.log(resp.data)
-  //     setImageCollection(resp.data.resources)
-  //   })
-  // }
-
-  console.log(image)
   return (
     <div className="submit-recipe-ipload-button">
       <div className="createTitle">Upload Image</div>
@@ -62,13 +43,13 @@ const ImageUploader = props => {
         <h3>loading...</h3>
       ) : (
         <div>
-          {/* <img src={image} style={{ width: "300px" }} /> */}
           {RecipeImages.map((image, i) => {
             return (
               <img
                 key={image.public_id}
                 src={image.url}
                 style={{ width: "50px" }}
+                alt=""
               />
             )
           })}

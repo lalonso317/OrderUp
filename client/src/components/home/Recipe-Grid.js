@@ -1,6 +1,7 @@
 import React from "react"
 import RecipeCard from "./Recipe-Card"
 import "../../styles/home/Recipe-Grid.css"
+import Card from "../Card"
 import { useAllRecipes, useAuth } from "../../hooks"
 import OrderUp from "../../Assets/orderUpfavs.png"
 const RecipeGrid = props => {
@@ -16,6 +17,8 @@ const RecipeGrid = props => {
         </aside>
         <div className="recipe-grid-container">
           {/* <RecipeCard
+    <div className="recipe-grid-container  ">
+      {/* <RecipeCard
         recipe_link="https://www.google.com/"
         image_source="http://placehold.it/200/200"
         recipe_rating="3.54/5"
@@ -41,6 +44,27 @@ const RecipeGrid = props => {
         </div>
       </div>
     </>
+      {all_recipes.slice(0, 6).map(recipe => (
+        // <RecipeCard
+        //   recipe_link={`/recipe/${recipe.recipe_id}`}
+        //   image_source={recipe.RecipeImages[0].url}
+        //   recipe_rating="3.54/5"
+        //   username={recipe.owner ? recipe.owner : "Anonymous"}
+        //   recipe_title={recipe.recipeTitle}
+        //   recipe_description={recipe.recipeDescription}
+        // />
+        <Card
+
+          recipe_link={`/recipe/${recipe.recipe_id}`}
+          image_source={recipe.RecipeImages[0].url}
+          recipe_rating="3.54/5"
+          username={recipe.owner ? recipe.owner : "Anonymous"}
+          recipe_title={recipe.recipeTitle}
+          recipe_description={recipe.recipeDescription}
+          recipe_category={recipe.recipeCategory}
+        />
+      ))}
+    </div>
   )
 }
 

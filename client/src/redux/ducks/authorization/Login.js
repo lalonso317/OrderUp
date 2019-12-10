@@ -1,13 +1,10 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
 import axios from "axios"
 import jwt from "jsonwebtoken"
-import { ConsoleLogger } from "@aws-amplify/core"
 
 const LOGIN_PENDING = "auth/LOGIN_PENDING"
 const LOGIN_SUCCESS = "auth/LOGIN_SUCCESS"
 const LOGIN_FAILURE = "auth/LOGIN_FAILURE"
-const ALL_USERS = "auth/ALL_USERS"
 const LOGOUT = "auth/LOGIN"
 
 function checkAuth() {
@@ -80,11 +77,12 @@ function logout() {
 
 export function useAuth() {
   const dispatch = useDispatch()
+
   const usernameEA = useSelector(appState => appState.authState.username)
+
   const isAuthenticated = useSelector(
     appState => appState.authState.isAuthenticated
   )
-
   const signin = (username, password) => {
     dispatch({ type: LOGIN_PENDING })
     return login(username, password, dispatch)
@@ -93,4 +91,5 @@ export function useAuth() {
   const signout = () => dispatch(logout())
 
   return { signin, signout, isAuthenticated, usernameEA }
+
 }

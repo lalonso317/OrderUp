@@ -1,5 +1,6 @@
-import React, { useEffect } from "react"
+import  { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+
 
 const CREATE_DIRECTIONS = "direct/CREATE_DIRECTIONS"
 const DELETE_DIRECTIONS = "direct/DELETE_DIRECTIONS"
@@ -62,9 +63,14 @@ export function useDirections() {
   const remove = id => dispatch(deleteDirect(id))
   const inital = () => dispatch(initalDirect())
 
+  // useEffect(() => {
+  //   create()
+  //   remove()
+  // }, [dispatch])
+
   useEffect(() => {
-    create()
-    remove()
+    dispatch(createDirect())
+    dispatch(deleteDirect())
   }, [dispatch])
 
   return { directions, create, remove, inital }

@@ -24,3 +24,13 @@ CREATE TABLE ingredients (
   CONSTRAINT fk_recipe FOREIGN KEY (recipe_id) REFERENCES recipes(id)
 );
 
+CREATE TABLE user_profiles (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  email VARCHAR(100), 
+  tagline VARCHAR(300),
+  about_you VARCHAR(1000),
+  user_id INT,
+  CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE
+);

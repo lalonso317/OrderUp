@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
 import axios from "axios"
 
 const FINALIZE_INGREDIENT = "FINALIZE_INGREDIENT"

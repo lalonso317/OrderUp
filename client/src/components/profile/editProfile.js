@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useUsers, useFullRecipe } from "../../hooks"
 import UploadPictures from "../pictureUpload/upload-pictures"
 
+
 const EditProfile = props => {
   const username = props.match.params.username
   const { update } = useUsers()
@@ -11,16 +12,17 @@ const EditProfile = props => {
   const [email, setEmail] = useState("")
   const [tagline, setTagline] = useState("")
   const [about, setAbout] = useState("")
+  console.log("username from edit profile", username)
 
   const handleEditProfile = e => {
     e.preventDefault()
     const URL = RecipeImages[0].url
     if (
-      fname == "" ||
-      lname == "" ||
-      email == "" ||
-      tagline == "" ||
-      about == ""
+      fname === "" ||
+      lname === "" ||
+      email === "" ||
+      tagline === "" ||
+      about === ""
     ) {
       return alert("Fields Cannots be Blank")
     } else {

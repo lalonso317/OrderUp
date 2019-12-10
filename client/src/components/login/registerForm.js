@@ -10,7 +10,8 @@ export default function Register(props) {
   const { create, user } = usePosty()
 
   // const usedUsers = allUsers.results.map(user => user.username)
-  function handleSubmit(e) {
+ 
+  const handleSubmit = e => {
     e.preventDefault()
     const usedUsers = user.results.map(item => item.username)
 
@@ -22,6 +23,7 @@ export default function Register(props) {
       })
     }
   }
+
   return (
     <div>
       <div className="wholereg">

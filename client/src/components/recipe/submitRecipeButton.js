@@ -1,17 +1,14 @@
 import React, { useState } from "react"
-import { useFullRecipe, useDirections, useUsers } from "../../hooks"
+import { useFullRecipe, useDirections } from "../../hooks"
 import Switch from "react-switch"
 import { useAuth } from "../../hooks"
-
 import RecipeDirections from "./createRecipe-Directions"
 import SetIngredients from "./recipe-List"
 import { Dropdown } from "semantic-ui-react"
-
 import "semantic-ui-css/semantic.min.css"
-import { Link } from "react-router-dom"
 import ImageUploader from "../pictureUpload/upload-pictures"
 
-function SubmitRecipeButton(props) {
+const SubmitRecipeButton = props => {
   const options = [
     { value: "entree", text: "Entree" },
     { value: "desert", text: "Desert" },
@@ -34,7 +31,9 @@ function SubmitRecipeButton(props) {
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
 
+
   const { fullRecipe, CreateRecipe, RecipeImages, initalIng } = useFullRecipe()
+
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions, inital, create } = useDirections()
 
@@ -65,6 +64,7 @@ function SubmitRecipeButton(props) {
         username,
         RecipeImages
       )
+
       inital()
       initalIng()
       setName("")
@@ -90,28 +90,25 @@ function SubmitRecipeButton(props) {
     console.log(value)
     setCategory(value)
   }
-  // function to send the name of the recipe, category, and a description to the reducer
-  // function createRecipeHeader(e) {
-  //   e.preventDefault()
 
-  //   recipeHeader(name, category, description)
-  // }
 
   return (
     <>
       <div></div>
       <div className="createRHContainer">
+        
         <div className="createRHRecipeName">
           <div className="createRHSubtitle">Create A Recipe</div>
           {/* this is the first part of the form to create a recipe */}
           <div className="createRHRecipeTitle">
-            <p className="createTitle" htmlFor="title">
+            <label className="createTitle" htmlFor="title">
               Recipe Name
-            </p>
+            </label>
             <input
               className="createRHRecipeInput"
               type="text"
               name="title"
+              id="title"
               placeholder="My Recipe"
               onChange={e => setName(e.target.value)}
             />

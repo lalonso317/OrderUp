@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import Burrito from "../../Assets/Burrito.jpeg"
 import { Redirect } from "react-router-dom"
