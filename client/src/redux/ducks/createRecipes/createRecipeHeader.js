@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import axios from "axios"
 
 // action definitions
 const GET_RECIPE_HEADER = "users/GET_USERS"

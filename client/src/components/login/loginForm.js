@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useAuth } from "../../hooks"
 import { Link } from "react-router-dom"
-import { ConsoleLogger } from "@aws-amplify/core"
+
 
 export default function Login(props) {
   const [username, setUsername] = useState("")
@@ -14,11 +14,12 @@ export default function Login(props) {
 
     signin(username, password)
       .then(() => {
-        console.log(username, password)
+        console.log("username ========>>>>>", username)
+        console.log("password ============>>>>", password)
         props.history.push("/")
       })
-      .catch(e => {
-        console.log("LOGIN ERROR - BAD PASSWORD")
+      .catch(err => {
+        console.log("LOGIN ERROR - BAD PASSWORD", err)
       })
     setUsername("")
     setPassword("")
