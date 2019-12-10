@@ -13,9 +13,10 @@ router.post("/edit-profile", (req, res, next) => {
   const tagline = req.body.tagline
   const about = req.body.about
 
+  console.log(req.body)
   const sql = `
         UPDATE Users
-        SET username = ?, email = ?, firstName = ?, lastName = ?, tagline = ? about = ?
+        SET username = ?, email = ?, firstName = ?, lastName = ?, tagline = ?, about = ?
         WHERE username = ?
     `
   db.query(
