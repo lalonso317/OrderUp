@@ -55,6 +55,9 @@ export default function Header(props) {
         >
           <button className="lg-u">All Recipes</button>
         </Link>
+        <Link className="header-component-multiRecipe-button" to={"/about-us"}>
+          <button className="lg-u">About Us</button>
+        </Link>
       </header>
 
       {/* Main Header */}
@@ -164,6 +167,12 @@ export default function Header(props) {
               to={"/all-recipes"}
             >
               <button className="lg">All Recipes</button>
+            </Link>
+            <Link
+              className="header-component-multiRecipe-button"
+              to={"/about-us"}
+            >
+              <button className="lg-u">About Us</button>
             </Link>
           </div>
         </div>

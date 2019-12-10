@@ -17,7 +17,11 @@ const recipe = new mongoose.Schema({
   username: {
     type: String
   },
-  RecipeImages: [{ url: String }]
+  RecipeImages: [{ url: String }],
+  recId: {
+    type: String,
+    default: null
+  }
 })
 
 module.exports = Recipe = mongoose.model("recipe", recipe)

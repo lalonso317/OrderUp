@@ -1,28 +1,46 @@
 import React, { useState } from "react"
-import { Dropdown, StepTitle } from "semantic-ui-react"
+import { Dropdown } from "semantic-ui-react"
 import Switch from "react-switch"
 import ImageUploader from "../pictureUpload/upload-pictures"
-import { useAllRecipes } from "../../hooks"
-import { emptyStatement, enumStringBody } from "@babel/types"
+import { useAllRecipes, useUpdate, useFullRecipe } from "../../hooks"
+import TextEditor from "../about/text-editor"
 const EditRecipe = props => {
-  console.log(props)
   const id = props.match.params.recipeId
+  // reference to hooks being imported
+  const { update } = useUpdate()
   const all_recipes = useAllRecipes()
-  console.log(all_recipes)
-  const thisRecipe = all_recipes.find(recipe => (recipe.recipeId = id))
-  console.log(thisRecipe)
+  const { RecipeImages } = useFullRecipe()
+  //selecting the correct recipe to auto poplulate the text areas on the page
+  const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
+  console.log("this one ", thisRecipe)
+
+  // variables used when submitting the edited recipe
+  //recipe id
+  const recId = thisRecipe.recipe_id
+  //title
+  const [title, setTitle] = useState(`${thisRecipe.recipeTitle}`)
+  //category
   const [category, setCategory] = useState(`${thisRecipe.recipeCategory}`)
+  //description
   const [description, setDescription] = useState(
     `${thisRecipe.recipeDescription}`
   )
+  //ingredients
   const [ingredients, setIngredients] = useState(
     `${thisRecipe.ingredients.map(ings => ings.ingredientName)}`
   )
+  //directions
   const [directions, setDirections] = useState(
     `${thisRecipe.directions.map((directs, i) => i + 1 + "." + directs.step)}`
   )
+  //is checked?
   const [isChecked, setIsChecked] = useState(thisRecipe.private)
-  const [title, setTitle] = useState(`${thisRecipe.recipeTitle}`)
+  //images
+  const [images, setImages] = useState(thisRecipe.RecipeImages)
+
+  const realImages = [...RecipeImages, ...images]
+  console.log("realImgsdf", realImages)
+  // values for the categories of the recipes
   const options = [
     { value: "african", text: "African" },
     { value: "asian", text: "Asian" },
@@ -33,18 +51,46 @@ const EditRecipe = props => {
     { value: "south-america", text: "South American" },
     { value: "entree", text: "Entree" }
   ]
+  // function for the select box
   const handleInputChange = (e, { value }) => {
     console.log(value)
     setCategory(value)
   }
+  // function for the privacy switch
   const handleChange = () => {
     setIsChecked(!isChecked)
   }
   // function to submit the edited recipe
   const handleSubmit = e => {
     e.preventDefault()
+    const recipeHeader = {
+      category: category,
+      name: title,
+      description: description
+    }
+    const fullRecipe = {
+      ingredients: { ingredientName: ingredients.split("\n") }
+    }
+    const directs = [{ step: directions.split("\n").toString() }]
+    const checked = isChecked
+    const user = thisRecipe.owner
+    const testDirects = directions.split("\n")
+    console.log("testDirects", testDirects)
+    console.log("this is the full shit", [
+      recipeHeader,
+      fullRecipe,
+      directs,
+      checked,
+      user,
+      realImages
+    ])
+    update(recipeHeader, fullRecipe, directs, checked, user, realImages, recId)
   }
-
+  // function to delete image from array of images
+  const handleDeleteImage = (e, url) => {
+    e.preventDefault()
+    setImages(realImages.filter(img => img.url !== url))
+  }
   return (
     <div className="edit-recipe-container">
       <div>Edit Recipe</div>
@@ -107,8 +153,15 @@ const EditRecipe = props => {
       </div>
       <div className="edit-recipe-photos">
         <ImageUploader />
-        {thisRecipe.RecipeImages.map((img, i) => {
-          return <img key={i} src={img.url} width="100px" />
+        {images.map((img, i) => {
+          return (
+            <div key={i + "images"}>
+              <img key={i} src={img.url} width="100px" />
+              <button onClick={e => handleDeleteImage(e, img.url)}>
+                delete image
+              </button>
+            </div>
+          )
         })}
       </div>
       <div className="edit-recipe-submit-button">
