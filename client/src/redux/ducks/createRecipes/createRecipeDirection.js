@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import  { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import Axios from "axios"
+
 
 const CREATE_DIRECTIONS = "direct/CREATE_DIRECTIONS"
 const DELETE_DIRECTIONS = "direct/DELETE_DIRECTIONS"
@@ -51,37 +51,16 @@ export function useDirections() {
   const create = (direct, i) => dispatch(createDirect(direct, i))
   const remove = id => dispatch(deleteDirect(id))
 
+  // useEffect(() => {
+  //   create()
+  //   remove()
+  // }, [dispatch])
+
   useEffect(() => {
-    create()
-    remove()
+    dispatch(createDirect())
+    dispatch(deleteDirect())
   }, [dispatch])
 
   return { directions, create, remove }
 }
 
-// return dispatch => {
-//     Axios.post("directions", { step: direct }).then(resp => {
-//       dispatch({
-//         type: CREATE_DIRECTIONS,
-//         payload: resp.data
-//       })
-//       dispatch(showDirect(resp.data))
-//     })
-//   }
-// function showDirect() {
-//   return dispatch => {
-//     Axios.get("/directions").then(resp => {
-//       dispatch({
-//         type: SHOW_DIRECTIONS,
-//         payload: resp.data
-//       })
-//     })
-//   }
-// }
-// function deleteDirect() {
-//   return dispatch => {
-//     Axios.delete("/directions").then(resp => {
-//       dispatch(showDirect(resp.data))
-//     })
-//   }
-// }

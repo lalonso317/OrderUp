@@ -4,6 +4,7 @@ import Switch from "react-switch"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import { useAllRecipes, useUpdate, useFullRecipe } from "../../hooks"
 import TextEditor from "../about/text-editor"
+
 const EditRecipe = props => {
   const id = props.match.params.recipeId
   // reference to hooks being imported
@@ -153,6 +154,7 @@ const EditRecipe = props => {
       </div>
       <div className="edit-recipe-photos">
         <ImageUploader />
+
         {images.map((img, i) => {
           return (
             <div key={i + "images"}>
@@ -162,6 +164,7 @@ const EditRecipe = props => {
               </button>
             </div>
           )
+
         })}
       </div>
       <div className="edit-recipe-submit-button">

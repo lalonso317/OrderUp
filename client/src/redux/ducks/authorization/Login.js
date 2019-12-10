@@ -1,15 +1,11 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
 import axios from "axios"
 import jwt from "jsonwebtoken"
-import { ConsoleLogger } from "@aws-amplify/core"
 
 const LOGIN_PENDING = "auth/LOGIN_PENDING"
 const LOGIN_SUCCESS = "auth/LOGIN_SUCCESS"
 const LOGIN_FAILURE = "auth/LOGIN_FAILURE"
-const ALL_USERS = "auth/ALL_USERS"
 const LOGOUT = "auth/LOGIN"
-const TOKEN_TRUE = "auth/TOKEN_TRUE"
 
 async function checkAuth() {
   const token = window.localStorage.getItem("token")
@@ -24,16 +20,6 @@ async function checkAuth() {
     return {
       pusername: "",
       isAuthed: false
-    }
-  }
-}
-
-const checkToken = () => {
-  const token = window.localStorage.getItem("token")
-  if (token) {
-    return {
-      type: TOKEN_TRUE,
-      payload: true
     }
   }
 }
@@ -62,8 +48,6 @@ export default (state = initalState, action) => {
       return { ...state, isAuthenticated: false, loading: false, username: "" }
     case LOGOUT:
       return { ...state, isAuthenticated: false, loading: false, username: "" }
-    case TOKEN_TRUE:
-      return { ...state, isAuthenticated: action.payload }
     default:
       return state
   }
@@ -95,16 +79,6 @@ function login(username, password, dispatch) {
       })
   })
 }
-// function getUsers() {
-//   return dispatch => {
-//     axios.get("/Login").then(resp => {
-//       dispatch({
-//         type: ALL_USERS,
-//         payload: resp.data
-//       })
-//     })
-//   }
-// }
 
 function logout() {
   axios.defaults.headers.common = { Authorization: "" }
@@ -115,13 +89,9 @@ function logout() {
 export function useAuth() {
   const dispatch = useDispatch()
   const username = useSelector(appState => appState.authState.username)
-  // const user = useSelector(appState => appState.authState.users)
-  // const getUserInfo = () => dispatch(getUsers())
   const isAuthenticated = useSelector(
     appState => appState.authState.isAuthenticated
   )
-  const validate = () => dispatch(checkToken)
-
   const signin = (username, password) => {
     dispatch({ type: LOGIN_PENDING })
     return login(username, password, dispatch)
@@ -129,9 +99,5 @@ export function useAuth() {
 
   const signout = () => dispatch(logout())
 
-  // useEffect(() => {
-  //   getUserInfo()
-  // }, [dispatch])
-
-  return { signin, signout, isAuthenticated, username, validate}
+  return { signin, signout, isAuthenticated, username }
 }
