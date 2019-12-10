@@ -20,7 +20,12 @@ const ViewRecipeSingle = props => {
         <button>Back to Recipes</button>
       </Link>
       <p className="single-recipe-title">{single_recipe.recipeTitle}</p>
-      <p className="single-recipe-creator">By: {single_recipe.owner}</p>
+      <p className="single-recipe-creator">
+        By:{" "}
+        <Link to={"/profile-page/" + single_recipe.owner}>
+          {single_recipe.owner}
+        </Link>
+      </p>
       <div className="single-recipe-image-container">
         <img
           src={single_recipe.RecipeImages && single_recipe.RecipeImages[0].url}

@@ -7,28 +7,18 @@ const LOGIN_SUCCESS = "auth/LOGIN_SUCCESS"
 const LOGIN_FAILURE = "auth/LOGIN_FAILURE"
 const LOGOUT = "auth/LOGIN"
 
-async function checkAuth() {
+function checkAuth() {
   const token = window.localStorage.getItem("token")
-  const resp = await axios.post("/login", token)
-  console.log(token)
-  if (resp) {
-    return {
-      username: jwt.decode(token).username,
-      isAuthed: true
-    }
+  if (token) {
+    return true
   } else {
-    return {
-      pusername: "",
-      isAuthed: false
-    }
+    return false
   }
 }
 
-const { username, isAuthed } = checkAuth()
-
 const initalState = {
-  username: username,
-  isAuthenticated: isAuthed,
+  username: "",
+  isAuthenticated: checkAuth(),
   loading: true
   // users: []
 }
@@ -79,7 +69,6 @@ function login(username, password, dispatch) {
       })
   })
 }
-
 function logout() {
   axios.defaults.headers.common = { Authorization: "" }
   window.localStorage.removeItem("token")
@@ -88,7 +77,9 @@ function logout() {
 
 export function useAuth() {
   const dispatch = useDispatch()
-  const username = useSelector(appState => appState.authState.username)
+
+  const usernameEA = useSelector(appState => appState.authState.username)
+
   const isAuthenticated = useSelector(
     appState => appState.authState.isAuthenticated
   )
@@ -99,5 +90,6 @@ export function useAuth() {
 
   const signout = () => dispatch(logout())
 
-  return { signin, signout, isAuthenticated, username }
+  return { signin, signout, isAuthenticated, usernameEA }
+
 }

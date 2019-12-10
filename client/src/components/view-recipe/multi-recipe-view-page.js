@@ -4,7 +4,6 @@ import Card from "../Card"
 import { Link } from "react-router-dom"
 
 const MultiRecipeViewPage = props => {
-  console.log(props.recipeArray)
   return (
     <div className="multi-recipe-view-page-container">
       <main className="multi-recipe-view-page-wrapper">

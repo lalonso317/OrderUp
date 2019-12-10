@@ -4,6 +4,7 @@ import axios from "axios"
 const FINALIZE_INGREDIENT = "FINALIZE_INGREDIENT"
 const SUBMITTED_FULL_RECIPE = "SUBMITTED_FULL_RECIPE"
 
+const INITAL_INGREDIENT = "INITAL_INGREDIENT"
 const DELETE_INGREDIENT = "DELETE_INGREDIENT"
 const GET_RECIPES = "GET_RECIPES"
 const ADD_IMAGES = "ADD_IMAGES"
@@ -37,6 +38,8 @@ export default (state = initialState, action) => {
       return { ...state, recipes: action.payload }
     case ADD_IMAGES:
       return { ...state, recipeImages: [...state.recipeImages, action.payload] }
+    case INITAL_INGREDIENT:
+      return { ...state, recipeObjects: [] }
     default:
       return state
   }
@@ -52,7 +55,11 @@ const finalIngredients = amount => {
     payload: ings
   }
 }
-
+const initalIngredients = () => {
+  return {
+    type: INITAL_INGREDIENT
+  }
+}
 // final submit for recipe function
 const finalSubmitForRecipe = (
   recipeHeaderInfo,
@@ -87,29 +94,6 @@ const deleteIngredients = id => {
   }
 }
 
-// const getRecipes = () => {
-//   return dispatch => {
-//     axios.get("/api/Recipe").then(response => {
-//       const data = response.data.map(array => ({
-//         recipe_id: array._id,
-//         recipeTitle: array.recipeHeaderInfo.name,
-//         recipeCategory: array.recipeHeaderInfo.category,
-//         recipeDescription: array.recipeHeaderInfo.description,
-//         ingredients: array.fullRecipe.ingredients,
-//         directions: array.directions,
-//         private: array.isChecked,
-//         owner: array.user,
-//         RecipeImages: array.RecipeImages
-//       }))
-//       dispatch({
-//         type: GET_RECIPES,
-//         payload: data
-//       })
-//     }).catch(error => ({
-//       message: error
-//     }))
-//   }
-// }
 // action to add images to recipeImages array in reducer
 const addImages = url => {
   return {
@@ -158,9 +142,7 @@ export const useFullRecipe = () => {
     appState => appState.fullRecipeState.recipeImages
   )
 
-  // useEffect(() => {
-  //   dispatch(getRecipes())
-  // }, [dispatch])
+  const initalIng = () => dispatch(initalIngredients())
 
   return {
     finalIngredient,
@@ -170,7 +152,8 @@ export const useFullRecipe = () => {
     // allRecipes,
     remove,
     newImage,
-    RecipeImages
+    RecipeImages,
+    initalIng
   }
 }
 

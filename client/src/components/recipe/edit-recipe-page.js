@@ -10,6 +10,7 @@ const EditRecipe = props => {
   // reference to hooks being imported
   const { update } = useUpdate()
   const all_recipes = useAllRecipes()
+  const thisRecipe = all_recipes.find(recipe => recipe.recipeId == id)
   const { RecipeImages } = useFullRecipe()
   //selecting the correct recipe to auto poplulate the text areas on the page
   const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
