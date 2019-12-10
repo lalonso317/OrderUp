@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useUsers } from "../../hooks"
 
+
 const EditProfile = props => {
   const username = props.match.params.username
   const { update } = useUsers()
@@ -9,6 +10,7 @@ const EditProfile = props => {
   const [email, setEmail] = useState("")
   const [tagline, setTagline] = useState("")
   const [about, setAbout] = useState("")
+  console.log("username from edit profile", username)
 
   const handleEditProfile = e => {
     e.preventDefault()

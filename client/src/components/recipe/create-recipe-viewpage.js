@@ -12,7 +12,7 @@ const CreateRecipeViewPage = props => {
       <SubmitRecipeButton />
     </div>
   ) : (
-    <Redirect to="/" />
+    <Redirect to="/login" />
   )
 }
 

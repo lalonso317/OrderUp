@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import axios from "axios"
 
 const CREATE_USER = "reg/CREATE_USER"

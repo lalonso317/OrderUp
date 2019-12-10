@@ -22,8 +22,11 @@ import "../styles/recipe/create-recipe-viewpage.css"
 import "../styles/home/site-features.css"
 import "../styles/recipe/editRecipePage.css"
 import "../styles/about/aboutUs.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
+import Card from './Card'
 
 const App = props => {
   return (
@@ -34,6 +37,7 @@ const App = props => {
         link_reddit="https://www.reddit.com/"
         link_instagram="https://www.instagram.com/"
       />
+      <Route path="/test" component={Card} />
       <Route exact path={"/"} component={PublicHomePage} />
       <Route component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />

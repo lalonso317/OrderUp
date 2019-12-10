@@ -1,13 +1,14 @@
 import React from "react"
 import RecipeCard from "./Recipe-Card"
 import "../../styles/home/Recipe-Grid.css"
+import Card from "../Card"
 import { useAllRecipes, useAuth } from "../../hooks"
 
 const RecipeGrid = props => {
   const all_recipes = useAllRecipes()
   const { username } = useAuth()
   return (
-    <div className="recipe-grid-container">
+    <div className="recipe-grid-container  ">
       {/* <RecipeCard
         recipe_link="https://www.google.com/"
         image_source="http://placehold.it/200/200"
@@ -22,13 +23,23 @@ const RecipeGrid = props => {
         ad in eligendi deleniti. Itaque, delectus perferendis."
       /> */}
       {all_recipes.slice(0, 6).map(recipe => (
-        <RecipeCard
+        // <RecipeCard
+        //   recipe_link={`/recipe/${recipe.recipe_id}`}
+        //   image_source={recipe.RecipeImages[0].url}
+        //   recipe_rating="3.54/5"
+        //   username={recipe.owner ? recipe.owner : "Anonymous"}
+        //   recipe_title={recipe.recipeTitle}
+        //   recipe_description={recipe.recipeDescription}
+        // />
+        <Card
+
           recipe_link={`/recipe/${recipe.recipe_id}`}
           image_source={recipe.RecipeImages[0].url}
           recipe_rating="3.54/5"
           username={recipe.owner ? recipe.owner : "Anonymous"}
           recipe_title={recipe.recipeTitle}
           recipe_description={recipe.recipeDescription}
+          recipe_category={recipe.recipeCategory}
         />
       ))}
     </div>

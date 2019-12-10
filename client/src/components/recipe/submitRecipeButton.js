@@ -89,17 +89,19 @@ function SubmitRecipeButton(props) {
     <>
       <div></div>
       <div className="createRHContainer">
+        
         <div className="createRHRecipeName">
           <div className="createRHSubtitle">Create A Recipe</div>
           {/* this is the first part of the form to create a recipe */}
           <div className="createRHRecipeTitle">
-            <p className="createTitle" htmlFor="title">
+            <label className="createTitle" htmlFor="title">
               Recipe Name
-            </p>
+            </label>
             <input
               className="createRHRecipeInput"
               type="text"
               name="title"
+              id="title"
               placeholder="My Recipe"
               onChange={e => setName(e.target.value)}
             />
