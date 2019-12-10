@@ -34,7 +34,7 @@ const Card = props => {
         <br />
         <div className="row">
           <div className="col">
-            <a href={link} class="btn btn-outline-warning">
+            <a href={link} className="btn btn-outline-warning">
               View More
             </a>
           </div>

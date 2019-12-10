@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { Dropdown, StepTitle } from "semantic-ui-react"
+import { Dropdown } from "semantic-ui-react"
 import Switch from "react-switch"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import { useAllRecipes } from "../../hooks"
-import { emptyStatement, enumStringBody } from "@babel/types"
+
 const EditRecipe = props => {
   console.log(props)
   const id = props.match.params.recipeId
@@ -108,7 +108,7 @@ const EditRecipe = props => {
       <div className="edit-recipe-photos">
         <ImageUploader />
         {thisRecipe.RecipeImages.map((img, i) => {
-          return <img key={i} src={img.url} width="100px" />
+          return <img key={i} src={img.url} width="100px" alt="" />
         })}
       </div>
       <div className="edit-recipe-submit-button">

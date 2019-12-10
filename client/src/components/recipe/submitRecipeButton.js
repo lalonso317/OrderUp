@@ -1,17 +1,14 @@
 import React, { useState } from "react"
-import { useFullRecipe, useDirections, useUsers } from "../../hooks"
+import { useFullRecipe, useDirections } from "../../hooks"
 import Switch from "react-switch"
 import { useAuth } from "../../hooks"
-
 import RecipeDirections from "./createRecipe-Directions"
 import SetIngredients from "./recipe-List"
 import { Dropdown } from "semantic-ui-react"
-
 import "semantic-ui-css/semantic.min.css"
-import { Link } from "react-router-dom"
 import ImageUploader from "../pictureUpload/upload-pictures"
 
-function SubmitRecipeButton(props) {
+const SubmitRecipeButton = props => {
   const options = [
     { value: "african", text: "African" },
     { value: "asian", text: "Asian" },
@@ -27,7 +24,7 @@ function SubmitRecipeButton(props) {
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
 
-  const { fullRecipe, CreateRecipe, recipeList, RecipeImages } = useFullRecipe()
+  const { fullRecipe, CreateRecipe, RecipeImages } = useFullRecipe()
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions } = useDirections()
 
@@ -58,15 +55,7 @@ function SubmitRecipeButton(props) {
         username,
         RecipeImages
       )
-      console.log(username)
-      console.log(
-        recipeHeaderInfo,
-        fullRecipe,
-        directions,
-        isChecked,
-        username,
-        RecipeImages
-      )
+  
     }
   }
 
@@ -78,12 +67,7 @@ function SubmitRecipeButton(props) {
     console.log(value)
     setCategory(value)
   }
-  // function to send the name of the recipe, category, and a description to the reducer
-  // function createRecipeHeader(e) {
-  //   e.preventDefault()
 
-  //   recipeHeader(name, category, description)
-  // }
 
   return (
     <>

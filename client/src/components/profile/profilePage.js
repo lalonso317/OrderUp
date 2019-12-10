@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import Burrito from "../../Assets/Burrito.jpeg"
 import { Redirect } from "react-router-dom"
-import { usePosty, useAuth } from "../../hooks"
+import { useAuth } from "../../hooks"
 
 const UserProfileMain = props => {
   const { isAuthenticated } = useAuth()

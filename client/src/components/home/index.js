@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import RecipeGrid from "./Recipe-Grid"
 import SiteFeatures from "./site-features"
 import "../../styles/home/PublicHomePage.css"
@@ -9,10 +9,8 @@ import pancakes from "../../Assets/Pancakes.jpeg"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
 import { Link } from "react-router-dom"
-import { useAuth } from "../../hooks"
 
 const PublicHomePage = props => {
-
   return (
     <div className="public-home-page-container">
       <Carousel className="imageCarousel" width="100%" infiniteLoop={true}>

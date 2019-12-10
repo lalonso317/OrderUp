@@ -15,11 +15,11 @@ const EditProfile = props => {
   const handleEditProfile = e => {
     e.preventDefault()
     if (
-      fname == "" ||
-      lname == "" ||
-      email == "" ||
-      tagline == "" ||
-      about == ""
+      fname === "" ||
+      lname === "" ||
+      email === "" ||
+      tagline === "" ||
+      about === ""
     ) {
       return alert("Fields Cannots be Blank")
     } else {
