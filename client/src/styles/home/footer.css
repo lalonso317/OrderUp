@@ -1,11 +1,11 @@
 /* //////////// */
 /* ////Footer//// */
 .footer-component {
-  background: rgb(252, 174, 118);
+  background: rgb(255, 151, 77);
   width: 100%;
   margin: auto;
-  margin-top: 20px;
-  padding: 50px;
+  /* margin-top: 20px; */
+  /* padding: 10px; */
 }
 
 .footer-component-social-links {
@@ -22,7 +22,6 @@
   width: 50%;
   margin-top: 50px;
   justify-content: center;
-  background: white;
 }
 
 .footer-component-logo {
@@ -30,5 +29,4 @@
   display: flex;
   width: 50%;
   justify-content: center;
-  background: white;
 }

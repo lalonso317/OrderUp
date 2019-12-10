@@ -38,7 +38,7 @@ function postUser(username, email, password, dispatch) {
 const getUsers = () => {
   return dispatch => {
     axios.get("/Register").then(resp => {
-      console.log(resp.data)
+      // console.log(resp.data)
       dispatch({
         type: ALL_USERS,
         payload: resp.data

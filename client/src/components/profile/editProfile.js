@@ -1,10 +1,12 @@
 import React, { useState } from "react"
-import { useUsers } from "../../hooks"
+import { useUsers, useFullRecipe } from "../../hooks"
+import UploadPictures from "../pictureUpload/upload-pictures"
 
 
 const EditProfile = props => {
   const username = props.match.params.username
   const { update } = useUsers()
+  const { RecipeImages } = useFullRecipe()
   const [fname, setFName] = useState("")
   const [lname, setLName] = useState("")
   const [email, setEmail] = useState("")
@@ -14,6 +16,7 @@ const EditProfile = props => {
 
   const handleEditProfile = e => {
     e.preventDefault()
+    const URL = RecipeImages[0].url
     if (
       fname === "" ||
       lname === "" ||
@@ -23,7 +26,7 @@ const EditProfile = props => {
     ) {
       return alert("Fields Cannots be Blank")
     } else {
-      update(username, fname, lname, email, tagline, about)
+      update(email, fname, lname, tagline, about, username, URL)
     }
   }
 
@@ -32,6 +35,7 @@ const EditProfile = props => {
       <div className="userFormContainer">
         <h2 className="userProfile">{username}</h2>
         <form className="userProfileForm" onSubmit={handleEditProfile}>
+          <UploadPictures />
           <label className="profileLabel">First Name</label>
           <input
             className="profileInput"
@@ -53,12 +57,6 @@ const EditProfile = props => {
             value={email}
             onChange={e => setEmail(e.target.value)}
           ></input>
-          {/* <label>Display Name</label>
-        <input
-          type="text"
-          value={display}
-          onChange={e => setDisplay(e.target.value)}
-        ></input> */}
           <label className="profileLabel">Tagline</label>
           <input
             className="profileInput"

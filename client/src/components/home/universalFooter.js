@@ -1,6 +1,6 @@
 import React from "react"
 import Icon from "../../lib/Icon"
-import Logo from "../../Assets/Logo.png"
+import Logo from "../../Assets/BnY-Logo-Transparent.png"
 import "../../styles/home/footer.css"
 import {
   FacebookShareButton,

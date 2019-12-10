@@ -1,12 +1,22 @@
 import React from "react"
 import "../../styles/home/Recipe-Grid.css"
 import Card from "../Card"
-import { useAllRecipes } from "../../hooks"
+import { useAllRecipes, useAuth } from "../../hooks"
+import OrderUp from "../../Assets/orderUpfavs.png"
 
 const RecipeGrid = props => {
   const all_recipes = useAllRecipes()
 
   return (
+    <>
+      <div className="recipe-grid-flex">
+        <aside>
+          <div>
+            <img className="order-up-banner" src={OrderUp} />
+          </div>
+        </aside>
+        <div className="recipe-grid-container">
+          {/* <RecipeCard
     <div className="recipe-grid-container  ">
       {/* <RecipeCard
         recipe_link="https://www.google.com/"
@@ -21,7 +31,9 @@ const RecipeGrid = props => {
         sunt autem, nihil explicabo omnis expedita quae pariatur! Delectus
         ad in eligendi deleniti. Itaque, delectus perferendis."
       /> */}
+
       {all_recipes.slice(0, 6).map((recipe, i) => (
+
         <Card
           key={recipe.recipeTitle + i}
           recipe_link={`/recipe/${recipe.recipe_id}`}

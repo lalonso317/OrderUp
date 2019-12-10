@@ -18,7 +18,7 @@ const SiteFeatures = props => {
           </div>
         </Link>
       </div>
-      <div className="site-feature-list-container">
+      <div className="site-feature-list-container-main">
         <Link to={"/create-your-recipe"}>
           <div className="site-feature-list-titles">Create</div>
           <img src={Creating} width="320px" alt=""/>

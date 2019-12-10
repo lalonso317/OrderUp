@@ -3,7 +3,6 @@ import "../../styles/recipe/multi-recipe-view-page.css"
 import Card from "../Card"
 
 const MultiRecipeViewPage = props => {
-  console.log(props.recipeArray)
   return (
     <div className="multi-recipe-view-page-container">
       <main className="multi-recipe-view-page-wrapper">

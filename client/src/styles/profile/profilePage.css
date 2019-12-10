@@ -1,7 +1,6 @@
 .profile-page-container {
-  max-width: 80%;
+  width: 100%;
   margin: auto;
-  text-align: center;
 }
 
 .profile-page-to-home-button {
@@ -13,30 +12,26 @@
   margin: auto;
   padding: 20px;
 }
-
-.MakeUpUserName {
-  font-size: 40px;
-  border-bottom: 2px solid #ccc;
-  margin: 0;
+.userProfileHeader {
+  display: flex;
 }
 
 .MakeUpUserName p {
-  margin: 0;
+  margin-left: 10px;
 }
 
-.MakeUpUserEmail {
-  font-size: 30px;
+.MakeUpUserName {
   line-height: 30px;
+  display: flex;
 }
-
-.MakeUpUserAbout {
+.MakeUpUserName p:first-child {
   font-size: 30px;
-  line-height: 30px;
 }
-
+.aboutusertext {
+  font-size: 25px;
+}
 .MakeUpPic img {
-  border-radius: 5px;
-  box-shadow: 3px 3px rgb(52, 52, 52);
+  width: 300px;
 }
 .editProfileButton {
   margin-top: 25px;
