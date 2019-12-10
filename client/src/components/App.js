@@ -9,6 +9,7 @@ import ViewRecipeSingle from "./view-recipe/recipe-single-view"
 import MultiRecipeLoader from "./view-recipe/multi-recipe-loader"
 import EditRecipe from "./recipe/edit-recipe-page"
 import EditProfile from "./profile/editProfile"
+import About from "./about/about-us"
 import "../styles/recipe/index.css"
 import "../styles/recipe/createRecipeHeader.css"
 import "../styles/recipe/createRecipeDirections.css"
@@ -19,7 +20,9 @@ import "../styles/recipe-view-css/recipe-single-view.css"
 import "../styles/recipe/create-recipe-viewpage.css"
 import "../styles/home/site-features.css"
 import "../styles/recipe/editRecipePage.css"
+import "../styles/about/aboutUs.css"
 import "bootstrap/dist/css/bootstrap.min.css"
+
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
 import Card from './Card'
@@ -42,7 +45,7 @@ const App = props => {
       <Route path={"/recipe/:id"} component={ViewRecipeSingle} />
       <Route path={"/all-recipes"} component={MultiRecipeLoader} />
       <Route path={"/edit-recipe/:recipeId"} component={EditRecipe} />
-
+      <Route path={"/about-us"} component={About} />
       <UniversalFooter
         link_twitter="https://twitter.com/?lang=en"
         link_facebook="https://www.facebook.com/"

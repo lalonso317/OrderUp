@@ -9,6 +9,10 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
     <link rel="apple-touch-icon" href="logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -40,4 +44,20 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"
+  ></script>
+  <script type="text/javascript">
+    ;(function() {
+      emailjs.init("user_vfM9rOuwyg3dS0WmG9YDj")
+    })()
+  </script>
+  <script
+    src="https://cdn.tiny.cloud/1/qoxuhh2xt2mjvsrqf8jfcv9uk8f6vxan1jpathyv8k90m0z6/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"
+  ></script>
+  <script>
+    tinymce.init({ selector: "textarea" })
+  </script>
 </html>
