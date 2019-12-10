@@ -35,7 +35,7 @@ function postUser(username, email, password, dispatch) {
   })
 }
 
-function getUsers() {
+const getUsers = () => {
   return dispatch => {
     axios.get("/Register").then(resp => {
       // console.log(resp.data)
@@ -55,8 +55,8 @@ export function usePosty() {
     return postUser(username, email, password, dispatch)
   }
   useEffect(() => {
-    allUsers()
+   dispatch(getUsers())
   }, [dispatch])
 
-  return { create, user }
+  return { create, user, allUsers}
 }

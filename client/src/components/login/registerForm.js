@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { usePosty } from "../../hooks"
-import validator from "validator"
 
 export default function Register(props) {
   const [username, SetUsername] = useState("")
@@ -10,7 +9,7 @@ export default function Register(props) {
   const { create, user } = usePosty()
 
   // const usedUsers = allUsers.results.map(user => user.username)
- 
+
   const handleSubmit = e => {
     e.preventDefault()
     const usedUsers = user.results.map(item => item.username)

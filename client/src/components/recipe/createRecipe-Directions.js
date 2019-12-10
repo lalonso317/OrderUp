@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { useDirections } from "../../hooks/index"
 import Icon from "../../lib/Icon"
-import CreateRecipeButton from "./submitRecipeButton"
 
 const RecipeDescription = props => {
   const [direct, setDirect] = useState("")
@@ -10,7 +9,7 @@ const RecipeDescription = props => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    if (direct == "") {
+    if (direct === "") {
       alert("Direction Needed")
     } else {
       create(direct)
