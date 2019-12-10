@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken")
 const config = require("config")
 const { check, validationResult } = require("express-validator")
 
-
 router.post("/Login", (req, res, next) => {
   const username = req.body.username
   let password = req.body.password
@@ -32,7 +31,6 @@ router.post("/Login", (req, res, next) => {
               token
             })
             console.log("user token", token)
-            console.log("decoded", decode(token))
           } else {
             res.status(401).json({
               message: "Username or Password are incorrect",

@@ -5,7 +5,6 @@ import Logo from "../../Assets/BlacknY-Logo.png"
 import TransLogo from "../../Assets/BnY-Logo-Transparent.png"
 import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/index"
-
 export default function Header(props) {
   const { isAuthenticated, signout, usernameEA } = useAuth()
   console.log(usernameEA)
@@ -49,20 +48,13 @@ export default function Header(props) {
         ) : (
           " "
         )}
-
         <Link
           className="header-component-multiRecipe-button"
           to={"/all-recipes"}
         >
           <button className="lg-u">All Recipes</button>
         </Link>
-
-        <Link className="header-component-multiRecipe-button" to={"/about-us"}>
-          <button className="lg-u">About Us</button>
-        </Link>
-      </header>
->
-
+      </header> */}
       {/* Main Header */}
       <header className="header-component-header">
         <div className="header">
@@ -82,10 +74,6 @@ export default function Header(props) {
                   <Icon icon="home" />
                 </p>
               </Link>
-              {/* {!isAuthenticated ?  : (
-                ""
-              )} */}
-
               {isAuthenticated ? (
                 <>
                   <Link
@@ -104,7 +92,6 @@ export default function Header(props) {
               ) : (
                 " "
               )}
-
               <Link
                 className="header-component-multiRecipe-button"
                 to={"/all-recipes"}
@@ -172,76 +159,7 @@ export default function Header(props) {
                   <Icon icon="reddit" />
                 </div>
               </a>
-
             </aside>
-
-              {isAuthenticated ? (
-                <button
-                  onClick={e => handleSignOut(e)}
-                  className="header-component-sign-out-button"
-                >
-                  Sign Out
-                </button>
-              ) : (
-                ""
-              )}
-            </div>
-          </aside>
-          <div className="header-component-description">
-            <p>
-              Welcome to OrderUp. We are an all around recipe management site.
-              With our services you will be able to view, share, and even create
-              your own recipes. Do not forget to create an account it's free!
-            </p>
-          </div>
-          <div className="links-to-components">
-            <Link to="/" className="header-component-home-button">
-              <p className="social-media-path">
-                <Icon icon="home" />
-              </p>
-            </Link>
-            {!isAuthenticated ? (
-              <>
-                <Link to="/login" className="header-component-login-button">
-                  <button className="lg">Login/Register</button>
-                </Link>
-              </>
-            ) : (
-              ""
-            )}
-
-            {isAuthenticated ? (
-              <>
-                <Link
-                  to="/create-your-recipe"
-                  className="header-component-create-recipe-button"
-                >
-                  <button className="lg">Create A Recipe</button>
-                </Link>
-                <Link
-                  to={"/profile-page/" + username}
-                  className="header-component-profile-button"
-                >
-                  <button className="lg">My Profile</button>
-                </Link>{" "}
-              </>
-            ) : (
-              " "
-            )}
-
-            <Link
-              className="header-component-multiRecipe-button"
-              to={"/all-recipes"}
-            >
-              <button className="lg">All Recipes</button>
-            </Link>
-            <Link
-              className="header-component-multiRecipe-button"
-              to={"/about-us"}
-            >
-              <button className="lg-u">About Us</button>
-            </Link>
-
           </div>
         </div>
       </header>
