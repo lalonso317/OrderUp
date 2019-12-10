@@ -100,7 +100,7 @@
 }
 
 .underNavbar {
-  z-index: 0;
+  z-index: 10;
   position: fixed;
   background: rgb(239, 136, 63);
   width: 100%;
