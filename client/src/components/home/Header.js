@@ -1,21 +1,22 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
-import Logo from "../../Assets/Logo.png"
+import Logo from "../../Assets/BlacknY-Logo.png"
+import TransLogo from "../../Assets/BnY-Logo-Transparent.png"
 import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/index"
 
 export default function Header(props) {
-  const { isAuthenticated, signout, username } = useAuth()
-
+  const { isAuthenticated, signout, usernameEA } = useAuth()
+  console.log(usernameEA)
   const handleSignOut = e => {
     signout()
   }
   return (
     <div>
       {/* The Sticky Nav Bar */}
-      <header className="underNavbar">
-        <img src={Logo} className="stickyLogo" alt="Our company logo" />
+      {/* <header className="underNavbar">
+        <img src={TransLogo} className="stickyLogo" alt="Our company logo" />
         <Link to="/" className="header-component-home-button">
           <p className="lg-u-u">
             <Icon icon="home" />
@@ -55,16 +56,77 @@ export default function Header(props) {
         >
           <button className="lg-u">All Recipes</button>
         </Link>
-      </header>
+      </header> */}
 
       {/* Main Header */}
       <header className="header-component-header">
         <div className="header">
           <img src={Logo} className="logo" alt="Our company logo" />
-        </div>
-        <div className="header-component-all">
-          <aside className="header-component-social-links">
-            <div className="header-component-social-media-icons">
+          <div className="header-links">
+            <div className="header-component-description">
+              <p>
+                Welcome to OrderUp. We are an all around recipe management site.
+                With our services you will be able to view, share, and even
+                create your own recipes. Do not forget to create an account it's
+                free!
+              </p>
+            </div>
+            <div className="links-to-components">
+              <Link to="/" className="header-component-home-button">
+                <p className="social-media-path">
+                  <Icon icon="home" />
+                </p>
+              </Link>
+              {/* {!isAuthenticated ?  : (
+                ""
+              )} */}
+
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    to="/create-your-recipe"
+                    className="header-component-create-recipe-button"
+                  >
+                    <button className="lg">Create A Recipe</button>
+                  </Link>
+                  <Link
+                    to={"/profile-page/" + usernameEA}
+                    className="header-component-profile-button"
+                  >
+                    <button className="lg">My Profile</button>
+                  </Link>{" "}
+                </>
+              ) : (
+                " "
+              )}
+
+              <Link
+                className="header-component-multiRecipe-button"
+                to={"/all-recipes"}
+              >
+                <button className="lg">All Recipes</button>
+              </Link>
+            </div>
+          </div>
+          <div className="headerSticky">
+            <div className="allUserHeader">
+              <h3 className="usernameHeader">{usernameEA}</h3>
+              {isAuthenticated ? (
+                <button
+                  onClick={e => handleSignOut(e)}
+                  className="header-component-sign-out-button"
+                >
+                  Sign Out
+                </button>
+              ) : (
+                <>
+                  <Link to="/login" className="header-component-login-button">
+                    <button className="lg">Login</button>
+                  </Link>
+                </>
+              )}
+            </div>
+            <aside className="header-component-social-links">
               <a
                 href={props.link_facebook}
                 className="social-media-path"
@@ -105,66 +167,7 @@ export default function Header(props) {
                   <Icon icon="reddit" />
                 </div>
               </a>
-              {isAuthenticated ? (
-                <button
-                  onClick={e => handleSignOut(e)}
-                  className="header-component-sign-out-button"
-                >
-                  Sign Out
-                </button>
-              ) : (
-                ""
-              )}
-            </div>
-          </aside>
-          <div className="header-component-description">
-            <p>
-              Welcome to OrderUp. We are an all around recipe management site.
-              With our services you will be able to view, share, and even create
-              your own recipes. Do not forget to create an account it's free!
-            </p>
-          </div>
-          <div className="links-to-components">
-            <Link to="/" className="header-component-home-button">
-              <p className="social-media-path">
-                <Icon icon="home" />
-              </p>
-            </Link>
-            {!isAuthenticated ? (
-              <>
-                <Link to="/login" className="header-component-login-button">
-                  <button className="lg">Login/Register</button>
-                </Link>
-              </>
-            ) : (
-              ""
-            )}
-
-            {isAuthenticated ? (
-              <>
-                <Link
-                  to="/create-your-recipe"
-                  className="header-component-create-recipe-button"
-                >
-                  <button className="lg">Create A Recipe</button>
-                </Link>
-                <Link
-                  to={"/profile-page/" + username}
-                  className="header-component-profile-button"
-                >
-                  <button className="lg">My Profile</button>
-                </Link>{" "}
-              </>
-            ) : (
-              " "
-            )}
-
-            <Link
-              className="header-component-multiRecipe-button"
-              to={"/all-recipes"}
-            >
-              <button className="lg">All Recipes</button>
-            </Link>
+            </aside>
           </div>
         </div>
       </header>

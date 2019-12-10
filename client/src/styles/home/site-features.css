@@ -2,9 +2,9 @@
   width: 80%;
   margin: auto;
   display: flex;
-  border-top: 3px solid rgb(254, 184, 143);
-  border-bottom: 3px solid rgb(254, 184, 143);
-  color: black;
+  border-top: 3px solid rgb(255, 151, 77);
+  border-bottom: 3px solid rgb(255, 151, 77);
+  color: white;
   margin-top: 5%;
   margin-bottom: 5%;
 }
@@ -24,7 +24,7 @@
 }
 .site-feature-list-container a,
 .site-feature-list-container-main a {
-  color: black;
+  color: white;
 }
 .site-feature-list-titles {
   font-size: 25px;
