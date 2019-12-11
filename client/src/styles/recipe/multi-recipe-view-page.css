@@ -4,48 +4,53 @@
   display: grid;
   justify-items: center;
 }
-
-
+.multi-container {
+  width: 100%;
+  background: black;
+}
 .multi-recipe-view-page-title {
   text-align: center;
+  color: white;
 }
 
 .multi-recipe-view-page-details {
   align-items: center;
 }
-
-.multi-recipe-view-page-recipe-user-span {
-  background-color: rgba(210, 210, 38, 0.756);
-  padding: 3px;
-  
+#multi-card-top {
+  margin: auto;
+  width: 100%;
 }
-
-.multi-recipe-view-page-layout-container {
+.mulit-single-card-main {
+  border: 2px solid white;
+  margin-bottom: 60px;
+}
+#multi-recipe-single {
+  background: black;
+  text-align: center;
+  color: white;
+}
+#mulit-recipe-single:hover {
+  color: white;
+}
+.mulit-card-header {
+  color: white;
+}
+.multi-link-container {
+  color: white;
+  text-align: center;
+}
+#card-body {
+  text-align: center;
+}
+.mulit-card-subtitle {
   display: flex;
-  align-items: flex-start;
-  padding: 30px;
-  box-shadow: 1px 1px 2px 2px #EF883F;
-  margin: 20px;
-  width: 800px;
+  justify-content: flex-end;
+  margin: auto;
 }
-
-
-.multi-recipe-view-page-recipe-name {
-  border-bottom: 1px solid rgb(252, 174, 118);
-}
-
-.multi-recipe-view-page-titles {
-  font-size: 30px;
-  margin: 0px;
-  color: black;
-  font-weight: bolder;
-}
-
-.multi-recipe-view-page-image {
-  margin-right: 30px;
-  margin-bottom: 20px;
-}
-
-.underline {
-  border-bottom: 1px solid rgb(252, 174, 118);
+.mulit-card-text {
+  width: 400px;
+  margin: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

@@ -9,28 +9,10 @@ const RecipeGrid = props => {
 
   return (
     <div className="recipe-grid-flex">
-      <aside>
-        <div>
-          <img className="order-up-banner" src={OrderUp} />
-        </div>
+      <aside className="order-up-banner">
+        <img id="order-up-banner-shown" src={OrderUp} />
       </aside>
       <div className="recipe-grid-container">
-        {/* <RecipeCard
-    <div className="recipe-grid-container  ">
-      {/* <RecipeCard
-        recipe_link="https://www.google.com/"
-        image_source="http://placehold.it/200/200"
-        recipe_rating="3.54/5"
-        recipe_title="Famous Cook Swap Cookies"
-        username="Famous Chef"
-        recipe_description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
-        mollitia neque ex corrupti perferendis pariatur repudiandae nam
-        expedita molestiae, voluptatibus ipsa ducimus eum veniam et.
-        Adipisci asperiores impedit cupiditate sint ea sit numquam ullam
-        sunt autem, nihil explicabo omnis expedita quae pariatur! Delectus
-        ad in eligendi deleniti. Itaque, delectus perferendis."
-      /> */}
-
         {all_recipes.slice(0, 6).map((recipe, i) => (
           <Card
             key={recipe.recipeTitle + i}

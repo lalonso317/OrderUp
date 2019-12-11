@@ -7,6 +7,7 @@ import SetIngredients from "./recipe-List"
 import { Dropdown } from "semantic-ui-react"
 import "semantic-ui-css/semantic.min.css"
 import ImageUploader from "../pictureUpload/upload-pictures"
+import bourdain from "../../Assets/bourbain.png"
 
 const SubmitRecipeButton = props => {
   const options = [
@@ -30,7 +31,6 @@ const SubmitRecipeButton = props => {
   const [name, setName] = useState("")
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
-
 
   const { fullRecipe, CreateRecipe, RecipeImages, initalIng } = useFullRecipe()
 
@@ -84,6 +84,7 @@ const SubmitRecipeButton = props => {
 
   const handleChange = () => {
     setIsChecked(!isChecked)
+    console.log(isChecked)
   }
 
   const handleInputChange = (e, { value }) => {
@@ -91,85 +92,88 @@ const SubmitRecipeButton = props => {
     setCategory(value)
   }
 
-
   return (
-    <>
-      <div></div>
-      <div className="createRHContainer">
-        
-        <div className="createRHRecipeName">
-          <div className="createRHSubtitle">Create A Recipe</div>
-          {/* this is the first part of the form to create a recipe */}
-          <div className="createRHRecipeTitle">
+    <div className="createRecipeMain">
+      <div className="create-recipe-form">
+        <p className="create-a-recipe">Create A Recipe</p>
+        <div className="create-all-in-form">
+          <div className="create-recipe-name">
             <label className="createTitle" htmlFor="title">
               Recipe Name
             </label>
             <input
-              className="createRHRecipeInput"
+              className="create-recipe-input-name"
               type="text"
               name="title"
               id="title"
               placeholder="My Recipe"
               onChange={e => setName(e.target.value)}
             />
-            <div className="createRHRecipeCategory">
-              <p className="createTitle" htmlFor="Drowdown">
-                Category
-              </p>
-              <Dropdown
-                className="createDropdown"
-                options={options}
-                selection
-                placeholder="Select recipe category..."
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="createTitle">
-              <label className="createTitle">Description</label>
-            </div>
-            <div className="createRHRecipeDescription">
-              <textarea
-                onChange={e => setDescription(e.target.value)}
-                className="CRHRdescription"
-                placeholder="This recipe has been in my family for years..."
-              ></textarea>
-            </div>
-            <div className="BottomHalfofPage">
-              <div className="middleofthePage"></div>
-              <div className="privacy"></div>
-            </div>
+          </div>
+          <div className="create-recipe-category">
+            <p className="createTitle" htmlFor="Drowdown">
+              Category
+            </p>
+            <Dropdown
+              className="createDropdown"
+              options={options}
+              selection
+              placeholder="Select recipe category..."
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="create-recipe-description">
+            <label className="createTitle">Description</label>
+
+            <textarea
+              onChange={e => setDescription(e.target.value)}
+              className="createDescription"
+              placeholder="This recipe has been in my family for years..."
+            ></textarea>
+          </div>
+          <div className="recipe-Ing-Dir">
             <SetIngredients />
             <RecipeDirections />
+          </div>
+          <div className="create-privacy">
             {isChecked ? (
-              <label className="labelPrivacy">Public</label>
-            ) : (
               <label className="labelPrivacy">Private</label>
+            ) : (
+              <label className="labelPrivacy">Public</label>
             )}
-            <div className="privacySwitch">
-              <Switch
-                onChange={handleChange}
-                checked={isChecked}
-                offColor="#000000"
-                onColor="#eb7a3e"
-                value={isChecked}
-                className="privacySwitch"
-              />
-            </div>
-            <div>
+
+            <Switch
+              onChange={handleChange}
+              checked={isChecked}
+              offColor="#cccccc"
+              onColor="#eb7a3e"
+              value={isChecked}
+              className="privacySwitch"
+            />
+            <div className="create-img-uploader">
               <ImageUploader />
             </div>
+          </div>
+          <div className="create-recipe-button">
             <form
               onSubmit={handleSubmit}
               className="createRecipeSubmitButtonForm"
             >
-              <button className="finalSubmit" type="submit">
+              <button
+                className="create-final-button"
+                id="finalSubmit"
+                type="submit"
+              >
                 Create Recipe
               </button>
             </form>
           </div>
         </div>
       </div>
-    </>
+      <div className="createRecipe-banner">
+        <img src={bourdain}></img>
+      </div>
+    </div>
   )
 }
 

@@ -58,7 +58,7 @@ export default function Header(props) {
       {/* Main Header */}
       <header className="header-component-header">
         <div className="header">
-          <img src={Logo} className="logo" alt="Our company logo" />
+          <img src={TransLogo} className="logo" alt="Our company logo" />
           <div className="header-links">
             <div className="header-component-description">
               <p>
@@ -97,6 +97,12 @@ export default function Header(props) {
                 to={"/all-recipes"}
               >
                 <button className="lg">All Recipes</button>
+              </Link>
+              <Link
+                className="header-component-multiRecipe-button"
+                to={"/about-us"}
+              >
+                <button className="lg">About</button>
               </Link>
             </div>
           </div>

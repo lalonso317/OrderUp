@@ -2,17 +2,19 @@ import React, { useState } from "react"
 import { useUsers, useFullRecipe } from "../../hooks"
 import UploadPictures from "../pictureUpload/upload-pictures"
 
-
 const EditProfile = props => {
   const username = props.match.params.username
-  const { update } = useUsers()
+  const { update, users } = useUsers()
+  const user = users.find(user => user.username == username)
+  console.log(user)
   const { RecipeImages } = useFullRecipe()
-  const [fname, setFName] = useState("")
-  const [lname, setLName] = useState("")
-  const [email, setEmail] = useState("")
-  const [tagline, setTagline] = useState("")
-  const [about, setAbout] = useState("")
-  console.log("username from edit profile", username)
+
+  // const realImages = [...RecipeImages, ...images]
+  const [fname, setFName] = useState(`${user.firstName}`)
+  const [lname, setLName] = useState(`${user.lastName}`)
+  const [email, setEmail] = useState(`${user.email}`)
+  const [tagline, setTagline] = useState(`${user.tagline}`)
+  const [about, setAbout] = useState(`${user.about}`)
 
   const handleEditProfile = e => {
     e.preventDefault()
@@ -33,47 +35,55 @@ const EditProfile = props => {
   return (
     <>
       <div className="userFormContainer">
-        <h2 className="userProfile">{username}</h2>
-        <form className="userProfileForm" onSubmit={handleEditProfile}>
-          <UploadPictures />
-          <label className="profileLabel">First Name</label>
-          <input
-            className="profileInput"
-            type="text"
-            value={fname}
-            onChange={e => setFName(e.target.value)}
-          ></input>
-          <label className="profileLabel">Last Name</label>
-          <input
-            className="profileInput"
-            type="text"
-            value={lname}
-            onChange={e => setLName(e.target.value)}
-          ></input>
-          <label className="profileLabel">Email</label>
-          <input
-            className="profileInput"
-            type="text"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          ></input>
-          <label className="profileLabel">Tagline</label>
-          <input
-            className="profileInput"
-            type="text"
-            value={tagline}
-            onChange={e => setTagline(e.target.value)}
-          ></input>
-          <label className="profileLabel">About you</label>
-          <textarea
-            className="profileInputTextarea"
-            value={about}
-            onChange={e => setAbout(e.target.value)}
-          ></textarea>
-          <button className="submitEdit" type="submit">
-            Submit Edit
-          </button>
-        </form>
+        <div className="userUpdateMain">
+          <h2 className="userProfile">{username}</h2>
+          <form className="userProfileForm" onSubmit={handleEditProfile}>
+            <UploadPictures />
+            <br></br>
+            <label className="profileLabel">First Name</label>
+            <input
+              className="profileInput"
+              type="text"
+              value={fname}
+              onChange={e => setFName(e.target.value)}
+              required
+            ></input>
+            <label className="profileLabel">Last Name</label>
+            <input
+              className="profileInput"
+              type="text"
+              value={lname}
+              onChange={e => setLName(e.target.value)}
+              required
+            ></input>
+            <label className="profileLabel">Email</label>
+            <input
+              className="profileInput"
+              type="text"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+            ></input>
+            <label className="profileLabel">Tagline</label>
+            <input
+              className="profileInput"
+              type="text"
+              value={tagline}
+              onChange={e => setTagline(e.target.value)}
+              required
+            ></input>
+            <label className="profileLabel">About you</label>
+            <textarea
+              className="profileInputTextarea"
+              value={about}
+              onChange={e => setAbout(e.target.value)}
+              required
+            ></textarea>
+            <button className="submitEdit" type="submit">
+              Submit Edit
+            </button>
+          </form>
+        </div>
       </div>
     </>
   )

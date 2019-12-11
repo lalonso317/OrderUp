@@ -1,6 +1,8 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import Logo from "../../Assets/BnY-Logo-Transparent.png"
+import { useAuth } from "../../hooks"
 import "../../styles/home/footer.css"
 import {
   FacebookShareButton,
@@ -9,9 +11,10 @@ import {
   TwitterIcon
 } from "react-share"
 const Footer = props => {
+  const { usernameEA } = useAuth()
   return (
-    <div>
-      <div className="footer-component">
+    <aside>
+      <aside className="footer-component">
         <aside className="footer-component-social-links">
           <div className="footer-component-social-media-icons">
             <a
@@ -54,24 +57,24 @@ const Footer = props => {
                 <Icon icon="reddit" />
               </div>
             </a>
-            <FacebookShareButton
-              // href={"http://localhost:3000/"}
-              url={"https://finediningsite.surge.sh/"}
-              children={<FacebookIcon size={30} round={true} />}
-            />
-            <TwitterShareButton
-              url={"http://localhost:3000/"}
-              children={<TwitterIcon size={30} round={true} />}
-            />
           </div>
         </aside>
+
+        <div className="footer-component-links">
+          <Link
+            className="footer-component-multiRecipe-button"
+            to={"/all-recipes"}
+          >
+            <button className="fg">All Recipes</button>
+          </Link>
+        </div>
         <div className="footer-component-logo">
           <p>&copy;</p>
           <img className="logo" src={Logo} alt="our company logo" />
           <p>&trade;</p>
         </div>
-      </div>
-    </div>
+      </aside>
+    </aside>
   )
 }
 

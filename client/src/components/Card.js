@@ -11,13 +11,10 @@ const Card = props => {
     recipe_category: category
   } = props
   return (
-    <div
-      id="main-card-home"
-      className="card text-center"
-      style={{ width: "400px", background: "black" }}
-    >
+    <div id="main-card-home" className="card text-center">
       <Link to={link}>
         <img
+          id="card-img-top"
           className="card-img-top"
           src={image}
           alt=""
@@ -37,9 +34,9 @@ const Card = props => {
         </div>
         <br />
         <div className="row">
-          <div className="col">
+          {/* <div className="col">
             <p className="card-text">{description}</p>
-          </div>
+          </div> */}
         </div>
         <br />
         <div className="row">

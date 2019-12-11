@@ -12,7 +12,7 @@ import EditProfile from "./profile/editProfile"
 import About from "./about/about-us"
 import "../styles/recipe/index.css"
 import "../styles/recipe/createRecipeHeader.css"
-import "../styles/recipe/createRecipeDirections.css"
+import "../styles/recipe/createDirections.css"
 import "../styles/recipe/createRecipeSubmitButton.css"
 import "../styles/profile/profilePage.css"
 import "../styles/login/signIn.css"
@@ -21,11 +21,12 @@ import "../styles/recipe/create-recipe-viewpage.css"
 import "../styles/home/site-features.css"
 import "../styles/recipe/editRecipePage.css"
 import "../styles/about/aboutUs.css"
+import "../styles/home/card.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
-import Card from './Card'
+import Card from "./Card"
 
 const App = props => {
   return (
