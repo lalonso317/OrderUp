@@ -56,6 +56,7 @@
   align-items: center;
   justify-content: space-around;
   color: white;
+
   /* position: fixed;
   z-index: 15;
   width: 70%;
@@ -64,32 +65,39 @@
 
 .header-component-login-button {
   margin: 0px 12px;
+  outline: none;
 }
 
 .header-component-recipe-button {
   margin: 0 12px;
+  outline: none;
 }
 
 .header-component-profile-button {
   margin: 0 12px;
+  outline: none;
 }
 
 .header-component-singleRecipe-button {
   margin: 0 12px;
+  outline: none;
 }
 
 .header-component-mulitRecipe-button {
   margin: 0 12px;
+  outline: none;
 }
 
 .header-component-home-button {
   margin: 0 12px;
+  outline: none;
 }
 
 .lg {
   border: none;
   background: none;
   cursor: pointer;
+  outline: none;
   color: white;
   font-size: 18px;
   margin-top: 5px;
@@ -99,6 +107,7 @@
   transition: 0.1s ease-in-out;
   color: rgb(239, 136, 63);
   text-decoration: underline;
+  outline: none;
 }
 
 .imageCarousel {
@@ -157,13 +166,13 @@
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  margin-top: 7px;
+  margin-top: 13px;
 }
 .usernameHeader {
   margin: 0;
   margin-left: 10px;
   color: white;
-  margin: 10px 10px;
+  margin: 18px 10px;
   font-size: 25px;
 }
 .header-component-sign-out-button {
@@ -177,7 +186,7 @@
   outline: none;
   transition: ease-in-out 0.2s;
   height: 30px;
-  margin: 0px 10px;
+  margin: 1px 10px;
 }
 .headerSticky {
   width: 100%;
@@ -195,4 +204,3 @@
   align-items: center;
 
 } */
-

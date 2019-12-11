@@ -31,13 +31,10 @@ const SetIngredients = props => {
             <input
               className="inputDirections"
               type="text"
-              placeholder="Olive Oil 1-1/2 cups"
+              placeholder="ex: 1 cup Olive Oil "
               value={amount}
               onChange={e => setAmount(e.target.value)}
             ></input>
-            <button type="submit" className="send">
-              <Icon icon="arrow-right" />
-            </button>
           </div>
         </form>
         <div className="direct">
@@ -54,7 +51,7 @@ const SetIngredients = props => {
                   onClick={e => setD(item.ingredientName)}
                 >
                   {" "}
-                  -{" "}
+                  X{" "}
                 </button>
               </form>
             </div>

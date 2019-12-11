@@ -1,8 +1,12 @@
 .about-us-page-container {
   width: 90%;
   margin: auto;
+  color: white;
 }
-
+.about-us-main-container {
+  width: 100%;
+  background: black;
+}
 .about-us-page-title h1 {
   font-size: 50px;
   font-family: "Raleway", sans-serif;
@@ -26,7 +30,8 @@
   font-size: 30px;
   width: 200px;
 }
-
+.about-us-page-subtitle {
+}
 .about-us-page-subtitle p {
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -50,7 +55,6 @@
 }
 .contact-form-boxes input:focus,
 .contact-form-boxes textarea:focus {
-  /* background: rgb(198, 198, 198); */
   outline-color: rgb(235, 122, 62);
 }
 .contact-form-boxes input {

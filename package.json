@@ -16,7 +16,6 @@
   "homepage": "https://github.com/PC-Fullstack-Fall-2019/boilerplate#readme",
   "dependencies": {
     "@okta/okta-react": "^1.2.3",
-    "@tinymce/tinymce-react": "^3.3.2",
     "aws-amplify": "^1.2.4",
     "aws-amplify-react": "^2.5.4",
     "aws-sdk": "^2.583.0",

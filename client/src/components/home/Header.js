@@ -6,6 +6,7 @@ import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/index"
 
 
+
 const Header = props => {
   const { isAuthenticated, signout, usernameEA } = useAuth()
   console.log(usernameEA)
@@ -60,6 +61,7 @@ const Header = props => {
 
       <header className="header-component-header">
         <div className="header">
+
           <img src={TransLogo} className="logo-top" alt="Our company logo" />
           <div className="header-links">
             <div className="header-component-description">
@@ -99,6 +101,12 @@ const Header = props => {
                 to={"/all-recipes"}
               >
                 <button className="lg">All Recipes</button>
+              </Link>
+              <Link
+                className="header-component-multiRecipe-button"
+                to={"/about-us"}
+              >
+                <button className="lg">About</button>
               </Link>
             </div>
           </div>

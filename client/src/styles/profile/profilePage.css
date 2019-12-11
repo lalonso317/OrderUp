@@ -1,6 +1,8 @@
 .profile-page-container {
   width: 100%;
   margin: auto;
+  background: black;
+  color: white;
 }
 
 .profile-page-to-home-button {
@@ -11,18 +13,28 @@
   width: 60%;
   margin: auto;
   padding: 20px;
-}
-.userProfileHeader {
   display: flex;
-}
-
-.MakeUpUserName p {
-  margin-left: 10px;
 }
 
 .MakeUpUserName {
   line-height: 30px;
   display: flex;
+  align-items: baseline;
+}
+.MakeUpUsername {
+  text-align: center;
+  width: 100px;
+  margin: auto;
+}
+.MakeUpCaret {
+  color: rgb(239, 136, 63);
+  font-size: 20px;
+  margin: 0px 10px;
+}
+.MakeUpMeal {
+  background: rgb(239, 136, 63);
+  font-size: 20px;
+  margin: 0px 50px;
 }
 .MakeUpUserName p:first-child {
   font-size: 30px;
@@ -36,22 +48,48 @@
 .editProfileButton {
   margin-top: 25px;
 }
-
+.view-all-recipe-title {
+  color: white;
+  text-decoration: none;
+  margin-top: 25px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.view-all-recipe-image {
+  width: 200px;
+  margin: 15px;
+}
+.view-all-recipes {
+  display: flex;
+  flex-wrap: wrap;
+  transition: 1s ease-in-out;
+  margin-top: 25px;
+}
+.dont-show-all-recipes {
+  height: 0px;
+  display: none;
+  transition: 1s ease-in-out;
+}
+.editProfileButton {
+  height: 400px;
+}
 /* Edit Profile Form */
 
 .userFormContainer {
-  width: 300px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
+  background: black;
+  color: white;
 }
 .profileInput {
-  width: 350px;
+  width: 100%;
   height: 30px;
-  margin: 15px 0 10px 0;
+  margin: 5px 0 15px 0;
 }
 .profileInputTextarea {
-  width: 350px;
+  width: 100%;
 }
 .userProfile {
   margin: 0;
@@ -59,6 +97,14 @@
   width: 100%;
   margin-top: 24px;
 }
-/* .userProfileForm{
-    margin
-} */
+.userUpdateMain {
+  width: 20%;
+  margin: auto;
+}
+.submitEdit {
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 30px;
+}

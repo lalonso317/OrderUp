@@ -49,4 +49,5 @@ FROM recipeUsers.Users;
     res.json(results)
   })
 })
+
 module.exports = router

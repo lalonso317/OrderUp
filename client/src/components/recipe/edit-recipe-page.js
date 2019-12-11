@@ -4,12 +4,14 @@ import Switch from "react-switch"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import { useAllRecipes, useUpdate, useFullRecipe } from "../../hooks"
 
-
 const EditRecipe = props => {
   const id = props.match.params.recipeId
   // reference to hooks being imported
   const { update } = useUpdate()
   const all_recipes = useAllRecipes()
+
+  // const thisRecipe = all_recipes.find(recipe => recipe.recipeId == id)
+
   const { RecipeImages } = useFullRecipe()
   //selecting the correct recipe to auto poplulate the text areas on the page
   const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
@@ -164,7 +166,6 @@ const EditRecipe = props => {
               </button>
             </div>
           )
-
         })}
       </div>
       <div className="edit-recipe-submit-button">

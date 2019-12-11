@@ -19,11 +19,6 @@ const RecipeDescription = props => {
   const handleClick = e => {
     e.preventDefault()
     remove(d)
-
-    // var newDirection = direction.filter(x => {
-    //   return x.step !== d
-    // })
-    // console.log(direction, newDirection)
   }
   return (
     <>
@@ -39,26 +34,22 @@ const RecipeDescription = props => {
                 value={direct}
                 onChange={e => setDirect(e.target.value)}
               ></input>
-              <button type="submit" className="send">
-                <Icon icon="arrow-right" />
-              </button>
             </div>
           </form>
           <div className="direct">
             {directions.map((item, i) => (
-              <div key={i}>
-                <form className="individualDirections" onSubmit={handleClick}>
+              <form key={i} onSubmit={handleClick}>
+                <div className="individualDirections">
                   <p className="step"> {item.step}</p>
                   <button
                     className="removeDirection"
                     type="submit"
                     onClick={e => setD(item.step)}
                   >
-                    {" "}
-                    -{" "}
+                    X
                   </button>
-                </form>
-              </div>
+                </div>
+              </form>
             ))}
           </div>
         </div>

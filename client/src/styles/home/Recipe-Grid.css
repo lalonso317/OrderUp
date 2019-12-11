@@ -5,20 +5,99 @@
   gap: 15px;
   justify-items: center;
 }
-@media only screen and (max-width: 700px) {
+#main-card-home {
+  width: 400px;
+  background: black;
+}
+#order-up-banner-shown {
+  width: 500px;
+  margin: 10px 0;
+}
+@media (max-width: 1400px) {
   .recipe-grid-container {
     display: grid;
-    padding: 10px;
-    grid-template-columns: repeat(2, 2fr);
+    padding: 10px 20px;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     justify-items: center;
   }
+  #main-card-home {
+    width: 350px;
+  }
+  #card-img-top {
+    width: 350px;
+    height: 275px;
+  }
+  #order-up-banner-shown {
+    width: 400px;
+    margin: 10px 0;
+  }
 }
+@media (max-width: 1200px) {
+  .recipe-grid-container {
+    display: grid;
+    padding: 10px 25px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+  #main-card-home {
+    width: 300px;
+  }
+  #card-img-top {
+    width: 300px;
+    height: 250px;
+  }
+
+  #order-up-banner-shown {
+    display: none;
+  }
+  .order-up-banner {
+    background-image: url("../../Assets/2.png");
+    height: 100px;
+    width: 100%;
+    margin: auto;
+  }
+  .recipe-grid-flex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .recipe-grid-container {
+    display: grid;
+    padding: 10px 25px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+  #main-card-home {
+    width: 300px;
+  }
+  #card-img-top {
+    width: 300px;
+    height: 250px;
+  }
+
+  #order-up-banner-shown {
+    display: none;
+  }
+  .order-up-banner {
+    background-image: url("../../Assets/2.png");
+    height: 100px;
+    width: 100%;
+    margin: auto;
+  }
+  .recipe-grid-flex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 .recipe-grid-flex {
   display: flex;
   width: 90%;
   margin: auto;
-}
-.order-up-banner {
-  width: 500px;
 }

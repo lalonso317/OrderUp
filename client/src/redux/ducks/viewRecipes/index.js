@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import Axios from "axios"
-const default_image = "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
+import { array } from "prop-types"
+const default_image =
+  "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
 
 const GET_All_RECIPES = "recipe-view/GET_ALL_RECIPES"
 
@@ -22,28 +24,48 @@ const getRecipes = () => {
   return dispatch => {
     Axios.get("/api/Recipe")
       .then(response => {
-        const data = response.data.map(array => ({
-          recipe_id: array._id,
-          recipeTitle: array.recipeHeaderInfo.name,
-          recipeCategory: array.recipeHeaderInfo.category,
-          recipeDescription: array.recipeHeaderInfo.description,
-          ingredients: array.fullRecipe.ingredients,
-          directions: array.directions,
-          private: array.isChecked,
-          owner: array.username ? array.username : "Anon",
-          RecipeImages: array.RecipeImages.length
-          ? array.RecipeImages
-          : (array.RecipeImages = [
-              {
-                url:
-                  default_image
-              }
-            ])
-        }))
+        console.log("returned", response.data)
+        // const data = response.data.map(array => {
+        //   return {
+        //   recipe_id: array._id,
+        //   recipeTitle: array.recipeHeaderInfo.name,
+        //   recipeCategory: array.recipeHeaderInfo.category,
+        //   recipeDescription: array.recipeHeaderInfo.description,
+        //   ingredients: array.fullRecipe.ingredients,
+        //   directions: array.directions,
+        //   private: array.isChecked
+        //   owner: array.username ? array.username : "Anon",
+        //   RecipeImages: array.RecipeImages.length
+        //     ? array.RecipeImages
+        //     : (array.RecipeImages = [
+        //         {
+        //           url: default_image
+        //         }
+        //       ]),
+        //   Comments: array.comments,
+        //   recId: array.recId
+        // })
+        const data = response.data.map(data => {
+          return {
+            recipeHeader: data.recipeHeaderInfo,
+            recipe_id: data._id,
+            recipeIngredients: data.fullRecipe.ingredients,
+            recipeDirections: data.directions,
+            private: data.isChecked,
+            owner: data.username ? data.username : "Anon",
+            RecipeImages:
+              data.RecipeImages.length > 0
+                ? data.RecipeImages
+                : (data.RecipeImages = [{ url: default_image }]),
+            Comments: data.comments,
+            recId: data.recId
+          }
+        })
         dispatch({
           type: GET_All_RECIPES,
           payload: data
         })
+        console.log("this")
       })
       .catch(error => ({
         message: error
@@ -60,6 +82,6 @@ export const useAllRecipes = () => {
   useEffect(() => {
     dispatch(getRecipes())
   }, [dispatch])
-
+  console.log(all_recipes)
   return all_recipes
 }

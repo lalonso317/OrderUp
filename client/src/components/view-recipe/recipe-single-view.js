@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useSingleRecipe } from "../../hooks"
+import CommentComponent from "../comments/comment-component"
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -60,6 +61,7 @@ const ViewRecipeSingle = props => {
               {i++}. {direction.step}
             </div>
           ))}
+        <CommentComponent id={id} />
       </div>
       <Link
         to={`/edit-recipe/${id}`}
