@@ -4,11 +4,22 @@ import Icon from "../../lib/Icon"
 import { Redirect } from "react-router-dom"
 import { useAuth, useUsers, useAllRecipes } from "../../hooks"
 import Meal from "../../Assets/icons8-meal-50.png"
+
 const UserProfileMain = props => {
+  const default_image =
+    "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
   const { isAuthenticated, usernameEA } = useAuth()
   const all_recipes = useAllRecipes()
   const { users } = useUsers()
   const username = props.match.params.username
+  const user = users.find(user => user.username === username)
+  const userRecipes = all_recipes.filter(user => user.owner === username)
+  const image = user == null ? "" : user.RecipeImages
+  const fname = user == null ? "" : user.firstName
+  const lname = user == null ? "" : user.lastName
+  const about = user == null ? "" : user.about
+  const tagline = user == null ? "" : user.tagline
+
 
   const [toggle, setToggle] = useState(false)
   const handleToggle = () => {
@@ -26,6 +37,7 @@ const UserProfileMain = props => {
   const tagline = user == null ? "" : user.tagline
   console.log(user)
 
+
   return isAuthenticated ? (
     <div className="profile-page-container">
       <div className="userProfileMakeUp">
@@ -35,7 +47,12 @@ const UserProfileMain = props => {
             <img className="MakeUpMeal" src={Meal} />
           </div>
           <div className="MakeUpPic">
-            <img className="MakeUpImg" src={image} />
+
+            <img
+              className="MakeUpImg"
+              src={image ? image : default_image}
+              alt=""
+            />
           </div>
         </div>
         <div className="MakeUpExtras">

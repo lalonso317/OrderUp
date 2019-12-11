@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
+
 // action definitions
 const UPDATE_USERS = "users/UPDATE_USER"
 const USER_PROFILE = "users/USER_PROFILE"

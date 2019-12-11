@@ -1,11 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
-import Logo from "../../Assets/BlacknY-Logo.png"
 import TransLogo from "../../Assets/BnY-Logo-Transparent.png"
 import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/index"
-export default function Header(props) {
+
+
+
+const Header = props => {
   const { isAuthenticated, signout, usernameEA } = useAuth()
   console.log(usernameEA)
   const handleSignOut = e => {
@@ -56,9 +58,11 @@ export default function Header(props) {
         </Link>
       </header> */}
       {/* Main Header */}
+
       <header className="header-component-header">
         <div className="header">
-          <img src={TransLogo} className="logo" alt="Our company logo" />
+
+          <img src={TransLogo} className="logo-top" alt="Our company logo" />
           <div className="header-links">
             <div className="header-component-description">
               <p>
@@ -172,3 +176,5 @@ export default function Header(props) {
     </div>
   )
 }
+
+export default Header

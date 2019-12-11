@@ -17,6 +17,7 @@ import "react-awesome-slider/dist/autoplay"
 import withAutoplay from "react-awesome-slider/dist/autoplay"
 
 const PublicHomePage = props => {
+
   const AutoplaySlider = withAutoplay(AwesomeSlider)
 
   return (

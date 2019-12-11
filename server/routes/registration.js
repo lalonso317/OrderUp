@@ -12,7 +12,7 @@ router.post("/Register", (req, res, next) => {
   const password = sha512(req.body.password + salt)
 
   const sql =
-    "INSERT INTO users (username, email, password, salt) VALUES (?, ?, ?, ?)"
+    "INSERT INTO Users (username, email, password, salt) VALUES (?, ?, ?, ?)"
 
   db.query(sql, [username, email, password, salt], (err, results, fields) => {
     if (err) {

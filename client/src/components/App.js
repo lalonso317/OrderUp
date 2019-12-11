@@ -23,7 +23,7 @@ import "../styles/recipe/editRecipePage.css"
 import "../styles/about/aboutUs.css"
 import "../styles/home/card.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-
+import Test from './test'
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
 import Card from "./Card"
@@ -37,7 +37,7 @@ const App = props => {
         link_reddit="https://www.reddit.com/"
         link_instagram="https://www.instagram.com/"
       />
-      <Route path="/test" component={Card} />
+      <Route path="/test" component={Test} />
       <Route exact path={"/"} component={PublicHomePage} />
       <Route component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />

@@ -10,12 +10,13 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   /* , "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -27,4 +28,8 @@ code {
   color: black;
   font-size: 40px;
   cursor: pointer;
+}
+
+button {
+  outline: none !important;
 }
