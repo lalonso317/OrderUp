@@ -1,5 +1,5 @@
 import React from "react"
-
+import { Link } from "react-router-dom"
 const Card = props => {
   const {
     recipe_link: link,
@@ -11,19 +11,29 @@ const Card = props => {
     recipe_category: category
   } = props
   return (
-    <div className="card text-center" style={{width: "400px"}} >
-      <img className="card-img-top" src={image} alt=""  width="400px" height="400px"/>
+    <div
+      id="main-card-home"
+      className="card text-center"
+      style={{ width: "400px", background: "black" }}
+    >
+      <Link to={link}>
+        <img
+          className="card-img-top"
+          src={image}
+          alt=""
+          width="325px"
+          height="325px"
+        />
+      </Link>
       <div className="card-header">
         <h4 className="card-title">{title}</h4>
+        <h6 className="card-subtitle">By - {owner}</h6>
       </div>
       <div className="card-body">
         <div className="row">
-          <div className="col-7">
-            <h6 className="card-subtitle">Category - {category}</h6>
-          </div>
-          <div className="col-5">
-            <h6 className="card-subtitle">By - {owner}</h6>
-          </div>
+          <div className="card-subtitle">{category}</div>
+
+          <div className="col-5"></div>
         </div>
         <br />
         <div className="row">
@@ -34,14 +44,13 @@ const Card = props => {
         <br />
         <div className="row">
           <div className="col">
-            <a href={link} className="btn btn-outline-warning">
+            <Link to={link} className="btn btn-outline-warning">
               View More
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </div>
   )
 }
-
 export default Card
