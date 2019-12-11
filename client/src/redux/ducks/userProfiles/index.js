@@ -1,4 +1,5 @@
-import { useSelector, useDispatch, useEffect } from "react"
+import { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 
 // action definitions
@@ -19,6 +20,18 @@ export default (state = initialState, action) => {
       return { ...state, users: action.payload }
     default:
       return state
+  }
+}
+function getProfile() {
+  return dispatch => {
+    axios.get("/edit-profile").then(resp => {
+      console.log(resp.data)
+      dispatch({
+        type: USER_PROFILE,
+        payload: resp.data
+      })
+      console.log(resp.data)
+    })
   }
 }
 
@@ -48,17 +61,6 @@ function editProfile(
           type: UPDATE_USERS
         })
       })
-  }
-}
-function getProfile() {
-  return dispatch => {
-    axios.get("/edit-profile").then(resp => {
-      console.log(resp.data)
-      dispatch({
-        type: USER_PROFILE,
-        payload: resp.data
-      })
-    })
   }
 }
 

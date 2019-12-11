@@ -1,0 +1,75 @@
+.bottom {
+  padding: 30px;
+  height: 100%;
+}
+
+.directions,
+.privacy {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.inputDirections {
+  outline: none;
+  width: 400px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.direction {
+  height: 250px;
+}
+.direct {
+  overflow: scroll;
+  width: 100%;
+  height: 300px;
+  background: white;
+  color: black;
+}
+
+.individualDirections {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0px 15px;
+  outline: none;
+  background: none;
+  width: 100%;
+  border-bottom: 1px solid rgb(239, 136, 63);
+}
+
+.removeDirection {
+  outline: none;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 29px;
+  margin: 0;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.removeDirection:hover {
+  color: rgb(239, 136, 63);
+}
+.labelDirection {
+  margin-bottom: 20px;
+}
+.submitDirection {
+  display: flex;
+  align-items: center;
+}
+
+.send {
+  margin-bottom: 10px;
+  font-size: 20px;
+  outline: none;
+  background: none;
+  border: none;
+}
+.createRH-setIngredients-Directions {
+  display: flex;
+}

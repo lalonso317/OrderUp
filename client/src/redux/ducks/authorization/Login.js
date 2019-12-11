@@ -19,8 +19,8 @@ function checkAuth() {
 const initalState = {
   username: "",
   isAuthenticated: checkAuth(),
-  loading: true
-  // users: []
+  loading: true,
+  users: []
 }
 
 export default (state = initalState, action) => {
@@ -53,7 +53,6 @@ function login(username, password, dispatch) {
         }
 
         window.localStorage.setItem("token", resp.data.token)
-        console.log(username)
         dispatch({
           type: LOGIN_SUCCESS,
           payload: username
@@ -91,5 +90,4 @@ export function useAuth() {
   const signout = () => dispatch(logout())
 
   return { signin, signout, isAuthenticated, usernameEA }
-
 }

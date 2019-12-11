@@ -1,0 +1,8 @@
+.card-img-top {
+  transition: 0.3s ease-out;
+}
+.card-img-top:hover {
+  transform: translate(6px, 0px);
+  transition: 0.3s ease-out;
+  box-shadow: -7px -7px 0px 0px rgb(255, 151, 77);
+}
