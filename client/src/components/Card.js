@@ -34,9 +34,9 @@ const Card = props => {
         </div>
         <br />
         <div className="row">
-          {/* <div className="col">
+          <div className="col">
             <p className="card-text">{description}</p>
-          </div> */}
+          </div>
         </div>
         <br />
         <div className="row">

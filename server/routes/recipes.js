@@ -62,13 +62,24 @@ router.post("/api/update-recipe", (req, res) => {
 router.post("/api/addedComment", (req, res) => {
   Recipe.findById(req.body.id)
     .then(recipe => {
-      recipe.update({
-        ...recipe,
-        ["comments"]: [...recipe.comments, req.body.comment],
-        ["_id"]: req.body.id
-      })
-      // recipe.comments = [...recipe.comments, req.body.comment]
+      recipe.recipeHeaderInfo.category = recipe.recipeHeaderInfo.category
+      recipe.recipeHeaderInfo.name = recipe.recipeHeaderInfo.name
+      recipe.recipeHeaderInfo.description = recipe.recipeHeaderInfo.description
+      recipe.fullRecipe.ingredients = recipe.fullRecipe.ingredients
+      recipe.directions = recipe.directions
+      recipe.isChecked = recipe.isChecked
+      recipe.username = recipe.username
+      recipe.RecipeImages = recipe.RecipeImages
+      recipe.comments = [...recipe.comments, req.body.comment]
       recipe.save()
+
+      // recipe.update({
+      //   ...recipe,
+      //   ["comments"]: [...recipe.comments, req.body.comment],
+      //   ["_id"]: req.body.id
+      // })
+      // // recipe.comments = [...recipe.comments, req.body.comment]
+      // recipe.save()
     })
     .then(resp => {
       console.log("updated")
