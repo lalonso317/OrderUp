@@ -3,7 +3,6 @@ import { Dropdown } from "semantic-ui-react"
 import Switch from "react-switch"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import { useAllRecipes, useUpdate, useFullRecipe } from "../../hooks"
-import TextEditor from "../about/text-editor"
 
 const EditRecipe = props => {
   const id = props.match.params.recipeId
@@ -165,7 +164,6 @@ const EditRecipe = props => {
               </button>
             </div>
           )
-
         })}
       </div>
       <div className="edit-recipe-submit-button">

@@ -57,6 +57,43 @@ router.post("/api/update-recipe", (req, res) => {
   })
 })
 
+// adds comments to the recipe objects
+
+router.post("/api/addedComment", (req, res) => {
+  Recipe.findById(req.body.id)
+    .then(recipe => {
+      recipe.update({
+        ...recipe,
+        ["comments"]: [...recipe.comments, req.body.comment],
+        ["_id"]: req.body.id
+      })
+      // recipe.comments = [...recipe.comments, req.body.comment]
+      recipe.save()
+    })
+    .then(resp => {
+      console.log("updated")
+    })
+
+  res.json({
+    message: "butthole"
+  })
+})
+
+// test to update just the comments in the recipe object that is selected by the id
+
+// router.post("/api/test-update-comments", (req, res) => {
+//   id = "5deeee9442effc77a064be31"
+//   comment = [{ text: "this is a comment" }]
+//   Recipe.findOneAndUpdate({ _id: id }, { $set: comment }, function(recipe) {
+//     console.log(res)
+//     console.log(comment)
+//   })
+//   console.log(res)
+//   res.json({
+//     message: res
+//   })
+// })
+
 // gets the uploaded images
 router.post("/getImages", (req, res) => {
   const url = req.body.url
@@ -73,5 +110,3 @@ router.get("/recipe/:recipeId", async (request, response) => {
 })
 
 module.exports = router
-
-
