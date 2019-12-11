@@ -5,13 +5,11 @@ import { useAllRecipes } from "../../hooks"
 
 const MultiRecipeLoader = props => {
   const all_recipes = useAllRecipes()
-  {
-    console.log(all_recipes)
-  }
+ 
   return (
     <div>
       <MultiRecipeViewPage
-        recipeArray={all_recipes.filter(e => e.private == false)}
+        recipeArray={all_recipes.filter(e => e.private === false)}
       />
     </div>
   )

@@ -16,32 +16,7 @@ import "react-awesome-slider/dist/autoplay"
 import withAutoplay from "react-awesome-slider/dist/autoplay"
 
 const PublicHomePage = props => {
-  const IMAGES = [
-    {
-      src: burrito,
-      thumbnail: burrito,
-      thumbnailWidth: "700px",
-      thumbnailHeight: "700px"
-    },
-    {
-      src: fish,
-      thumbnail: fish,
-      thumbnailWidth: 420,
-      thumbnailHeight: 204
-    },
-    {
-      src: chickenSalad,
-      thumbnail: chickenSalad,
-      thumbnailWidth: 320,
-      thumbnailHeight: 204
-    },
-    {
-      src: pancakes,
-      thumbnail: pancakes,
-      thumbnailWidth: 320,
-      thumbnailHeight: 174
-    }
-  ]
+
   const AutoplaySlider = withAutoplay(AwesomeSlider)
 
   return (

@@ -3,14 +3,13 @@ import { Dropdown } from "semantic-ui-react"
 import Switch from "react-switch"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import { useAllRecipes, useUpdate, useFullRecipe } from "../../hooks"
-import TextEditor from "../about/text-editor"
+
 
 const EditRecipe = props => {
   const id = props.match.params.recipeId
   // reference to hooks being imported
   const { update } = useUpdate()
   const all_recipes = useAllRecipes()
-  const thisRecipe = all_recipes.find(recipe => recipe.recipeId == id)
   const { RecipeImages } = useFullRecipe()
   //selecting the correct recipe to auto poplulate the text areas on the page
   const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
@@ -159,7 +158,7 @@ const EditRecipe = props => {
         {images.map((img, i) => {
           return (
             <div key={i + "images"}>
-              <img key={i} src={img.url} width="100px" />
+              <img key={i} src={img.url} width="100px" alt=""/>
               <button onClick={e => handleDeleteImage(e, img.url)}>
                 delete image
               </button>

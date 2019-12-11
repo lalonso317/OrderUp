@@ -6,16 +6,23 @@
   z-index: 15;
   background: black;
   color: white;
+  height: 220px;
 }
 .header {
   display: flex;
   width: 75%;
   margin: auto;
 }
-.logo {
+.logo-top {
   width: 21%;
+  position: absolute;
+  top: -90px;
+  left: 90px;
 }
 
+.logo {
+  width: 21%
+}
 .header-component-social-links {
   display: flex;
   justify-content: flex-end;

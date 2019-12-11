@@ -34,3 +34,19 @@ CREATE TABLE user_profiles (
   user_id INT,
   CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE
 );
+
+
+
+
+CREATE TABLE Users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR(128) NOT NULL,
+  salt VARCHAR(100),
+  firstName VARCHAR(100),
+  lastName VARCHAR(100),
+  tagline VARCHAR(255),
+  about VARCHAR(1000),
+  RecipeImages VARCHAR(500)
+);

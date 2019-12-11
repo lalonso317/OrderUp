@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useUsers, useFullRecipe } from "../../hooks"
 import UploadPictures from "../pictureUpload/upload-pictures"
 
-
 const EditProfile = props => {
   const username = props.match.params.username
   const { update } = useUsers()
@@ -70,6 +69,7 @@ const EditProfile = props => {
             value={about}
             onChange={e => setAbout(e.target.value)}
           ></textarea>
+
           <button className="submitEdit" type="submit">
             Submit Edit
           </button>
