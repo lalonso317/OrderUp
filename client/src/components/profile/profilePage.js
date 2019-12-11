@@ -94,5 +94,4 @@ const UserProfileMain = props => {
     <Redirect to={"/profile-page/" + username} />
   )
 }
-
 export default UserProfileMain

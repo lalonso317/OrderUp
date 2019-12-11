@@ -28,9 +28,8 @@ const Card = props => {
       </div>
       <div className="card-body">
         <div className="row">
-          {/* <div className="col-7">
-            <h6 className="card-subtitle">Category - {category}</h6>
-          </div> */}
+          <div className="card-subtitle">{category}</div>
+
           <div className="col-5"></div>
         </div>
         <br />
@@ -51,5 +50,4 @@ const Card = props => {
     </div>
   )
 }
-
 export default Card

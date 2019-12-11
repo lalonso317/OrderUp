@@ -21,9 +21,10 @@ const recipe = new mongoose.Schema({
   recId: {
     type: String,
     default: null
-  }
+  },
+  comments: [{ avatar: String, author: String, text: String, meta: Date }]
 })
-
+// { avatar: String, author: String, text: String, meta: Date }
 module.exports = Recipe = mongoose.model("recipe", recipe)
 
 // recipeHeaderInfo, fullRecipe, directions, isChecked, user

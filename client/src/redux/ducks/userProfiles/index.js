@@ -1,16 +1,13 @@
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
-
 // action definitions
 const UPDATE_USERS = "users/UPDATE_USER"
 const USER_PROFILE = "users/USER_PROFILE"
-
 // initial state
 const initialState = {
   users: []
 }
-
 // reducer
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -34,7 +31,6 @@ function getProfile() {
     })
   }
 }
-
 function editProfile(
   email,
   firstName,
@@ -63,17 +59,14 @@ function editProfile(
       })
   }
 }
-
 // custom hooks
 export function useUsers() {
   const users = useSelector(appState => appState.userState.users)
   const dispatch = useDispatch()
   const update = (username, fname, lname, email, tagline, about, URL) =>
     dispatch(editProfile(username, fname, lname, email, tagline, about, URL))
-
   useEffect(() => {
     dispatch(getProfile())
   }, [dispatch])
-
   return { users, update }
 }
