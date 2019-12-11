@@ -25,16 +25,10 @@ const UserProfileMain = props => {
   const handleToggle = () => {
     setToggle(!toggle)
   }
-  const user = users.find(user => user.username == username)
-  const userRecipes = all_recipes.filter(user => user.owner == username)
 
-  const image = user == null ? "" : user.RecipeImages
-  const fname = user == null ? "" : user.firstName
 
-  const lname = user == null ? "" : user.lastName
 
-  const about = user == null ? "" : user.about
-  const tagline = user == null ? "" : user.tagline
+
   console.log(user)
 
 
