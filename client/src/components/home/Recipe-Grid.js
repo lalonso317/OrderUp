@@ -8,8 +8,6 @@ const RecipeGrid = props => {
   const all_recipes = useAllRecipes()
 
   return (
-
-    
       <div className="recipe-grid-flex">
         <aside>
           <div>
@@ -20,7 +18,7 @@ const RecipeGrid = props => {
           {all_recipes.slice(0, 6).map((recipe, i) => (
 
             <Card
-              key={recipe.recipeTitle + i}
+              key={recipe.recipeTitle + " " + i + " " + recipe.recipe_id}
               recipe_link={`/recipe/${recipe.recipe_id}`}
               image_source={recipe.RecipeImages[0].url}
               recipe_rating="3.54/5"
