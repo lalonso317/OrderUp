@@ -12,12 +12,24 @@ const AboutTheDevs = props => {
           <img src={Mitchell} width="300px" />
         </div>
         <div className="">
-          <p>Background</p>
-          <p>Current Events</p>
+          <h3>Background</h3>
+          <p>
+            Mitchell is one of our top developers here at Order up. He enjoys
+            spending his freetime traveling with his wife to places such as
+            Japan, Taiwan, Hong Kong and various cities throughout the United
+            States.
+          </p>
+          <p>
+            He has traveled around the United States and several countries in
+            Asia such as Japan, Taiwan, Hong Kong.
+          </p>
+          <p>
+            He lived in Japan from 2012 to 2014 as a missionary and again from
+            2018 to 2019 as a civilian.
+          </p>
+          <h3>Current Events</h3>
           <p></p>
-          <p>future</p>
-          <p></p>
-          <p></p>
+          <h3>future</h3>
         </div>
       </div>
       <div className="">
