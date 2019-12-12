@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "../styles/card.css"
 const Card = props => {
   const {
     recipe_link: link,
     image_source: image,
-    recipe_rating: rating,
+    // recipe_rating: rating,
     recipe_title: title,
     username: owner,
     recipe_description: description,
@@ -28,8 +29,7 @@ const Card = props => {
       </div>
       <div className="card-body">
         <div className="row">
-          <div className="card-subtitle">{category}</div>
-
+          <div className="card-subtitle">Category - {category}</div>
           <div className="col-5"></div>
         </div>
         <br />

@@ -3,10 +3,8 @@ import { useFullRecipe } from "../../hooks"
 
 const ImageUploader = props => {
   const { newImage, RecipeImages } = useFullRecipe()
-  const [image, setImage] = useState("")
+
   const [loading, setLoading] = useState("")
-  const [imageCollection, setImageCollection] = useState([])
-  console.log("this is the url array...", RecipeImages)
 
   //function to upload images
   const uploadImage = async e => {

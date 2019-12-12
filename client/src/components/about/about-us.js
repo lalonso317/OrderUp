@@ -8,7 +8,7 @@ const About = props => {
           <h1>About Order Up</h1>
         </div>
         <div className="about-us-page-subtitle">
-          <h3>Our story</h3>
+          <p className="about-us-subtitle">Our story</p>
 
           <div className="about-us-page-content">
             <p>
@@ -42,7 +42,7 @@ const About = props => {
           </div>
         </div>
         <div className="about-us-page-subtitle">
-          <h3>The Future</h3>
+          <p className="about-us-subtitle">The Future</p>
           <div className="about-us-page-content">
             <p>
               As we continue to grow this site, we strive to connect our users
@@ -56,7 +56,7 @@ const About = props => {
           </div>
         </div>
         <div className="about-us-page-subtitle">
-          <h3>Contact us</h3>
+          <p className="about-us-subtitle">Contact us</p>
           <div className="about-us-page-content">
             <EmailForm />
           </div>

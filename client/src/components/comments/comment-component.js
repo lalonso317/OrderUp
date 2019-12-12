@@ -9,7 +9,7 @@ const CommentComponent = props => {
   const { addComment, comments } = useComments()
   const { SpecificComments, getSingleRecipeComment } = useSingleRecipe()
   const [text, setText] = useState("")
-  const user = users.find(user => user.username == usernameEA)
+  const user = users.find(user => user.username === usernameEA)
   console.log(user)
   const time = new Date()
   console.log(time)

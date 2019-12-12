@@ -1,7 +1,7 @@
 import React from "react"
 import "../../styles/recipe/multi-recipe-view-page.css"
 import Card from "../Card"
-import { Link } from "react-router-dom"
+
 
 const MultiRecipeViewPage = props => {
   console.log("props and shit", props)
@@ -12,19 +12,17 @@ const MultiRecipeViewPage = props => {
         <hr />
         <div className="card-columns card-column-lg">
           {props.recipeArray.map((recipe, i) => (
-            <Link to={`/recipe/${recipe.recipe_id}`}>
-              <Card
-                key={`card-${i}`}
-                className={`card p-${i} `}
-                // recipe_link={`/recipe/${recipe.recipe_id}`}
-                image_source={recipe.RecipeImages[0].url}
-                recipe_rating="3.54/5"
-                username={recipe.owner ? recipe.owner : "Anonymous"}
-                recipe_title={recipe.recipeHeader.name}
-                recipe_description={recipe.recipeHeader.description}
-                recipe_category={recipe.recipeHeader.category}
-              />
-            </Link>
+            <Card
+              key={`card-${i}-${recipe.recipe_id}`}
+              className={`card p-${i} `}
+              recipe_link={`/recipe/${recipe.recipe_id}`}
+              image_source={recipe.RecipeImages[0].url}
+              recipe_rating="3.54/5"
+              username={recipe.owner ? recipe.owner : "Anonymous"}
+              recipe_title={recipe.recipeTitle}
+              recipe_description={recipe.recipeDescription}
+              recipe_category={recipe.recipeCategory}
+            />
           ))}
         </div>
       </main>

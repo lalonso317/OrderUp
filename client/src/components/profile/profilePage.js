@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import { Redirect } from "react-router-dom"
-import { useAuth, useUsers, useAllRecipes } from "../../hooks"
+import { useAuth, useUsers, useAllRecipes, useSingleRecipe } from "../../hooks"
 import Meal from "../../Assets/icons8-meal-50.png"
 
 const UserProfileMain = props => {
@@ -10,6 +10,7 @@ const UserProfileMain = props => {
     "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
   const { isAuthenticated, usernameEA } = useAuth()
   const all_recipes = useAllRecipes()
+  const { single_recipe } = useSingleRecipe()
   const { users } = useUsers()
   const username = props.match.params.username
   const user = users.find(user => user.username === username)
@@ -33,7 +34,7 @@ const UserProfileMain = props => {
         <div className="userProfileHeader">
           <div className="MakeUpUserName">
             <p className="MakeUpUsername">{username}</p>
-            <img className="MakeUpMeal" src={Meal} />
+            <img className="MakeUpMeal" src={Meal} alt="" />
           </div>
           <div className="MakeUpPic">
             <img
@@ -71,6 +72,7 @@ const UserProfileMain = props => {
           <div
             className={toggle ? "view-all-recipes" : "dont-show-all-recipes"}
           >
+
             {userRecipes.length === 0 ? (
               <div>No recipes Created</div>
             ) : (
@@ -81,19 +83,22 @@ const UserProfileMain = props => {
                     <img
                       className="view-all-recipe-image"
                       src={e.RecipeImages.map(e => e.url)}
+                      alt=""
                     />
                   </div>
                 </Link>
               ))
             )}
           </div>
-          <div className="editProfileButton">
-            {usernameEA == userRecipes.owner ? (
-              ""
-            ) : (
-              <button>
-                <Link to={"/edit-profile/" + username}>Edit Profile</Link>
+          <div>
+            {isAuthenticated && usernameEA == single_recipe.owner ? (
+              <button className="editProfileButton">
+                <Link to={"/edit-recipe/" + userRecipes.recipe_id}>
+                  Edit Profile
+                </Link>
               </button>
+            ) : (
+              ""
             )}
           </div>
         </div>

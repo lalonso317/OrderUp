@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import Axios from "axios"
-import { array } from "prop-types"
+
 const default_image =
   "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
 
@@ -24,37 +24,18 @@ const getRecipes = () => {
   return dispatch => {
     Axios.get("/api/Recipe")
       .then(response => {
-        console.log("returned", response.data)
-        // const data = response.data.map(array => {
-        //   return {
-        //   recipe_id: array._id,
-        //   recipeTitle: array.recipeHeaderInfo.name,
-        //   recipeCategory: array.recipeHeaderInfo.category,
-        //   recipeDescription: array.recipeHeaderInfo.description,
-        //   ingredients: array.fullRecipe.ingredients,
-        //   directions: array.directions,
-        //   private: array.isChecked
-        //   owner: array.username ? array.username : "Anon",
-        //   RecipeImages: array.RecipeImages.length
-        //     ? array.RecipeImages
-        //     : (array.RecipeImages = [
-        //         {
-        //           url: default_image
-        //         }
-        //       ]),
-        //   Comments: array.comments,
-        //   recId: array.recId
-        // })
         const data = response.data.map(data => {
           return {
-            recipeHeader: data.recipeHeaderInfo,
+            recipeTitle: data.recipeHeaderInfo ? data.recipeHeaderInfo.name : 'No Title Found',
+            recipeCategory: data.recipeHeaderInfo ? data.recipeHeaderInfo.category : 'No Category Found',
+            recipeDescription: data.recipeHeaderInfo ? data.recipeHeaderInfo.description : 'No Description Found',
             recipe_id: data._id,
             recipeIngredients: data.fullRecipe.ingredients,
             recipeDirections: data.directions,
             private: data.isChecked,
             owner: data.username ? data.username : "Anon",
             RecipeImages:
-              data.RecipeImages.length > 0
+              data.RecipeImages.length 
                 ? data.RecipeImages
                 : (data.RecipeImages = [{ url: default_image }]),
             Comments: data.comments,
@@ -65,7 +46,6 @@ const getRecipes = () => {
           type: GET_All_RECIPES,
           payload: data
         })
-        console.log("this")
       })
       .catch(error => ({
         message: error

@@ -43,7 +43,8 @@ const getSingleRecipe = recipeId => {
                 {
                   url: default_image
                 }
-              ])
+              ]),
+          comments: response.data[0].comments
         }
         const comments = response.data[0].comments
         dispatch({
@@ -52,6 +53,7 @@ const getSingleRecipe = recipeId => {
           comments: comments
         })
       })
+
       .catch(error => {
         return {
           message: `something is wrong ===============>> ${error}`

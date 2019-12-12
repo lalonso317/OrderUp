@@ -11,21 +11,21 @@ import bourdain from "../../Assets/bourbain.png"
 
 const SubmitRecipeButton = props => {
   const options = [
-    { value: "entree", text: "Entree" },
-    { value: "desert", text: "Desert" },
-    { value: "appertizer", text: "Appetizer" },
-    { value: "snacks", text: "Snacks" },
-    { value: "breakfest", text: "Breakfest/Brunch" },
-    { value: "side-dish", text: "Side Dish" },
-    { value: "family-dinner", text: "Family Dinner" },
-    { value: "lunch", text: "Lunch" },
-    { value: "african", text: "African" },
-    { value: "asian", text: "Asian" },
-    { value: "autralian", text: "Australian" },
-    { value: "central-american", text: "Central American" },
-    { value: "european", text: "European" },
-    { value: "north-america", text: "North American" },
-    { value: "south-america", text: "South American" }
+    { value: "Entree", text: "Entree" },
+    { value: "Desert", text: "Desert" },
+    { value: "Appertizer", text: "Appetizer" },
+    { value: "Snacks", text: "Snacks" },
+    { value: "Beakfest", text: "Breakfest/Brunch" },
+    { value: "Side Dish", text: "Side Dish" },
+    { value: "Family Dinner", text: "Family Dinner" },
+    { value: "Lunch", text: "Lunch" },
+    { value: "African", text: "African" },
+    { value: "Asian", text: "Asian" },
+    { value: "Autralian", text: "Australian" },
+    { value: "Central American", text: "Central American" },
+    { value: "European", text: "European" },
+    { value: "North America", text: "North American" },
+    { value: "South America", text: "South American" }
   ]
 
   const [name, setName] = useState("")
@@ -35,10 +35,10 @@ const SubmitRecipeButton = props => {
   const { fullRecipe, CreateRecipe, RecipeImages, initalIng } = useFullRecipe()
 
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
-  const { directions, inital, create } = useDirections()
+  const { directions, inital } = useDirections()
 
-  const { username } = useAuth()
-  console.log(username)
+  const { usernameEA } = useAuth()
+  console.log(usernameEA)
   const [isChecked, setIsChecked] = useState(false)
 
   function handleSubmit(e) {
@@ -61,7 +61,7 @@ const SubmitRecipeButton = props => {
         fullRecipe,
         directions,
         isChecked,
-        username,
+        usernameEA,
         RecipeImages
       )
 
@@ -70,13 +70,13 @@ const SubmitRecipeButton = props => {
       setName("")
       setCategory("")
       setDescription("")
-      console.log(username)
+      console.log(usernameEA)
       console.log(
         recipeHeaderInfo,
         fullRecipe,
         directions,
         isChecked,
-        username,
+        usernameEA,
         RecipeImages
       )
     }
@@ -171,7 +171,7 @@ const SubmitRecipeButton = props => {
         </div>
       </div>
       <div className="createRecipe-banner">
-        <img src={bourdain}></img>
+        <img src={bourdain} alt=""></img>
       </div>
     </div>
   )

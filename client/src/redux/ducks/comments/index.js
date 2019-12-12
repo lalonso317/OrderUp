@@ -1,7 +1,6 @@
-import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
-import { AppState } from "@aws-amplify/core"
+
 // action definitions
 const NEW_COMMENT = "comment/NEW_COMMENT"
 // const USER_PROFILE = "comment/USER_PROFILE"

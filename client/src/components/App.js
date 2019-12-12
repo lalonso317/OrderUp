@@ -27,7 +27,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Test from "./test"
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
-import Card from "./Card"
+
 
 const App = props => {
   return (
