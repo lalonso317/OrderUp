@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { useSingleRecipe } from "../../hooks"
+import { useSingleRecipe, useAuth } from "../../hooks"
 import CommentComponent from "../comments/comment-component"
 import goodFood from "../../Assets/goodfood.png"
 import {
@@ -12,10 +12,14 @@ import {
 import Rating from "react-rating"
 import EmptyStar from "../../Assets/empty-star.png"
 import FullStar from "../../Assets/full-star.png"
+import { useAuth } from '../../hooks'
+
 const ViewRecipeSingle = props => {
-  const { single_recipe, default_image } = useSingleRecipe(
+  const { single_recipe, default_image, SpecificComments } = useSingleRecipe(
     props.match.params.id
   )
+
+  const { usernameEA, isAuthenticated } = useAuth()
 
   const id = props.match.params.id
   const [rating_value, setRating_value] = useState(0)
@@ -89,6 +93,53 @@ const ViewRecipeSingle = props => {
                 />
               </div>
             </div>
+
+          ))}
+
+        {/* {comments.map((comment, i) => {
+          return (
+            <div>
+              <Comment>
+                <Comment.Avatar src={comment.avatar} width="50px" />
+                <Comment.Content>
+                  <Comment.Author as="a">{comment.author}</Comment.Author>
+                  <Comment.Metadata>
+                    <div>{comment.meta}</div>
+                  </Comment.Metadata>
+                  <Comment.Text>{comment.text}</Comment.Text>
+                  <Comment.Actions>
+                    <Comment.Action>Reply</Comment.Action>
+                  </Comment.Actions>
+                </Comment.Content>
+              </Comment>
+            </div>
+          )
+        })} */}
+        <CommentComponent id={id} />
+      </div>
+      {isAuthenticated && usernameEA == single_recipe.owner ? (
+        <Link
+          to={`/edit-recipe/${id}`}
+          className="header-component-create-recipe-button"
+        >
+          <button className="lg-u">
+</button>
+        </Link>
+      ) : (
+        ""
+      )}
+      <div className="single-recipe-social-media-buttons">
+        <div>Share this recipe on social media!</div>
+        <div className="social-share-buttons">
+          <FacebookShareButton
+            // href={"http://localhost:3000/"}
+            url={"https://finediningsite.surge.sh/"}
+            children={<FacebookIcon size={30} round={true} />}
+          />
+          <TwitterShareButton
+            url={`http://localhost:3000/${id}`}
+            children={<TwitterIcon size={30} round={true} />}
+          />
             <div className="single-recipe-image-container">
               <img
                 src={
@@ -140,6 +191,7 @@ const ViewRecipeSingle = props => {
           <div className="single-recipe-social-media-buttons">
             <div>Share this recipe on social media!</div>
           </div>
+
         </div>
       </div>
       <div>

@@ -3,16 +3,22 @@ import { useEffect } from "react"
 import Axios from "axios"
 
 const GET_SINGLE_RECIPE = "recipe-view/GET_SINGLE_RECIPE"
-const default_image = "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
+const default_image =
+  "https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg"
 
 const initialState = {
-  single_recipe: {}
+  single_recipe: {},
+  comments: []
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_SINGLE_RECIPE:
-      return { ...state, single_recipe: action.payload }
+      return {
+        ...state,
+        single_recipe: action.payload,
+        comments: action.comments
+      }
     default:
       return state
   }
@@ -35,15 +41,16 @@ const getSingleRecipe = recipeId => {
             ? response.data[0].RecipeImages
             : (response.data[0].RecipeImages = [
                 {
-                  url:
-                    default_image
+                  url: default_image
                 }
               ]),
           comments: response.data[0].comments
         }
+        const comments = response.data[0].comments
         dispatch({
           type: GET_SINGLE_RECIPE,
-          payload: recipe_data
+          payload: recipe_data,
+          comments: comments
         })
       })
 
@@ -60,10 +67,18 @@ export const useSingleRecipe = recipeId => {
   const single_recipe = useSelector(
     appState => appState.singleRecipeState.single_recipe
   )
-
+  const SpecificComments = useSelector(
+    appState => appState.singleRecipeState.comments
+  )
+  const getSingleRecipeComment = id => dispatch(getSingleRecipe(id))
   useEffect(() => {
     dispatch(getSingleRecipe(recipeId))
   }, [dispatch, recipeId])
 
-  return {single_recipe, default_image}
+  return {
+    single_recipe,
+    default_image,
+    SpecificComments,
+    getSingleRecipeComment
+  }
 }

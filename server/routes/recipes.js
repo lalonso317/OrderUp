@@ -51,7 +51,9 @@ router.post("/api/update-recipe", (req, res) => {
     .then(resp => {
       console.log("updated")
     })
-
+    .catch(err => {
+      console.log(err)
+    })
   res.json({
     message: "butthole"
   })
@@ -83,6 +85,9 @@ router.post("/api/addedComment", (req, res) => {
     })
     .then(resp => {
       console.log("updated")
+    })
+    .catch(err => {
+      console.log(err)
     })
 
   res.json({
@@ -116,7 +121,9 @@ router.post("/getImages", (req, res) => {
 
 router.get("/recipe/:recipeId", async (request, response) => {
   let recipeId = request.params.recipeId
-  const recipe = await Recipe.find({ _id: recipeId })
+  const recipe = await Recipe.find({ _id: recipeId }).catch(err => {
+    console.log(err)
+  })
   response.json(recipe)
 })
 
