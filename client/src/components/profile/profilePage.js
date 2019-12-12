@@ -20,17 +20,12 @@ const UserProfileMain = props => {
   const about = user == null ? "" : user.about
   const tagline = user == null ? "" : user.tagline
 
-
   const [toggle, setToggle] = useState(false)
   const handleToggle = () => {
     setToggle(!toggle)
   }
 
-
-
-
   console.log(user)
-
 
   return isAuthenticated ? (
     <div className="profile-page-container">
@@ -41,7 +36,6 @@ const UserProfileMain = props => {
             <img className="MakeUpMeal" src={Meal} />
           </div>
           <div className="MakeUpPic">
-
             <img
               className="MakeUpImg"
               src={image ? image : default_image}
@@ -77,17 +71,21 @@ const UserProfileMain = props => {
           <div
             className={toggle ? "view-all-recipes" : "dont-show-all-recipes"}
           >
-            {userRecipes.map((e, i) => (
-              <Link to={`/recipe/${e.recipe_id}`} key={i}>
-                <div>
-                  <p className="view-all-recipe-title">{e.recipeTitle}</p>
-                  <img
-                    className="view-all-recipe-image"
-                    src={e.RecipeImages.map(e => e.url)}
-                  />
-                </div>
-              </Link>
-            ))}
+            {userRecipes.length === 0 ? (
+              <div>No recipes Created</div>
+            ) : (
+              userRecipes.map((e, i) => (
+                <Link to={`/recipe/${e.recipe_id}`} key={i}>
+                  <div>
+                    <p className="view-all-recipe-title">{e.recipeTitle}</p>
+                    <img
+                      className="view-all-recipe-image"
+                      src={e.RecipeImages.map(e => e.url)}
+                    />
+                  </div>
+                </Link>
+              ))
+            )}
           </div>
           <div className="editProfileButton">
             {usernameEA == userRecipes.owner ? (

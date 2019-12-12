@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import { Button, Comment, Form, Header } from "semantic-ui-react"
-import { useUsers, useAuth, useComments } from "../../hooks"
+import { useUsers, useAuth, useComments, useSingleRecipe } from "../../hooks"
 const CommentComponent = props => {
   const id = props.id
   console.log(id)
   const { users } = useUsers()
-  const { usernameEA } = useAuth()
+  const { usernameEA, isAuthenticated } = useAuth()
   const { addComment, comments } = useComments()
+  const { SpecificComments, getSingleRecipeComment } = useSingleRecipe()
   const [text, setText] = useState("")
   const user = users.find(user => user.username == usernameEA)
   console.log(user)
@@ -16,16 +17,25 @@ const CommentComponent = props => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    const comment = {
-      avatar: user.RecipeImages,
-      author: user.username,
-      text: text,
-      meta: time.getDate()
-    }
+    if (isAuthenticated) {
+      const comment = {
+        avatar: user.RecipeImages,
+        author: user.username,
+        text: text,
+        meta: time.getDate()
+      }
+      addComment(comment, id)
+      setTimeout(() => {
+        getSingleRecipeComment(id)
+      }, 2000)
 
-    addComment(comment, id)
-    setText("")
+      setText("")
+    } else {
+      alert("please login or register to make a comment")
+      setText("")
+    }
   }
+
   console.log(comments)
   return (
     <div>
@@ -33,9 +43,9 @@ const CommentComponent = props => {
         <Header as="h3" dividing>
           Comments
         </Header>
-        {comments.length === 0
+        {SpecificComments.length === 0
           ? ""
-          : comments.map(comment => {
+          : SpecificComments.map(comment => {
               return (
                 <div>
                   <Comment>
@@ -55,7 +65,7 @@ const CommentComponent = props => {
               )
             })}
         <Form reply onSubmit={handleSubmit}>
-          <Form.TextArea onChange={e => setText(e.target.value)} />
+          <Form.TextArea value={text} onChange={e => setText(e.target.value)} />
           <Button
             type="submit"
             content="Add Reply"

@@ -10,6 +10,7 @@ import MultiRecipeLoader from "./view-recipe/multi-recipe-loader"
 import EditRecipe from "./recipe/edit-recipe-page"
 import EditProfile from "./profile/editProfile"
 import About from "./about/about-us"
+import AboutTheDevs from "./about-devs/about-the-devs"
 import "../styles/recipe/index.css"
 import "../styles/recipe/createRecipeHeader.css"
 import "../styles/recipe/createDirections.css"
@@ -23,7 +24,7 @@ import "../styles/recipe/editRecipePage.css"
 import "../styles/about/aboutUs.css"
 import "../styles/home/card.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-import Test from './test'
+import Test from "./test"
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
 import Card from "./Card"
@@ -47,6 +48,7 @@ const App = props => {
       <Route path={"/all-recipes"} component={MultiRecipeLoader} />
       <Route path={"/edit-recipe/:recipeId"} component={EditRecipe} />
       <Route path={"/about-us"} component={About} />
+      <Route path={"/about-the-devs"} component={AboutTheDevs} />
       <UniversalFooter
         link_twitter="https://twitter.com/?lang=en"
         link_facebook="https://www.facebook.com/"

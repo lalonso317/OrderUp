@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useSingleRecipe } from "../../hooks"
+import { useSingleRecipe, useAuth } from "../../hooks"
 import CommentComponent from "../comments/comment-component"
 import {
   FacebookShareButton,
@@ -8,10 +8,12 @@ import {
   TwitterShareButton,
   TwitterIcon
 } from "react-share"
+import { UsernameAttributes } from "aws-amplify-react/lib-esm/Auth/common/types"
 const ViewRecipeSingle = props => {
-  const { single_recipe, default_image } = useSingleRecipe(
+  const { single_recipe, default_image, SpecificComments } = useSingleRecipe(
     props.match.params.id
   )
+  const { usernameEA, isAuthenticated } = useAuth()
   const id = props.match.params.id
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
   console.log("single recipe ====----====>>>>", single_recipe)
@@ -61,14 +63,38 @@ const ViewRecipeSingle = props => {
               {i++}. {direction.step}
             </div>
           ))}
+
+        {/* {comments.map((comment, i) => {
+          return (
+            <div>
+              <Comment>
+                <Comment.Avatar src={comment.avatar} width="50px" />
+                <Comment.Content>
+                  <Comment.Author as="a">{comment.author}</Comment.Author>
+                  <Comment.Metadata>
+                    <div>{comment.meta}</div>
+                  </Comment.Metadata>
+                  <Comment.Text>{comment.text}</Comment.Text>
+                  <Comment.Actions>
+                    <Comment.Action>Reply</Comment.Action>
+                  </Comment.Actions>
+                </Comment.Content>
+              </Comment>
+            </div>
+          )
+        })} */}
         <CommentComponent id={id} />
       </div>
-      <Link
-        to={`/edit-recipe/${id}`}
-        className="header-component-create-recipe-button"
-      >
-        <button className="lg-u">Edit Recipe</button>
-      </Link>
+      {isAuthenticated && usernameEA == single_recipe.owner ? (
+        <Link
+          to={`/edit-recipe/${id}`}
+          className="header-component-create-recipe-button"
+        >
+          <button className="lg-u">Edit Recipe</button>
+        </Link>
+      ) : (
+        ""
+      )}
       <div className="single-recipe-social-media-buttons">
         <div>Share this recipe on social media!</div>
         <div className="social-share-buttons">
