@@ -5,14 +5,22 @@
   gap: 15px;
   justify-items: center;
 }
+
 #main-card-home {
   width: 400px;
   background: black;
 }
+
 #order-up-banner-shown {
+  width: 200px;
+  margin: 10px 0;
+}
+
+.order-up-banner {
   width: 500px;
   margin: 10px 0;
 }
+
 @media (max-width: 1400px) {
   .recipe-grid-container {
     display: grid;
@@ -21,18 +29,22 @@
     gap: 15px;
     justify-items: center;
   }
+
   #main-card-home {
     width: 350px;
   }
+
   #card-img-top {
     width: 350px;
     height: 275px;
   }
-  #order-up-banner-shown {
+
+  .order-up-banner {
     width: 400px;
     margin: 10px 0;
   }
 }
+
 @media (max-width: 1200px) {
   .recipe-grid-container {
     display: grid;
@@ -41,29 +53,34 @@
     gap: 15px;
     justify-items: center;
   }
+
   #main-card-home {
     width: 300px;
   }
+
   #card-img-top {
     width: 300px;
     height: 250px;
   }
 
-  #order-up-banner-shown {
+  .order-up-banner {
     display: none;
   }
+
   .order-up-banner {
     background-image: url("../../Assets/2.png");
     height: 100px;
     width: 100%;
     margin: auto;
   }
+
   .recipe-grid-flex {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 }
+
 @media (max-width: 900px) {
   .recipe-grid-container {
     display: grid;
@@ -72,9 +89,11 @@
     gap: 15px;
     justify-items: center;
   }
+
   #main-card-home {
     width: 300px;
   }
+
   #card-img-top {
     width: 300px;
     height: 250px;
@@ -83,12 +102,14 @@
   #order-up-banner-shown {
     display: none;
   }
+
   .order-up-banner {
     background-image: url("../../Assets/2.png");
     height: 100px;
     width: 100%;
     margin: auto;
   }
+
   .recipe-grid-flex {
     display: flex;
     flex-direction: column;
