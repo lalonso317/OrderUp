@@ -2,11 +2,12 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import { Redirect } from "react-router-dom"
-import { useAuth, useUsers, useAllRecipes } from "../../hooks"
+import { useAuth, useUsers, useAllRecipes, useSingleRecipe } from "../../hooks"
 import Meal from "../../Assets/icons8-meal-50.png"
 const UserProfileMain = props => {
   const { isAuthenticated, usernameEA } = useAuth()
   const all_recipes = useAllRecipes()
+  const { single_recipe } = useSingleRecipe()
   const { users } = useUsers()
   const username = props.match.params.username
 
@@ -78,13 +79,15 @@ const UserProfileMain = props => {
               </Link>
             ))}
           </div>
-          <div className="editProfileButton">
-            {usernameEA == userRecipes.owner ? (
-              ""
-            ) : (
-              <button>
-                <Link to={"/edit-profile/" + username}>Edit Profile</Link>
+          <div>
+            {isAuthenticated && usernameEA == single_recipe.owner ? (
+              <button className="editProfileButton">
+                <Link to={"/edit-recipe/" + userRecipes.recipe_id}>
+                  Edit Profile
+                </Link>
               </button>
+            ) : (
+              ""
             )}
           </div>
         </div>

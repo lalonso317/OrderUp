@@ -24,7 +24,7 @@ export default function Register(props) {
   }
 
   return (
-    <div>
+    <div className="log-reg-container">
       <div className="wholereg">
         <div className="formbackReg">
           <h2 className="textLogin">Register</h2>
@@ -62,7 +62,7 @@ export default function Register(props) {
             <p className="areyou">Already a user, Login &#8594;</p>
             <button className="clickhere">
               <Link to={"/Login"}>
-                <p className="clickhere">Click here </p>
+                <p className="click">Click here </p>
               </Link>
             </button>
           </div>

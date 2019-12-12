@@ -1,11 +1,11 @@
 .about-us-page-container {
   width: 90%;
   margin: auto;
-  color: white;
 }
 .about-us-main-container {
   width: 100%;
   background: black;
+  color: white;
 }
 .about-us-page-title h1 {
   font-size: 50px;
@@ -15,12 +15,19 @@
 
 .about-us-page-subtitle {
   display: flex;
-  margin-bottom: 5%;
+
+  background: black;
+}
+
+.about-us-subtitle {
+  width: 10%;
+
+  border-right: 2px solid rgb(235, 122, 62);
 }
 
 .about-us-page-content {
-  border-left: 2px solid rgb(235, 122, 62);
   padding-left: 2%;
+  margin-bottom: 50px;
 }
 
 .about-us-page-subtitle h3 {
@@ -30,8 +37,7 @@
   font-size: 30px;
   width: 200px;
 }
-.about-us-page-subtitle {
-}
+
 .about-us-page-subtitle p {
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -45,6 +51,7 @@
 }
 .contact-form-boxes label {
   font-size: 20px;
+  position: static;
   border-bottom: 3px solid rgb(235, 122, 62);
   padding: 1%;
 }

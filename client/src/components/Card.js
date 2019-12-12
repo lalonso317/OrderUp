@@ -29,14 +29,13 @@ const Card = props => {
       <div className="card-body">
         <div className="row">
           <div className="card-subtitle">{category}</div>
-
           <div className="col-5"></div>
         </div>
         <br />
         <div className="row">
-          {/* <div className="col">
+          <div className="col">
             <p className="card-text">{description}</p>
-          </div> */}
+          </div>
         </div>
         <br />
         <div className="row">
