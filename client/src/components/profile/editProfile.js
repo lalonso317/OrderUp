@@ -5,7 +5,7 @@ import UploadPictures from "../pictureUpload/upload-pictures"
 const EditProfile = props => {
   const username = props.match.params.username
   const { update, users } = useUsers()
-  const user = users.find(user => user.username == username)
+  const user = users.find(user => user.username === username)
   console.log(user)
   const { RecipeImages } = useFullRecipe()
 

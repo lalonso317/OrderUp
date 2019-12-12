@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import Rating from "react-rating"
 import EmptyStar from "../Assets/empty-star.png"
 import FullStar from "../Assets/full-star.png"
-import Icon from "../lib/Icon"
 
 const Stars = props => {
   const [rating_value, setRating_value] = useState(0)

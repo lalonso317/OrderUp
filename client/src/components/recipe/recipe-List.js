@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useFullRecipe } from "../../hooks"
-import Icon from "../../lib/Icon"
+
 
 const SetIngredients = props => {
   const [amount, setAmount] = useState("")

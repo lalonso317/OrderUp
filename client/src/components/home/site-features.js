@@ -3,9 +3,8 @@ import SharingPic from "../../Assets/sharing.jpg"
 import CookBook from "../../Assets/cookbook.jpg"
 import Creating from "../../Assets/creating.jpg"
 import { Link } from "react-router-dom"
-import { useAuth } from "../../hooks"
+
 const SiteFeatures = props => {
-  const { isAuthenticated } = useAuth()
   return (
     <div className="site-features-container">
       <div className="site-feature-list-container">

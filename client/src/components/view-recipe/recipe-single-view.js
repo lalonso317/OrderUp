@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useSingleRecipe } from "../../hooks"
 import CommentComponent from "../comments/comment-component"
@@ -9,13 +9,21 @@ import {
   TwitterShareButton,
   TwitterIcon
 } from "react-share"
+import Rating from "react-rating"
+import EmptyStar from "../../Assets/empty-star.png"
+import FullStar from "../../Assets/full-star.png"
 const ViewRecipeSingle = props => {
   const { single_recipe, default_image } = useSingleRecipe(
     props.match.params.id
   )
+
   const id = props.match.params.id
+  const [rating_value, setRating_value] = useState(0)
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
-  console.log("single recipe ====----====>>>>", single_recipe)
+  console.log(
+    "single recipe comment ====----====>>>>",
+    single_recipe.comments ? single_recipe.comments[0] : ""
+  )
   return (
     <div className="single-recipe-view-container">
       <div className="single-recipe-view-main">
@@ -26,20 +34,45 @@ const ViewRecipeSingle = props => {
         >
           <button>Back to Recipes</button>
         </Link>
-        <div className="single-recipe-block">
-          <div className="single-border-block">
-            <div className="single-recipe-names">
-              <p className="single-recipe-title">{single_recipe.recipeTitle}</p>
-              &nbsp; &nbsp;
-              <p className="single-recipe-creator">
-                By:{" "}
-                <Link
-                  style={{ textDecoration: "none", color: "white" }}
-                  to={"/profile-page/" + single_recipe.owner}
-                >
-                  {single_recipe.owner}
-                </Link>
-              </p>
+
+      </p>
+      <div className="ratings">
+        <h2>rating</h2>
+        <Rating
+          onHover={value => value}
+          onChange={value => setRating_value(value)}
+          emptySymbol={<img src={EmptyStar} width="30px" alt="" />}
+          fullSymbol={<img src={FullStar} width="30px" alt="" />}
+          start={0}
+          stop={5}
+          step={1}
+          initialRating={rating_value}
+          direction="ltr"
+          
+        />
+        <h2 className="rating-display-numbers">{`${rating_value}/5`}</h2>
+      </div>
+      <div className="single-recipe-image-container">
+        <br />
+        <img
+          src={single_recipe.RecipeImages && single_recipe.RecipeImages[0].url}
+          alt=""
+          className={
+            url === default_image
+              ? "single-recipe-default-image"
+              : "single-recipe-image"
+          }
+        />
+      </div>
+      <div className="single-recipe-ingredients">
+        <p>Ingredients</p>
+        {single_recipe.ingredients &&
+          single_recipe.ingredients.map((ing, i = 1) => (
+            <div
+              className="single-recipe-ingredients-list"
+              key={`ingredient-${i++}`}
+            >
+              {i++}. {ing.ingredientName}
             </div>
             <div className="social-share-buttons">
               <div className="single-facebook">
