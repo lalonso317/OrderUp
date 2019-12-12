@@ -29,7 +29,6 @@ const Card = props => {
       <div className="card-body">
         <div className="row">
           <div className="card-subtitle">{category}</div>
-
           <div className="col-5"></div>
         </div>
         <br />
