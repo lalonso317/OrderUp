@@ -72,7 +72,6 @@ const UserProfileMain = props => {
           <div
             className={toggle ? "view-all-recipes" : "dont-show-all-recipes"}
           >
-
             {userRecipes.length === 0 ? (
               <div>No recipes Created</div>
             ) : (
@@ -92,13 +91,11 @@ const UserProfileMain = props => {
           </div>
           <div>
             {isAuthenticated && usernameEA == single_recipe.owner ? (
-              <button className="editProfileButton">
-                <Link to={"/edit-recipe/" + userRecipes.recipe_id}>
-                  Edit Profile
-                </Link>
-              </button>
-            ) : (
               ""
+            ) : (
+              <button className="editProfileButton">
+                <Link to={"/edit-profile/" + usernameEA}>Edit Profile</Link>
+              </button>
             )}
           </div>
         </div>
