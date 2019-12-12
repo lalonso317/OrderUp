@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useAuth } from "../../hooks"
 import { Link } from "react-router-dom"
 
-
 export default function Login(props) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -26,7 +25,7 @@ export default function Login(props) {
   }
 
   return (
-    <div>
+    <div className="log-reg-container">
       <div className="formpage">
         <div className="formback ">
           <p className="textLogin">Login</p>
@@ -57,7 +56,7 @@ export default function Login(props) {
             <p className="areyou">Are you a new user, Register &#8594;</p>
             <button className="clickhere">
               <Link to={"/Register"}>
-                <p className="clickhere">Click here </p>
+                <p className="click">Click here </p>
               </Link>
             </button>
           </div>

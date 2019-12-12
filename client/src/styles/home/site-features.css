@@ -22,6 +22,7 @@
 }
 .site-feature-images {
   margin: 10px;
+  transition: 0.3s ease-in-out;
 }
 .site-feature-images:hover {
   transform: translate(6px, 0px);

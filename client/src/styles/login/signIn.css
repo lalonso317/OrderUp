@@ -1,23 +1,25 @@
+.log-reg-container {
+  background: black;
+  padding: 25px;
+}
 .formback {
   width: 50%;
   margin: auto;
   display: flex;
   justify-content: center;
-  background: rgb(252, 174, 118);
+  border: 1px solid white;
   height: 360px;
-  margin-top: 25px;
-  margin-bottom: 65px;
   flex-direction: column;
+  color: white;
 }
 .formbackReg {
   width: 50%;
   margin: auto;
   display: flex;
   justify-content: center;
-  background: rgb(252, 174, 118);
+  border: 1px solid white;
+  color: white;
   height: 400px;
-  margin-top: 25px;
-  margin-bottom: 65px;
   flex-direction: column;
 }
 .form {
@@ -40,7 +42,6 @@
   height: 45px;
   margin: 15px;
 
-  background: white;
   cursor: pointer;
   font-size: 20px;
 }
@@ -62,5 +63,9 @@
 .clickhere {
   cursor: pointer;
   height: 25px;
+  color: black;
+  border: 2px solid #ef883f;
+}
+.click {
   color: black;
 }
