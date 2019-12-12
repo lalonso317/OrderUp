@@ -5,8 +5,8 @@ import { useAuth } from "../../hooks"
 import { Redirect } from "react-router-dom"
 
 const CreateRecipeViewPage = props => {
-  const { username, isAuthenticated } = useAuth()
-  console.log("user from create recipe view page ===========>>>", username)
+  const { usernameEA, isAuthenticated } = useAuth()
+  console.log("user from create recipe view page ===========>>>", usernameEA)
   return isAuthenticated ? (
     <div className="create-recipe-viewpage-container">
       <SubmitRecipeButton />

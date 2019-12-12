@@ -93,3 +93,18 @@
 .social-share-buttons {
   display: flex;
 }
+
+.ratings {
+  display: flex;
+  justify-content: center;
+
+}
+
+.ratings h2 {
+  margin-right: 20px;
+}
+
+.rating-display-numbers {
+  margin-left: 20px;
+}
+

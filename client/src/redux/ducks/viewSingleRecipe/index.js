@@ -38,13 +38,15 @@ const getSingleRecipe = recipeId => {
                   url:
                     default_image
                 }
-              ])
+              ]),
+          comments: response.data[0].comments
         }
         dispatch({
           type: GET_SINGLE_RECIPE,
           payload: recipe_data
         })
       })
+
       .catch(error => {
         return {
           message: `something is wrong ===============>> ${error}`

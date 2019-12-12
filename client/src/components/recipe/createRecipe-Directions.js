@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useDirections } from "../../hooks/index"
-import Icon from "../../lib/Icon"
+
 
 const RecipeDescription = props => {
   const [direct, setDirect] = useState("")

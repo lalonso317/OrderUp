@@ -38,7 +38,7 @@ const UserProfileMain = props => {
         <div className="userProfileHeader">
           <div className="MakeUpUserName">
             <p className="MakeUpUsername">{username}</p>
-            <img className="MakeUpMeal" src={Meal} />
+            <img className="MakeUpMeal" src={Meal} alt="" />
           </div>
           <div className="MakeUpPic">
 
@@ -84,13 +84,14 @@ const UserProfileMain = props => {
                   <img
                     className="view-all-recipe-image"
                     src={e.RecipeImages.map(e => e.url)}
+                    alt=""
                   />
                 </div>
               </Link>
             ))}
           </div>
           <div className="editProfileButton">
-            {usernameEA == userRecipes.owner ? (
+            {usernameEA === userRecipes.owner ? (
               ""
             ) : (
               <button>

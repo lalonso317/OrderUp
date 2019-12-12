@@ -35,10 +35,10 @@ const SubmitRecipeButton = props => {
   const { fullRecipe, CreateRecipe, RecipeImages, initalIng } = useFullRecipe()
 
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
-  const { directions, inital, create } = useDirections()
+  const { directions, inital } = useDirections()
 
-  const { username } = useAuth()
-  console.log(username)
+  const { usernameEA } = useAuth()
+  console.log(usernameEA)
   const [isChecked, setIsChecked] = useState(false)
 
   function handleSubmit(e) {
@@ -61,7 +61,7 @@ const SubmitRecipeButton = props => {
         fullRecipe,
         directions,
         isChecked,
-        username,
+        usernameEA,
         RecipeImages
       )
 
@@ -70,13 +70,13 @@ const SubmitRecipeButton = props => {
       setName("")
       setCategory("")
       setDescription("")
-      console.log(username)
+      console.log(usernameEA)
       console.log(
         recipeHeaderInfo,
         fullRecipe,
         directions,
         isChecked,
-        username,
+        usernameEA,
         RecipeImages
       )
     }
@@ -171,7 +171,7 @@ const SubmitRecipeButton = props => {
         </div>
       </div>
       <div className="createRecipe-banner">
-        <img src={bourdain}></img>
+        <img src={bourdain} alt=""></img>
       </div>
     </div>
   )
