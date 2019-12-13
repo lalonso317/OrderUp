@@ -1,6 +1,5 @@
 const express = require("express")
 const Recipe = require("../models/recipe")
-// const Update = require("../models/update")
 const router = express.Router()
 const faker = require("faker")
 const axios = require("axios")
@@ -120,6 +119,14 @@ router.post("/getImages", (req, res) => {
 })
 
 router.get("/recipe/:recipeId", async (request, response) => {
+  let recipeId = request.params.recipeId
+  const recipe = await Recipe.find({ _id: recipeId }).catch(err => {
+    console.log(err)
+  })
+  response.json(recipe)
+})
+
+router.delete("/recipe/:recipeId", async (request, response) => {
   let recipeId = request.params.recipeId
   const recipe = await Recipe.find({ _id: recipeId }).catch(err => {
     console.log(err)
