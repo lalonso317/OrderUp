@@ -1,6 +1,11 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { useSingleRecipe, useAuth, useFavorites } from "../../hooks"
+import {
+  useSingleRecipe,
+  useAuth,
+  useFavorites,
+  useEditingRecipe
+} from "../../hooks"
 import CommentComponent from "../comments/comment-component"
 import goodFood from "../../Assets/goodfood.png"
 import {
@@ -21,8 +26,8 @@ const ViewRecipeSingle = props => {
     SpecificComments,
     add
   } = useSingleRecipe(props.match.params.id)
-  console.log(single_recipe)
-
+  console.log("this is the single recipe", single_recipe)
+  const { initial } = useEditingRecipe()
   const { usernameEA, isAuthenticated } = useAuth()
   const { make } = useFavorites()
   const id = props.match.params.id
@@ -30,11 +35,12 @@ const ViewRecipeSingle = props => {
   const [favor, setFavor] = useState(single_recipe.recipe_id)
 
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
+  initial(single_recipe)
+  // console.log(
+  //   "single recipe comment ====----====>>>>",
+  //   single_recipe.comments ? single_recipe.comments[0] : ""
+  // )
 
-  console.log(
-    "single recipe comment ====----====>>>>",
-    single_recipe.comments ? single_recipe.comments[0] : ""
-  )
   // for favorite
   const handleClick = e => {
     e.preventDefault()
@@ -62,9 +68,9 @@ const ViewRecipeSingle = props => {
     setRating_value(3)
     return rating_value
   }
-  console.log("single recipe  ====----====>>>>", single_recipe)
-  console.log("username from single view ==========>>>", usernameEA)
-  console.log("rating Value =========>>>>>>>>>", rating_value)
+  // console.log("single recipe  ====----====>>>>", single_recipe)
+  // console.log("username from single view ==========>>>", usernameEA)
+  // console.log("rating Value =========>>>>>>>>>", rating_value)
 
   return (
     <div className="single-recipe-view-container">
@@ -196,18 +202,10 @@ const ViewRecipeSingle = props => {
           {isAuthenticated && usernameEA === single_recipe.owner ? (
             <div>
               <Link
-                to={`/edit-recipe/${id}`}
-                className="header-component-create-recipe-button"
-              >
-                <button className="edit-recipe-button">Edit Recipe</button>
-              </Link>
-              <Link
                 to={`/editing-recipe-page/${id}`}
                 className="header-component-create-recipe-button"
               >
-                <button className="edit-recipe-button">
-                  Editing Recipe page
-                </button>
+                <button className="edit-recipe-button">Edit Recipe</button>
               </Link>
             </div>
           ) : (

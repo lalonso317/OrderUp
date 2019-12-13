@@ -26,9 +26,9 @@ const CategoryFilter = props => {
     { value: "South America", text: "South American" }
   ]
 
-  console.log("this is all the recipes", all_recipes)
+  // console.log("this is all the recipes", all_recipes)
   const handleInputChange = (e, { value }) => {
-    console.log(value)
+    // console.log(value)
     setCategory(value)
     if (value == "all") {
       firstSetRecipes(all_recipes)
