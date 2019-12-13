@@ -1,22 +1,22 @@
 import React, { useState } from "react"
-import { useFullRecipe } from "../../hooks"
+import { useEditingRecipe } from "../../hooks"
 
 const EditRecipeIngredients = props => {
   const [amount, setAmount] = useState("")
   const [d, setD] = useState("")
-  const { finalIngredient, fullRecipe, remove } = useFullRecipe()
+  const { createIngredient, removeIngredient, ingredients } = useEditingRecipe()
   const handleUserIngredients = e => {
     e.preventDefault()
     if (amount === "") {
       alert("Ingredient Cannot be Empty")
     } else {
-      finalIngredient(amount)
+      createIngredient(amount)
       setAmount("")
     }
   }
   const handleClick = e => {
     e.preventDefault()
-    remove(d)
+    removeIngredient(d)
   }
   return (
     <div className="bottom">
@@ -34,7 +34,7 @@ const EditRecipeIngredients = props => {
           </div>
         </form>
         <div className="direct">
-          {fullRecipe.map((item, i) => (
+          {ingredients.map((item, i) => (
             <div key={i}>
               <form
                 className="individualDirections"

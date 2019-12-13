@@ -1,21 +1,23 @@
 import React, { useState } from "react"
-import { useDirections } from "../../hooks/index"
+import { useEditingRecipe } from "../../hooks/index"
 const EditRecipeDescription = props => {
+  //   const ings = props.ingredients
+  //   const directs = props.directions
+  const { directions, createdirect, removedirect } = useEditingRecipe()
   const [direct, setDirect] = useState("")
   const [d, setD] = useState("")
-  const { create, directions, remove } = useDirections()
   const handleSubmit = e => {
     e.preventDefault()
     if (direct === "") {
       alert("Direction Needed")
     } else {
-      create(direct)
+      createdirect(direct)
       setDirect("")
     }
   }
   const handleClick = e => {
     e.preventDefault()
-    remove(d)
+    removedirect(d)
   }
   return (
     <>
