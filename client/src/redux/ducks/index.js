@@ -9,4 +9,6 @@ export { default as singleRecipeState } from "./viewSingleRecipe"
 export { default as allRecipeState } from "./viewRecipes"
 export { default as updateRecipeState } from "./updateRecipes"
 export { default as commentState } from "./comments"
+export { default as filteredByCategoryState } from "./category-filter"
 export { default as favState } from "./favorites"
+

@@ -57,7 +57,7 @@ const SiteFeatures = props => {
           <div className="site-feature-list-descriptions">
             Be able to share your recipes with friends and family through social
             media or email, also choose whether your recipes can be viewed by
-            others on the site to share your creations with the world.
+            others on the site to share your creations with the world
           </div>
         </Link>
       </div>

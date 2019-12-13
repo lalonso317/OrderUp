@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useFullRecipe } from "../../hooks"
-const SetIngredients = props => {
+
+const EditRecipeIngredients = props => {
   const [amount, setAmount] = useState("")
   const [d, setD] = useState("")
   const { finalIngredient, fullRecipe, remove } = useFullRecipe()
@@ -56,4 +57,4 @@ const SetIngredients = props => {
     </div>
   )
 }
-export default SetIngredients
+export default EditRecipeIngredients

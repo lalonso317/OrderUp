@@ -1,0 +1,27 @@
+.ui.comments .comment .metadata,
+.ui.comments .comment .text,
+.ui.comments .comment .actions a,
+.ui.dividing.header,
+.ui.comments .comment .author {
+    color: white;
+}
+
+.ui.comments:last-child {
+    padding: 10px;
+    margin-left: 0;
+    margin-top: 10px;
+    background: rgb(29, 28, 28);
+}
+
+.ui.comments .comment .metadata {
+    margin-left: none;
+    ;
+}
+
+.ui.comments .comment:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+.comment-container {
+    background: rgb(29, 28, 28)
+}

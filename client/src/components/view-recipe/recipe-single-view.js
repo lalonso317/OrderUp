@@ -188,12 +188,27 @@ const ViewRecipeSingle = props => {
           </div>
           <CommentComponent id={id} />
 
-          <Link
-            to={`/edit-recipe/${id}`}
-            className="header-component-create-recipe-button"
-          >
-            <button className="edit-recipe-button"></button>
-          </Link>
+          {isAuthenticated && usernameEA === single_recipe.owner ? (
+            <div>
+              <Link
+                to={`/edit-recipe/${id}`}
+                className="header-component-create-recipe-button"
+              >
+                <button className="edit-recipe-button">Edit Recipe</button>
+              </Link>
+              <Link
+                to={`/editing-recipe-page/${id}`}
+                className="header-component-create-recipe-button"
+              >
+                <button className="edit-recipe-button">
+                  Editing Recipe page
+                </button>
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
+
         </div>
       </div>
       <div>
