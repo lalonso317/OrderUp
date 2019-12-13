@@ -1,10 +1,7 @@
 const router = require("express").Router()
 const db = require("../db")
-const uuid = require("uuid/v4")
-const sha512 = require("js-sha512")
-const jwt = require("jsonwebtoken")
-const config = require("config")
 
+// These are the backend routes to edit the user profile
 router.post("/edit-profile", (req, res, next) => {
   const email = req.body.email
   const firstName = req.body.firstName
@@ -40,11 +37,40 @@ router.post("/edit-profile", (req, res, next) => {
 router.get("/edit-profile", (req, res, next) => {
   const sql = `
   SELECT id, username, email, firstName, lastName, tagline, about, RecipeImages
-FROM recipeUsers.Users;
+  FROM recipeUsers.Users;
   `
   db.query(sql, (err, results, fields) => {
     if (err) {
       throw new Error(err)
+    }
+    res.json(results)
+  })
+})
+
+// These are the backend routes to create favorite recipes
+router.post("/add-favorites", (req, res, next) => {
+  const favorite_id = req.body.favor
+  const username = req.body.usernameEA
+
+  const sql = `
+  INSERT INTO Favorite (favorite_id, username)
+  VALUES (?, ?)
+  `
+  db.query(sql, [favorite_id, username], (err, results, fields) => {
+    if (err) {
+      throw new Error(err, "could not MAKE fav")
+    }
+    res.json(results)
+  })
+})
+
+router.get("/select-favorites", (req, res, next) => {
+  const sql = `
+  SELECT * From Favorite
+  `
+  db.query(sql, (err, results, fields) => {
+    if (err) {
+      throw new Error(err, "could not GET fav")
     }
     res.json(results)
   })

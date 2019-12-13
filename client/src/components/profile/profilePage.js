@@ -2,7 +2,13 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import { Redirect } from "react-router-dom"
-import { useAuth, useUsers, useAllRecipes, useSingleRecipe } from "../../hooks"
+import {
+  useAuth,
+  useUsers,
+  useAllRecipes,
+  useSingleRecipe,
+  useFavorites
+} from "../../hooks"
 import Meal from "../../Assets/icons8-meal-50.png"
 
 const UserProfileMain = props => {
@@ -12,9 +18,19 @@ const UserProfileMain = props => {
   const all_recipes = useAllRecipes()
   const { single_recipe } = useSingleRecipe()
   const { users } = useUsers()
+  const { fav } = useFavorites()
+
   const username = props.match.params.username
+  // console.log(fav)
+  // const fav_id = fav.forEach(e => e.favorite_id)
   const user = users.find(user => user.username === username)
+
   const userRecipes = all_recipes.filter(user => user.owner === username)
+
+  const favRecipe = all_recipes.filter(e =>
+    fav.map(e => e.favorite_id).includes(e.recipe_id)
+  )
+
   const image = user == null ? "" : user.RecipeImages
   const fname = user == null ? "" : user.firstName
   const lname = user == null ? "" : user.lastName
@@ -25,8 +41,10 @@ const UserProfileMain = props => {
   const handleToggle = () => {
     setToggle(!toggle)
   }
-
-  console.log(user)
+  const [toggleFav, setToggleFav] = useState(false)
+  const handleToggleFav = () => {
+    setToggleFav(!toggleFav)
+  }
 
   return isAuthenticated ? (
     <div className="profile-page-container">
@@ -68,27 +86,61 @@ const UserProfileMain = props => {
             </p>
             <p className="aboutusertext">{tagline}</p>
           </div>
-          <button onClick={handleToggle}>View Private Recipes</button>
-          <div
-            className={toggle ? "view-all-recipes" : "dont-show-all-recipes"}
-          >
-            {userRecipes.length === 0 ? (
-              <div>No recipes Created</div>
-            ) : (
-              userRecipes.map((e, i) => (
-                <Link to={`/recipe/${e.recipe_id}`} key={i}>
+
+          <div className="full-favs-privates">
+            <div className="favorited">
+              <button className="toggleButton" onClick={handleToggleFav}>
+                Favorited Recipes
+              </button>
+
+              <div
+                className={
+                  toggleFav ? "view-all-recipes" : "dont-show-all-recipes"
+                }
+              >
+                {favRecipe.map(e => (
                   <div>
                     <p className="view-all-recipe-title">{e.recipeTitle}</p>
                     <img
                       className="view-all-recipe-image"
-                      src={e.RecipeImages.map(e => e.url)}
                       alt=""
+                      src={e.RecipeImages.map(e => e.url)}
                     />
                   </div>
-                </Link>
-              ))
-            )}
+                ))}
+              </div>
+            </div>
+            <div className="private">
+              <button className="toggleButton" onClick={handleToggle}>
+                {" "}
+                All & Private Recipes
+              </button>
+
+              <div
+                className={
+                  toggle ? "view-all-recipes" : "dont-show-all-recipes "
+                }
+              >
+                {userRecipes.length === 0 ? (
+                  <div>No recipes Created</div>
+                ) : (
+                  userRecipes.map((e, i) => (
+                    <Link to={`/recipe/${e.recipe_id}`} key={i}>
+                      <div>
+                        <p className="view-all-recipe-title">{e.recipeTitle}</p>
+                        <img
+                          className="view-all-recipe-image"
+                          src={e.RecipeImages.map(e => e.url)}
+                          alt=""
+                        />
+                      </div>
+                    </Link>
+                  ))
+                )}
+              </div>
+            </div>
           </div>
+
           <div>
             {isAuthenticated && usernameEA == single_recipe.owner ? (
               ""

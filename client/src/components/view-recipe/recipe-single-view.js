@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { useSingleRecipe, useAuth } from "../../hooks"
+import { useSingleRecipe, useAuth, useFavorites } from "../../hooks"
 import CommentComponent from "../comments/comment-component"
 import goodFood from "../../Assets/goodfood.png"
 import {
@@ -9,6 +9,7 @@ import {
   TwitterShareButton,
   TwitterIcon
 } from "react-share"
+import Icon from "../../lib/Icon"
 import Rating from "react-rating"
 import EmptyStar from "../../Assets/empty-star.png"
 import FullStar from "../../Assets/full-star.png"
@@ -17,17 +18,24 @@ const ViewRecipeSingle = props => {
   const { single_recipe, default_image, SpecificComments } = useSingleRecipe(
     props.match.params.id
   )
-  console.log(single_recipe)
   const { usernameEA, isAuthenticated } = useAuth()
-
+  const { make } = useFavorites()
   const id = props.match.params.id
   const [rating_value, setRating_value] = useState(0)
+  const [favor, setFavor] = useState(single_recipe.recipe_id)
+
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
 
   console.log(
     "single recipe comment ====----====>>>>",
     single_recipe.comments ? single_recipe.comments[0] : ""
   )
+
+  const handleClick = e => {
+    e.preventDefault()
+    console.log(favor, usernameEA)
+    make(favor, usernameEA)
+  }
   return (
     <div className="single-recipe-view-container">
       <div className="single-recipe-view-main">
@@ -82,6 +90,9 @@ const ViewRecipeSingle = props => {
                 direction="ltr"
               />
               <h2 className="rating-display-numbers">{`${rating_value}/5`}</h2>
+              <button onClick={e => handleClick(e)} value={favor}>
+                <Icon icon="heart"></Icon>
+              </button>
             </div>
             <div className="single-recipe-image-container">
               <img

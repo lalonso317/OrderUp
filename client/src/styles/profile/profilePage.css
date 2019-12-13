@@ -62,20 +62,35 @@
 .view-all-recipes {
   display: flex;
   flex-wrap: wrap;
-  transition: 1s ease-in-out;
+  transition: 0.2s ease-in-out;
   margin-top: 25px;
+  width: 100px;
 }
 .dont-show-all-recipes {
   height: 0px;
   display: none;
-  transition: 1s ease-in-out;
 }
-.editProfileButton {
+.full-favs-privates {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.favorited {
+  width: 100%;
+}
+.private {
+  width: 100%;
+}
+.MakeUpExtras {
+  width: 100%;
+}
+.view .editProfileButton {
   width: 100px;
   height: 50px;
   background: white;
   color: rgb(239, 136, 63);
 }
+
 /* Edit Profile Form */
 
 .userFormContainer {

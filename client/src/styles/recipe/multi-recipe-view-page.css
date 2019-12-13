@@ -13,25 +13,30 @@
   color: white;
   margin-top: 10px;
 }
+
 /* .card-columns {
   padding: 25px;
 } */
 .card-subtitle {
   text-align: center;
 }
+
 .card-body {
   margin: 0px;
   padding: 0px;
 }
+
 .card-body .row {
   display: inline;
   margin: 0;
 }
+
 .card-text {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 .mulit-single-card {
   border: 1px solid white;
   /* margin: 10px 0 10px 0; */
