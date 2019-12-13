@@ -1,22 +1,26 @@
 import React, { useState } from "react"
-import { useDirections } from "../../hooks/index"
+import { useEditingRecipe } from "../../hooks/index"
 const EditRecipeDescription = props => {
+  console.log("directions props", props)
+  //   const ings = props.ingredients
+  //   const directs = props.directions
+  const { directions, createdirect, removedirect } = useEditingRecipe()
   const [direct, setDirect] = useState("")
   const [d, setD] = useState("")
-  const { create, directions, remove } = useDirections()
   const handleSubmit = e => {
     e.preventDefault()
     if (direct === "") {
       alert("Direction Needed")
     } else {
-      create(direct)
+      createdirect(direct)
       setDirect("")
     }
   }
   const handleClick = e => {
     e.preventDefault()
-    remove(d)
+    removedirect(d)
   }
+  console.log("directions", directions)
   return (
     <>
       <div className="bottom">
@@ -34,7 +38,7 @@ const EditRecipeDescription = props => {
             </div>
           </form>
           <div className="direct">
-            {directions.map((item, i) => (
+            {props.directions.map((item, i) => (
               <form key={i} onSubmit={handleClick}>
                 <div className="individualDirections">
                   <p className="step"> {item.step}</p>

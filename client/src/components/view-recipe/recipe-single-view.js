@@ -1,6 +1,11 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { useSingleRecipe, useAuth, useFavorites } from "../../hooks"
+import {
+  useSingleRecipe,
+  useAuth,
+  useFavorites,
+  useEditingRecipe
+} from "../../hooks"
 import CommentComponent from "../comments/comment-component"
 import goodFood from "../../Assets/goodfood.png"
 import {
@@ -15,15 +20,14 @@ import EmptyStar from "../../Assets/empty-star.png"
 import FullStar from "../../Assets/full-star.png"
 
 const ViewRecipeSingle = props => {
-
   const {
     single_recipe,
     default_image,
     SpecificComments,
     add
   } = useSingleRecipe(props.match.params.id)
-  console.log(single_recipe)
-
+  console.log("this is the single recipe", single_recipe)
+  const { initial } = useEditingRecipe()
   const { usernameEA, isAuthenticated } = useAuth()
   const { make } = useFavorites()
   const id = props.match.params.id
@@ -31,12 +35,11 @@ const ViewRecipeSingle = props => {
   const [favor, setFavor] = useState(single_recipe.recipe_id)
 
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
-
-
-  console.log(
-    "single recipe comment ====----====>>>>",
-    single_recipe.comments ? single_recipe.comments[0] : ""
-  )
+  initial(single_recipe)
+  // console.log(
+  //   "single recipe comment ====----====>>>>",
+  //   single_recipe.comments ? single_recipe.comments[0] : ""
+  // )
   // for favorite
   const handleClick = e => {
     e.preventDefault()
@@ -64,9 +67,9 @@ const ViewRecipeSingle = props => {
     setRating_value(3)
     return rating_value
   }
-  console.log("single recipe  ====----====>>>>", single_recipe)
-  console.log("username from single view ==========>>>", usernameEA)
-  console.log("rating Value =========>>>>>>>>>", rating_value)
+  // console.log("single recipe  ====----====>>>>", single_recipe)
+  // console.log("username from single view ==========>>>", usernameEA)
+  // console.log("rating Value =========>>>>>>>>>", rating_value)
 
   return (
     <div className="single-recipe-view-container">
@@ -132,18 +135,21 @@ const ViewRecipeSingle = props => {
                   //     single_recipe.ratings[single_recipe.ratings.length - 1]
                   //       .value
                   //   : 3
-                  rating_value !== 0 ? rating_value  : ratingCheck()
+                  rating_value !== 0 ? rating_value : ratingCheck()
                 }
                 direction="ltr"
               />
 
               <h2 className="rating-display-numbers">{`${
-                rating_value !== 0 ? rating_value : ratingCheck() === undefined ? 0 : ratingCheck()
+                rating_value !== 0
+                  ? rating_value
+                  : ratingCheck() === undefined
+                  ? 0
+                  : ratingCheck()
               }/5`}</h2>
-               <button onClick={e => handleClick(e)} value={favor}>
+              <button onClick={e => handleClick(e)} value={favor}>
                 <Icon icon="heart"></Icon>
               </button>
-
             </div>
             <div className="single-recipe-image-container">
               <img
@@ -191,24 +197,15 @@ const ViewRecipeSingle = props => {
           {isAuthenticated && usernameEA === single_recipe.owner ? (
             <div>
               <Link
-                to={`/edit-recipe/${id}`}
-                className="header-component-create-recipe-button"
-              >
-                <button className="edit-recipe-button">Edit Recipe</button>
-              </Link>
-              <Link
                 to={`/editing-recipe-page/${id}`}
                 className="header-component-create-recipe-button"
               >
-                <button className="edit-recipe-button">
-                  Editing Recipe page
-                </button>
+                <button className="edit-recipe-button">Edit Recipe</button>
               </Link>
             </div>
           ) : (
             ""
           )}
-
         </div>
       </div>
       <div>

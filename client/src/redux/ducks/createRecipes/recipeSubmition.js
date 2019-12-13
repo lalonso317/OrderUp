@@ -11,16 +11,14 @@ const initialState = {
   isActive: false,
   recipeDone: [],
   recipes: [],
-  recipeImages: [],
-  justIngredients: []
+  recipeImages: []
 }
 export default (state = initialState, action) => {
   switch (action.type) {
     case FINALIZE_INGREDIENT:
       return {
         ...state,
-        recipeObjects: [...state.recipeObjects, action.payload],
-        justIngredients: [...state, action.payload]
+        recipeObjects: [...state.recipeObjects, action.payload]
       }
     case SUBMITTED_FULL_RECIPE:
       return { ...state, recipeDone: [...state.recipeDone, action.payload] }
@@ -144,7 +142,6 @@ export const useFullRecipe = () => {
     remove,
     newImage,
     RecipeImages,
-    initalIng,
-    justingredients
+    initalIng
   }
 }
