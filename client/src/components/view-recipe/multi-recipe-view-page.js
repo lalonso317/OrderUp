@@ -1,6 +1,8 @@
 import React from "react"
 import "../../styles/recipe/multi-recipe-view-page.css"
 import Card from "../Card"
+import PaginationComponent from "./pagination-component"
+import CategoryFilter from "./category-filter"
 
 const MultiRecipeViewPage = props => {
   console.log("props and shit", props)
@@ -8,6 +10,7 @@ const MultiRecipeViewPage = props => {
     <div className="multi-recipe-view-page-container">
       <main className="multi-recipe-view-page-wrapper">
         <h1 className="multi-recipe-view-page-title">Recipes</h1>
+        <CategoryFilter />
         <hr />
         <div className="card-columns card-column-lg">
           {props.recipeArray.map((recipe, i) => (
@@ -26,6 +29,7 @@ const MultiRecipeViewPage = props => {
             </div>
           ))}
         </div>
+        <PaginationComponent />
       </main>
     </div>
   )

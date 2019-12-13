@@ -1,6 +1,9 @@
 import React from "react"
 import Mitchell from "../../Assets/profile-mitchell.JPG"
 const AboutTheDevs = props => {
+  const test =
+    "1. 15 pounds charcoal briquets,2 pounds hickory wood chips,1 cup bourbon whiskey,1 (4 pound) standing rib roast, bone in,1/2 cup steak seasoning"
+  const testing = test
   return (
     <div className="about-devs-container">
       <div className="about-devs-title">
@@ -27,6 +30,7 @@ const AboutTheDevs = props => {
             He lived in Japan from 2012 to 2014 as a missionary and again from
             2018 to 2019 as a civilian.
           </p>
+          <p>{testing}</p>
           <h3>Current Events</h3>
           <p></p>
           <h3>future</h3>

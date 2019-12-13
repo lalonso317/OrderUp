@@ -47,8 +47,8 @@ const CommentComponent = props => {
           ? ""
           : SpecificComments.map(comment => {
               return (
-                <div>
-                  <Comment>
+                <div className="comment-container">
+                  <Comment style={{ color: "white" }} className="comments">
                     <Comment.Avatar src={comment.avatar} />
                     <Comment.Content>
                       <Comment.Author as="a">{comment.author}</Comment.Author>

@@ -1,14 +1,11 @@
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
-
 const FINALIZE_INGREDIENT = "FINALIZE_INGREDIENT"
 const SUBMITTED_FULL_RECIPE = "SUBMITTED_FULL_RECIPE"
-
 const INITAL_INGREDIENT = "INITAL_INGREDIENT"
 const DELETE_INGREDIENT = "DELETE_INGREDIENT"
 const GET_RECIPES = "GET_RECIPES"
 const ADD_IMAGES = "ADD_IMAGES"
-
 const initialState = {
   recipeObjects: [],
   isActive: false,
@@ -16,7 +13,6 @@ const initialState = {
   recipes: [],
   recipeImages: []
 }
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case FINALIZE_INGREDIENT:
@@ -26,7 +22,6 @@ export default (state = initialState, action) => {
       }
     case SUBMITTED_FULL_RECIPE:
       return { ...state, recipeDone: [...state.recipeDone, action.payload] }
-
     case DELETE_INGREDIENT:
       return {
         ...state,
@@ -44,7 +39,6 @@ export default (state = initialState, action) => {
       return state
   }
 }
-
 const finalIngredients = amount => {
   const ings = {
     ingredientName: amount
@@ -93,7 +87,6 @@ const deleteIngredients = id => {
     payload: id
   }
 }
-
 // action to add images to recipeImages array in reducer
 const addImages = url => {
   return {
@@ -101,10 +94,10 @@ const addImages = url => {
     payload: url
   }
 }
-
 export const useFullRecipe = () => {
   const dispatch = useDispatch()
   // selector to grab the full recipe
+
   const fullRecipe = useSelector(
     appState => appState.fullRecipeState.recipeObjects
   )
@@ -114,9 +107,7 @@ export const useFullRecipe = () => {
   // const allRecipes = useSelector(appState => appState.fullRecipeState.recipes)
   // function to send confirmed ingredient
   const finalIngredient = amount => dispatch(finalIngredients(amount))
-
   const remove = id => dispatch(deleteIngredients(id))
-
   //function to submit full recipe to back-end
   const CreateRecipe = (
     recipeHeaderInfo,
@@ -141,9 +132,7 @@ export const useFullRecipe = () => {
   const RecipeImages = useSelector(
     appState => appState.fullRecipeState.recipeImages
   )
-
   const initalIng = () => dispatch(initalIngredients())
-
   return {
     finalIngredient,
     fullRecipe,
@@ -156,18 +145,3 @@ export const useFullRecipe = () => {
     initalIng
   }
 }
-
-// const submittedRecipe = {
-//   name: resp.data.recipeName[0].name,
-//   category: resp.data.recipeName[0].category,
-//   description: resp.data.recipeName[0].description,
-//   ingredientNames: resp.data.recipeName[1].map(item => {
-//     return { name: item.ingredientName, measurement: item.measurement }
-//   }),
-//   directions: resp.data.recipeName[2].map(item => {
-//     return { direction: item.step }
-//   }),
-//   privacy: resp.data.recipeName[3],
-//   user: resp.data.recipeName[4]
-// }
-// console.log(submittedRecipe)

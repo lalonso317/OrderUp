@@ -3,20 +3,16 @@ import { Dropdown } from "semantic-ui-react"
 import Switch from "react-switch"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import { useAllRecipes, useUpdate, useFullRecipe } from "../../hooks"
-
 const EditRecipe = props => {
   const id = props.match.params.recipeId
   // reference to hooks being imported
   const { update } = useUpdate()
   const all_recipes = useAllRecipes()
-
   // const thisRecipe = all_recipes.find(recipe => recipe.recipeId == id)
-
   const { RecipeImages } = useFullRecipe()
   //selecting the correct recipe to auto poplulate the text areas on the page
   const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
   console.log("this one ", thisRecipe)
-
   // variables used when submitting the edited recipe
   //recipe id
   const recId = thisRecipe.recipe_id
@@ -30,17 +26,16 @@ const EditRecipe = props => {
   )
   //ingredients
   const [ingredients, setIngredients] = useState(
-    `${thisRecipe.ingredients.map(ings => ings.ingredientName)}`
+    `${thisRecipe.recipeIngredients.map(ings => ings.ingredientName)}`
   )
   //directions
   const [directions, setDirections] = useState(
-    `${thisRecipe.directions.map((directs, i) => i + 1 + "." + directs.step)}`
+    `${thisRecipe.recipeDirections.map((directs, i) => i + "." + directs.step)}`
   )
   //is checked?
   const [isChecked, setIsChecked] = useState(thisRecipe.private)
   //images
   const [images, setImages] = useState(thisRecipe.RecipeImages)
-
   const realImages = [...RecipeImages, ...images]
   console.log("realImgsdf", realImages)
   // values for the categories of the recipes
@@ -72,7 +67,7 @@ const EditRecipe = props => {
       description: description
     }
     const fullRecipe = {
-      ingredients: { ingredientName: ingredients.split("\n") }
+      ingredients: { ingredientName: ingredients.split(",") }
     }
     const directs = [{ step: directions.split("\n").toString() }]
     const checked = isChecked
@@ -137,11 +132,7 @@ const EditRecipe = props => {
         <textarea
           placeholder="Directions List"
           onChange={e => setDirections(e.target.value)}
-          value={directions
-            .split(",")
-            .join("")
-            .split(".")
-            .join("\r\n")}
+          value={directions.split(",").join("\r\n")}
         ></textarea>
       </div>
       <div className="edit-recipe-switch">
@@ -156,11 +147,10 @@ const EditRecipe = props => {
       </div>
       <div className="edit-recipe-photos">
         <ImageUploader />
-
         {images.map((img, i) => {
           return (
             <div key={i + "images"}>
-              <img key={i} src={img.url} width="100px" alt=""/>
+              <img key={i} src={img.url} width="100px" alt="" />
               <button onClick={e => handleDeleteImage(e, img.url)}>
                 delete image
               </button>

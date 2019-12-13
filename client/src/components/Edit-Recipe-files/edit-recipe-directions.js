@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useDirections } from "../../hooks/index"
-const RecipeDescription = props => {
+const EditRecipeDescription = props => {
   const [direct, setDirect] = useState("")
   const [d, setD] = useState("")
   const { create, directions, remove } = useDirections()
@@ -54,4 +54,4 @@ const RecipeDescription = props => {
     </>
   )
 }
-export default RecipeDescription
+export default EditRecipeDescription
