@@ -1,0 +1,21 @@
+.about-devs-img {
+  width: 300px;
+  transition: ease-in-out .3s;
+}
+
+.about-devs-img:active, .about-devs-img:hover{
+  box-shadow: 4px 4px 4px darkorange;
+}
+
+.about-devs-img:active {
+  transform: translateY(4px);
+}
+
+.about-devs-container {
+  display: grid;
+  justify-items: center;
+  margin: 0 10px 50px 10px;
+}
+.about-devs-header {
+
+}
