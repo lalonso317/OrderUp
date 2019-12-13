@@ -13,18 +13,40 @@ import Rating from "react-rating"
 import EmptyStar from "../../Assets/empty-star.png"
 import FullStar from "../../Assets/full-star.png"
 const ViewRecipeSingle = props => {
-  const { single_recipe, default_image, SpecificComments } = useSingleRecipe(
-    props.match.params.id
-  )
+  const {
+    single_recipe,
+    default_image,
+    SpecificComments,
+    add
+  } = useSingleRecipe(props.match.params.id)
   console.log(single_recipe)
   const { usernameEA, isAuthenticated } = useAuth()
   const id = props.match.params.id
   const [rating_value, setRating_value] = useState(0)
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
-  console.log(
-    "single recipe comment ====----====>>>>",
-    single_recipe.comments ? single_recipe.comments[0] : ""
-  )
+  const handleClickEvent = (id, user, value) => {
+    console.log("ryan", id, user, value)
+    add(id, user, value)
+  }
+  const ratingCheck = () => {
+    if (
+      single_recipe.ratings &&
+      single_recipe.ratings[single_recipe.ratings.length - 1]
+    ) {
+      return (
+        single_recipe.ratings &&
+        single_recipe.ratings[single_recipe.ratings.length - 1].value
+      )
+    }
+  }
+
+  const defaultRating = () => {
+    setRating_value(3)
+    return rating_value
+  }
+  console.log("single recipe  ====----====>>>>", single_recipe)
+  console.log("username from single view ==========>>>", usernameEA)
+  console.log("rating Value =========>>>>>>>>>", rating_value)
   return (
     <div className="single-recipe-view-container">
       <div className="single-recipe-view-main">
@@ -68,6 +90,13 @@ const ViewRecipeSingle = props => {
             <div className="ratings">
               <h2>rating</h2>
               <Rating
+                onClick={value =>
+                  handleClickEvent(
+                    props.match.params.id,
+                    usernameEA ? usernameEA : "Anon",
+                    value
+                  )
+                }
                 onHover={value => value}
                 onChange={value => setRating_value(value)}
                 emptySymbol={<img src={EmptyStar} width="30px" alt="" />}
@@ -75,10 +104,20 @@ const ViewRecipeSingle = props => {
                 start={0}
                 stop={5}
                 step={1}
-                initialRating={rating_value}
+                initialRating={
+                  // single_recipe.ratings &&
+                  // single_recipe.ratings[single_recipe.ratings.length - 1]
+                  //   ? single_recipe.ratings &&
+                  //     single_recipe.ratings[single_recipe.ratings.length - 1]
+                  //       .value
+                  //   : 3
+                  rating_value !== 0 ? rating_value  : ratingCheck()
+                }
                 direction="ltr"
               />
-              <h2 className="rating-display-numbers">{`${rating_value}/5`}</h2>
+              <h2 className="rating-display-numbers">{`${
+                rating_value !== 0 ? rating_value : ratingCheck() === undefined ? 0 : ratingCheck()
+              }/5`}</h2>
             </div>
             <div className="single-recipe-image-container">
               <img
@@ -131,7 +170,7 @@ const ViewRecipeSingle = props => {
         </div>
       </div>
       <div>
-        <img className="goodfood" src={goodFood} />
+        <img className="goodfood" src={goodFood} alt="" />
       </div>
     </div>
   )
