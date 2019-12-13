@@ -15,7 +15,6 @@ import EmptyStar from "../../Assets/empty-star.png"
 import FullStar from "../../Assets/full-star.png"
 
 const ViewRecipeSingle = props => {
-
   const {
     single_recipe,
     default_image,
@@ -31,7 +30,6 @@ const ViewRecipeSingle = props => {
   const [favor, setFavor] = useState(single_recipe.recipe_id)
 
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
-
 
   console.log(
     "single recipe comment ====----====>>>>",
@@ -71,27 +69,31 @@ const ViewRecipeSingle = props => {
   return (
     <div className="single-recipe-view-container">
       <div className="single-recipe-view-main">
-        <Link
-          style={{ textDecoration: "none", color: "white" }}
-          to={"/all-recipes"}
-          className="single-recipe-view-back-button"
-        >
-          <button>Back to Recipes</button>
-        </Link>
         <div className="single-recipe-block">
           <div className="single-border-block">
-            <div className="single-recipe-names">
-              <p className="single-recipe-title">{single_recipe.recipeTitle}</p>
-              &nbsp; &nbsp;
-              <p className="single-recipe-creator">
-                By:{" "}
-                <Link
-                  style={{ textDecoration: "none", color: "white" }}
-                  to={"/profile-page/" + single_recipe.owner}
-                >
-                  {single_recipe.owner}
-                </Link>
-              </p>
+            <div className="single-recipe-header">
+              <div className="single-recipe-names">
+                <p className="single-recipe-title">
+                  {single_recipe.recipeTitle}
+                </p>
+                &nbsp; &nbsp;
+                <p className="single-recipe-creator">
+                  By:{" "}
+                  <Link
+                    style={{ textDecoration: "none", color: "white" }}
+                    to={"/profile-page/" + single_recipe.owner}
+                  >
+                    {single_recipe.owner}
+                  </Link>
+                </p>
+              </div>
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to={"/all-recipes"}
+                className="single-recipe-view-back-button"
+              >
+                <button>Back to Recipes</button>
+              </Link>
             </div>
             <div className="social-share-buttons">
               <div className="single-facebook">
@@ -132,18 +134,21 @@ const ViewRecipeSingle = props => {
                   //     single_recipe.ratings[single_recipe.ratings.length - 1]
                   //       .value
                   //   : 3
-                  rating_value !== 0 ? rating_value  : ratingCheck()
+                  rating_value !== 0 ? rating_value : ratingCheck()
                 }
                 direction="ltr"
               />
 
               <h2 className="rating-display-numbers">{`${
-                rating_value !== 0 ? rating_value : ratingCheck() === undefined ? 0 : ratingCheck()
+                rating_value !== 0
+                  ? rating_value
+                  : ratingCheck() === undefined
+                  ? 0
+                  : ratingCheck()
               }/5`}</h2>
-               <button onClick={e => handleClick(e)} value={favor}>
+              <button onClick={e => handleClick(e)} value={favor}>
                 <Icon icon="heart"></Icon>
               </button>
-
             </div>
             <div className="single-recipe-image-container">
               <img
@@ -208,7 +213,6 @@ const ViewRecipeSingle = props => {
           ) : (
             ""
           )}
-
         </div>
       </div>
       <div>
@@ -217,99 +221,5 @@ const ViewRecipeSingle = props => {
     </div>
   )
 }
-//     <div className="single-recipe-view-container">
-//       <div className="single-recipe-view-main">
-//         <Link
-//           style={{ textDecoration: "none", color: "white" }}
-//           to={"/all-recipes"}
-//           className="single-recipe-view-back-button"
-//         >
-//           <button>Back to Recipes</button>
-//         </Link>
-//         <div>
-//           <p style={{ color: "white" }}>{single_recipe.recipeTitle}</p>
-//           <p>{single_recipe.owner}</p>
-//         </div>
-//         <div className="single-recipe-social-media-buttons">
-//           <div>Share this recipe on social media!</div>
-//           <div className="social-share-buttons">
-//             <FacebookShareButton
-//               // href={"http://localhost:3000/"}
-//               url={"https://finediningsite.surge.sh/"}
-//               children={<FacebookIcon size={30} round={true} />}
-//             />
-//             <TwitterShareButton
-//               url={`http://localhost:3000/${id}`}
-//               children={<TwitterIcon size={30} round={true} />}
-//             />
-//           </div>
-
-//           <div className="single-recipe-image-container">
-//             <br />
-//             <img
-//               src={
-//                 single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
-//               }
-//               alt=""
-//               className={
-//                 url === default_image
-//                   ? "single-recipe-default-image"
-//                   : "single-recipe-image"
-//               }
-//             />
-//           </div>
-
-//           <div className="single-Ing-Dir">
-//             <div className="single-recipe-ingredients">
-//               <p className="single-dirNing">Ingredients</p>
-//               {single_recipe.ingredients &&
-//                 single_recipe.ingredients.map((ing, i = 1) => (
-//                   <div
-//                     className="single-recipe-directions-list"
-//                     key={`ingredient-${i++}`}
-//                   >
-//                     {i++}. {ing.ingredientName}
-//                   </div>
-//                 ))}
-//             </div>
-//             <div className="single-recipe-directions">
-//               <p className="single-dirNing">Directions</p>
-//               {single_recipe.directions &&
-//                 single_recipe.directions.map((direction, i = 1) => (
-//                   <div
-//                     className="single-recipe-directions-list"
-//                     key={`direction-${i++}`}
-//                   >
-//                     {i++}. {direction.step}
-//                   </div>
-//                 ))}
-//             </div>
-//           </div>
-//         </div>
-//         <CommentComponent id={id} />
-//         {isAuthenticated && usernameEA == single_recipe.owner ? (
-//           <Link
-//             to={`/edit-recipe/${id}`}
-//             className="header-component-create-recipe-button"
-//           >
-//             <button className="lg-u"></button>
-//           </Link>
-//         ) : (
-//           <Link
-//             to={`/edit-recipe/${id}`}
-//             className="header-component-create-recipe-button"
-//           >
-//             <button className="lg-u">Edit Recipe</button>
-//           </Link>
-//         )}
-//       </div>
-//       <div>
-//         <img className="goodfood" src={goodFood} />
-//       </div>
-//     </div>
-//   )
-// }
 
 export default ViewRecipeSingle
-
-// !single_recipe.RecipeImages === null ? single_recipe.RecipeImages && single_recipe.RecipeImages[0].url : Burrito

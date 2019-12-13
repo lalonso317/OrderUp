@@ -144,7 +144,6 @@ export const useFullRecipe = () => {
     remove,
     newImage,
     RecipeImages,
-    initalIng,
-    justingredients
+    initalIng
   }
 }

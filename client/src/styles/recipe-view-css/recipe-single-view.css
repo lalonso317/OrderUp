@@ -8,7 +8,6 @@
 .single-recipe-view-main {
   width: 70%;
 
-
   color: white;
   /* border: 2px solid white; */
   padding: 30px;
@@ -55,6 +54,8 @@
   box-shadow: 2px 2px 11px 1px rgba(41, 41, 41, 1);
   max-width: 100%;
   max-height: 400px;
+  margin: 5px;
+  border: rgba(255, 255, 255, 0.345) solid 1px;
 }
 
 .single-recipe-default-image {
@@ -75,17 +76,22 @@
   text-decoration: underline;
 }
 
+.single-recipe-header {
+  display: flex;
+  align-items: center;
+}
 .single-recipe-view-back-button button {
-  float: left;
   background: #ef883f;
   border-radius: 10px;
   padding: 7px;
+  width: 160px;
   font-size: 1em;
   color: black;
   box-shadow: 1px 1px 1px black;
   cursor: pointer;
   outline: none;
   transition: ease-in-out 0.2s;
+  z-index: 15;
 }
 
 .single-recipe-view-back-button button:hover {
@@ -142,3 +148,22 @@
   margin-left: 20px;
 }
 
+@media only screen and (max-width: 950px) {
+  .single-recipe-header {
+    display: flex;
+    align-items: center;
+  }
+  .single-recipe-view-back-button button {
+    background: #ef883f;
+    border-radius: 10px;
+    padding-right: 65px;
+    font-size: 1em;
+    color: black;
+    width: 50px;
+    box-shadow: 1px 1px 1px black;
+    cursor: pointer;
+    outline: none;
+    transition: ease-in-out 0.2s;
+    z-index: 15;
+  }
+}
