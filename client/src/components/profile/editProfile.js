@@ -3,9 +3,9 @@ import { useUsers, useFullRecipe } from "../../hooks"
 import UploadPictures from "../pictureUpload/upload-pictures"
 
 const EditProfile = props => {
-  const username = props.match.params.username
+  const user_name = props.match.params.username
   const { update, users } = useUsers()
-  const user = users.find(user => user.username === username)
+  const user = users.find(users => users.username === user_name)
   console.log(user)
   const { RecipeImages } = useFullRecipe()
 
@@ -28,7 +28,7 @@ const EditProfile = props => {
     ) {
       return alert("Fields Cannots be Blank")
     } else {
-      update(email, fname, lname, tagline, about, username, URL)
+      update(email, fname, lname, tagline, about, user_name, URL)
     }
   }
 
@@ -36,7 +36,7 @@ const EditProfile = props => {
     <>
       <div className="userFormContainer">
         <div className="userUpdateMain">
-          <h2 className="userProfile">{username}</h2>
+          <h2 className="userProfile">{user_name}</h2>
           <form className="userProfileForm" onSubmit={handleEditProfile}>
             <UploadPictures />
             <br></br>
