@@ -5,7 +5,8 @@ const EDITING_INGREDIENTS = "editRecipe/EDITING_INGREDIENTS"
 const EDITING_DIRECTIONS = "editingRecipe/EDITING_DIRECTIONS"
 const DELETING_INGREDIENTS = "editRecipe/DELETING_INGREDIENTS"
 const DELETING_DIRECTIONS = "editRecipe/DELETING_DIRECTIONS"
-// const USER_PROFILE = "comment/USER_PROFILE"
+const INITIAL_SHIT = "editRecipe/INITIAL_SHIT"
+
 // initial state
 const initialState = {
   ingredients: [],
@@ -32,6 +33,12 @@ export default (state = initialState, action) => {
           ings => ings.ingredientName !== action.payload
         )
       }
+    case INITIAL_SHIT:
+      return {
+        ...state,
+        ingredients: action.ingredients,
+        directions: action.directions
+      }
     default:
       return state
   }
@@ -55,24 +62,15 @@ const deleteDirect = id => {
     payload: id
   }
 }
-const initialEditDirection = directs => {
-  const directions = {
-    step: directs
-  }
-  return {
-    type: EDITING_INGREDIENTS,
-    payload: directions
-  }
-}
 // ingredient actions
 const createingredient = ingredient => {
-  const Ingredient = {
+  const ingred = {
     ingredientName: ingredient
   }
   return dispatch => {
     dispatch({
       type: EDITING_INGREDIENTS,
-      payload: Ingredient
+      payload: ingred
     })
   }
 }
@@ -83,13 +81,19 @@ const deleteingredient = id => {
     payload: id
   }
 }
-const initialEditIngredient = ings => {
+// function for loading recipe to be edited (ingredients and directions)
+const initialShit = recipe => {
+  console.log(recipe)
+  const ingreds = recipe.ingredients
+  const directs = recipe.directions
+  console.log("initial shit", ingreds, directs)
   return {
-    type: EDITING_INGREDIENTS,
-    payload: ings
+    type: INITIAL_SHIT,
+    ingredients: ingreds,
+    directions: directs
   }
 }
-export function useEditingRecipe(ings, directs) {
+export function useEditingRecipe() {
   const dispatch = useDispatch()
   const directions = useSelector(
     appState => appState.editRecipeState.directions
@@ -102,19 +106,17 @@ export function useEditingRecipe(ings, directs) {
   const createIngredient = (ingredient, i) =>
     dispatch(createingredient(ingredient, i))
   const removeIngredient = id => dispatch(deleteingredient(id))
-
-  useEffect(ings => {
-    dispatch(initialEditIngredient(ings))
-  }, [])
-  useEffect(directs => {
-    dispatch(initialEditDirection(directs))
-  }, [])
+  const initial = recipe => dispatch(initialShit(recipe))
+  useEffect(() => {
+    // dispatch(initialShit(recipe))
+  }, [dispatch])
   return {
     directions,
     ingredients,
     createdirect,
     removedirect,
     createIngredient,
-    removeIngredient
+    removeIngredient,
+    initial
   }
 }

@@ -18,6 +18,7 @@ const EditRecipeIngredients = props => {
     e.preventDefault()
     removeIngredient(d)
   }
+  console.log("ingredients", ingredients)
   return (
     <div className="bottom">
       <div className="directions">
@@ -34,13 +35,16 @@ const EditRecipeIngredients = props => {
           </div>
         </form>
         <div className="direct">
-          {ingredients.map((item, i) => (
+          {props.ingredients.map((item, i) => (
             <div key={i}>
               <form
                 className="individualDirections"
                 onSubmit={e => handleClick(e)}
               >
-                <p className="step"> {item.ingredientName}</p>
+                <p className="step">
+                  {" "}
+                  {item.ingredientName == undefined ? "" : item.ingredientName}
+                </p>
                 <button
                   className="removeDirection"
                   type="submit"

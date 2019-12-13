@@ -42,10 +42,15 @@ const EditingRecipePage = props => {
   const all_recipes = useAllRecipes()
   //selecting the correct recipe to auto poplulate the text areas on the page
   const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
-  const ings = thisRecipe.recipeIngredients
-  const directs = thisRecipe.recipeDirections
-  const { directions, ingredients } = useEditingRecipe(ings, directs)
-  console.log("this one ", thisRecipe)
+  const { directions, ingredients } = useEditingRecipe()
+  console.log(
+    "directions and ingredients in editing page",
+    directions,
+    ingredients
+  )
+  // const ings = thisRecipe.recipeIngredients.map(ing => ing.ingredientName)
+  // const directs = thisRecipe.recipeDirections.map(direct => direct.step)
+
   // variables used when submitting the edited recipe
 
   const recId = thisRecipe.recipe_id
@@ -73,9 +78,12 @@ const EditingRecipePage = props => {
       )
     } else {
       let recipeHeaderInfo = { name, category, description }
+      const fullRecipe = {
+        ingredients: ingredients
+      }
       update(
         recipeHeaderInfo,
-        ingredients,
+        fullRecipe,
         directions,
         isChecked,
         usernameEA,
@@ -87,8 +95,9 @@ const EditingRecipePage = props => {
       setDescription("")
       console.log(usernameEA)
       console.log(
+        "edited recipe",
         recipeHeaderInfo,
-        ingredients,
+        fullRecipe,
         directions,
         isChecked,
         usernameEA,
@@ -154,8 +163,8 @@ const EditingRecipePage = props => {
             ></textarea>
           </div>
           <div className="recipe-Ing-Dir">
-            <EditRecipeIngredients ingredients={thisRecipe.recipeIngredients} />
-            <EditRecipeDirections directions={thisRecipe.recipeDirections} />
+            <EditRecipeIngredients ingredients={ingredients} />
+            <EditRecipeDirections directions={directions} />
           </div>
           <div className="create-privacy">
             {isChecked ? (
