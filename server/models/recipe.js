@@ -28,6 +28,7 @@ const recipe = new mongoose.Schema({
       by_user: String,
       value: String
     }
+    
   ]
 })
 // { avatar: String, author: String, text: String, meta: Date }
