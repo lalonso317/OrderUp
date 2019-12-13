@@ -109,11 +109,13 @@
 .goodfood {
   height: 100%;
 }
-
+.edit-recipe-button {
+  width: 200px;
+  background: white;
+}
 .ratings {
   display: flex;
   justify-content: center;
-
 }
 
 .ratings h2 {
@@ -123,4 +125,3 @@
 .rating-display-numbers {
   margin-left: 20px;
 }
-

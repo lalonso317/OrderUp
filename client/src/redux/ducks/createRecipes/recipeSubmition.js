@@ -14,7 +14,8 @@ const initialState = {
   isActive: false,
   recipeDone: [],
   recipes: [],
-  recipeImages: []
+  recipeImages: [],
+  justIngredients: []
 }
 
 export default (state = initialState, action) => {
@@ -22,7 +23,8 @@ export default (state = initialState, action) => {
     case FINALIZE_INGREDIENT:
       return {
         ...state,
-        recipeObjects: [...state.recipeObjects, action.payload]
+        recipeObjects: [...state.recipeObjects, action.payload],
+        justIngredients: [...state, action.payload]
       }
     case SUBMITTED_FULL_RECIPE:
       return { ...state, recipeDone: [...state.recipeDone, action.payload] }
@@ -105,6 +107,9 @@ const addImages = url => {
 export const useFullRecipe = () => {
   const dispatch = useDispatch()
   // selector to grab the full recipe
+  const justingredients = useSelector(
+    appState => appState.fullRecipeState.justIngredients
+  )
   const fullRecipe = useSelector(
     appState => appState.fullRecipeState.recipeObjects
   )
@@ -153,7 +158,8 @@ export const useFullRecipe = () => {
     remove,
     newImage,
     RecipeImages,
-    initalIng
+    initalIng,
+    justingredients
   }
 }
 

@@ -5,11 +5,9 @@
   justify-items: center;
   background: black;
 }
-
 #single-card {
   border: 1px solid white;
 }
-
 .multi-recipe-view-page-title {
   text-align: center;
   color: white;
