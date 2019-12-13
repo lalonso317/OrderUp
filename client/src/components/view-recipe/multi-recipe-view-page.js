@@ -1,10 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
 import "../../styles/recipe/multi-recipe-view-page.css"
 import Card from "../Card"
-import PaginationComponent from "./pagination-component"
 import CategoryFilter from "./category-filter"
+import { useFilteredCategoryRecipes } from "../../hooks"
 
 const MultiRecipeViewPage = props => {
+  const { categoryRecipes } = useFilteredCategoryRecipes()
+  const FilteredRecipes = categoryRecipes.filter(e => e.private === false)
+  // variables used for pagination ------------------
+  console.log("filtered pages", FilteredRecipes)
+  const pageNumbers = []
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(3)
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = FilteredRecipes.slice(indexOfFirstPost, indexOfLastPost)
+  for (let i = 1; i <= Math.ceil(FilteredRecipes.length / postsPerPage); i++) {
+    pageNumbers.push(i)
+  }
+  console.log("current posts", currentPosts)
+  const handlePageChange = (e, value) => {
+    e.preventDefault()
+    setCurrentPage(value)
+    console.log(value)
+  }
+
+  // ------------------------
   console.log("props and shit", props)
   return (
     <div className="multi-recipe-view-page-container">
@@ -13,7 +34,7 @@ const MultiRecipeViewPage = props => {
         <CategoryFilter />
         <hr />
         <div className="card-columns card-column-lg">
-          {props.recipeArray.map((recipe, i) => (
+          {currentPosts.map((recipe, i) => (
             <div id="single-card">
               {console.log(recipe)}
               <Card
@@ -30,7 +51,16 @@ const MultiRecipeViewPage = props => {
             </div>
           ))}
         </div>
-        <PaginationComponent />
+        <div className="paginationContainer">
+          {pageNumbers.map(number => (
+            <div className="pageNumbers" key={number + "page"}>
+              <a onClick={e => handlePageChange(e, number)} href="#">
+                {" "}
+                {number}
+              </a>
+            </div>
+          ))}
+        </div>
       </main>
     </div>
   )
