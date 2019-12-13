@@ -10,3 +10,5 @@ export { useAllRecipes } from "../redux/ducks/viewRecipes"
 export { useUpdate } from "../redux/ducks/updateRecipes"
 export { useComments } from "../redux/ducks/comments"
 export { useFilteredCategoryRecipes } from "../redux/ducks/category-filter"
+export { useFavorites } from "../redux/ducks/favorites"
+

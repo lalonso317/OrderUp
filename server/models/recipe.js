@@ -22,7 +22,14 @@ const recipe = new mongoose.Schema({
     type: String,
     default: null
   },
-  comments: [{ avatar: String, author: String, text: String, meta: Date }]
+  comments: [{ avatar: String, author: String, text: String, meta: Date }],
+  rating: [
+    {
+      by_user: String,
+      value: String
+    }
+    
+  ]
 })
 // { avatar: String, author: String, text: String, meta: Date }
 module.exports = Recipe = mongoose.model("recipe", recipe)

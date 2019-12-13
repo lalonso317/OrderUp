@@ -39,7 +39,8 @@ const getRecipes = () => {
                 ? data.RecipeImages
                 : (data.RecipeImages = [{ url: default_image }]),
             Comments: data.comments,
-            recId: data.recId
+            recId: data.recId,
+            ratings: data.rating
           }
         })
         dispatch({

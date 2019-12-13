@@ -30,7 +30,9 @@ const EditRecipe = props => {
   )
   //directions
   const [directions, setDirections] = useState(
+
     `${thisRecipe.recipeDirections.map((directs, i) => i + "." + directs.step)}`
+
   )
   //is checked?
   const [isChecked, setIsChecked] = useState(thisRecipe.private)
@@ -147,6 +149,7 @@ const EditRecipe = props => {
       </div>
       <div className="edit-recipe-photos">
         <ImageUploader />
+        {/* 
         {images.map((img, i) => {
           return (
             <div key={i + "images"}>
@@ -156,7 +159,7 @@ const EditRecipe = props => {
               </button>
             </div>
           )
-        })}
+        })} */}
       </div>
       <div className="edit-recipe-submit-button">
         <form onSubmit={handleSubmit}>

@@ -15,12 +15,13 @@ const MultiRecipeViewPage = props => {
         <div className="card-columns card-column-lg">
           {props.recipeArray.map((recipe, i) => (
             <div id="single-card">
+              {console.log(recipe)}
               <Card
                 key={`card-${i}-${recipe.recipe_id}`}
                 className={`card p-${i} `}
                 recipe_link={`/recipe/${recipe.recipe_id}`}
                 image_source={recipe.RecipeImages[0].url}
-                recipe_rating="3.54/5"
+                recipe_rating={recipe.ratings.map(rating => rating.value)}
                 username={recipe.owner ? recipe.owner : "Anonymous"}
                 recipe_title={recipe.recipeTitle}
                 recipe_description={recipe.recipeDescription}
