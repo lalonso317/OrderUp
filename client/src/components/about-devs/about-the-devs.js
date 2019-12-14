@@ -3,7 +3,8 @@ import Mitchell from "../../Assets/profile-mitchell.JPG"
 import Alex from "../../Assets/alex-prof.png"
 import Luis from "../../Assets/Luis.jpeg"
 import "../../styles/about-devs/about-devs.css"
-
+import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button"
+import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss"
 const AboutTheDevs = props => {
   const test =
     "1. 15 pounds charcoal briquets,2 pounds hickory wood chips,1 cup bourbon whiskey,1 (4 pound) standing rib roast, bone in,1/2 cup steak seasoning"
@@ -16,7 +17,7 @@ const AboutTheDevs = props => {
       </div>
       <div className="about-devs-profile">
         <div className="about-devs-header">
-          <div>
+          <div className="about-devs-header-left">
             <h2>Mitchell</h2>
             <a
               href="https://github.com/Mitchell8210"
@@ -29,8 +30,22 @@ const AboutTheDevs = props => {
                 className="img-fluid about-devs-img"
               />
             </a>
+            <AwesomeButtonSocial
+              cssModule={AwesomeButtonStyles}
+              type="github"
+              message="Check this out!"
+              target="blank"
+              href="https://github.com/Mitchell8210"
+            ></AwesomeButtonSocial>
+            <AwesomeButtonSocial
+              cssModule={AwesomeButtonStyles}
+              type="linkedin"
+              message="Check this out!"
+              target="blank"
+              href="https://www.linkedin.com/in/mitchell-rhoads-009006195/"
+            ></AwesomeButtonSocial>
           </div>
-          <div className="">
+          <div className="about-devs-content">
             <h3>Background</h3>
             <p>
               Mitchell is one of our top developers here at Order up. He enjoys
@@ -46,7 +61,6 @@ const AboutTheDevs = props => {
               He lived in Japan from 2012 to 2014 as a missionary and again from
               2018 to 2019 as a civilian.
             </p>
-            <p>{testing}</p>
             <h3>Current Events</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
@@ -72,8 +86,8 @@ const AboutTheDevs = props => {
         </div>
       </div>
       <div className="about-devs-profile">
-        <div className="">
-          <div>
+        <div className="about-devs-header">
+          <div className="about-devs-header-left">
             <h2>Alex</h2>
             <a
               href="https://github.com/alexjmitchell"
@@ -84,11 +98,25 @@ const AboutTheDevs = props => {
                 src={Alex}
                 alt="One of the devs for order up"
                 className="img-fluid about-devs-img"
-                style={{ height: "300px" }}
+                style={{ height: "227.05px" }}
               />
             </a>
+            <AwesomeButtonSocial
+              cssModule={AwesomeButtonStyles}
+              type="github"
+              message="Check this out!"
+              target="blank"
+              href="https://github.com/Mitchell8210"
+            ></AwesomeButtonSocial>
+            <AwesomeButtonSocial
+              cssModule={AwesomeButtonStyles}
+              type="linkedin"
+              message="Check this out!"
+              target="blank"
+              href="https://www.linkedin.com/in/mitchell-rhoads-009006195/"
+            ></AwesomeButtonSocial>
           </div>
-          <div className="">
+          <div className="about-devs-content">
             <h3>Background</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
@@ -123,8 +151,8 @@ const AboutTheDevs = props => {
         </div>
       </div>
       <div className="about-devs-profile">
-        <div className="">
-          <div>
+        <div className="about-devs-header">
+          <div className="about-devs-header-left">
             <h2>Luis</h2>
             <a
               href="https://github.com/lalonso317"
@@ -137,8 +165,22 @@ const AboutTheDevs = props => {
                 className="img-fluid about-devs-img"
               />
             </a>
+            <AwesomeButtonSocial
+              cssModule={AwesomeButtonStyles}
+              type="github"
+              message="Check this out!"
+              target="blank"
+              href="https://github.com/Mitchell8210"
+            ></AwesomeButtonSocial>
+            <AwesomeButtonSocial
+              cssModule={AwesomeButtonStyles}
+              type="linkedin"
+              message="Check this out!"
+              target="blank"
+              href="https://www.linkedin.com/in/mitchell-rhoads-009006195/"
+            ></AwesomeButtonSocial>
           </div>
-          <div className="">
+          <div className="about-devs-content">
             <h3>Background</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
