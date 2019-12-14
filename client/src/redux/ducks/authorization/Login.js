@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
-
+import jwt from "jsonwebtoken"
 
 const LOGIN_PENDING = "auth/LOGIN_PENDING"
 const LOGIN_SUCCESS = "auth/LOGIN_SUCCESS"
@@ -16,8 +16,18 @@ function checkAuth() {
   }
 }
 
+function checkUsername() {
+  const token = window.localStorage.getItem("token")
+  if (token) {
+    const user = jwt.decode(token)
+    return user.username
+  } else {
+    return ""
+  }
+}
+console.log(jwt.decode(window.localStorage.getItem("token")))
 const initalState = {
-  username: "",
+  username: checkUsername(),
   isAuthenticated: checkAuth(),
   loading: true,
   users: []
