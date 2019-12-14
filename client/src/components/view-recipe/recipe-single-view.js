@@ -8,12 +8,8 @@ import {
 } from "../../hooks"
 import CommentComponent from "../comments/comment-component"
 import goodFood from "../../Assets/goodfood.png"
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon
-} from "react-share"
+import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button"
+import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss"
 import Icon from "../../lib/Icon"
 import Rating from "react-rating"
 import EmptyStar from "../../Assets/empty-star.png"
@@ -102,19 +98,30 @@ const ViewRecipeSingle = props => {
               </Link>
             </div>
             <div className="social-share-buttons">
-              <div className="single-facebook">
-                <FacebookShareButton
-                  // href={"http://localhost:3000/"}
-                  url={"https://finediningsite.surge.sh/"}
-                  children={<FacebookIcon size={30} round={true} />}
-                />
-              </div>
-              <div className="single-twitter">
-                <TwitterShareButton
-                  url={`http://localhost:3000/${id}`}
-                  children={<TwitterIcon size={30} round={true} />}
-                />
-              </div>
+              <AwesomeButtonSocial
+                cssModule={AwesomeButtonStyles}
+                type="facebook"
+                message="Check this out!"
+                url="https://caferati.me"
+              ></AwesomeButtonSocial>
+              <AwesomeButtonSocial
+                cssModule={AwesomeButtonStyles}
+                type="twitter"
+                message="Check this out!"
+                url="https://caferati.me"
+              ></AwesomeButtonSocial>
+              <AwesomeButtonSocial
+                cssModule={AwesomeButtonStyles}
+                type="instagram"
+                message="Check this out!"
+                url="https://caferati.me"
+              ></AwesomeButtonSocial>
+              <AwesomeButtonSocial
+                cssModule={AwesomeButtonStyles}
+                type="pinterest"
+                message="Check this out!"
+                url="https://caferati.me"
+              ></AwesomeButtonSocial>
             </div>
             <div className="ratings">
               <h2>rating</h2>
