@@ -21,7 +21,7 @@
 }
 
 .logo {
-  width: 21%
+  width: 21%;
 }
 .header-component-social-links {
   display: flex;
@@ -35,6 +35,7 @@
   position: absolute;
   bottom: 0px;
   left: 22%;
+  width: 65%;
 }
 
 .social-media-path {
@@ -204,3 +205,12 @@
   align-items: center;
 
 } */
+.searchbar-container {
+  background: white;
+  color: white;
+}
+.search-text-field {
+  background: none;
+  border: 2px solid #ef883f;
+  color: white;
+}

@@ -15,7 +15,7 @@ const SubmitRecipeButton = props => {
     { value: "Desert", text: "Desert" },
     { value: "Appertizer", text: "Appetizer" },
     { value: "Snacks", text: "Snacks" },
-    { value: "Beakfest", text: "Breakfest/Brunch" },
+    { value: "Breakfest", text: "Breakfest/Brunch" },
     { value: "Side Dish", text: "Side Dish" },
     { value: "Family Dinner", text: "Family Dinner" },
     { value: "Lunch", text: "Lunch" },

@@ -12,6 +12,9 @@ const EmailForm = props => {
       from_name: name,
       reply_to: email
     })
+    setFeedback("")
+    setName("")
+    setEmail("")
   }
 
   const sendFeedback = (templateId, variables) => {

@@ -45,9 +45,6 @@
 .MakeUpPic img {
   width: 300px;
 }
-.editProfileButton {
-  margin-top: 25px;
-}
 .view-all-recipe-title {
   color: white;
   text-decoration: none;
@@ -70,6 +67,17 @@
   height: 0px;
   display: none;
 }
+.view-all-recipes-private {
+  display: flex;
+  flex-wrap: wrap;
+  transition: 0.2s ease-in-out;
+  margin-top: 25px;
+  width: 100px;
+}
+.dont-show-all-recipes-private {
+  height: 0px;
+  display: none;
+}
 .full-favs-privates {
   display: flex;
   justify-content: space-between;
@@ -89,6 +97,23 @@
   height: 50px;
   background: white;
   color: rgb(239, 136, 63);
+}
+.toggleButton {
+  outline: none;
+  color: white;
+  background: none;
+  margin: 10px 45px 0 0;
+  font-size: 16px;
+}
+#color {
+  background: rgb(239, 136, 63);
+  color: black;
+}
+.editProfileButton {
+  margin-top: 25px;
+  font-size: 15px;
+  color: white;
+  background: none;
 }
 
 /* Edit Profile Form */

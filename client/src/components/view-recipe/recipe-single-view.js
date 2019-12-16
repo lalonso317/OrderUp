@@ -15,7 +15,6 @@ import EmptyStar from "../../Assets/empty-star.png"
 import FullStar from "../../Assets/full-star.png"
 
 const ViewRecipeSingle = props => {
-
   const {
     single_recipe,
     default_image,
@@ -31,7 +30,6 @@ const ViewRecipeSingle = props => {
   const [favor, setFavor] = useState(single_recipe.recipe_id)
 
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
-
 
   console.log(
     "single recipe comment ====----====>>>>",
@@ -132,18 +130,29 @@ const ViewRecipeSingle = props => {
                   //     single_recipe.ratings[single_recipe.ratings.length - 1]
                   //       .value
                   //   : 3
-                  rating_value !== 0 ? rating_value  : ratingCheck()
+                  rating_value !== 0 ? rating_value : ratingCheck()
                 }
                 direction="ltr"
               />
 
               <h2 className="rating-display-numbers">{`${
-                rating_value !== 0 ? rating_value : ratingCheck() === undefined ? 0 : ratingCheck()
+                rating_value !== 0
+                  ? rating_value
+                  : ratingCheck() === undefined
+                  ? 0
+                  : ratingCheck()
               }/5`}</h2>
-               <button onClick={e => handleClick(e)} value={favor}>
-                <Icon icon="heart"></Icon>
-              </button>
-
+              {isAuthenticated ? (
+                <button
+                  className="home-heart"
+                  onClick={e => handleClick(e)}
+                  value={favor}
+                >
+                  <Icon icon="heart"></Icon>
+                </button>
+              ) : (
+                ""
+              )}
             </div>
             <div className="single-recipe-image-container">
               <img
@@ -208,7 +217,6 @@ const ViewRecipeSingle = props => {
           ) : (
             ""
           )}
-
         </div>
       </div>
       <div>

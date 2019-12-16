@@ -11,6 +11,7 @@ import EditRecipe from "./recipe/edit-recipe-page"
 import EditProfile from "./profile/editProfile"
 import About from "./about/about-us"
 import AboutTheDevs from "./about-devs/about-the-devs"
+import SearchBar from "./home/SearchBar"
 import "../styles/recipe/index.css"
 import "../styles/recipe/createRecipeHeader.css"
 import "../styles/recipe/createDirections.css"
@@ -39,6 +40,7 @@ const App = props => {
         link_reddit="https://www.reddit.com/"
         link_instagram="https://www.instagram.com/"
       />
+      <Route path="/all-recipes/:recipeCategory" component={SearchBar} />
       <Route path="/test" component={Test} />
       <Route exact path={"/"} component={PublicHomePage} />
       <Route component={Toggle} />
