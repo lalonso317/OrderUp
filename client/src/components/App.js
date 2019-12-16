@@ -9,6 +9,7 @@ import ViewRecipeSingle from "./view-recipe/recipe-single-view"
 import MultiRecipeLoader from "./view-recipe/multi-recipe-loader"
 import EditProfile from "./profile/editProfile"
 import About from "./about/about-us"
+import Share from "./about/share"
 import AboutTheDevs from "./about-devs/about-the-devs"
 import "../styles/recipe/index.css"
 import "../styles/recipe/createRecipeHeader.css"
@@ -25,6 +26,7 @@ import "../styles/home/card.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../styles/comments.css"
 import "../styles/pagination.css"
+import "../styles/about/share.css"
 import Test from "./test"
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
@@ -32,7 +34,7 @@ import EditingRecipePage from "./Edit-Recipe-files/editing-recipe-page"
 
 const App = props => {
   return (
-    <Router>
+    <Router onUpdate={() => window.scrollTo(0, 0)}>
       <Header
         link_twitter="https://twitter.com/?lang=en"
         link_facebook="https://www.facebook.com/"
@@ -53,6 +55,7 @@ const App = props => {
         path={"/editing-recipe-page/:recipeId"}
         component={EditingRecipePage}
       />
+      <Route path={"/share"} component={Share} />
       <UniversalFooter
         link_twitter="https://twitter.com/?lang=en"
         link_facebook="https://www.facebook.com/"

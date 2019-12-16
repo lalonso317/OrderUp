@@ -57,8 +57,12 @@ const About = props => {
         </div>
         <div className="about-us-page-subtitle">
           <p className="about-us-subtitle">Contact us</p>
-          <div className="about-us-page-content">
+          <div className="about-us-page-content-email">
             <EmailForm />
+            <img
+              src="https://images.pexels.com/photos/2562555/pexels-photo-2562555.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              width="500px"
+            />
           </div>
         </div>
       </div>
