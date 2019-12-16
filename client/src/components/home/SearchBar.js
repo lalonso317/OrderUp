@@ -12,10 +12,7 @@ const SearchBar = props => {
     id: option.recipe_id,
     title: option.recipeTitle
   }))
-  //   const cats = all_recipes.map(option => option.recipeCategory)
-  //   const singleCats = cats.reduce(option => option.recipeCategory)
 
-  //   console.log(all_recipes, uniqueCatArray)
   console.log(title)
 
   const handleSearch = (e, id) => {

@@ -7,23 +7,24 @@ import { useFavorites, useAuth, useSingleRecipe } from "../../hooks"
 import Icon from "../../lib/Icon"
 
 const MultiRecipeViewPage = props => {
-  const {
-    single_recipe,
-    default_image,
-    SpecificComments,
-    add
-  } = useSingleRecipe()
   console.log("props and shit", props)
   const [favor, setFavor] = useState("")
   const { isAuthenticated, usernameEA } = useAuth()
   const { make } = useFavorites()
 
   // for favorite
-  const handleClick = (e, id) => {
+  // const handleClick = (e, favor) => {
+  //   e.preventDefault()
+
+  //   make(favor, usernameEA)
+  // }
+  const handleFav = (e, value) => {
     e.preventDefault()
-    console.log(id, usernameEA)
-    make(id, usernameEA)
+
+    make(value, usernameEA)
+    console.log(value, usernameEA)
   }
+
   return (
     <div className="multi-recipe-view-page-container">
       <main className="multi-recipe-view-page-wrapper">
@@ -35,13 +36,16 @@ const MultiRecipeViewPage = props => {
             <div id="single-card">
               <div className="heart-home-page">
                 {isAuthenticated ? (
-                  <button
-                    onClick={(e, id) => handleClick(e, id)}
-                    className="home-heart"
-                    value={recipe.recipe_id}
-                  >
-                    <Icon icon="heart"></Icon>
-                  </button>
+                  <form onSubmit={(e, value) => handleFav(e, value)}>
+                    <button
+                      // onClick={(e, value) => handleClick(e, value)}
+                      className="home-heart"
+                      type="submit"
+                      value={recipe.recipe_id}
+                    >
+                      <Icon icon="heart"></Icon>
+                    </button>
+                  </form>
                 ) : (
                   ""
                 )}
