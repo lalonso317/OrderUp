@@ -27,10 +27,11 @@ const UserProfileMain = props => {
 
   const userRecipes = all_recipes.filter(user => user.owner === username)
 
-  const favRecipe = all_recipes.filter(e =>
-    fav.map(e => e.favorite_id).includes(e.recipe_id)
-  )
+  const favRecipe = fav.find(e => e.username == usernameEA)
+    ? all_recipes.filter(e => fav.map(e => e.favorite_id).includes(e.recipe_id))
+    : ""
 
+  console.log(favRecipe)
   const image = user == null ? "" : user.RecipeImages
   const fname = user === undefined ? "" : user.firstName
   const lname = user == null ? "" : user.lastName
@@ -40,10 +41,12 @@ const UserProfileMain = props => {
   const [toggle, setToggle] = useState(false)
   const handleToggle = () => {
     setToggle(!toggle)
+    setToggleFav(false)
   }
   const [toggleFav, setToggleFav] = useState(false)
   const handleToggleFav = () => {
     setToggleFav(!toggleFav)
+    setToggle(false)
   }
 
   return isAuthenticated ? (
@@ -89,8 +92,20 @@ const UserProfileMain = props => {
 
           <div className="full-favs-privates">
             <div className="favorited">
-              <button className="toggleButton" onClick={handleToggleFav}>
+              <button
+                className="toggleButton"
+                id={!toggle ? "color" : ""}
+                onClick={handleToggleFav}
+              >
                 Favorited Recipes
+              </button>
+              <button
+                className="toggleButton"
+                id={!toggleFav ? "color" : ""}
+                onClick={handleToggle}
+              >
+                {" "}
+                All & Private Recipes
               </button>
 
               <div
@@ -98,45 +113,50 @@ const UserProfileMain = props => {
                   toggleFav ? "view-all-recipes" : "dont-show-all-recipes"
                 }
               >
-                {favRecipe.map(e => (
-                  <div>
-                    <p className="view-all-recipe-title">{e.recipeTitle}</p>
-                    <img
-                      className="view-all-recipe-image"
-                      alt=""
-                      src={e.RecipeImages.map(e => e.url)}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="private">
-              <button className="toggleButton" onClick={handleToggle}>
-                {" "}
-                All & Private Recipes
-              </button>
-
-              <div
-                className={
-                  toggle ? "view-all-recipes" : "dont-show-all-recipes "
-                }
-              >
-                {userRecipes.length === 0 ? (
-                  <div>No recipes Created</div>
+                {favRecipe.length == 0 ? (
+                  <div>No Recipes Favorited</div>
                 ) : (
-                  userRecipes.map((e, i) => (
-                    <Link to={`/recipe/${e.recipe_id}`} key={i}>
-                      <div>
+                  favRecipe.map(e => (
+                    <div>
+                      <Link to={`/recipe/${e.recipe_id}`}>
                         <p className="view-all-recipe-title">{e.recipeTitle}</p>
                         <img
                           className="view-all-recipe-image"
-                          src={e.RecipeImages.map(e => e.url)}
                           alt=""
+                          src={e.RecipeImages.map(e => e.url)}
                         />
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   ))
                 )}
+              </div>
+              <div className="private">
+                <div
+                  className={
+                    toggle
+                      ? "view-all-recipes-private "
+                      : "dont-show-all-recipes-private "
+                  }
+                >
+                  {userRecipes.length === 0 ? (
+                    <div>No Recipes Created</div>
+                  ) : (
+                    userRecipes.map((e, i) => (
+                      <Link to={`/recipe/${e.recipe_id}`} key={i}>
+                        <div>
+                          <p className="view-all-recipe-title">
+                            {e.recipeTitle}
+                          </p>
+                          <img
+                            className="view-all-recipe-image"
+                            src={e.RecipeImages.map(e => e.url)}
+                            alt=""
+                          />
+                        </div>
+                      </Link>
+                    ))
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -146,7 +166,12 @@ const UserProfileMain = props => {
               ""
             ) : (
               <button className="editProfileButton">
-                <Link to={"/edit-profile/" + usernameEA}>Edit Profile</Link>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to={"/edit-profile/" + usernameEA}
+                >
+                  Edit Profile
+                </Link>
               </button>
             )}
           </div>

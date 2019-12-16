@@ -159,9 +159,17 @@ const ViewRecipeSingle = props => {
                   ? 0
                   : ratingCheck()
               }/5`}</h2>
-              <button onClick={e => handleClick(e)} value={favor}>
-                <Icon icon="heart"></Icon>
-              </button>
+              {isAuthenticated ? (
+                <button
+                  className="home-heart"
+                  onClick={e => handleClick(e)}
+                  value={favor}
+                >
+                  <Icon icon="heart"></Icon>
+                </button>
+              ) : (
+                ""
+              )}
             </div>
             <div className="single-recipe-image-container">
               <img

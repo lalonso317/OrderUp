@@ -1,16 +1,30 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
 import TransLogo from "../../Assets/BnY-Logo-Transparent.png"
 import "../../styles/home/Header.css"
-import { useAuth } from "../../hooks/index"
+import { useAuth } from "../../hooks/"
+import SearchBar from "./SearchBar"
+// import TextField from "@material-ui/core/TextField"
+// import { Autocomplete } from "@material-ui/lab"
 
 const Header = props => {
+  // const all_recipes = useAllRecipes()
+  // const [search, setSearch] = useState(false)
+
   const { isAuthenticated, signout, usernameEA } = useAuth()
-  console.log(usernameEA)
+
+  // const title = all_recipes.map(option => option.recipeTitle)
+  // const cats = all_recipes.map(option => option.recipeCategory)
+
+  // console.log(title, cats)
+  // const handleToggle = () => {
+  //   setSearch(!search)
+  // }
   const handleSignOut = e => {
     signout()
   }
+
   return (
     <div>
       {/* The Sticky Nav Bar */}
@@ -60,7 +74,11 @@ const Header = props => {
       <header className="header-component-header">
         <div className="header">
           <img src={TransLogo} className="logo-top" alt="Our company logo" />
+
           <div className="header-links">
+            <div>
+              <SearchBar />
+            </div>
             <div className="header-component-description">
               <p>
                 Welcome to OrderUp. We are an all around recipe management site.
@@ -75,6 +93,7 @@ const Header = props => {
                   <Icon icon="home" />
                 </p>
               </Link>
+
               {isAuthenticated ? (
                 <>
                   <Link

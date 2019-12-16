@@ -134,4 +134,29 @@ router.delete("/recipe/:recipeId", async (request, response) => {
   response.json(recipe)
 })
 
+// router.get("/search", async (request, response) => {
+//   console.log(request.body.searchs)
+//   let search = request.body.searchs
+
+//   const recipe = await Recipe.find({
+//     recipeHeaderInfo: { name: search }
+//   }).catch(err => {
+//     console.log("Search", err)
+//   })
+//   console.log(recipe)
+//   response.json(recipe)
+// })
+
+// router.get("/search", async (req, res) => {
+//   const search = req.body.searchs
+
+//   const sear = await Recipe.find({
+//     recipeHeaderInfo: { name: { $regex: search, $options: "i" } }
+//   }).catch(err => {
+//     console.log("error", err)
+//   })
+
+//   console.log(sear)
+//   res.json(sear)
+// })
 module.exports = router
