@@ -15,21 +15,23 @@
 
 .about-us-page-subtitle {
   display: flex;
-
   background: black;
-}
-
-.about-us-subtitle {
-  width: 10%;
-
-  border-right: 2px solid rgb(235, 122, 62);
 }
 
 .about-us-page-content {
   padding-left: 2%;
   margin-bottom: 50px;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
 }
-
+.about-us-page-content-email {
+  padding-left: 2%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 .about-us-page-subtitle h3 {
   font-family: "Raleway", sans-serif;
   margin-right: 3%;
@@ -38,11 +40,12 @@
   width: 200px;
 }
 
-.about-us-page-subtitle p {
-  font-family: "Raleway", sans-serif;
-  font-size: 18px;
-}
+.about-us-subtitle {
+  width: 15%;
+  font-size: 30px;
 
+  border-right: 2px solid rgb(235, 122, 62);
+}
 /* Contact us Email form */
 .contact-form,
 .contact-form-boxes {

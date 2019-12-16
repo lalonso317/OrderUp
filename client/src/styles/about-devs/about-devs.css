@@ -35,7 +35,7 @@
   margin-bottom: 10%;
 }
 .about-devs-header-left {
-  width: 30%;
+  width: 80%;
   margin: 3%;
 }
 .about-devs-header-left h2 {
@@ -55,6 +55,9 @@
 .about-devs-content h3 {
   border-bottom: 1px solid rgb(235, 122, 62);
   width: 25%;
+  font-size: 30px;
+  margin-bottom: 1%;
+  padding-top: 3%;
 }
 .about-devs-content p {
   margin: 0;
