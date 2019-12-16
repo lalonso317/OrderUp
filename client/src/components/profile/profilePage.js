@@ -50,64 +50,188 @@ const UserProfileMain = props => {
   }
 
   return isAuthenticated ? (
+    // <div className="profile-page-container">
+    //   <div className="userProfileMakeUp">
+    //     <div className="userProfileHeader">
+    //       <div className="MakeUpUserName">
+    //         <p className="MakeUpUsername">{username}</p>
+    //         <img className="MakeUpMeal" src={Meal} alt="" />
+    //       </div>
+    //       <div className="MakeUpPic">
+    //         <img
+    //           className="MakeUpImg"
+    //           src={image ? image : default_image}
+    //           alt=""
+    //         />
+    //       </div>
+    //     </div>
+    //     <div className="MakeUpExtras">
+    //       <div className="MakeUpUserName">
+    //         <p>Name</p>
+    //         <p className="MakeUpCaret">
+    //           <Icon icon="caret-right"></Icon>
+    //         </p>
+    //         <p className="aboutusertext">
+    //           {fname} {lname}
+    //         </p>
+    //       </div>
+    //       <div className="MakeUpUserName">
+    //         <p> About Me</p>
+    //         <p className="MakeUpCaret">
+    //           <Icon icon="caret-right"></Icon>
+    //         </p>
+    //         <p className="aboutusertext">{about}</p>
+    //       </div>
+    //       <div className="MakeUpUserName">
+    //         <p>Tagline</p>
+    //         <p className="MakeUpCaret">
+    //           <Icon icon="caret-right"></Icon>
+    //         </p>
+    //         <p className="aboutusertext">{tagline}</p>
+    //       </div>
+
+    //       <div className="full-favs-privates">
+    //         <div className="favorited">
+    //           <button
+    //             className="toggleButton"
+    //             id={!toggle ? "color" : ""}
+    //             onClick={handleToggleFav}
+    //           >
+    //             Favorited Recipes
+    //           </button>
+    //           <button
+    //             className="toggleButton"
+    //             id={!toggleFav ? "color" : ""}
+    //             onClick={handleToggle}
+    //           >
+    //             {" "}
+    //             All & Private Recipes
+    //           </button>
+
+    //     <div
+    //       className={
+    //         toggleFav ? "view-all-recipes" : "dont-show-all-recipes"
+    //       }
+    //     >
+    //       {favRecipe.length == 0 ? (
+    //         <div>No Recipes Favorited</div>
+    //       ) : (
+    //         favRecipe.map(e => (
+    //           <div>
+    //             <Link to={`/recipe/${e.recipe_id}`}>
+    //               <p className="view-all-recipe-title">{e.recipeTitle}</p>
+    //               <img
+    //                 className="view-all-recipe-image"
+    //                 alt=""
+    //                 src={e.RecipeImages.map(e => e.url)}
+    //               />
+    //             </Link>
+    //           </div>
+    //         ))
+    //       )}
+    //     </div>
+    //     <div className="private">
+    //       <div
+    //         className={
+    //           toggle
+    //             ? "view-all-recipes-private "
+    //             : "dont-show-all-recipes-private "
+    //         }
+    //       >
+    //         {userRecipes.length === 0 ? (
+    //           <div>No Recipes Created</div>
+    //         ) : (
+    //           userRecipes.map((e, i) => (
+    //             <Link to={`/recipe/${e.recipe_id}`} key={i}>
+    //               <div>
+    //                 <p className="view-all-recipe-title">
+    //                   {e.recipeTitle}
+    //                 </p>
+    //                 <img
+    //                   className="view-all-recipe-image"
+    //                   src={e.RecipeImages.map(e => e.url)}
+    //                   alt=""
+    //                 />
+    //               </div>
+    //             </Link>
+    //           ))
+    //         )}
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
+    //       <div>
+    //         {isAuthenticated && usernameEA == single_recipe.owner ? (
+    //           ""
+    //         ) : (
+    //           <button className="editProfileButton">
+    //             <Link
+    //               style={{ color: "white", textDecoration: "none" }}
+    //               to={"/edit-profile/" + usernameEA}
+    //             >
+    //               Edit Profile
+    //             </Link>
+    //           </button>
+    //         )}
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
     <div className="profile-page-container">
-      <div className="userProfileMakeUp">
-        <div className="userProfileHeader">
-          <div className="MakeUpUserName">
-            <p className="MakeUpUsername">{username}</p>
-            <img className="MakeUpMeal" src={Meal} alt="" />
-          </div>
-          <div className="MakeUpPic">
+      <div className="card" style={{ maxwidth: "100vw", background: "#000" }}>
+        <div className="row no-gutters">
+          <div className="col-md-4">
             <img
-              className="MakeUpImg"
+              className="card-img"
               src={image ? image : default_image}
               alt=""
             />
           </div>
-        </div>
-        <div className="MakeUpExtras">
-          <div className="MakeUpUserName">
-            <p>Name</p>
-            <p className="MakeUpCaret">
-              <Icon icon="caret-right"></Icon>
-            </p>
-            <p className="aboutusertext">
-              {fname} {lname}
-            </p>
-          </div>
-          <div className="MakeUpUserName">
-            <p> About Me</p>
-            <p className="MakeUpCaret">
-              <Icon icon="caret-right"></Icon>
-            </p>
-            <p className="aboutusertext">{about}</p>
-          </div>
-          <div className="MakeUpUserName">
-            <p>Tagline</p>
-            <p className="MakeUpCaret">
-              <Icon icon="caret-right"></Icon>
-            </p>
-            <p className="aboutusertext">{tagline}</p>
-          </div>
-
-          <div className="full-favs-privates">
-            <div className="favorited">
-              <button
-                className="toggleButton"
-                id={!toggle ? "color" : ""}
-                onClick={handleToggleFav}
-              >
-                Favorited Recipes
-              </button>
-              <button
-                className="toggleButton"
-                id={!toggleFav ? "color" : ""}
-                onClick={handleToggle}
-              >
+          <div className="col-md-8">
+            <div className="card-body MakeUpExtras">
+              <h5 className="card-title MakeUpUserName">
                 {" "}
-                All & Private Recipes
-              </button>
-
+                <p className="card-text">Name</p>
+                <p className="card-text MakeUpCaret">
+                  <Icon icon="caret-right"></Icon>
+                </p>
+                <p className="card-text aboutusertext">
+                  {fname} {lname}
+                </p>
+              </h5>
+              <h5 className="card-title MakeUpUserName">
+                <p className="card-text">About Me</p>
+                <p className="card-text MakeUpCaret">
+                  <Icon icon="caret-right"></Icon>
+                </p>
+                <p className="card-text aboutusertext">{about}</p>
+              </h5>
+              <h5 className="card-title MakeUpUserName">
+                <p className="card-text">Tagline</p>
+                <p className="card-text MakeUpCaret">
+                  <Icon icon="caret-right"></Icon>
+                </p>
+                <p className="card-text aboutusertext">{tagline}</p>
+              </h5>
+              <p className="full-favs-privates card-text">
+                <div className="favorited">
+                  <button
+                    className="toggleButton"
+                    id={!toggle ? "color" : ""}
+                    onClick={handleToggleFav}
+                  >
+                    Favorited Recipes
+                  </button>
+                  <button
+                    className="toggleButton"
+                    id={!toggle ? "color" : ""}
+                    onClick={handleToggle}
+                  >
+                    All Your Recipes
+                  </button>
+                </div>
+              </p>
               <div
                 className={
                   toggleFav ? "view-all-recipes" : "dont-show-all-recipes"
@@ -157,23 +281,19 @@ const UserProfileMain = props => {
                     ))
                   )}
                 </div>
+                <div>
+                  <p className="card-text">
+                    {isAuthenticated && usernameEA === single_recipe.owner ? (
+                      ""
+                    ) : (
+                      <Link to={`/edit-profile/${usernameEA}`}>
+                        <button className="toggleButton">Edit Profile</button>
+                      </Link>
+                    )}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div>
-            {isAuthenticated && usernameEA == single_recipe.owner ? (
-              ""
-            ) : (
-              <button className="editProfileButton">
-                <Link
-                  style={{ color: "white", textDecoration: "none" }}
-                  to={"/edit-profile/" + usernameEA}
-                >
-                  Edit Profile
-                </Link>
-              </button>
-            )}
           </div>
         </div>
       </div>
@@ -183,3 +303,21 @@ const UserProfileMain = props => {
   )
 }
 export default UserProfileMain
+
+/* 
+  <div>
+    {isAuthenticated && usernameEA == single_recipe.owner ? (
+      ""
+    ) : (
+      <button className="editProfileButton">
+        <Link
+          style={{ color: "white", textDecoration: "none" }}
+          to={"/edit-profile/" + usernameEA}
+        >
+          Edit Profile
+        </Link>
+      </button>
+    )}
+  </div>
+
+*/
