@@ -1,8 +1,10 @@
 .profile-page-container {
-  width: 100%;
-  margin: auto;
+  width: 100vw;
+  height: 100vh;
   background: black;
   color: white;
+  display: grid;
+  padding: 40px;
 }
 
 .profile-page-to-home-button {
@@ -14,6 +16,7 @@
   margin: auto;
   padding: 20px;
   display: flex;
+  flex-direction: column;
 }
 
 .MakeUpUserName {
@@ -100,11 +103,22 @@
 }
 .toggleButton {
   outline: none;
-  color: white;
-  background: none;
+  color: white !important;
+  background: #EF883F;
   margin: 10px 45px 0 0;
   font-size: 16px;
+  padding: 8px;
+  border-radius: 10px;
+  z-index: 20;
+  height: auto;
+  transition: ease-in-out .5s;
 }
+
+.toggleButton:hover {
+  color: black !important;
+  outline: orange;
+}
+
 #color {
   background: rgb(239, 136, 63);
   color: black;
