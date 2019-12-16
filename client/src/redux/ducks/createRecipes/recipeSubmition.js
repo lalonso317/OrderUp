@@ -11,8 +11,7 @@ const initialState = {
   isActive: false,
   recipeDone: [],
   recipes: [],
-  recipeImages: [],
-  justIngredients: []
+  recipeImages: []
 }
 export default (state = initialState, action) => {
   switch (action.type) {

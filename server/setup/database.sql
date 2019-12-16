@@ -50,3 +50,9 @@ CREATE TABLE Users (
   about VARCHAR(1000),
   RecipeImages VARCHAR(500)
 );
+
+CREATE TABLE Favorite (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  favorite_id VARCHAR(100),
+  username VARCHAR(100)
+);

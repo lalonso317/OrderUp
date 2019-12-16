@@ -4,15 +4,16 @@ import {
   useDirections,
   useAllRecipes,
   useAuth,
-  useUpdate
+  useUpdate,
+  useEditingRecipe
 } from "../../hooks"
 import Switch from "react-switch"
-import RecipeDirections from "../recipe/createRecipe-Directions"
-import SetIngredients from "../recipe/recipe-List"
 import { Dropdown } from "semantic-ui-react"
 import "semantic-ui-css/semantic.min.css"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import bourdain from "../../Assets/bourbain.png"
+import EditRecipeDirections from "./edit-recipe-directions"
+import EditRecipeIngredients from "./edit-recipe-ingredients"
 
 const EditingRecipePage = props => {
   const id = props.match.params.recipeId
@@ -35,13 +36,21 @@ const EditingRecipePage = props => {
   ]
 
   const { update } = useUpdate()
-  const { fullRecipe, CreateRecipe, RecipeImages, initalIng } = useFullRecipe()
-  const { directions, inital } = useDirections()
+  const { RecipeImages } = useFullRecipe()
+
   const { usernameEA } = useAuth()
   const all_recipes = useAllRecipes()
   //selecting the correct recipe to auto poplulate the text areas on the page
   const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
-  console.log("this one ", thisRecipe)
+  const { directions, ingredients } = useEditingRecipe()
+  console.log(
+    "directions and ingredients in editing page",
+    directions,
+    ingredients
+  )
+  // const ings = thisRecipe.recipeIngredients.map(ing => ing.ingredientName)
+  // const directs = thisRecipe.recipeDirections.map(direct => direct.step)
+
   // variables used when submitting the edited recipe
 
   const recId = thisRecipe.recipe_id
@@ -63,12 +72,15 @@ const EditingRecipePage = props => {
       alert("please choose a picture for your recipe")
     } else if (directions.length === 0) {
       alert("please provide at least one direction for your recipe")
-    } else if (fullRecipe.length === 0) {
+    } else if (ingredients.length === 0) {
       alert(
         "please provied at least one ingredient and measurement for your recipe"
       )
     } else {
       let recipeHeaderInfo = { name, category, description }
+      const fullRecipe = {
+        ingredients: ingredients
+      }
       update(
         recipeHeaderInfo,
         fullRecipe,
@@ -78,14 +90,12 @@ const EditingRecipePage = props => {
         realImages,
         recId
       )
-
-      inital()
-      initalIng()
       setName("")
       setCategory("")
       setDescription("")
       console.log(usernameEA)
       console.log(
+        "edited recipe",
         recipeHeaderInfo,
         fullRecipe,
         directions,
@@ -153,8 +163,8 @@ const EditingRecipePage = props => {
             ></textarea>
           </div>
           <div className="recipe-Ing-Dir">
-            <SetIngredients ingredients={thisRecipe.recipeIngredients} />
-            <RecipeDirections directions={thisRecipe.recipeDirections} />
+            <EditRecipeIngredients ingredients={ingredients} />
+            <EditRecipeDirections directions={directions} />
           </div>
           <div className="create-privacy">
             {isChecked ? (

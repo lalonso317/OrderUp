@@ -8,6 +8,7 @@ import { Dropdown } from "semantic-ui-react"
 import "semantic-ui-css/semantic.min.css"
 import ImageUploader from "../pictureUpload/upload-pictures"
 import bourdain from "../../Assets/bourbain.png"
+import { withRouter } from "react-router-dom"
 
 const SubmitRecipeButton = props => {
   const options = [
@@ -40,7 +41,7 @@ const SubmitRecipeButton = props => {
   const { usernameEA } = useAuth()
   console.log(usernameEA)
   const [isChecked, setIsChecked] = useState(false)
-
+  console.log(props)
   function handleSubmit(e) {
     e.preventDefault()
     // validation to check that the name, category, and description are not empty
@@ -70,6 +71,8 @@ const SubmitRecipeButton = props => {
       setName("")
       setCategory("")
       setDescription("")
+      const redirect = () => props.history.push("/")
+      redirect()
       console.log(usernameEA)
       console.log(
         recipeHeaderInfo,
@@ -177,4 +180,4 @@ const SubmitRecipeButton = props => {
   )
 }
 
-export default SubmitRecipeButton
+export default withRouter(SubmitRecipeButton)
