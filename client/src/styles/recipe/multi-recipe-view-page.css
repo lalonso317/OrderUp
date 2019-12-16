@@ -14,10 +14,15 @@
   color: white;
   margin-top: 10px;
 }
-
-/* .card-columns {
-  padding: 25px;
-} */
+@media (max-width: 975px) {
+  .multi-recipe-view-page-container {
+    display: grid;
+    padding: 10px 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+}
 .card-subtitle {
   text-align: center;
 }

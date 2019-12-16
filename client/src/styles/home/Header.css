@@ -10,18 +10,34 @@
 }
 .header {
   display: flex;
-  width: 75%;
+  width: 100%;
   margin: auto;
 }
 .logo-top {
   width: 21%;
   position: absolute;
-  top: -90px;
+  top: -50px;
   left: 90px;
 }
 
 .logo {
   width: 21%;
+}
+
+.header-description {
+  width: 100%;
+}
+@media (max-width: 1379px) {
+  .logo-top {
+    left: -6px;
+    position: absolute;
+    width: 26%;
+  }
+}
+@media (max-width: 995px) {
+  .header-description {
+    display: none;
+  }
 }
 .header-component-social-links {
   display: flex;
@@ -199,12 +215,6 @@
   background: #ef883f;
   color: black;
 }
-/* 
-.header-component-social-media-icons {
-  display: flex;
-  align-items: center;
-
-} */
 .searchbar-container {
   background: white;
   color: white;

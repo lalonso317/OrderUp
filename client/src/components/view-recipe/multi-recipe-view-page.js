@@ -2,12 +2,13 @@ import React, { useState } from "react"
 import "../../styles/recipe/multi-recipe-view-page.css"
 import Card from "../Card"
 import CategoryFilter from "./category-filter"
-<<<<<<< HEAD
-import { useFavorites, useAuth, useSingleRecipe } from "../../hooks"
+import {
+  useFavorites,
+  useAuth,
+  useSingleRecipe,
+  useFilteredCategoryRecipes
+} from "../../hooks"
 import Icon from "../../lib/Icon"
-=======
-import { useFilteredCategoryRecipes } from "../../hooks"
->>>>>>> master
 
 const MultiRecipeViewPage = props => {
   const { categoryRecipes } = useFilteredCategoryRecipes()
@@ -32,19 +33,11 @@ const MultiRecipeViewPage = props => {
 
   // ------------------------
   console.log("props and shit", props)
-  const [favor, setFavor] = useState("")
   const { isAuthenticated, usernameEA } = useAuth()
   const { make } = useFavorites()
 
-  // for favorite
-  // const handleClick = (e, favor) => {
-  //   e.preventDefault()
-
-  //   make(favor, usernameEA)
-  // }
-  const handleFav = (e, value) => {
+  const handleClick = (e, value) => {
     e.preventDefault()
-
     make(value, usernameEA)
     console.log(value, usernameEA)
   }
@@ -60,16 +53,13 @@ const MultiRecipeViewPage = props => {
             <div id="single-card">
               <div className="heart-home-page">
                 {isAuthenticated ? (
-                  <form onSubmit={(e, value) => handleFav(e, value)}>
-                    <button
-                      // onClick={(e, value) => handleClick(e, value)}
-                      className="home-heart"
-                      type="submit"
-                      value={recipe.recipe_id}
-                    >
-                      <Icon icon="heart"></Icon>
-                    </button>
-                  </form>
+                  <button
+                    onClick={e => handleClick(e, recipe.recipe_id)}
+                    className="home-heart"
+                    type="submit"
+                  >
+                    <Icon icon="heart"></Icon>
+                  </button>
                 ) : (
                   ""
                 )}
