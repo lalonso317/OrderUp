@@ -80,7 +80,7 @@ const Header = props => {
               <SearchBar />
             </div>
             <div className="header-component-description">
-              <p>
+              <p className="header-description">
                 Welcome to OrderUp. We are an all around recipe management site.
                 With our services you will be able to view, share, and even
                 create your own recipes. Do not forget to create an account it's

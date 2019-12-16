@@ -7,12 +7,12 @@ import Icon from "../../lib/Icon"
 
 const RecipeGrid = props => {
   const all_recipes = useAllRecipes()
-  const [favor, setFavor] = useState(all_recipes.recipe_id)
   const { isAuthenticated, usernameEA } = useAuth()
   const { make } = useFavorites()
-  const handleClick = e => {
+  const handleClick = (e, rec_id) => {
     e.preventDefault()
-    make(favor, usernameEA)
+    console.log(rec_id, usernameEA)
+    make(rec_id, usernameEA)
   }
   return (
     <div className="recipe-grid-flex">
@@ -28,8 +28,7 @@ const RecipeGrid = props => {
               {isAuthenticated ? (
                 <button
                   className="home-heart"
-                  onClick={e => handleClick(e)}
-                  value={favor}
+                  onClick={e => handleClick(e, recipe.recipe_id)}
                 >
                   <Icon icon="heart"></Icon>
                 </button>

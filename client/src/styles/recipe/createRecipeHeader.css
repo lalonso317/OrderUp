@@ -14,7 +14,11 @@
   flex-direction: column;
   justify-content: center;
 }
-.createRecipe-banner {
+/* .createRecipe-banner {
+
+} */
+.bourdain {
+  width: 100%;
   border: 2px solid white;
 
   margin: auto;
@@ -23,6 +27,26 @@
   display: flex;
   font-size: 21px;
 }
+@media (max-width: 1420px) {
+  .bourdain {
+    width: 65%;
+  }
+  .recipe-Ing-Dir {
+    display: flex;
+    flex-direction: column;
+    font-size: 21px;
+  }
+}
+@media (max-width: 1200px) {
+  .bourdain {
+    width: 0px;
+  }
+  .create-recipe-form {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 .create-a-recipe {
   text-align: center;
   font-size: 30px;

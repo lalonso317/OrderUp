@@ -174,7 +174,7 @@ const SubmitRecipeButton = props => {
         </div>
       </div>
       <div className="createRecipe-banner">
-        <img src={bourdain} alt=""></img>
+        <img className="bourdain" src={bourdain} alt=""></img>
       </div>
     </div>
   )

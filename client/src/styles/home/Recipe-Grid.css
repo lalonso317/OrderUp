@@ -20,7 +20,7 @@
   margin: 10px 0;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .recipe-grid-container {
     display: grid;
     padding: 10px 20px;

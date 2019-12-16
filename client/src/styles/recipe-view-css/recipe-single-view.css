@@ -10,11 +10,10 @@
 
   color: white;
   /* border: 2px solid white; */
-  padding: 30px;
 }
 
 .single-recipe-block {
-  width: 68%;
+  width: 100%;
   margin: auto;
 }
 
@@ -115,10 +114,13 @@
 
 .single-recipe-directions-list {
   font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  border-bottom: 1px solid rgb(70, 70, 70);
 }
 
 .single-recipe-directions {
-  width: 70%;
+  width: 90%;
   margin-top: 10px;
   border-left: 1px solid #ef883f;
   padding: 20px;
@@ -130,6 +132,7 @@
 
 .goodfood {
   height: 100%;
+  width: 100%;
 }
 .edit-recipe-button {
   width: 200px;
@@ -165,5 +168,11 @@
     outline: none;
     transition: ease-in-out 0.2s;
     z-index: 15;
+  }
+  .goodfood {
+    display: none;
+  }
+  .single-recipe-view-main {
+    width: 100%;
   }
 }

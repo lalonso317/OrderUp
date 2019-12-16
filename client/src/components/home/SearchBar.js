@@ -15,9 +15,8 @@ const SearchBar = props => {
 
   console.log(title)
 
-  const handleSearch = (e, id) => {
-    e.preventDefault()
-    return <Link to={"/recipe/" + id}></Link>
+  const handleSearch = e => {
+    return <Link to={"/recipe/" + search}></Link>
   }
 
   return (
@@ -31,7 +30,8 @@ const SearchBar = props => {
         options={title.map(option => option.title)}
         disableOpenOnFocus={true}
         className="search-text-field"
-        // onClick={}
+        // onClick={e => handleSearch(e, title.recipe_id)}
+        value={title.recipe_id}
         renderInput={params => (
           <TextField
             {...params}
