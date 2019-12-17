@@ -2,7 +2,7 @@ import React from "react"
 import Icon from "../../lib/Icon"
 import Logo from "../../Assets/order-up-logo.png"
 import "../../styles/home/footer.css"
-
+import { Link } from "react-router-dom"
 const Footer = props => {
   return (
     <div className="footer-component-container">
@@ -47,9 +47,17 @@ const Footer = props => {
               rel="noopener noreferrer"
             >
               <div className="footer-component-reddit-icon">
-                <Icon icon="reddit"  />
+                <Icon icon="reddit" />
               </div>
             </a>
+            <div className="footer-info-links">
+              <Link to={"/about-us"}>Contact us</Link>
+              <Link to={"/about-the-devs"}>Meet the Devs</Link>
+              <div>
+                <p>Site Features</p>
+                <Link to={"/share"}>Share</Link>
+              </div>
+            </div>
           </aside>
         </div>
       </aside>

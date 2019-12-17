@@ -1,5 +1,8 @@
 import React from "react"
 import EmailForm from "./email-form"
+
+//database password
+//wGAsrl6Jap
 const About = props => {
   return (
     <div className="about-us-main-container">
@@ -61,7 +64,11 @@ const About = props => {
             <EmailForm />
             <img
               src="https://images.pexels.com/photos/2562555/pexels-photo-2562555.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              width="500px"
+              width="30%"
+            />
+            <img
+              src="https://images.pexels.com/photos/1070896/pexels-photo-1070896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              width="30%"
             />
           </div>
         </div>
