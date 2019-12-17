@@ -36,6 +36,9 @@
     gap: 15px;
     justify-items: center;
   }
+  .multi-recipe-view-page-container {
+    height: 100%;
+  }
 }
 /* IPAD VIEW */
 @media (max-width: 768px) {
