@@ -199,3 +199,17 @@
     text-align: start;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .favorited {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: auto;
+  }
+  .view-all-recipes,
+  .view-all-recipes-private {
+    margin: auto;
+    width: auto;
+  }
+}
