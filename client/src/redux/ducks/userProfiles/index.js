@@ -13,7 +13,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_USERS:
-      return { ...state, users: action.payload }
+      return state
     case USER_PROFILE:
       return { ...state, users: action.payload }
     default:

@@ -57,8 +57,14 @@ const ViewRecipeSingle = props => {
     setRating_value(3)
     return rating_value
   }
- 
 
+  // console.log("single recipe  ====----====>>>>", single_recipe)
+  // console.log("username from single view ==========>>>", usernameEA)
+  // console.log("rating Value =========>>>>>>>>>", rating_value)
+  function printPage(e) {
+    e.preventDefault()
+    window.print()
+  }
   return (
     <div className="single-recipe-view-container">
       <div className="single-recipe-view-main">
@@ -113,6 +119,9 @@ const ViewRecipeSingle = props => {
                 message="Check this out!"
                 url="https://caferati.me"
               ></AwesomeButtonSocial>
+              <button className="printButton" onClick={printPage}>
+                Print this page
+              </button>
             </div>
             <div className="ratings">
               <h2>rating</h2>
@@ -179,7 +188,7 @@ const ViewRecipeSingle = props => {
                       className="single-recipe-directions-list"
                       key={`ingredient-${i++}`}
                     >
-                      {i++}. {ing.ingredientName}
+                      {ing.ingredientName}
                     </div>
                   ))}
               </div>

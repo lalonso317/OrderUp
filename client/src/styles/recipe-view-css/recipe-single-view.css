@@ -150,7 +150,13 @@
 .rating-display-numbers {
   margin-left: 20px;
 }
-
+.printButton {
+  background: #ef883f;
+  color: white;
+}
+.printButton:hover {
+  background: #b55510;
+}
 @media only screen and (max-width: 950px) {
   .single-recipe-header {
     display: flex;

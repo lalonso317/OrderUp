@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import { useUsers, useFullRecipe } from "../../hooks"
 import UploadPictures from "../pictureUpload/upload-pictures"
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom"
 
 const EditProfile = props => {
   const user_name = props.match.params.username
-  
+
   const { update, users } = useUsers()
-  const user = users.find(user => user.username === user_name )
+  const user = users.find(user => user.username === user_name)
 
   const { RecipeImages } = useFullRecipe()
   // const realImages = [...RecipeImages, ...images]
@@ -30,10 +30,8 @@ const EditProfile = props => {
       return alert("Fields Cannots be Blank")
     } else {
       update(email, fname, lname, tagline, about, user_name, URL)
-      const redirect = () => props.history.push(`/`)
-      setTimeout(() => {
-        redirect()
-      }, 500)
+      const redirect = () => props.history.push("/")
+      redirect()
     }
   }
 

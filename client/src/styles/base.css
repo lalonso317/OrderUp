@@ -38,3 +38,12 @@ button {
 .item {
   z-index: 10;
 }
+
+@media print {
+  /* All your print styles go here */
+  #footer,
+  #nav {
+    display: none !important;
+  }
+}
+

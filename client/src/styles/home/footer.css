@@ -7,6 +7,7 @@
   /* margin: auto; */
   /* margin-top: 20px; */
   /* padding: 10px; */
+  display: flex;
 }
 .footer-icon-and-logo-container {
   display: flex;
@@ -20,11 +21,26 @@
 
 .footer-component-social-links {
   display: flex;
-  margin: 0;
-  padding: 0;
 }
-
-
+.footer-info-links {
+  font-size: 20px;
+  display: flex;
+}
+.footer-main-links {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+  margin-left: 50px;
+}
+.footer-info-links a {
+  padding: 5px;
+}
+.footer-info-features {
+  display: flex;
+  flex-direction: column;
+}
+.footer-info-features p {
+}
 /* .footer-component-links {
   text-align: center;
 } */
