@@ -50,17 +50,22 @@ const Footer = props => {
                 <Icon icon="reddit" />
               </div>
             </a>
-            <div className="footer-info-links">
-              <Link to={"/about-us"}>Contact us</Link>
-              <Link to={"/about-the-devs"}>Meet the Devs</Link>
-              <div>
-                <p>Site Features</p>
-                <Link to={"/share"}>Share</Link>
-              </div>
-            </div>
           </aside>
         </div>
       </aside>
+      <div className="footer-info-links">
+        <div className="footer-main-links">
+          <p>Welcome Home</p>
+          <Link to={"/about-us"}>Contact us</Link>
+          <Link to={"/about-the-devs"}>Meet the Devs</Link>
+        </div>
+        <div className="footer-info-features">
+          <p>Site Features</p>
+          <Link to={"/all-recipes"}>View</Link>
+          <Link to={"/create-your-recipe"}>Create</Link>
+          <Link to={"/share"}>Share</Link>
+        </div>
+      </div>
     </div>
   )
 }
