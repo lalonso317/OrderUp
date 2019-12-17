@@ -13,7 +13,7 @@ const SearchBar = props => {
     title: option.recipeTitle
   }))
 
-  console.log(title)
+
 
   const handleSearch = e => {
     return <Link to={"/recipe/" + search}></Link>

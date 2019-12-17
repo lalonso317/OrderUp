@@ -30,7 +30,6 @@ router.post("/Login", (req, res, next) => {
               message: "Authenticated",
               token
             })
-            console.log("user token", token)
           } else {
             res.status(401).json({
               message: "Username or Password are incorrect",

@@ -29,7 +29,6 @@ function setRecipeHeader(name, category, description) {
     category: category,
     description: description
   }
-  console.log(recipeHeading)
   return {
     type: GET_RECIPE_HEADER,
     payload: recipeHeading

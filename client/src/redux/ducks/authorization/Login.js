@@ -25,7 +25,7 @@ function checkUsername() {
     return ""
   }
 }
-console.log(jwt.decode(window.localStorage.getItem("token")))
+
 const initalState = {
   username: checkUsername(),
   isAuthenticated: checkAuth(),

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { useEditingRecipe } from "../../hooks/index"
 const EditRecipeDescription = props => {
-  console.log("directions props", props)
   //   const ings = props.ingredients
   //   const directs = props.directions
   const { directions, createdirect, removedirect } = useEditingRecipe()
@@ -20,7 +19,7 @@ const EditRecipeDescription = props => {
     e.preventDefault()
     removedirect(d)
   }
-  console.log("directions", directions)
+
   return (
     <>
       <div className="bottom">

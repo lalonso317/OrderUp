@@ -63,6 +63,5 @@ export const useAllRecipes = () => {
   useEffect(() => {
     dispatch(getRecipes())
   }, [dispatch])
-  console.log(all_recipes)
   return all_recipes
 }

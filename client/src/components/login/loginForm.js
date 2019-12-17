@@ -13,8 +13,6 @@ export default function Login(props) {
 
     signin(username, password)
       .then(() => {
-        console.log("username ========>>>>>", username)
-        console.log("password ============>>>>", password)
         props.history.push("/")
       })
       .catch(err => {

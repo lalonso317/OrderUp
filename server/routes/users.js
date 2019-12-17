@@ -11,7 +11,6 @@ router.post("/edit-profile", (req, res, next) => {
   const RecipeImages = req.body.URL
   const username = req.body.username
 
-  console.log(req.body)
   const sql = `
         UPDATE Users
 
@@ -26,7 +25,6 @@ router.post("/edit-profile", (req, res, next) => {
       if (err) {
         throw new Error(err)
       }
-      console.log(results)
       res.json({
         message: "Page Updated",
         results

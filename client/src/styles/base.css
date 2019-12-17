@@ -35,6 +35,10 @@ button {
   outline: none !important;
 }
 
+.item {
+  z-index: 10;
+}
+
 @media print {
   /* All your print styles go here */
   #footer,
@@ -42,3 +46,4 @@ button {
     display: none !important;
   }
 }
+

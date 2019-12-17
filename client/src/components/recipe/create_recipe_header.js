@@ -28,7 +28,6 @@ function CreateRecipeHeader(props) {
 
   // function to handle the selection of the category name the user picks
   const handleInputChange = (e, { value }) => {
-    console.log(value)
     setCategory(value)
   }
   // function to send the name of the recipe, category, and a description to the reducer

@@ -5,6 +5,13 @@
   justify-items: center;
   background: black;
 }
+
+.multi-view-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
 #single-card {
   border: 1px solid white;
   position: relative;
@@ -15,7 +22,7 @@
   margin-top: 10px;
 }
 @media (max-width: 975px) {
-  .multi-recipe-view-page-container {
+  .multi-view-grid {
     display: grid;
     padding: 10px 25px;
     grid-template-columns: repeat(2, 1fr);
@@ -46,4 +53,9 @@
 .mulit-single-card {
   border: 1px solid white;
   /* margin: 10px 0 10px 0; */
+}
+
+.pageNumbers {
+  color: white;
+  background: rgb(116, 113, 112);
 }

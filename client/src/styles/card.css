@@ -1,3 +1,18 @@
 .card-header, .card-body {
   color: white;
 }
+
+
+.main-card-img {
+  position: relative;
+  width: 100%;
+}
+
+
+.home-heart {
+  position: absolute;
+  top: 0;
+  bottom: 600px;
+  left: 0;
+  right: 0;
+}

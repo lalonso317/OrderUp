@@ -9,7 +9,6 @@ const Favorites = props => {
 
   const handleClick = favor => {
     setFavor("123")
-    console.log(favor)
   }
 
   return (
