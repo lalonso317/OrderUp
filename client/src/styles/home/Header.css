@@ -224,3 +224,156 @@
   border: 2px solid #ef883f;
   color: white;
 }
+
+/* IPAD PRO VIEW */
+@media (max-width: 1024px) {
+  .header-component-decription {
+  }
+  .header-description {
+    display: none;
+  }
+  .header-search-bar {
+    display: none;
+  }
+  .links-to-components {
+    display: flex;
+
+    justify-content: center;
+  }
+  .header-component-header {
+    height: 150px;
+  }
+  .header-links {
+    margin-top: 0px;
+  }
+
+  .logo-top {
+    margin-top: 120px;
+    margin-left: 20px;
+    height: 50px;
+    width: 100px;
+
+    padding: 0;
+  }
+}
+
+/* IPAD VIEW */
+@media (max-width: 770px) {
+  .header-component-decription {
+  }
+  .header-description {
+    display: none;
+  }
+  .header-search-bar {
+    display: none;
+  }
+  .links-to-components {
+    display: flex;
+
+    justify-content: center;
+  }
+  .header-component-header {
+    height: 150px;
+  }
+  .header-links {
+    margin-top: 0px;
+  }
+
+  .logo-top {
+    margin-top: 120px;
+    margin-left: 20px;
+    height: 50px;
+    width: 100px;
+
+    padding: 0;
+  }
+}
+
+/* IPHONE PLUS VIEW */
+@media (max-width: 420px) {
+  .header-description {
+    display: none;
+  }
+  .header-search-bar {
+    display: none;
+  }
+  .links-to-components {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header-component-header {
+    height: 300px;
+  }
+  .header-links {
+    margin-top: 0px;
+  }
+
+  .logo-top {
+    margin-top: 120px;
+    margin-left: 20px;
+    height: 50px;
+    width: 100px;
+
+    padding: 0;
+  }
+}
+
+@media (max-width: 376px) {
+  .header-description {
+    display: none;
+  }
+  .header-search-bar {
+    display: none;
+  }
+  .links-to-components {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header-component-header {
+    height: 300px;
+  }
+  .header-links {
+    margin-top: 0px;
+  }
+
+  .logo-top {
+    margin-top: 120px;
+    margin-left: 20px;
+    height: 50px;
+    width: 100px;
+
+    padding: 0;
+  }
+}
+/* IPHONE 5/SE */
+@media (max-width: 320px) {
+  .header-description {
+    display: none;
+  }
+  .header-search-bar {
+    display: none;
+  }
+  .links-to-components {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header-component-header {
+    height: 300px;
+  }
+  .header-links {
+    margin-top: 0px;
+  }
+  .usernameHeader {
+    display: none;
+  }
+  .logo-top {
+    margin-top: 120px;
+    margin-left: 20px;
+    height: 50px;
+    width: 100px;
+    padding: 0;
+  }
+}

@@ -21,11 +21,73 @@
   color: white;
   margin-top: 10px;
 }
+/* IPAD PRO VIEW */
+@media (max-width: 1024px) {
+  .multi-recipe-view-page-container {
+    height: 100vh;
+  }
+}
+
 @media (max-width: 975px) {
   .multi-view-grid {
     display: grid;
     padding: 10px 25px;
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+}
+/* IPAD VIEW */
+@media (max-width: 768px) {
+  .multi-recipe-view-page-container {
+    height: 100%;
+  }
+  .multi-view-grid {
+    display: grid;
+    padding: 10px 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+}
+
+/* PIXEL 2 VIEW */
+@media (max-width: 415px) {
+  .multi-recipe-view-page-container {
+    height: 100%;
+  }
+  .multi-view-grid {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+}
+
+/* IPHONE X VIEW */
+@media (max-width: 375px) {
+  .multi-recipe-view-page-container {
+    height: 100%;
+  }
+  .multi-view-grid {
+    display: grid;
+    padding: 10px 25px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+}
+
+/* IPHONE 5/SE VIEW */
+@media (max-width: 320px) {
+  .multi-recipe-view-page-container {
+    height: 100%;
+  }
+  .multi-view-grid {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(1, 1fr);
     gap: 15px;
     justify-items: center;
   }
