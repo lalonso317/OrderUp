@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-
+import { withRouter } from "react-router-dom"
 const EmailForm = props => {
+  console.log(props)
   const [feedback, setFeedback] = useState("")
-  const [name, setName] = useState("name")
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
 
   const handleSubmit = () => {
@@ -15,6 +16,8 @@ const EmailForm = props => {
     setFeedback("")
     setName("")
     setEmail("")
+    const redirecting = () => props.history.push("/")
+    redirecting()
   }
 
   const sendFeedback = (templateId, variables) => {
@@ -60,4 +63,4 @@ const EmailForm = props => {
   )
 }
 
-export default EmailForm
+export default withRouter(EmailForm)
