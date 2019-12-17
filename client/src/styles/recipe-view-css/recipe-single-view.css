@@ -103,10 +103,8 @@
 }
 
 .social-icon {
-  
   margin: 5px;
 }
-
 
 .social-share-buttons {
   display: flex;
@@ -212,7 +210,6 @@
   .single-recipe-view-main {
     width: 100%;
   }
-
 }
 @media only screen and (max-width: 950px) {
   .single-recipe-header {

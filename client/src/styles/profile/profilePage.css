@@ -175,7 +175,44 @@
   margin-bottom: 10px;
   height: 30px;
 }
-
+/* IPAD PRO VIEW */
+@media (max-width: 1024px) {
+  .submitEdit {
+    color: black;
+    background: white;
+  }
+  .userUpdateMain {
+    width: 70%;
+  }
+  .createTitle {
+    text-align: center;
+    font-size: 21px;
+  }
+  .userProfile {
+    margin-bottom: 5%;
+    border-bottom: 1px solid rgb(239, 136, 63);
+  }
+  .userFormContainer {
+    height: 74.5vh;
+  }
+}
+/* IPAD VIEW */
+@media (max-width: 768px) {
+  .userUpdateMain {
+    width: 70%;
+  }
+  .createTitle {
+    text-align: center;
+    font-size: 21px;
+  }
+  .userProfile {
+    margin-bottom: 5%;
+    border-bottom: 1px solid rgb(239, 136, 63);
+  }
+  .userFormContainer {
+    height: 66vh;
+  }
+}
 @media only screen and (max-width: 700px) {
   .view-all-recipe-image {
     display: none;
@@ -198,6 +235,60 @@
     text-align: start;
   }
 }
+
+
+/* IPHONE 6/7 */
+@media (max-width: 415px) {
+  .userUpdateMain {
+    width: 70%;
+  }
+  .createTitle {
+    text-align: center;
+    font-size: 21px;
+  }
+  .userProfile {
+    margin-bottom: 5%;
+    border-bottom: 1px solid rgb(239, 136, 63);
+  }
+  .userFormContainer {
+    height: 80vh;
+  }
+}
+
+/* IPHONE X */
+@media (max-width: 375px) {
+  .userUpdateMain {
+    width: 70%;
+  }
+  .createTitle {
+    text-align: center;
+    font-size: 21px;
+  }
+  .userProfile {
+    margin-bottom: 5%;
+    border-bottom: 1px solid rgb(239, 136, 63);
+  }
+  .userFormContainer {
+    height: 85vh;
+  }
+}
+
+/* IPHONE 5/SE */
+@media (max-width: 375px) {
+  .userUpdateMain {
+    width: 70%;
+  }
+  .createTitle {
+    text-align: center;
+    font-size: 21px;
+  }
+  .userProfile {
+    margin-bottom: 5%;
+    border-bottom: 1px solid rgb(239, 136, 63);
+  }
+  .userFormContainer {
+    height: 100vh;
+  }
 
 @media only screen and (max-width: 420px) {
   .favorited {
