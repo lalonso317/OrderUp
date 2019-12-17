@@ -100,24 +100,28 @@ const ViewRecipeSingle = props => {
                 type="facebook"
                 message="Check this out!"
                 url="https://caferati.me"
+                className="social-icon"
               ></AwesomeButtonSocial>
               <AwesomeButtonSocial
                 cssModule={AwesomeButtonStyles}
                 type="twitter"
                 message="Check this out!"
                 url="https://caferati.me"
+                className="social-icon"
               ></AwesomeButtonSocial>
               <AwesomeButtonSocial
                 cssModule={AwesomeButtonStyles}
                 type="instagram"
                 message="Check this out!"
                 url="https://caferati.me"
+                className="social-icon"
               ></AwesomeButtonSocial>
               <AwesomeButtonSocial
                 cssModule={AwesomeButtonStyles}
                 type="pinterest"
                 message="Check this out!"
                 url="https://caferati.me"
+                className="social-icon"
               ></AwesomeButtonSocial>
               <button className="printButton" onClick={printPage}>
                 Print this page
