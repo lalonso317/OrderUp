@@ -16,7 +16,6 @@ import "react-awesome-slider/dist/autoplay"
 import withAutoplay from "react-awesome-slider/dist/autoplay"
 
 const PublicHomePage = props => {
-
   const AutoplaySlider = withAutoplay(AwesomeSlider)
 
   return (
@@ -36,6 +35,7 @@ const PublicHomePage = props => {
         <div data-src={finger} />
       </AutoplaySlider>
       <SiteFeatures />
+      {/* <div></div> */}
       <RecipeGrid />
       <Link
         to="/all-recipes"
