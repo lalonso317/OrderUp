@@ -39,10 +39,9 @@ const SubmitRecipeButton = props => {
   const { directions, inital } = useDirections()
 
   const { usernameEA } = useAuth()
-  console.log(usernameEA)
   const [isChecked, setIsChecked] = useState(false)
-  console.log(props)
-  function handleSubmit(e) {
+
+  const handleSubmit = e => {
     e.preventDefault()
     // validation to check that the name, category, and description are not empty
     if (name === "" || category === "") {
@@ -73,25 +72,14 @@ const SubmitRecipeButton = props => {
       setDescription("")
       const redirect = () => props.history.push("/")
       redirect()
-      console.log(usernameEA)
-      console.log(
-        recipeHeaderInfo,
-        fullRecipe,
-        directions,
-        isChecked,
-        usernameEA,
-        RecipeImages
-      )
     }
   }
 
   const handleChange = () => {
     setIsChecked(!isChecked)
-    console.log(isChecked)
   }
 
   const handleInputChange = (e, { value }) => {
-    console.log(value)
     setCategory(value)
   }
 

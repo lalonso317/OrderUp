@@ -14,25 +14,10 @@ router.post("/api/Recipe", (req, res) => {
 router.get("/api/Recipe", async (req, res) => {
   const recipe = await Recipe.find()
   res.json(recipe)
-  // console.log("all recipes ===========---->>>>", recipe)
 })
 
-// submits updated recipes
-// router.post("/api/update-recipe", (req, res) => {
-//   const id = req.body._id
-//   const Id = "5deae23563d545400786bf60"
-//   const name = { name: "butthole" }
-//   Recipe.findByIdAndUpdate(Id, name).then(resp => {
-//     console.log(resp)
-//   })
-//   res.json({
-//     message: "success"
-//   })
-//   console.log("thanks")
-// })
+
 router.post("/api/update-recipe", (req, res) => {
-  const Id = "5deae23563d545400786bf60"
-  const names = { name: "butthole" }
   Recipe.findById(req.body.recId)
     .then(recipe => {
       recipe.recipeHeaderInfo.category = req.body.recipeHeaderInfo.category
@@ -73,14 +58,6 @@ router.post("/api/addedComment", (req, res) => {
       recipe.RecipeImages = recipe.RecipeImages
       recipe.comments = [...recipe.comments, req.body.comment]
       recipe.save()
-
-      // recipe.update({
-      //   ...recipe,
-      //   ["comments"]: [...recipe.comments, req.body.comment],
-      //   ["_id"]: req.body.id
-      // })
-      // // recipe.comments = [...recipe.comments, req.body.comment]
-      // recipe.save()
     })
     .then(resp => {
       console.log("updated")

@@ -20,7 +20,6 @@ export default (state = intialState, action) => {
 
 const makeSearch = searchs => {
   return dispatch => {
-    console.log(searchs)
     Axios.get("/search", { searchs }).then(resp => {
       dispatch({
         type: MAKE_SEARCH,

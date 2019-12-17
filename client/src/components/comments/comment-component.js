@@ -3,16 +3,14 @@ import { Button, Comment, Form, Header } from "semantic-ui-react"
 import { useUsers, useAuth, useComments, useSingleRecipe } from "../../hooks"
 const CommentComponent = props => {
   const id = props.id
-  console.log(id)
   const { users } = useUsers()
   const { usernameEA, isAuthenticated } = useAuth()
   const { addComment, comments } = useComments()
   const { SpecificComments, getSingleRecipeComment } = useSingleRecipe()
   const [text, setText] = useState("")
   const user = users.find(user => user.username === usernameEA)
-  console.log(user)
   const time = new Date()
-  console.log(time)
+
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -36,7 +34,7 @@ const CommentComponent = props => {
     }
   }
 
-  console.log(comments)
+
   return (
     <div>
       <Comment.Group>

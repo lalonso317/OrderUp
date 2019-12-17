@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
 }
 
 const newComment = (comment, id) => {
-  console.log(comment)
   return dispatch => {
     axios.post("/api/addedComment", { comment, id }).then(resp => {
       dispatch({

@@ -17,7 +17,7 @@ const Header = props => {
   // const title = all_recipes.map(option => option.recipeTitle)
   // const cats = all_recipes.map(option => option.recipeCategory)
 
-  // console.log(title, cats)
+  
   // const handleToggle = () => {
   //   setSearch(!search)
   // }

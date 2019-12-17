@@ -22,7 +22,6 @@ const ViewRecipeSingle = props => {
     SpecificComments,
     add
   } = useSingleRecipe(props.match.params.id)
-  console.log("this is the single recipe", single_recipe)
   const { initial } = useEditingRecipe()
   const { usernameEA, isAuthenticated } = useAuth()
   const { make } = useFavorites()
@@ -32,20 +31,14 @@ const ViewRecipeSingle = props => {
 
   let url = single_recipe.RecipeImages && single_recipe.RecipeImages[0].url
   initial(single_recipe)
-  // console.log(
-  //   "single recipe comment ====----====>>>>",
-  //   single_recipe.comments ? single_recipe.comments[0] : ""
-  // )
 
   // for favorite
   const handleClick = e => {
     e.preventDefault()
-    console.log(favor, usernameEA)
     make(favor, usernameEA)
   }
   // for ratings
   const handleClickEvent = (id, user, value) => {
-    console.log("ryan", id, user, value)
     add(id, user, value)
   }
   const ratingCheck = () => {
@@ -64,9 +57,7 @@ const ViewRecipeSingle = props => {
     setRating_value(3)
     return rating_value
   }
-  // console.log("single recipe  ====----====>>>>", single_recipe)
-  // console.log("username from single view ==========>>>", usernameEA)
-  // console.log("rating Value =========>>>>>>>>>", rating_value)
+ 
 
   return (
     <div className="single-recipe-view-container">
@@ -141,12 +132,6 @@ const ViewRecipeSingle = props => {
                 stop={5}
                 step={1}
                 initialRating={
-                  // single_recipe.ratings &&
-                  // single_recipe.ratings[single_recipe.ratings.length - 1]
-                  //   ? single_recipe.ratings &&
-                  //     single_recipe.ratings[single_recipe.ratings.length - 1]
-                  //       .value
-                  //   : 3
                   rating_value !== 0 ? rating_value : ratingCheck()
                 }
                 direction="ltr"

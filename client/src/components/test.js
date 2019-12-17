@@ -23,7 +23,6 @@ const Stars = props => {
             initialRating={0}
             direction="ltr"
           />
-          {console.log(rating_value)}
         </div>
       </div>
     </div>

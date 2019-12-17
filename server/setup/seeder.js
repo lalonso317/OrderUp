@@ -17,7 +17,6 @@ for (let i = 0; i < usersTimes; i++) {
   const sql = `
       INSERT INTO users (name, email, password, salt) VALUES ("${user.name}","${user.email}","${user.password}","${user.salt}")
     `
-  console.log("SQL QUERY =====>", sql)
   db.query(sql, (error, results, fields) => {
     console.log(results)
   })

@@ -43,11 +43,6 @@ const EditingRecipePage = props => {
   //selecting the correct recipe to auto poplulate the text areas on the page
   const thisRecipe = all_recipes.find(recipe => recipe.recipe_id === id)
   const { directions, ingredients } = useEditingRecipe()
-  console.log(
-    "directions and ingredients in editing page",
-    directions,
-    ingredients
-  )
   // const ings = thisRecipe.recipeIngredients.map(ing => ing.ingredientName)
   // const directs = thisRecipe.recipeDirections.map(direct => direct.step)
 
@@ -93,27 +88,14 @@ const EditingRecipePage = props => {
       setName("")
       setCategory("")
       setDescription("")
-      console.log(usernameEA)
-      console.log(
-        "edited recipe",
-        recipeHeaderInfo,
-        fullRecipe,
-        directions,
-        isChecked,
-        usernameEA,
-        realImages,
-        recId
-      )
     }
   }
   //   update(recipeHeader, fullRecipe, directs, checked, user, realImages, recId)
   const handleChange = () => {
     setIsChecked(!isChecked)
-    console.log(isChecked)
   }
 
   const handleInputChange = (e, { value }) => {
-    console.log(value)
     setCategory(value)
   }
   // function to delete image from array of images

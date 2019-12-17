@@ -43,7 +43,6 @@ const finalIngredients = amount => {
   const ings = {
     ingredientName: amount
   }
-  console.log(ings)
   return {
     type: FINALIZE_INGREDIENT,
     payload: ings

@@ -18,7 +18,7 @@ const EditRecipeIngredients = props => {
     e.preventDefault()
     removeIngredient(d)
   }
-  console.log("ingredients", ingredients)
+  
   return (
     <div className="bottom">
       <div className="directions">

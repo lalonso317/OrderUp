@@ -10,7 +10,6 @@ const EditProfile = props => {
   const user = users.find(user => user.username === user_name )
 
   const { RecipeImages } = useFullRecipe()
-console.log("user", user)
   // const realImages = [...RecipeImages, ...images]
   const [fname, setFName] = useState(`${user.firstName}`)
   const [lname, setLName] = useState(`${user.lastName}`)

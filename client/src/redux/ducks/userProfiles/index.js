@@ -23,12 +23,10 @@ export default (state = initialState, action) => {
 function getProfile() {
   return dispatch => {
     axios.get("/edit-profile").then(resp => {
-      console.log(resp.data)
       dispatch({
         type: USER_PROFILE,
         payload: resp.data
       })
-      console.log(resp.data)
     })
   }
 }
@@ -42,7 +40,6 @@ function editProfile(
   URL
 ) {
   return dispatch => {
-    console.log(URL, username)
     axios
       .post("/edit-profile", {
         email,

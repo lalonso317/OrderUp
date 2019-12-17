@@ -20,17 +20,16 @@ const ProfileCard = props => {
   const { fav } = useFavorites()
 
   const username = props.match.params.username
-  // console.log(fav)
+ 
   // const fav_id = fav.forEach(e => e.favorite_id)
   const user = users.find(user => user.username === username)
-  console.log("user =====>>>", user)
+ 
   const userRecipes = all_recipes.filter(user => user.owner === username)
 
   const favRecipe = fav.find(e => e.username == usernameEA)
     ? all_recipes.filter(e => fav.map(e => e.favorite_id).includes(e.recipe_id))
     : ""
 
-  console.log(favRecipe)
   const image = user == null ? "" : user.RecipeImages
   const fname = user === undefined ? "" : user.firstName
   const lname = user == null ? "" : user.lastName

@@ -21,7 +21,7 @@ const UserProfileMain = props => {
   const { fav } = useFavorites()
 
   const username = props.match.params.username
-  // console.log(fav)
+  
   // const fav_id = fav.forEach(e => e.favorite_id)
   const user = users.find(user => user.username === username.toString())
 
@@ -31,7 +31,7 @@ const UserProfileMain = props => {
     ? all_recipes.filter(e => fav.map(e => e.favorite_id).includes(e.recipe_id))
     : ""
 
-  console.log(favRecipe)
+  
   const image = user == null ? "" : user.RecipeImages
   const fname = user === undefined ? "" : user.firstName
   const lname = user == null ? "" : user.lastName

@@ -83,17 +83,16 @@ const deleteingredient = id => {
 }
 // function for loading recipe to be edited (ingredients and directions)
 const initialShit = recipe => {
-  console.log(recipe)
   const ingreds = recipe.ingredients
   const directs = recipe.directions
-  console.log("initial shit", ingreds, directs)
   return {
     type: INITIAL_SHIT,
     ingredients: ingreds,
     directions: directs
   }
 }
-export function useEditingRecipe() {
+
+export const useEditingRecipe = () => {
   const dispatch = useDispatch()
   const directions = useSelector(
     appState => appState.editRecipeState.directions
