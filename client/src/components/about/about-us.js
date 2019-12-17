@@ -59,16 +59,20 @@ const About = props => {
           </div>
         </div>
         <div className="about-us-page-subtitle">
-          <p className="about-us-subtitle">Contact us</p>
+          <p className="about-us-subtitle">Contact&nbsp;us</p>
           <div className="about-us-page-content-email">
             <EmailForm />
             <img
               src="https://images.pexels.com/photos/2562555/pexels-photo-2562555.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              width="30%"
+              alt=""
+              className="about-us-images"
+              id="seeds-image"
             />
             <img
               src="https://images.pexels.com/photos/1070896/pexels-photo-1070896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              width="30%"
+              alt=""
+              className="about-us-images"
+              id="cake-image"
             />
           </div>
         </div>

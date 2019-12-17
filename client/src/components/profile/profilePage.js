@@ -21,7 +21,7 @@ const UserProfileMain = props => {
   const { fav } = useFavorites()
 
   const username = props.match.params.username
-  
+
   // const fav_id = fav.forEach(e => e.favorite_id)
   const user = users.find(user => user.username === username.toString())
 
@@ -31,7 +31,6 @@ const UserProfileMain = props => {
     ? all_recipes.filter(e => fav.map(e => e.favorite_id).includes(e.recipe_id))
     : ""
 
-  
   const image = user == null ? "" : user.RecipeImages
   const fname = user === undefined ? "" : user.firstName
   const lname = user == null ? "" : user.lastName
@@ -179,7 +178,10 @@ const UserProfileMain = props => {
     //   </div>
     // </div>
     <div className="profile-page-container">
-      <div className="card" style={{ maxwidth: "100vw", background: "#000" }}>
+      <div
+        className="card"
+        style={{ maxwidth: "100vw", background: "#000", maxheight: "100vh" }}
+      >
         <div className="row no-gutters">
           <div className="col-md-4">
             <img
@@ -237,12 +239,16 @@ const UserProfileMain = props => {
                   toggleFav ? "view-all-recipes" : "dont-show-all-recipes"
                 }
               >
-                {favRecipe.length == 0 ? (
+                {favRecipe.length === 0 ? (
                   <div>No Recipes Favorited</div>
                 ) : (
                   favRecipe.map(e => (
-                    <div>
-                      <Link to={`/recipe/${e.recipe_id}`}>
+                    <div className="view-all-recipe-mini-card">
+                      <Link
+                        to={`/recipe/${e.recipe_id}`}
+                        className="view-all-recipe-links"
+                        style={{ textDecoration: "none" }}
+                      >
                         <p className="view-all-recipe-title">{e.recipeTitle}</p>
                         <img
                           className="view-all-recipe-image"
@@ -266,7 +272,7 @@ const UserProfileMain = props => {
                     <div>No Recipes Created</div>
                   ) : (
                     userRecipes.map((e, i) => (
-                      <Link to={`/recipe/${e.recipe_id}`} key={i}>
+                      <Link to={`/recipe/${e.recipe_id}`} key={i} style={{ textDecoration: "none" }}>
                         <div>
                           <p className="view-all-recipe-title">
                             {e.recipeTitle}
@@ -303,21 +309,3 @@ const UserProfileMain = props => {
   )
 }
 export default UserProfileMain
-
-/* 
-  <div>
-    {isAuthenticated && usernameEA == single_recipe.owner ? (
-      ""
-    ) : (
-      <button className="editProfileButton">
-        <Link
-          style={{ color: "white", textDecoration: "none" }}
-          to={"/edit-profile/" + usernameEA}
-        >
-          Edit Profile
-        </Link>
-      </button>
-    )}
-  </div>
-
-*/

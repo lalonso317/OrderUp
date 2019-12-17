@@ -35,7 +35,11 @@ const Card = props => {
   }
 
   return (
-    <div id="main-card-home" className="card text-center">
+    <div
+      id="main-card-home"
+      className="card text-center"
+      style={{ width: "325px" }}
+    >
       <Link to={link}>
         <img
           id="card-img-top"

@@ -1,6 +1,6 @@
 .profile-page-container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: black;
   color: white;
   display: grid;
@@ -48,16 +48,27 @@
 .MakeUpPic img {
   width: 300px;
 }
+
+
+.view-all-recipes,
+.view-all-recipes-private {
+  flex-grow: 1;
+  overflow: scroll;
+  height: 200px;
+  text-align: center;
+}
+
 .view-all-recipe-title {
   color: white;
   text-decoration: none;
   margin-top: 25px;
   margin-right: 10px;
-  font-size: 18px;
+  font-size: 1.3em;
 }
 .view-all-recipe-image {
-  width: 200px;
-  margin: 15px;
+  width: 100%;
+  height: 5vw;
+  object-fit: cover;
 }
 .view-all-recipes {
   display: flex;
@@ -104,14 +115,14 @@
 .toggleButton {
   outline: none;
   color: white !important;
-  background: #EF883F;
+  background: #ef883f;
   margin: 10px 45px 0 0;
   font-size: 16px;
   padding: 8px;
   border-radius: 10px;
   z-index: 20;
   height: auto;
-  transition: ease-in-out .5s;
+  transition: ease-in-out 0.5s;
 }
 
 .toggleButton:hover {
@@ -164,4 +175,27 @@
   margin-top: 10px;
   margin-bottom: 10px;
   height: 30px;
+}
+
+@media only screen and (max-width: 700px) {
+  .view-all-recipe-image {
+    display: none;
+  }
+  .view-all-recipe-title {
+    width: 100vw;
+    cursor: pointer;
+  }
+
+  .view-all-recipe-title:hover {
+    color: lightsalmon;
+  }
+
+  .view-all-recipes,
+  .view-all-recipes-private {
+    flex-grow: 1;
+    overflow: auto;
+    height: auto;
+    width: 100vw;
+    text-align: start;
+  }
 }

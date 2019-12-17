@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../lib/Icon"
-import TransLogo from "../../Assets/BnY-Logo-Transparent.png"
+import TransLogo from "../../Assets/newLogo.png"
 import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/"
 import SearchBar from "./SearchBar"
@@ -17,7 +17,6 @@ const Header = props => {
   // const title = all_recipes.map(option => option.recipeTitle)
   // const cats = all_recipes.map(option => option.recipeCategory)
 
-  
   // const handleToggle = () => {
   //   setSearch(!search)
   // }
@@ -76,7 +75,7 @@ const Header = props => {
           <img src={TransLogo} className="logo-top" alt="Our company logo" />
 
           <div className="header-links">
-            <div>
+            <div className="header-search-bar">
               <SearchBar />
             </div>
             <div className="header-component-description">
