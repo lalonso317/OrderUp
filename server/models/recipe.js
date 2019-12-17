@@ -26,7 +26,7 @@ const recipe = new mongoose.Schema({
   rating: [
     {
       by_user: String,
-      value: String
+      value: Number
     }
   ]
 })

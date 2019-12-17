@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/card.css"
-import { useAllRecipes, useAuth, useFavorites} from "../hooks"
+import { useAllRecipes, useAuth, useFavorites } from "../hooks"
 import Icon from "../lib/Icon"
 const Card = props => {
   const { usernameEA, isAuthenticated } = useAuth()
@@ -39,11 +39,9 @@ const Card = props => {
       <Link to={link}>
         <img
           id="card-img-top"
-          className="card-img-top main-card-img"
+          className="card-img-top img-fluid main-card-img"
           src={image}
           alt=""
-          width="325px"
-          height="325px"
         />
       </Link>
       {isAuthenticated ? (
