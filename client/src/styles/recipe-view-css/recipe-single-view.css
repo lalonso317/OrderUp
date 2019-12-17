@@ -333,4 +333,9 @@
   .single-recipe-ingredients {
     border-left: 1px solid #ef883f;
   }
+
+  .printButton {
+    overflow: hidden;
+    
+  }
 }

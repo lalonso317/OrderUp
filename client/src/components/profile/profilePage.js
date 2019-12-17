@@ -232,6 +232,13 @@ const UserProfileMain = props => {
                   >
                     All Your Recipes
                   </button>
+                  {isAuthenticated && usernameEA === single_recipe.owner ? (
+                    ""
+                  ) : (
+                    <Link to={`/edit-profile/${usernameEA}`}>
+                      <button className="toggleButton">Edit Profile</button>
+                    </Link>
+                  )}
                 </div>
               </p>
               <div
@@ -272,7 +279,11 @@ const UserProfileMain = props => {
                     <div>No Recipes Created</div>
                   ) : (
                     userRecipes.map((e, i) => (
-                      <Link to={`/recipe/${e.recipe_id}`} key={i} style={{ textDecoration: "none" }}>
+                      <Link
+                        to={`/recipe/${e.recipe_id}`}
+                        key={i}
+                        style={{ textDecoration: "none" }}
+                      >
                         <div>
                           <p className="view-all-recipe-title">
                             {e.recipeTitle}
@@ -286,17 +297,6 @@ const UserProfileMain = props => {
                       </Link>
                     ))
                   )}
-                </div>
-                <div>
-                  <p className="card-text">
-                    {isAuthenticated && usernameEA === single_recipe.owner ? (
-                      ""
-                    ) : (
-                      <Link to={`/edit-profile/${usernameEA}`}>
-                        <button className="toggleButton">Edit Profile</button>
-                      </Link>
-                    )}
-                  </p>
                 </div>
               </div>
             </div>
