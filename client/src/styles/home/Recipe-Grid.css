@@ -20,7 +20,7 @@
   margin: 10px 0;
 }
 
-@media (max-width: 1820px) {
+@media (max-width: 1620px) {
   .recipe-grid-container {
     display: grid;
     padding: 10px 20px;
@@ -50,6 +50,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     justify-items: center;
+    border-top: 5px solid rgb(255, 151, 77);
   }
 
   #main-card-home {
@@ -81,14 +82,10 @@
 
 @media only screen and (max-width: 1000px) {
   .recipe-grid-container {
-    /* display: grid;
-    padding: 10px 25px;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 15px;
-    justify-items: center; */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
   }
 
   #main-card-home {

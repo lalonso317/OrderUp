@@ -106,7 +106,7 @@ const EditingRecipePage = props => {
   return (
     <div className="createRecipeMain">
       <div className="create-recipe-form">
-        <p className="create-a-recipe">Create A Recipe</p>
+        <p className="create-a-recipe">Edit Recipe</p>
         <div className="create-all-in-form">
           <div className="create-recipe-name">
             <label className="createTitle" htmlFor="title">

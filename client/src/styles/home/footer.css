@@ -2,11 +2,7 @@
 /* ////Footer//// */
 .footer-component-container {
   background: rgb(255, 151, 77);
-  /* width: 100%; */
   height: 200px;
-  /* margin: auto; */
-  /* margin-top: 20px; */
-  /* padding: 10px; */
   display: flex;
 }
 .footer-icon-and-logo-container {
@@ -39,41 +35,9 @@
   display: flex;
   flex-direction: column;
 }
-.footer-info-features p {
-}
-/* .footer-component-links {
-  text-align: center;
-} */
-/* .fg {
-  background: none;
-  outline: none;
-  border: none;
-  font-size: 22px;
-  color: white;
-} */
-/* .fg:hover {
-  transition: 0.3s ease-in-out;
+.f-link {
   color: black;
-  outline: none;
-} */
-/* .footer-component-social-media-icons {
-  margin: auto;
-  display: flex;
-  width: 50%;
-  margin-top: 50px;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .footer-component-logo {
-  margin: auto;
-  display: flex;
-  width: 50%;
-  justify-content: center;
-} */
-
-/* .footer-share-button {
-  margin: 0px 10px;
-  outline: none;
-  cursor: pointer;
-} */
+}
+.f-link:hover {
+  color: white;
+}

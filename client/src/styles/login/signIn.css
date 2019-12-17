@@ -1,6 +1,11 @@
 .log-reg-container {
   background: black;
   padding: 25px;
+  height: 68vh;
+}
+
+.formpage {
+  width: 100%;
 }
 .formback {
   width: 50%;
@@ -68,4 +73,28 @@
 }
 .click {
   color: black;
+}
+
+@media (max-width: 1025px) {
+  .form {
+    width: 60%;
+  }
+  .formback {
+    width: 60%;
+  }
+  /* REGISTRATION FORM */
+  .formbackReg {
+    width: 60%;
+  }
+}
+@media (max-width: 767px) {
+  .formback {
+    width: 100%;
+  }
+  .form {
+    width: 90%;
+  }
+  .formbackReg {
+    width: 100%;
+  }
 }
