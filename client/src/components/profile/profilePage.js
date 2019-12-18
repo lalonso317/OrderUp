@@ -92,7 +92,7 @@ const UserProfileMain = props => {
                 <div className="favorited">
                   <button
                     className="toggleButton"
-                    id={!toggle ? "color" : ""}
+                    id={!toggleFav ? "color" : ""}
                     onClick={handleToggleFav}
                   >
                     Favorited Recipes

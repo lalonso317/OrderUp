@@ -56,16 +56,13 @@ const AboutTheDevs = props => {
               Mitchell is one of our top developers here at Order up. He enjoys
               spending his freetime traveling with his wife to places such as
               Japan, Taiwan, Hong Kong and various cities throughout the United
+              States. He has traveled around the United States and several
+              countries in Asia such as Japan, Taiwan, Hong Kong. He lived in
+              Japan from 2012 to 2014 as a missionary and again from 2018 to
+              2019 as a civilian.
               States.
             </p>
-            <p>
-              He has traveled around the United States and several countries in
-              Asia such as Japan, Taiwan, Hong Kong.
-            </p>
-            <p>
-              He lived in Japan from 2012 to 2014 as a missionary and again from
-              2018 to 2019 as a civilian.
-            </p>
+        
             <br />
           </div>
         </div>
@@ -149,13 +146,14 @@ const AboutTheDevs = props => {
           <div className="about-devs-content">
             <h3>Background</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-              possimus modi nobis suscipit eveniet aliquam id. Ratione minima
-              voluptatem dignissimos fugiat odit accusamus, facere quam
-              consectetur ea, earum, accusantium quidem magni. Assumenda iste
-              blanditiis nobis nam maxime illo vel voluptatum expedita
-              voluptatibus, animi cum. Voluptatum vitae quasi nostrum esse
-              culpa!
+              Luis Alonso is a talented individual who has proved he has what it
+              takes to be a great Junior Developer. He began as a mechanical
+              technology student in highschool, then a film major in college.
+              None of those were something he pursed completly. From having no
+              prior experience, he has completed this program in order to create
+              a career in the tech world. He looks to see where this takes him,
+              whether it is becoming a senior developer or running a start up.
+
             </p>
           </div>
         </div>
