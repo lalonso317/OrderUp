@@ -16,7 +16,7 @@ const MultiRecipeViewPage = props => {
   // variables used for pagination ------------------
   const pageNumbers = []
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(3)
+  const [postsPerPage] = useState(9)
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
   const currentPosts = FilteredRecipes.slice(indexOfFirstPost, indexOfLastPost)
@@ -46,7 +46,10 @@ const MultiRecipeViewPage = props => {
         <hr />
         <div className="multi-view-grid">
           {currentPosts.map((recipe, i) => (
-            <div id="single-card" key={`favorite-${recipe}-${i}-${recipe.recipe_id}`}>
+            <div
+              id="single-card"
+              key={`favorite-${recipe}-${i}-${recipe.recipe_id}`}
+            >
               {/* <div className="heart-home-page">
                 {isAuthenticated ? (
                   <button
@@ -76,7 +79,7 @@ const MultiRecipeViewPage = props => {
           ))}
         </div>
         <div className="paginationContainer">
-          {pageNumbers.map((number,i) => (
+          {pageNumbers.map((number, i) => (
             // <div className="pageNumbers" key={number + "page"}>
             //   <a onClick={e => handlePageChange(e, number)} href="#">
             //     {" "}

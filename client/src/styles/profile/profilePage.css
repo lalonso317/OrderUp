@@ -1,6 +1,6 @@
 .profile-page-container {
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   background: black;
   color: white;
   display: grid;
@@ -53,8 +53,9 @@
 .view-all-recipes-private {
   flex-grow: 1;
   overflow: scroll;
-  height: 200px;
+  height: 500px;
   text-align: center;
+  width: 20%;
 }
 
 .view-all-recipe-title {
@@ -74,7 +75,7 @@
   flex-wrap: wrap;
   transition: 0.2s ease-in-out;
   margin-top: 25px;
-  width: 100px;
+  width: 25%;
 }
 .dont-show-all-recipes {
   height: 0px;
@@ -85,7 +86,7 @@
   flex-wrap: wrap;
   transition: 0.2s ease-in-out;
   margin-top: 25px;
-  width: 100px;
+  width: 25%;
 }
 .dont-show-all-recipes-private {
   height: 0px;

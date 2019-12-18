@@ -6,6 +6,7 @@ const INITAL_INGREDIENT = "INITAL_INGREDIENT"
 const DELETE_INGREDIENT = "DELETE_INGREDIENT"
 const GET_RECIPES = "GET_RECIPES"
 const ADD_IMAGES = "ADD_IMAGES"
+const INITAL_IMAGE = "INTIAL_IMAGES"
 const initialState = {
   recipeObjects: [],
   isActive: false,
@@ -35,6 +36,8 @@ export default (state = initialState, action) => {
       return { ...state, recipeImages: [...state.recipeImages, action.payload] }
     case INITAL_INGREDIENT:
       return { ...state, recipeObjects: [] }
+    case INITAL_IMAGE:
+      return { ...state, recipeImages: [] }
     default:
       return state
   }
@@ -93,6 +96,11 @@ const addImages = url => {
     payload: url
   }
 }
+const initalImg = () => {
+  return {
+    type: INITAL_IMAGE
+  }
+}
 export const useFullRecipe = () => {
   const dispatch = useDispatch()
   // selector to grab the full recipe
@@ -107,6 +115,7 @@ export const useFullRecipe = () => {
   // function to send confirmed ingredient
   const finalIngredient = amount => dispatch(finalIngredients(amount))
   const remove = id => dispatch(deleteIngredients(id))
+  const initalIMG = () => dispatch(initalImg())
   //function to submit full recipe to back-end
   const CreateRecipe = (
     recipeHeaderInfo,
@@ -141,6 +150,7 @@ export const useFullRecipe = () => {
     remove,
     newImage,
     RecipeImages,
-    initalIng
+    initalIng,
+    initalIMG
   }
 }
