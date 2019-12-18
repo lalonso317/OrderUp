@@ -62,7 +62,9 @@ const AboutTheDevs = props => {
               2019 as a civilian.
               States.
             </p>
+
         
+
             <br />
           </div>
         </div>
