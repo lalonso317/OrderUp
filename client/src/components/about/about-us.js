@@ -1,8 +1,6 @@
 import React from "react"
 import EmailForm from "./email-form"
 
-//database password
-//wGAsrl6Jap
 const About = props => {
   return (
     <div className="about-us-main-container">

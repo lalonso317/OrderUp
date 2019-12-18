@@ -99,28 +99,28 @@ const ViewRecipeSingle = props => {
                 cssModule={AwesomeButtonStyles}
                 type="facebook"
                 message="Check this out!"
-                url="https://caferati.me"
+                url={`http:localhost:3000/${single_recipe.recipe_id}`}
                 className="social-icon"
               ></AwesomeButtonSocial>
               <AwesomeButtonSocial
                 cssModule={AwesomeButtonStyles}
                 type="twitter"
                 message="Check this out!"
-                url="https://caferati.me"
+                url={`http:localhost:3000/${single_recipe.recipe_id}`}
                 className="social-icon"
               ></AwesomeButtonSocial>
               <AwesomeButtonSocial
                 cssModule={AwesomeButtonStyles}
                 type="instagram"
                 message="Check this out!"
-                url="https://caferati.me"
+                url=""
                 className="social-icon"
               ></AwesomeButtonSocial>
               <AwesomeButtonSocial
                 cssModule={AwesomeButtonStyles}
                 type="pinterest"
                 message="Check this out!"
-                url="https://caferati.me"
+                url={`http:localhost:3000/${single_recipe.recipe_id}`}
                 className="social-icon"
               ></AwesomeButtonSocial>
               <button className="printButton" onClick={printPage}>
@@ -159,7 +159,7 @@ const ViewRecipeSingle = props => {
               }/5`}</h2>
               {isAuthenticated ? (
                 <button
-                  className="home-heart"
+                  className="single-home-heart"
                   onClick={e => handleClick(e)}
                   value={favor}
                 >
