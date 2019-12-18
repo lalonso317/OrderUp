@@ -59,11 +59,8 @@ const AboutTheDevs = props => {
               States. He has traveled around the United States and several
               countries in Asia such as Japan, Taiwan, Hong Kong. He lived in
               Japan from 2012 to 2014 as a missionary and again from 2018 to
-              2019 as a civilian.
-              States.
+              2019 as a civilian. States.
             </p>
-
-        
 
             <br />
           </div>
@@ -107,8 +104,11 @@ const AboutTheDevs = props => {
             <p>
               Alex is a 25 year old male who is an aspiring developer. At the
               end of 2019, Alex began a new career path by joining a code school
-              called Punch Code. Going into the future, Alex became a fullstack
-              developer for Order Up.
+              called Punch Code. Going into the future, after graduating the
+              rigorous Punch Code course Alex got hired on at Order Up as a
+              junior front end developer. Later becoming a fullstack developer
+              for Order Up. As a fullstack developer for Order Up, Alex has
+              added alot to the code for Order up.
             </p>
           </div>
         </div>
@@ -155,7 +155,6 @@ const AboutTheDevs = props => {
               prior experience, he has completed this program in order to create
               a career in the tech world. He looks to see where this takes him,
               whether it is becoming a senior developer or running a start up.
-
             </p>
           </div>
         </div>
