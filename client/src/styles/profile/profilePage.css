@@ -289,6 +289,7 @@
   .userFormContainer {
     height: 100vh;
   }
+}
 
 @media only screen and (max-width: 420px) {
   .favorited {

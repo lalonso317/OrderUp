@@ -28,7 +28,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "../styles/comments.css"
 import "../styles/pagination.css"
 import "../styles/about/share.css"
-import ProfileCard from './ProfileCard'
 import UniversalFooter from "./home/universalFooter"
 import Header from "./home/Header"
 import EditingRecipePage from "./Edit-Recipe-files/editing-recipe-page"
@@ -43,7 +42,6 @@ const App = props => {
         link_instagram="https://www.instagram.com/"
       />
       <Route path="/all-recipes/:recipeCategory" component={SearchBar} />
-      <Route path="/test" component={ProfileCard} />
       <Route exact path={"/"} component={PublicHomePage} />
       <Route component={Toggle} />
       <Route path="/create-your-recipe" component={CreateRecipeViewPage} />
