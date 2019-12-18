@@ -5,71 +5,15 @@ import TransLogo from "../../Assets/newLogo.png"
 import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/"
 import SearchBar from "./SearchBar"
-// import TextField from "@material-ui/core/TextField"
-// import { Autocomplete } from "@material-ui/lab"
 
 const Header = props => {
-  // const all_recipes = useAllRecipes()
-  // const [search, setSearch] = useState(false)
-
   const { isAuthenticated, signout, usernameEA } = useAuth()
-
-  // const title = all_recipes.map(option => option.recipeTitle)
-  // const cats = all_recipes.map(option => option.recipeCategory)
-
-  // const handleToggle = () => {
-  //   setSearch(!search)
-  // }
   const handleSignOut = e => {
     signout()
   }
 
   return (
     <div>
-      {/* The Sticky Nav Bar */}
-      {/* <header className="underNavbar">
-        <img src={TransLogo} className="stickyLogo" alt="Our company logo" />
-        <Link to="/" className="header-component-home-button">
-          <p className="lg-u-u">
-            <Icon icon="home" />
-          </p>
-        </Link>
-        {isAuthenticated ? (
-          ""
-        ) : (
-          <>
-            <Link to="/login" className="header-component-login-button">
-              <button className="lg-u">Login/Register</button>
-            </Link>
-          </>
-        )}
-        {isAuthenticated ? (
-          <>
-            <Link
-              to="/create-your-recipe"
-              className="header-component-create-recipe-button"
-            >
-              <button className="lg-u">Create A Recipe</button>
-            </Link>
-            <Link
-              to={"/profile-page/" + username}
-              className="header-component-profile-button"
-            >
-              <button className="lg-u">My Profile</button>
-            </Link>{" "}
-          </>
-        ) : (
-          " "
-        )}
-        <Link
-          className="header-component-multiRecipe-button"
-          to={"/all-recipes"}
-        >
-          <button className="lg-u">All Recipes</button>
-        </Link>
-      </header> */}
-      {/* Main Header */}
-
       <header className="header-component-header">
         <div className="header">
           <img src={TransLogo} className="logo-top" alt="Our company logo" />

@@ -66,26 +66,6 @@ const AboutTheDevs = props => {
               He lived in Japan from 2012 to 2014 as a missionary and again from
               2018 to 2019 as a civilian.
             </p>
-            <h3>Current Events</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-              possimus modi nobis suscipit eveniet aliquam id. Ratione minima
-              voluptatem dignissimos fugiat odit accusamus, facere quam
-              consectetur ea, earum, accusantium quidem magni. Assumenda iste
-              blanditiis nobis nam maxime illo vel voluptatum expedita
-              voluptatibus, animi cum. Voluptatum vitae quasi nostrum esse
-              culpa!
-            </p>
-            <h3>Future</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-              possimus modi nobis suscipit eveniet aliquam id. Ratione minima
-              voluptatem dignissimos fugiat odit accusamus, facere quam
-              consectetur ea, earum, accusantium quidem magni. Assumenda iste
-              blanditiis nobis nam maxime illo vel voluptatum expedita
-              voluptatibus, animi cum. Voluptatum vitae quasi nostrum esse
-              culpa!
-            </p>
             <br />
           </div>
         </div>
