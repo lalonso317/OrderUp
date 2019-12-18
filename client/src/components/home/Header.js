@@ -8,14 +8,12 @@ import SearchBar from "./SearchBar"
 
 const Header = props => {
   const { isAuthenticated, signout, usernameEA } = useAuth()
-
   const handleSignOut = e => {
     signout()
   }
 
   return (
     <div>
-      {/* Main Header */}
       <header className="header-component-header">
         <div className="header">
           <img src={TransLogo} className="logo-top" alt="Our company logo" />
