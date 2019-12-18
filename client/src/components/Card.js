@@ -19,10 +19,10 @@ const Card = props => {
 
   const { make } = useFavorites()
 
-  // const handleClick = (e, value) => {
-  //   e.preventDefault()
-  //   make(value, usernameEA)
-  // }
+  const handleClick = (e, value) => {
+    e.preventDefault()
+    make(value, usernameEA)
+  }
 
   const findAVG = () => {
     const array = [13, 12, 33, 54, 33, 665, 44]
@@ -48,7 +48,7 @@ const Card = props => {
           alt=""
         />
       </Link>
-      {/* {isAuthenticated ? (
+      {isAuthenticated ? (
         <button
           onClick={e => handleClick(e, recipe_id)}
           className="home-heart"
@@ -58,7 +58,7 @@ const Card = props => {
         </button>
       ) : (
         ""
-      )} */}
+      )}
       <div className="card-header">
         <h4 className="card-title">{title}</h4>
         <h6 className="card-subtitle">By - {owner}</h6>
