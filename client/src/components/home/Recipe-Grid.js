@@ -23,18 +23,6 @@ const RecipeGrid = props => {
       <div className="recipe-grid-container">
         {all_recipes.slice(0, 6).map((recipe, i) => (
           <div className="home-page-single-recipe">
-            <div className="heart-home-page">
-              {isAuthenticated ? (
-                <button
-                  className="home-heart"
-                  onClick={e => handleClick(e, recipe.recipe_id)}
-                >
-                  <Icon icon="heart"></Icon>
-                </button>
-              ) : (
-                ""
-              )}
-            </div>
             <Card
               key={recipe.recipeTitle + " " + i + " " + recipe.recipe_id}
               recipe_link={`/recipe/${recipe.recipe_id}`}
