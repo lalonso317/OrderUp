@@ -16,8 +16,9 @@ const Header = props => {
     <div>
       <header className="header-component-header">
         <div className="header">
-          <img src={TransLogo} className="logo-top" alt="Our company logo" />
-
+          <Link to={"/"}>
+            <img src={TransLogo} className="logo-top" alt="Our company logo" />
+          </Link>
           <div className="header-links">
             <div className="header-search-bar">
               <SearchBar />

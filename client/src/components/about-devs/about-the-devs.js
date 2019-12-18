@@ -151,7 +151,7 @@ const AboutTheDevs = props => {
               Luis Alonso is a talented individual who has proved he has what it
               takes to be a great Junior Developer. He began as a mechanical
               technology student in highschool, then a film major in college.
-              None of those were something he pursed completly. From having no
+              None of those were something he pursued completly. From having no
               prior experience, he has completed this program in order to create
               a career in the tech world. He looks to see where this takes him,
               whether it is becoming a senior developer or running a start up.

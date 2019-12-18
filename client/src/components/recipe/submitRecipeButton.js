@@ -33,7 +33,13 @@ const SubmitRecipeButton = props => {
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
 
-  const { fullRecipe, CreateRecipe, RecipeImages, initalIng } = useFullRecipe()
+  const {
+    fullRecipe,
+    CreateRecipe,
+    RecipeImages,
+    initalIng,
+    initalIMG
+  } = useFullRecipe()
 
   // const { recipeHeaderInfo, recipeHeader } = useCreateRecipeHeader()
   const { directions, inital } = useDirections()
@@ -67,9 +73,11 @@ const SubmitRecipeButton = props => {
 
       inital()
       initalIng()
+      initalIMG()
       setName("")
       setCategory("")
       setDescription("")
+
       const redirect = () => props.history.push("/")
       redirect()
     }
