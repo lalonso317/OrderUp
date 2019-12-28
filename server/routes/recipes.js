@@ -1,7 +1,6 @@
 const express = require("express")
 const Recipe = require("../models/recipe")
 const router = express.Router()
-const faker = require("faker")
 const axios = require("axios")
 // Submits a recipe
 
@@ -15,7 +14,6 @@ router.get("/api/Recipe", async (req, res) => {
   const recipe = await Recipe.find()
   res.json(recipe)
 })
-
 
 router.post("/api/update-recipe", (req, res) => {
   Recipe.findById(req.body.recId)
