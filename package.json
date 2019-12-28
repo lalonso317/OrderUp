@@ -6,7 +6,8 @@
   "scripts": {
     "start:client": "cd client && yarn start",
     "start:server": "cd server && yarn start",
-    "start": "concurrently \"yarn run start:server\" \"yarn run start:client\""
+    "start": "concurrently \"yarn run start:server\" \"yarn run start:client\"",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.13",
     "mysql": "^2.17.1",
+    "node": "^13.5.0",
     "node-sass": "^4.13.0",
     "rc-steps": "^3.5.0",
     "react": "^16.12.0",
