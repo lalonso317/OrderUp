@@ -1,6 +1,8 @@
 const router = require("express").Router()
 const db = require("../db")
 
+// This needed to commented due to the user information was saved on a local database
+
 // These are the backend routes to edit the user profile
 // router.post("/edit-profile", (req, res, next) => {
 //   const email = req.body.email
