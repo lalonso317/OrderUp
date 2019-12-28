@@ -4,7 +4,7 @@ import Icon from "../../lib/Icon"
 import TransLogo from "../../Assets/newLogo.png"
 import "../../styles/home/Header.css"
 import { useAuth } from "../../hooks/"
-import SearchBar from "./SearchBar"
+// import SearchBar from "./SearchBar"
 
 const Header = props => {
   const { isAuthenticated, signout, usernameEA } = useAuth()
@@ -20,9 +20,7 @@ const Header = props => {
             <img src={TransLogo} className="logo-top" alt="Our company logo" />
           </Link>
           <div className="header-links">
-            <div className="header-search-bar">
-              <SearchBar />
-            </div>
+            <div className="header-search-bar"></div>
             <div className="header-component-description">
               <p className="header-description">
                 Welcome to OrderUp. We are an all around recipe management site.
